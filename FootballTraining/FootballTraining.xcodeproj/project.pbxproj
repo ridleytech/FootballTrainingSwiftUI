@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3381B50A2DC1717B00DC2CF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3381B5092DC1717B00DC2CF6 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		330A35492DBD1DF400FE4799 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +31,25 @@
 		330A35362DBD1DF200FE4799 /* FootballTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330A35482DBD1DF400FE4799 /* FootballTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		330A35522DBD1DF400FE4799 /* FootballTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3381B5092DC1717B00DC2CF6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		330A35D82DC16A9000FE4799 /* Exceptions for "FootballTraining" folder in "FootballTraining" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 330A35352DBD1DF200FE4799 /* FootballTraining */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		330A35382DBD1DF200FE4799 /* FootballTraining */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				330A35D82DC16A9000FE4799 /* Exceptions for "FootballTraining" folder in "FootballTraining" target */,
+			);
 			path = FootballTraining;
 			sourceTree = "<group>";
 		};
@@ -75,6 +93,7 @@
 		330A352D2DBD1DF200FE4799 = {
 			isa = PBXGroup;
 			children = (
+				3381B5092DC1717B00DC2CF6 /* LaunchScreen.storyboard */,
 				330A35382DBD1DF200FE4799 /* FootballTraining */,
 				330A354B2DBD1DF400FE4799 /* FootballTrainingTests */,
 				330A35552DBD1DF400FE4799 /* FootballTrainingUITests */,
@@ -212,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3381B50A2DC1717B00DC2CF6 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,12 +413,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FootballTraining/Preview Content\"";
 				DEVELOPMENT_TEAM = RR25B7NB9X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FootballTraining/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Training;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -423,12 +445,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FootballTraining/Preview Content\"";
 				DEVELOPMENT_TEAM = RR25B7NB9X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FootballTraining/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Training;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -53,7 +53,7 @@ struct ExercisesView: View {
                     }
 
                     if index < lastCompletedItem && index > -1 {
-                        Image("ava-logo-bg").resizable().frame(width: 25, height: 25).scaledToFit()
+                        Image("AppIconSplash").resizable().frame(width: 25, height: 25).scaledToFit()
                     }
                 }
                 .onTapGesture {

@@ -22,16 +22,23 @@ struct ExerciseDetailView: View {
                 .foregroundColor(AppConfig.greenColor)
             Spacer().frame(height: 10)
 
-//            Image("ava-logo-bg")
-//                .resizable()
-//                .scaledToFill()
+            VStack {
+                Spacer()
+                Image("AppIconSplash")
+                    .resizable()
+                    .frame(width: 300, height: 300)
+//                    .scaledToFill()
+//                    .frame(maxWidth: .infinity)
+                //                .frame(height: 600)
+                   
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+            .background(AppConfig.greenColor)
+    
+//            Spacer()
 //                .frame(maxWidth: .infinity)
-//                .frame(height: 600)
-//                .background(Color(UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1.0)))
-            
-            Spacer()
-                .frame(maxWidth: .infinity)
-                .background(Color(UIColor(red: 235 / 255, green: 235 / 255, blue: 235 / 255, alpha: 1.0)))
+//                .background(Color(UIColor(red: 235 / 255, green: 235 / 255, blue: 235 / 255, alpha: 1.0)))
             
             Spacer().frame(height: 10)
             

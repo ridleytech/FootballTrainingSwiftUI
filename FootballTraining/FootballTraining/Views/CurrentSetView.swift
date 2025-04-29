@@ -146,28 +146,31 @@ struct CurrentSetView: View {
             }
             Spacer().frame(height: 10)
             ZStack {
-                Spacer()
-                    .frame(maxWidth: .infinity)
-                    .background(Color(UIColor(red: 235 / 255, green: 235 / 255, blue: 235 / 255, alpha: 1.0)))
+//                Spacer()
+//                    .frame(maxWidth: .infinity)
+//                    .background(Color(UIColor(red: 235 / 255, green: 235 / 255, blue: 235 / 255, alpha: 1.0)))
 
-                //                if (setStarted || !workoutStarted) && !workoutEnded {
-                //            Image("ava-logo-bg")
-                //                .resizable()
-                //                .scaledToFill()
-                ////                    .frame(maxWidth: .infinity)
-                ////                    .frame(height: 600)
-                ////                    .background(Color(UIColor(red: 235 / 255, green: 235 / 255, blue: 235 / 255, alpha: 1.0)))
-                //                .opacity(setStarted ? 1.0 : 0.5)
+                VStack {
+                    Spacer()
+                    Image("AppIconSplash")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .opacity(setStarted ? 1.0 : 0.25)
+                    //                    .scaledToFill()
+                    //                    .frame(maxWidth: .infinity)
 
-                //                }
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+                .background(AppConfig.greenColor)
 
                 //            Spacer()
 
-                if setStarted {
-                    Text("Lift")
-                        .font(.system(size: 100, weight: .bold, design: .default))
-                        .foregroundColor(AppConfig.grayColor)
-                }
+//                if setStarted {
+//                    Text("Lift")
+//                        .font(.system(size: 100, weight: .bold, design: .default))
+//                        .foregroundColor(AppConfig.grayColor)
+//                }
             }
             Spacer().frame(height: 10)
 
