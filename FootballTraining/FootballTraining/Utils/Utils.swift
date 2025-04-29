@@ -29,3 +29,30 @@ extension String {
         return self.trimmingCharacters(in: .whitespaces)
     }
 }
+
+enum Utils {
+    static func iconForExerciseType(_ type: String) -> Image {
+        switch type {
+        case "Basic":
+            return Image(systemName: "dumbbell.fill")
+
+        case "Conditioning":
+            return Image(systemName: "figure.run")
+        default:
+            return Image(systemName: "questionmark.circle.fill")
+        }
+    }
+
+    static func iconForExerciseType2(_ type: String) -> Text {
+        switch type {
+        case "Basic":
+            return Text("B")
+        case "Conditioning":
+            return Text("C")
+        case "Supporting":
+            return Text("S")
+        default:
+            return Text("A")
+        }
+    }
+}

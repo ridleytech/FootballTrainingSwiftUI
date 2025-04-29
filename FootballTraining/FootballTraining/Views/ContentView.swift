@@ -44,7 +44,8 @@ struct ContentView: View {
             phaseName: newPhase,
             phaseWeek: selectedWeek,
             phaseDay: selectedDay,
-            lastCompletedItem: lastCompletedItem
+            lastCompletedItem: lastCompletedItem,
+            phaseWeekTotal: weeks.count
         )
     }
 
@@ -54,7 +55,8 @@ struct ContentView: View {
             phaseName: selectedPhase,
             phaseWeek: newWeek,
             phaseDay: selectedDay,
-            lastCompletedItem: lastCompletedItem
+            lastCompletedItem: lastCompletedItem,
+            phaseWeekTotal: weeks.count
         )
     }
 

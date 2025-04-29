@@ -28,12 +28,14 @@ class PhaseRecord {
     var phaseWeek: Int
     var phaseDay: String
     var lastCompletedItem: Int
+    var phaseWeekTotal: Int
 
-    init(phaseName: String, phaseWeek: Int, phaseDay: String, lastCompletedItem: Int) {
+    init(phaseName: String, phaseWeek: Int, phaseDay: String, lastCompletedItem: Int, phaseWeekTotal: Int) {
         self.phaseName = phaseName
         self.phaseWeek = phaseWeek
         self.phaseDay = phaseDay
         self.lastCompletedItem = lastCompletedItem
+        self.phaseWeekTotal = phaseWeekTotal
     }
 
     var description: String {
@@ -43,6 +45,7 @@ class PhaseRecord {
         - Week: \(phaseWeek)
         - Day: \(phaseDay)
         - Last Completed Item: \(lastCompletedItem)
+        - Week Total: \(phaseWeekTotal)
         """
     }
 }

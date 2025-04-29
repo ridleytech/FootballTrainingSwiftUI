@@ -20,13 +20,11 @@ struct DayWorkoutView: View {
     @State private var selectedItems: Set<String> = []
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var phaseManager: PhaseManager
+    let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
 
     func roundToNearestMultipleOfFive(_ number: Double) -> Double {
-//        print("number: \(number)")
-
         let val = 5 * round(Double(number) / 5.0)
 
-//        print("rounded: \(val)")
         return val
     }
 
@@ -71,13 +69,62 @@ struct DayWorkoutView: View {
         return results
     }
 
+    func getNextPhase(currentPhase: String, from options: [String]) -> String? {
+        guard let currentIndex = options.firstIndex(of: currentPhase) else {
+            return nil // currentPhase not found in options
+        }
+
+        let nextIndex = (currentIndex + 1) % options.count
+        return options[nextIndex]
+    }
+
+    func getNextDay(currentDay: String) -> String? {
+        let days = ["Monday", "Tuesday", "Thursday", "Friday"]
+
+        guard let currentIndex = days.firstIndex(of: currentDay) else {
+            return nil // Invalid day
+        }
+
+        let nextIndex = (currentIndex + 1) % days.count
+        return days[nextIndex]
+    }
+
     func savePhase() {
         print("savePhase DayWorkoutView")
 
         do {
-            phaseManager.update(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem)
+//            when day workout is finisehd,
+//            check if last exercise in day, if so, advance to next day, week, or phase
 
-            print("Phase: \(phaseManager.phaseRecord?.phaseName)")
+            if lastCompletedItem == dayExercises.count {
+                if currentDay == "Friday" {
+                    if currentWeek == phaseManager.phaseRecord!.phaseWeekTotal {
+                        print("go to next phase")
+
+                        if let nextPhase = getNextPhase(currentPhase: currentPhase, from: phaseOptions) {
+                            currentPhase = nextPhase
+                            currentWeek = 1
+                            currentDay = "Monday"
+                            lastCompletedItem = 0
+                            print("Next phase: \(currentPhase)")
+                        }
+
+                    } else {
+                        currentWeek += 1
+                        currentDay = "Monday"
+                        lastCompletedItem = 0
+                        print("go to next week")
+                    }
+                } else if let nextDay = getNextDay(currentDay: currentDay) {
+                    currentDay = nextDay
+                    lastCompletedItem = 0
+                    print("Next day: \(currentDay)")
+                }
+            }
+
+            phaseManager.update(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem, phaseWeekTotal: phaseManager.phaseRecord!.phaseWeekTotal)
+
+//            print("Phase: \(phaseManager.phaseRecord?.phaseName)")
 
             var descriptor = FetchDescriptor<PhaseRecord>(
                 predicate: #Predicate { $0.phaseName == currentPhase }
@@ -98,7 +145,7 @@ struct DayWorkoutView: View {
                 currentDay = existingRecord.phaseDay
                 lastCompletedItem = existingRecord.lastCompletedItem
             } else {
-                let newRecord = PhaseRecord(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem)
+                let newRecord = PhaseRecord(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem, phaseWeekTotal: phaseManager.phaseRecord!.phaseWeekTotal)
                 modelContext.insert(newRecord)
                 print("Saved new \(currentPhase) with week \(currentWeek) and day \(currentDay) and lastCompletedItem \(lastCompletedItem)")
             }
@@ -150,13 +197,10 @@ struct DayWorkoutView: View {
                     print("lastCompletedItem changed to: \(newValue)")
 
                     savePhase()
-
-                    // to do. check if last week in phase, if so, advance to next phase
-                    // check if last exercise in day, if so, advance to next day
                 }
                 .onAppear {
 //                    savePhase()
-                    print("DayWorkoutView lastCompletedItem: \(lastCompletedItem)")
+//                    print("DayWorkoutView lastCompletedItem: \(lastCompletedItem)")
                 }
         }
     }

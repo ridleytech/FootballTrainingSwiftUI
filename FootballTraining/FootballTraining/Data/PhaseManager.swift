@@ -33,7 +33,7 @@ class PhaseManager: ObservableObject {
                 phaseRecord = existing
                 print("Loaded existing PhaseRecord: \(existing.description)")
             } else {
-                let new = PhaseRecord(phaseName: "Postseason", phaseWeek: 1, phaseDay: "Monday", lastCompletedItem: 0)
+                let new = PhaseRecord(phaseName: "Postseason", phaseWeek: 1, phaseDay: "Monday", lastCompletedItem: 0, phaseWeekTotal: 5)
                 modelContext.insert(new)
                 try modelContext.save()
                 phaseRecord = new
@@ -45,13 +45,14 @@ class PhaseManager: ObservableObject {
         }
     }
 
-    func update(phaseName: String, phaseWeek: Int, phaseDay: String, lastCompletedItem: Int) {
+    func update(phaseName: String, phaseWeek: Int, phaseDay: String, lastCompletedItem: Int, phaseWeekTotal: Int) {
         guard let record = phaseRecord else { return }
 
         record.phaseName = phaseName
         record.phaseWeek = phaseWeek
         record.phaseDay = phaseDay
         record.lastCompletedItem = lastCompletedItem
+        record.phaseWeekTotal = phaseWeekTotal
 
         do {
             try modelContext.save()
