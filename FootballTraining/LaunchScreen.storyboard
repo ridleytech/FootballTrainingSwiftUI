@@ -22,19 +22,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="XhM-0n-Srb">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="dpJ-Ur-ucy"/>
+                                    <constraint firstAttribute="height" constant="300" id="tKS-Sd-UrW"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="0.55294120309999995" green="0.74117648599999997" blue="0.2901961207" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="XhM-0n-Srb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3WY-Pi-qZ1"/>
+                            <constraint firstItem="XhM-0n-Srb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="595-Nu-LHb"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="XhM-0n-Srb" secondAttribute="trailing" id="W4Y-6D-WrR"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="XhM-0n-Srb" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" id="eRf-EW-RG7"/>
-                            <constraint firstItem="XhM-0n-Srb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="eYZ-wB-ClS"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="XhM-0n-Srb" secondAttribute="bottom" id="mI4-Jy-DlH"/>
                         </constraints>
                     </view>
                 </viewController>
