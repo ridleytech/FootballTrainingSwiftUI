@@ -130,28 +130,28 @@ struct ContentView: View {
     }
 }
 
-// struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        // 1. Create an in-memory SwiftData model container
-//        let schema = Schema([
-//            Item.self,
-//            MaxIntensityRecord.self,
-//            PhaseRecord.self
-//        ])
-//        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
-//        let container = try! ModelContainer(for: schema, configurations: [configuration])
-//
-//        // 2. Create a mock navigation manager
-//        let navigationManager = NavigationManager()
-//
-//        // 3. Use a context from the model container to create the PhaseManager
-//        return ModelContextPreview(container: container) { modelContext in
-//            let phaseManager = PhaseManager(modelContext: modelContext)
-//
-//            ContentView()
-//                .environmentObject(navigationManager)
-//                .environmentObject(phaseManager)
-//        }
-//        .modelContainer(container)
-//    }
-// }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        // 1. Create an in-memory SwiftData model container
+        let schema = Schema([
+            Item.self,
+            MaxIntensityRecord.self,
+            PhaseRecord.self
+        ])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: schema, configurations: [configuration])
+
+        // 2. Create a mock navigation manager
+        let navigationManager = NavigationManager()
+
+        // 3. Use a context from the model container to create the PhaseManager
+        return ModelContextPreview(container: container) { modelContext in
+            let phaseManager = PhaseManager(modelContext: modelContext)
+
+            return ContentView()
+                .environmentObject(navigationManager)
+                .environmentObject(phaseManager)
+        }
+        .modelContainer(container)
+    }
+}
