@@ -159,7 +159,6 @@ struct DayWorkoutView: View {
 
     func getDayData() {
 //        print("getDayData")
-//
 //        print("currentPhase: \(currentPhase)")
 //        print("currentWeek: \(currentWeek)")
 //        print("currentDay: \(currentDay)")
@@ -195,12 +194,10 @@ struct DayWorkoutView: View {
             ExercisesView(currentDay: $currentDay, exercises: dayExercises, completedExercises: $completedExercises, lastCompletedItem: $lastCompletedItem)
                 .onChange(of: lastCompletedItem) { newValue in
                     print("lastCompletedItem changed to: \(newValue)")
-
                     savePhase()
                 }
                 .onAppear {
-//                    savePhase()
-//                    print("DayWorkoutView lastCompletedItem: \(lastCompletedItem)")
+                    getDayData()
                 }
         }
     }

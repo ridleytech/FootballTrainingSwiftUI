@@ -11,6 +11,7 @@ import SwiftUI
 
 struct MaxHistoryView: View {
     @Binding var exerciseName: String
+    @Binding var selectedExercise: (text: String, type: String, name: String, sets: [SetElement], max: Double)
     @Environment(\.modelContext) private var modelContext
     @State private var allRecords: [MaxIntensityRecord] = []
     @State private var records: [MaxIntensityRecord] = []
@@ -44,7 +45,7 @@ struct MaxHistoryView: View {
             print("exercise records: \(records)")
 
             if let latest = records.last {
-                print("Latest Bench Press Max: \(latest.maxIntensity) lbs")
+                print("Latest \(exerciseName) Max: \(latest.maxIntensity) lbs")
             }
 
         } catch {
@@ -106,12 +107,12 @@ struct MaxHistoryView: View {
             loadAllRecords()
         }
         .navigationDestination(isPresented: $gotoToSaveMax) {
-            SaveMax(exerciseName: $exerciseName)
+            SaveMax(exerciseName: $exerciseName, selectedExercise: $selectedExercise)
         }
 //        .navigationTitle("\(exerciseName) History")
     }
 }
 
 #Preview {
-    MaxHistoryView(exerciseName: .constant("Bench Press"))
+    MaxHistoryView(exerciseName: .constant("Bench Press"), selectedExercise: .constant((text: "String", type: "String", name: "String", sets: [], max: 1.0)))
 }

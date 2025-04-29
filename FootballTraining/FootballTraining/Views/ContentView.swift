@@ -40,6 +40,7 @@ struct ContentView: View {
         lastCompletedItem = 0
 
         getPhaseData()
+
         phaseManager.update(
             phaseName: newPhase,
             phaseWeek: selectedWeek,

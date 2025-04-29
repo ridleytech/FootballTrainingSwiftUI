@@ -89,10 +89,15 @@ struct ExerciseDetailView: View {
 //        }
         
         .navigationDestination(isPresented: $gotoToMaxHistory) {
-            MaxHistoryView(exerciseName: $exerciseName)
+            MaxHistoryView(exerciseName: $exerciseName, selectedExercise: $selectedExercise)
         }
         .navigationDestination(isPresented: $gotoToExercise) {
             CurrentSetView(exerciseName: $exerciseName, dayExercises: selectedExercise, lastCompletedItem: $lastCompletedItem)
+        }
+        .onChange(of: selectedExercise.max) { newMax in
+            
+            print("max changed to: \(newMax)")
+//            weekChanged(to: newWeek)
         }
         
 //        SaveMax(exerciseName: $exerciseName)
@@ -101,7 +106,9 @@ struct ExerciseDetailView: View {
 
 #Preview {
     NavigationStack {
-        ExerciseDetailView(exerciseName: .constant("Bench Press"), selectedExercise: (text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: .constant(-1))
+        ExerciseDetailView(exerciseName: .constant("Bench Press"),
+                           selectedExercise: (text: "String", type: "String", name: "String", sets: [], max: 1.0),
+                           lastCompletedItem: .constant(0))
             .environmentObject(NavigationManager())
     }
 }

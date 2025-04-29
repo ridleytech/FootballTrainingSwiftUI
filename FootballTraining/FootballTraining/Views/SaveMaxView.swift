@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SaveMax: View {
     @Binding var exerciseName: String
+    @Binding var selectedExercise: (text: String, type: String, name: String, sets: [SetElement], max: Double)
     @State var intensity: String = ""
     @Environment(\.modelContext) private var modelContext
     @State private var records: [MaxIntensityRecord] = []
@@ -26,7 +27,7 @@ struct SaveMax: View {
             records = try modelContext.fetch(descriptor)
 
             if let latest = records.last {
-                print("Latest Bench Press Max: \(latest.maxIntensity) lbs")
+                print("Latest \(exerciseName) Max: \(latest.maxIntensity) lbs")
             }
 
         } catch {
@@ -42,6 +43,8 @@ struct SaveMax: View {
             try context.save()
             print("Saved \(exerciseName) with intensity \(intensity) on \(record.dateRecorded)")
 
+            selectedExercise.max = intensity
+
             loadExerciseRecords()
 
         } catch {
@@ -56,7 +59,7 @@ struct SaveMax: View {
 
             TextField("Max Amount", text: $intensity)
                 .textFieldStyle(.roundedBorder)
-                .keyboardType(.decimalPad)
+                .keyboardType(.numberPad)
 
             Spacer()
 
@@ -64,6 +67,8 @@ struct SaveMax: View {
                 if let intensityValue = Double(intensity) {
                     saveMaxIntensity(exerciseName: exerciseName, intensity: intensityValue, context: modelContext)
                 }
+
+//                to do: dismiss keyboard
             }) {
                 Text("Save Max")
                     .font(.system(size: 16, weight: .bold, design: .default))
@@ -88,7 +93,7 @@ struct SaveMax: View {
     @State var intensity = "300"
 
     // 2. Return the view with Bindings and SwiftData modelContainer
-    SaveMax(exerciseName: $exerciseName, intensity: intensity)
+    SaveMax(exerciseName: $exerciseName, selectedExercise: .constant((text: "String", type: "String", name: "String", sets: [], max: 1.0)), intensity: intensity)
 //        .modelContainer(for: MaxIntensityRecord.self, inMemory: true)
         .modelContainer(for: MaxIntensityRecord.self)
 }

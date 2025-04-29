@@ -56,17 +56,18 @@ struct ExercisesView: View {
                         Image("ava-logo-bg").resizable().frame(width: 25, height: 25).scaledToFit()
                     }
                 }
-//                .disabled(lastCompletedItem != index)
                 .onTapGesture {
-                    if lastCompletedItem == index {
-                        exerciseName = exercise.name
-                        selectedExercise = exercise
-                        gotoToExercise = true
-                    }
+//                    if lastCompletedItem == index {
+                    exerciseName = exercise.name
+                    selectedExercise = exercise
+                    gotoToExercise = true
+//                    }
 
 //                    navigationManager.path.append(Route.exerciseDetail)
                 }
                 .listRowBackground(lastCompletedItem != index ? Color(UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)) : Color.white)
+                .padding(16) // Custom padding
+                .listRowInsets(EdgeInsets()) // Remove default inset
             }
 
             // .navigationTitle("\(currentDay) Lifts")
