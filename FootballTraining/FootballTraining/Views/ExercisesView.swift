@@ -57,15 +57,15 @@ struct ExercisesView: View {
                     }
                 }
                 .onTapGesture {
-//                    if lastCompletedItem == index {
-                    exerciseName = exercise.name
-                    selectedExercise = exercise
-                    gotoToExercise = true
-//                    }
+                    if lastCompletedItem == index {
+                        exerciseName = exercise.name
+                        selectedExercise = exercise
+                        gotoToExercise = true
+                    }
 
 //                    navigationManager.path.append(Route.exerciseDetail)
                 }
-                .listRowBackground(lastCompletedItem != index ? Color(UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)) : Color.white)
+                .listRowBackground(lastCompletedItem != index ? Color.white.opacity(0.5) : Color.white)
                 .padding(16) // Custom padding
                 .listRowInsets(EdgeInsets()) // Remove default inset
             }

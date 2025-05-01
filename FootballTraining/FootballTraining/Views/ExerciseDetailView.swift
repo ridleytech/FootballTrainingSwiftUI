@@ -66,7 +66,7 @@ struct ExerciseDetailView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .padding([.leading, .trailing], 16)
+//            .padding([.leading, .trailing], 16)
             
             Spacer().frame(height: 10)
             
@@ -82,10 +82,11 @@ struct ExerciseDetailView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .padding([.leading, .trailing], 16)
+//            .padding([.leading, .trailing], 16)
             
             Spacer().frame(height: 0)
         }
+        .padding([.leading, .trailing], 16)
 //        .navigationDestination(for: Route.self) { route in
 //            switch route {
 //            case .currentSet:

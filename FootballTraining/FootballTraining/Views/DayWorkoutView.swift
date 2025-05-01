@@ -203,16 +203,26 @@ struct DayWorkoutView: View {
     }
 }
 
-// #Preview {
-//    let phaseManager = PhaseManager(
-//        phaseRecord: PhaseRecord(phaseName: "Postseason", phaseWeek: 1, phaseDay: "Monday", lastCompletedItem: 0)
-//    )
-//
-//    NavigationStack {
-//        DayWorkoutView(currentPhase: .constant("Preseason"), currentDay: .constant("Monday"), currentWeek: .constant(1), lastCompletedItem: .constant(0))
-//            //        .modelContainer(for: Item.self, inMemory: true)
-//            .modelContainer(for: MaxIntensityRecord.self)
-//            .environmentObject(NavigationManager())
-//            .environmentObject(phaseManager)
-//    }
-// }
+#Preview {
+    let schema = Schema([
+        Item.self,
+        MaxIntensityRecord.self,
+        PhaseRecord.self
+    ])
+    let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: schema, configurations: [configuration])
+
+    // 3. Use a context from the model container to create the PhaseManager
+    return ModelContextPreview(container: container) { modelContext in
+        let phaseManager = PhaseManager(modelContext: modelContext)
+
+        return NavigationStack {
+            DayWorkoutView(currentPhase: .constant("Preseason"), currentDay: .constant("Monday"), currentWeek: .constant(1), lastCompletedItem: .constant(0))
+                //        .modelContainer(for: Item.self, inMemory: true)
+                .modelContainer(for: MaxIntensityRecord.self)
+                .environmentObject(NavigationManager())
+                .environmentObject(phaseManager)
+        }
+    }
+    .modelContainer(container)
+}

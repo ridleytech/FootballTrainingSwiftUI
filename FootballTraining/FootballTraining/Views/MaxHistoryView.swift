@@ -13,24 +13,24 @@ struct MaxHistoryView: View {
     @Binding var exerciseName: String
     @Binding var selectedExercise: (text: String, type: String, name: String, sets: [SetElement], max: Double)
     @Environment(\.modelContext) private var modelContext
-    @State private var allRecords: [MaxIntensityRecord] = []
+//    @State private var allRecords: [MaxIntensityRecord] = []
     @State private var records: [MaxIntensityRecord] = []
     @State var gotoToSaveMax = false
     @State private var selectedRecord: MaxIntensityRecord?
-
-    private func loadAllRecords() {
-        let descriptor = FetchDescriptor<MaxIntensityRecord>(
-            sortBy: [SortDescriptor(\.dateRecorded, order: .forward)]
-        )
-
-        do {
-            allRecords = try modelContext.fetch(descriptor)
-
-            print("all records: \(allRecords)")
-        } catch {
-            print("Failed to fetch all records:", error)
-        }
-    }
+    @State private var animatedRecords: [MaxIntensityRecord] = []
+//    private func loadAllRecords() {
+//        let descriptor = FetchDescriptor<MaxIntensityRecord>(
+//            sortBy: [SortDescriptor(\.dateRecorded, order: .forward)]
+//        )
+//
+//        do {
+//            allRecords = try modelContext.fetch(descriptor)
+//
+//            print("all records: \(allRecords)")
+//        } catch {
+//            print("Failed to fetch all records:", error)
+//        }
+//    }
 
     private func loadExerciseRecords() {
         print("loadExerciseRecords")
@@ -112,7 +112,7 @@ struct MaxHistoryView: View {
 //                //                .chartXAxisLabel("Date")
 //                .padding(.top, 20)
 
-                Chart(records) { record in
+                Chart(animatedRecords) { record in
                     LineMark(
                         x: .value("Date", record.dateRecorded),
                         y: .value("Max", record.maxIntensity)
@@ -169,6 +169,11 @@ struct MaxHistoryView: View {
                     }
                 }
                 .padding(.top, 20)
+                .onAppear {
+                    withAnimation(.easeOut(duration: 1.0)) {
+                        animatedRecords = records
+                    }
+                }
             }
 
             Spacer()
@@ -176,7 +181,7 @@ struct MaxHistoryView: View {
         .padding([.leading, .trailing], 16)
         .onAppear {
             loadExerciseRecords()
-            loadAllRecords()
+//            loadAllRecords()
         }
         .navigationDestination(isPresented: $gotoToSaveMax) {
             SaveMax(exerciseName: $exerciseName, selectedExercise: $selectedExercise)

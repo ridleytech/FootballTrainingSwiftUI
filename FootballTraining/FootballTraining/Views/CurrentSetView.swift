@@ -106,21 +106,21 @@ struct CurrentSetView: View {
             Spacer().frame(height: 20)
 
             HStack {
-                Text("Current Set: ")
-                    .font(.system(size: 18, weight: .bold, design: .default))
+                Text("Set: ")
+                    .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.grayColor)
                     + Text("\(currentSet)")
-                    .font(.system(size: 18, weight: .bold, design: .default))
+                    .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.greenColor)
                     + Text(" of ")
-                    .font(.system(size: 18, weight: .bold, design: .default))
+                    .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.grayColor)
                     + Text("\(dayExercises.sets.count)")
-                    .font(.system(size: 18, weight: .bold, design: .default))
+                    .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.greenColor)
                 //                Spacer()
             }
-            Spacer().frame(height: 20)
+            Spacer().frame(height: 10)
 
             if dayExercises.sets.count > 0 && currentSet < dayExercises.sets.count + 1 {
                 if dayExercises.max > 0.0 {
@@ -130,7 +130,7 @@ struct CurrentSetView: View {
                             let calculatedLift = intensity * dayExercises.max
                             let formattedLift = String(format: "%.0f", roundToNearestMultipleOfFive(calculatedLift)) // no decimals
                             Text("\(formattedLift) x \(reps)")
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                                .font(.system(size: 50, weight: .bold, design: .default))
                                 .foregroundColor(AppConfig.greenColor)
 
                         } else {
@@ -140,7 +140,7 @@ struct CurrentSetView: View {
                     }
                 } else {
                     Text("\(dayExercises.sets[currentSet-1].intensity ?? "") x \(dayExercises.sets[currentSet-1].reps ?? "")")
-                        .font(.system(size: 24, weight: .bold, design: .default))
+                        .font(.system(size: 50, weight: .bold, design: .default))
                         .foregroundColor(AppConfig.greenColor)
                 }
             }
@@ -187,11 +187,12 @@ struct CurrentSetView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .padding([.leading, .trailing], 16)
+//            .padding([.leading, .trailing], 16)
             .disabled(currentSet == dayExercises.sets.count && !workoutStarted)
 
             Spacer()
         }
+        .padding([.leading, .trailing], 16)
         .onAppear {
             print("dayExercises: \(dayExercises)")
             //
