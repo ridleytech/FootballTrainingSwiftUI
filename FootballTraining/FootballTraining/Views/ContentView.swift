@@ -64,6 +64,9 @@ struct ContentView: View {
 
     func dayChanged(to newDay: String) {
         print("Day changed to: \(newDay)")
+
+        lastCompletedItem = 0
+
         phaseManager.update(
             phaseName: selectedPhase,
             phaseWeek: selectedWeek,
@@ -106,7 +109,6 @@ struct ContentView: View {
                     .pickerStyle(WheelPickerStyle())
                     .frame(height: pickerHeight)
 //                    .background(Color.yellow)
-//                    .padding()
                     .onChange(of: selectedPhase) { newPhase in
                         phaseChanged(to: newPhase)
                     }
@@ -119,7 +121,6 @@ struct ContentView: View {
                     .pickerStyle(WheelPickerStyle())
                     .frame(height: pickerHeight)
 //                    .background(Color.green)
-//                    .padding()
                     .onChange(of: selectedWeek) { newWeek in
                         weekChanged(to: newWeek)
                     }
@@ -132,13 +133,11 @@ struct ContentView: View {
                     .pickerStyle(WheelPickerStyle())
                     .frame(height: pickerHeight)
 //                    .background(Color.green)
-//                    .padding()
                     .onChange(of: selectedDay) { newDay in
                         dayChanged(to: newDay)
                     }
                 }
 //                .background(Color.red)
-//                .padding()
 
                 Spacer()
             } else {

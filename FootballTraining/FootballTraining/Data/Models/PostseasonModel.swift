@@ -8,6 +8,39 @@
 import Foundation
 import SwiftUI
 
+//  PostseasonModel.swift
+//  FootballTraining
+//  JSON-Decodable version
+
+import Foundation
+import SwiftUI
+
+class DayExercises: Codable, Hashable, Identifiable {
+    let id: UUID
+    var text: String
+    var type: String
+    var name: String
+    var sets: [SetElement]
+    var max: Double
+
+    init(text: String, type: String, name: String, sets: [SetElement], max: Double, id: UUID = UUID()) {
+        self.id = id
+        self.text = text
+        self.type = type
+        self.name = name
+        self.sets = sets
+        self.max = max
+    }
+
+    static func == (lhs: DayExercises, rhs: DayExercises) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 class PostseasonModel: Codable, Hashable {
     var name: String
     var week: [Week]
@@ -98,6 +131,17 @@ class SetElement: Codable, Hashable {
         hasher.combine(time)
         hasher.combine(rest)
     }
+
+    var description: String {
+        return """
+        PhaseRecord:
+        - Name: \(name)
+        - Intensity: \(String(describing: intensity))
+        - Reps: \(String(describing: reps))
+        - Time: \(String(describing: time))
+        - Rest: \(String(describing: rest))
+        """
+    }
 }
 
 class Rest: Codable, Hashable {
@@ -131,7 +175,7 @@ class Conditioning: Codable, Hashable {
 class ConditioningExercise: Codable, Hashable {
     var name: String
     var type: String
-    var sets: ConditioningSetWrapper
+    var sets: [SetElement]
 
     static func == (lhs: ConditioningExercise, rhs: ConditioningExercise) -> Bool {
         lhs.name == rhs.name && lhs.type == rhs.type && lhs.sets == rhs.sets
@@ -141,17 +185,5 @@ class ConditioningExercise: Codable, Hashable {
         hasher.combine(name)
         hasher.combine(type)
         hasher.combine(sets)
-    }
-}
-
-class ConditioningSetWrapper: Codable, Hashable {
-    var set: SetElement
-
-    static func == (lhs: ConditioningSetWrapper, rhs: ConditioningSetWrapper) -> Bool {
-        lhs.set == rhs.set
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(set)
     }
 }

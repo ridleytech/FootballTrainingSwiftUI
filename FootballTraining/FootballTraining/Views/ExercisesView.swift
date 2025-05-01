@@ -9,13 +9,15 @@ import SwiftUI
 
 struct ExercisesView: View {
     @Binding var currentDay: String
-    let exercises: [(text: String, type: String, name: String, sets: [SetElement], max: Double)]
-    @Binding var completedExercises: [(text: String, type: String, name: String, sets: [SetElement], max: Double)]
+    let exercises: [DayExercises]
     @Binding var lastCompletedItem: Int
     @State var gotoToExercise = false
-    @State var exerciseName = ""
-    @State var selectedExercise: (text: String, type: String, name: String, sets: [SetElement], max: Double)?
+    @State var selectedExercise: DayExercises?
     @EnvironmentObject var navigationManager: NavigationManager
+
+    func completeWorkout() {
+        print("completeWorkout")
+    }
 
     var body: some View {
         VStack {
@@ -23,14 +25,13 @@ struct ExercisesView: View {
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
 
-//            List(exercises, id: \.text) { exercise in
-            List(Array(exercises.enumerated()), id: \.element.text) { index, exercise in
+            List(Array(exercises.enumerated()), id: \.element.id) { index, exercise in
 
                 HStack {
                     VStack {
                         HStack {
                             Utils.iconForExerciseType2(exercise.type)
-                                //                            .font(.system(size: 16, weight: .medium, design: .default))
+                                // .font(.system(size: 16, weight: .medium, design: .default))
                                 .frame(width: 25, height: 25)
                                 .background(exercise.type == "Basic" ? Color.blue : Color.red)
                                 .foregroundColor(Color.white)
@@ -58,7 +59,6 @@ struct ExercisesView: View {
                 }
                 .onTapGesture {
                     if lastCompletedItem == index {
-                        exerciseName = exercise.name
                         selectedExercise = exercise
                         gotoToExercise = true
                     }
@@ -70,10 +70,26 @@ struct ExercisesView: View {
                 .listRowInsets(EdgeInsets()) // Remove default inset
             }
 
+            Spacer().frame(height: 10)
+
+            Button(action: {
+                completeWorkout()
+
+            }) {
+                Text("Complete Workout")
+                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+                    .background(Color(hex: "7FBF30"))
+                    .foregroundColor(.white)
+                    .cornerRadius(5)
+            }
+
             // .navigationTitle("\(currentDay) Lifts")
         }
+        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $gotoToExercise) {
-            ExerciseDetailView(exerciseName: $exerciseName, selectedExercise: selectedExercise ?? (text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem)
+            ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem)
         }
         .onAppear {
             print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
@@ -92,9 +108,9 @@ struct ExercisesView: View {
 #Preview {
     NavigationStack {
         ExercisesView(currentDay: .constant("Monday"),
-                      exercises: [(text: ".68 x 8",
-                                   type: "Basic",
-                                   name: "Bench Press", sets: [], max: 1.0)], completedExercises: .constant([]), lastCompletedItem: .constant(0))
+                      exercises: [DayExercises(text: ".68 x 8",
+                                               type: "Basic",
+                                               name: "Bench Press", sets: [], max: 1.0)], lastCompletedItem: .constant(0))
             .environmentObject(NavigationManager())
     }
 }

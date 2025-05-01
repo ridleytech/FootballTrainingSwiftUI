@@ -15,8 +15,8 @@ struct DayWorkoutView: View {
     @Binding var currentWeek: Int
     @Binding var lastCompletedItem: Int
 
-    @State private var dayExercises: [(text: String, type: String, name: String, sets: [SetElement], max: Double)] = []
-    @State private var completedExercises: [(text: String, type: String, name: String, sets: [SetElement], max: Double)] = []
+    @State private var dayExercises: [DayExercises] = []
+
     @State private var selectedItems: Set<String> = []
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var phaseManager: PhaseManager
@@ -28,15 +28,18 @@ struct DayWorkoutView: View {
         return val
     }
 
-    func listExercisesForDay(in postseason: PostseasonModel, weekName: Int, dayName: String, context: ModelContext) -> [(text: String, type: String, name: String, sets: [SetElement], max: Double)] {
-        guard let week = postseason.week.first(where: { $0.name == "\(weekName)" }),
+    func listExercisesForDay(in postseason: PostseasonModel, week: Int, dayName: String, context: ModelContext) -> [DayExercises] {
+        guard let week = postseason.week.first(where: { $0.name == "\(week)" }),
               let day = week.days.first(where: { $0.name == dayName }),
               let exercises = day.exercises
         else {
+//            print("no stuff")
             return []
         }
 
-        var results: [(text: String, type: String, name: String, sets: [SetElement], max: Double)] = []
+//        print("get stuff")
+
+        var results: [DayExercises] = []
 
         for exercise in exercises {
             var line = "" // "\(exercise.name):"
@@ -62,99 +65,15 @@ struct DayWorkoutView: View {
                     }
                 }
 
-                results.append((text: line.trim(), type: exercise.type, name: exercise.name, sets: sets, max: (savedMaxLift != nil) ? savedMaxLift! : 0.0))
+                let exercise = DayExercises(text: line.trim(), type: exercise.type, name: exercise.name, sets: sets, max: (savedMaxLift != nil) ? savedMaxLift! : 0.0)
+
+//                print("exercise: \(exercise.id) \(exercise.name) \(exercise.type) \(exercise.sets.count) \(exercise.max)")
+
+                results.append(exercise)
             }
         }
 
         return results
-    }
-
-    func getNextPhase(currentPhase: String, from options: [String]) -> String? {
-        guard let currentIndex = options.firstIndex(of: currentPhase) else {
-            return nil // currentPhase not found in options
-        }
-
-        let nextIndex = (currentIndex + 1) % options.count
-        return options[nextIndex]
-    }
-
-    func getNextDay(currentDay: String) -> String? {
-        let days = ["Monday", "Tuesday", "Thursday", "Friday"]
-
-        guard let currentIndex = days.firstIndex(of: currentDay) else {
-            return nil // Invalid day
-        }
-
-        let nextIndex = (currentIndex + 1) % days.count
-        return days[nextIndex]
-    }
-
-    func savePhase() {
-        print("savePhase DayWorkoutView")
-
-        do {
-//            when day workout is finisehd,
-//            check if last exercise in day, if so, advance to next day, week, or phase
-
-            if lastCompletedItem == dayExercises.count {
-                if currentDay == "Friday" {
-                    if currentWeek == phaseManager.phaseRecord!.phaseWeekTotal {
-                        print("go to next phase")
-
-                        if let nextPhase = getNextPhase(currentPhase: currentPhase, from: phaseOptions) {
-                            currentPhase = nextPhase
-                            currentWeek = 1
-                            currentDay = "Monday"
-                            lastCompletedItem = 0
-                            print("Next phase: \(currentPhase)")
-                        }
-
-                    } else {
-                        currentWeek += 1
-                        currentDay = "Monday"
-                        lastCompletedItem = 0
-                        print("go to next week")
-                    }
-                } else if let nextDay = getNextDay(currentDay: currentDay) {
-                    currentDay = nextDay
-                    lastCompletedItem = 0
-                    print("Next day: \(currentDay)")
-                }
-            }
-
-            phaseManager.update(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem, phaseWeekTotal: phaseManager.phaseRecord!.phaseWeekTotal)
-
-//            print("Phase: \(phaseManager.phaseRecord?.phaseName)")
-
-            var descriptor = FetchDescriptor<PhaseRecord>(
-                predicate: #Predicate { $0.phaseName == currentPhase }
-            )
-            descriptor.fetchLimit = 1 // set fetchLimit separately
-
-            let existingRecords = try modelContext.fetch(descriptor)
-
-            if let existingRecord = existingRecords.first {
-                existingRecord.phaseWeek = currentWeek
-                existingRecord.phaseDay = currentDay
-                existingRecord.phaseName = currentPhase
-                existingRecord.lastCompletedItem = lastCompletedItem
-                print("Updated \(currentPhase) with week \(currentWeek) and day \(currentDay) and lastCompletedItem \(lastCompletedItem)")
-
-                currentPhase = existingRecord.phaseName
-                currentWeek = existingRecord.phaseWeek
-                currentDay = existingRecord.phaseDay
-                lastCompletedItem = existingRecord.lastCompletedItem
-            } else {
-                let newRecord = PhaseRecord(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem, phaseWeekTotal: phaseManager.phaseRecord!.phaseWeekTotal)
-                modelContext.insert(newRecord)
-                print("Saved new \(currentPhase) with week \(currentWeek) and day \(currentDay) and lastCompletedItem \(lastCompletedItem)")
-            }
-
-            try modelContext.save()
-
-        } catch {
-            print("Failed to fetch or save phase:", error)
-        }
     }
 
     func getDayData() {
@@ -168,14 +87,19 @@ struct DayWorkoutView: View {
                let data = try? Data(contentsOf: url),
                let postseason = try? JSONDecoder().decode(PostseasonModel.self, from: data)
             {
+                print("getDayData currentPhase: \(currentPhase)")
+                print("currentWeek: \(currentWeek)")
+                print("currentDay: \(currentDay)")
+
                 dayExercises = listExercisesForDay(
                     in: postseason,
-                    weekName: currentWeek,
+                    week: currentWeek,
                     dayName: currentDay,
                     context: modelContext
                 )
-//
-//                print("dayExercises: \(dayExercises)")
+
+            } else {
+                print("can't get data for \(currentPhase)")
             }
 
         } catch {
@@ -191,13 +115,15 @@ struct DayWorkoutView: View {
                 }
 
         } else {
-            ExercisesView(currentDay: $currentDay, exercises: dayExercises, completedExercises: $completedExercises, lastCompletedItem: $lastCompletedItem)
+            ExercisesView(currentDay: $currentDay, exercises: dayExercises, lastCompletedItem: $lastCompletedItem)
                 .onChange(of: lastCompletedItem) { newValue in
                     print("lastCompletedItem changed to: \(newValue)")
-                    savePhase()
+//                    savePhase()
+
+                    ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExercises.count, lastCompletedItem: &lastCompletedItem, currentPhase: &currentPhase, currentDay: &currentDay, currentWeek: &currentWeek, phaseManager: phaseManager, modelContext: modelContext)
                 }
                 .onAppear {
-                    getDayData()
+//                    getDayData()
                 }
         }
     }

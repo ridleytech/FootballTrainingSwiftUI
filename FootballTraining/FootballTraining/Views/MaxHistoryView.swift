@@ -10,8 +10,7 @@ import Charts
 import SwiftUI
 
 struct MaxHistoryView: View {
-    @Binding var exerciseName: String
-    @Binding var selectedExercise: (text: String, type: String, name: String, sets: [SetElement], max: Double)
+    @Binding var selectedExercise: DayExercises
     @Environment(\.modelContext) private var modelContext
 //    @State private var allRecords: [MaxIntensityRecord] = []
     @State private var records: [MaxIntensityRecord] = []
@@ -35,6 +34,8 @@ struct MaxHistoryView: View {
     private func loadExerciseRecords() {
         print("loadExerciseRecords")
 
+        let exerciseName = selectedExercise.name
+
         let descriptor = FetchDescriptor<MaxIntensityRecord>(
             predicate: #Predicate { $0.exerciseName == exerciseName },
             sortBy: [SortDescriptor(\.dateRecorded, order: .forward)]
@@ -56,7 +57,7 @@ struct MaxHistoryView: View {
 
     var body: some View {
         VStack {
-            Text(exerciseName)
+            Text(selectedExercise.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
 
@@ -73,7 +74,7 @@ struct MaxHistoryView: View {
             Spacer()
 
             if records.isEmpty {
-                Text("No \(exerciseName) records.")
+                Text("No \(selectedExercise.name) records.")
                     .foregroundColor(.gray)
             } else {
 //                Chart(records) { record in
@@ -184,12 +185,12 @@ struct MaxHistoryView: View {
 //            loadAllRecords()
         }
         .navigationDestination(isPresented: $gotoToSaveMax) {
-            SaveMax(exerciseName: $exerciseName, selectedExercise: $selectedExercise)
+            SaveMax(selectedExercise: $selectedExercise)
         }
 //        .navigationTitle("\(exerciseName) History")
     }
 }
 
 #Preview {
-    MaxHistoryView(exerciseName: .constant("Bench Press"), selectedExercise: .constant((text: "String", type: "String", name: "String", sets: [], max: 1.0)))
+    MaxHistoryView(selectedExercise: .constant(DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0)))
 }

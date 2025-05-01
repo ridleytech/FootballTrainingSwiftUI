@@ -9,8 +9,7 @@ import Combine
 import SwiftUI
 
 struct CurrentSetView: View {
-    @Binding var exerciseName: String
-    @State var dayExercises: (text: String, type: String, name: String, sets: [SetElement], max: Double)
+    @State var dayExercises: DayExercises
     @Binding var lastCompletedItem: Int
     @State var currentSet: Int = 1
     @State var setStarted = false
@@ -100,7 +99,7 @@ struct CurrentSetView: View {
     var body: some View {
 //        ZStack {
         VStack {
-            Text(exerciseName)
+            Text(dayExercises.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
             Spacer().frame(height: 20)
@@ -195,10 +194,10 @@ struct CurrentSetView: View {
         .padding([.leading, .trailing], 16)
         .onAppear {
             print("dayExercises: \(dayExercises)")
-            //
-            //            if let firstSet = dayExercises.sets.first {
-            //                print("First Set: \(String(describing: firstSet.reps))")
-            //            }
+
+            if let firstSet = dayExercises.sets.first {
+                print("First Set: \(firstSet.description)")
+            }
         }
         .alert("Lift Completed", isPresented: $showAlert) {
             Button("OK", role: .cancel) {
@@ -254,7 +253,7 @@ struct CurrentSetView: View {
         rest: "90"
     )
 
-    CurrentSetView(exerciseName: .constant("Bench Press"), dayExercises: (text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0), lastCompletedItem: .constant(-1))
+    CurrentSetView(dayExercises: DayExercises(text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0), lastCompletedItem: .constant(-1))
         .environmentObject(NavigationManager())
 }
 

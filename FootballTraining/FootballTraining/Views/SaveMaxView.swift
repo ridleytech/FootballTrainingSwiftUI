@@ -8,12 +8,8 @@
 import SwiftData
 import SwiftUI
 
-import SwiftData
-import SwiftUI
-
 struct SaveMax: View {
-    @Binding var exerciseName: String
-    @Binding var selectedExercise: (text: String, type: String, name: String, sets: [SetElement], max: Double)
+    @Binding var selectedExercise: DayExercises
     @State var intensity: String = ""
     @Environment(\.modelContext) private var modelContext
     @State private var records: [MaxIntensityRecord] = []
@@ -23,6 +19,8 @@ struct SaveMax: View {
     @State private var pendingIntensity: Double?
 
     private func loadExerciseRecords() {
+        let exerciseName = selectedExercise.name // ✅ capture value first
+
         let descriptor = FetchDescriptor<MaxIntensityRecord>(
             predicate: #Predicate { $0.exerciseName == exerciseName },
             sortBy: [SortDescriptor(\.dateRecorded, order: .forward)]
@@ -101,7 +99,7 @@ struct SaveMax: View {
 
     var body: some View {
         VStack {
-            Text("\(exerciseName)")
+            Text("\(selectedExercise.name)")
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(AppConfig.greenColor)
 
@@ -125,7 +123,7 @@ struct SaveMax: View {
                 Button("Save Max") {
                     if let intensityValue = Double(intensity) {
                         attemptSaveMaxIntensity(
-                            exerciseName: exerciseName,
+                            exerciseName: selectedExercise.name,
                             intensity: intensityValue,
                             context: modelContext
                         )
@@ -154,7 +152,7 @@ struct SaveMax: View {
             }
             Button("Save New Record") {
                 if let newIntensity = pendingIntensity {
-                    saveNewMaxIntensity(exerciseName: exerciseName, intensity: newIntensity, context: modelContext)
+                    saveNewMaxIntensity(exerciseName: selectedExercise.name, intensity: newIntensity, context: modelContext)
                 }
             }
             Button("Cancel", role: .cancel) {}
@@ -171,7 +169,7 @@ struct SaveMax: View {
     @State var intensity = "300"
 
     // 2. Return the view with Bindings and SwiftData modelContainer
-    SaveMax(exerciseName: $exerciseName, selectedExercise: .constant((text: "String", type: "String", name: "String", sets: [], max: 1.0)), intensity: intensity)
+    SaveMax(selectedExercise: .constant(DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0)), intensity: intensity)
 //        .modelContainer(for: MaxIntensityRecord.self, inMemory: true)
         .modelContainer(for: MaxIntensityRecord.self)
 }

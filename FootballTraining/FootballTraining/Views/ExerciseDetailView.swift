@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
-    @Binding var exerciseName: String
-    @State var selectedExercise: (text: String, type: String, name: String, sets: [SetElement], max: Double)
+    @State var selectedExercise: DayExercises
     @Binding var lastCompletedItem: Int
     @State var gotoToMaxHistory = false
     @State var gotoToExercise = false
@@ -17,7 +16,7 @@ struct ExerciseDetailView: View {
 
     var body: some View {
         VStack {
-            Text(exerciseName)
+            Text(selectedExercise.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
             Spacer().frame(height: 10)
@@ -97,10 +96,10 @@ struct ExerciseDetailView: View {
 //        }
         
         .navigationDestination(isPresented: $gotoToMaxHistory) {
-            MaxHistoryView(exerciseName: $exerciseName, selectedExercise: $selectedExercise)
+            MaxHistoryView(selectedExercise: $selectedExercise)
         }
         .navigationDestination(isPresented: $gotoToExercise) {
-            CurrentSetView(exerciseName: $exerciseName, dayExercises: selectedExercise, lastCompletedItem: $lastCompletedItem)
+            CurrentSetView(dayExercises: selectedExercise, lastCompletedItem: $lastCompletedItem)
         }
         .onChange(of: selectedExercise.max) { newMax in
             
@@ -114,8 +113,7 @@ struct ExerciseDetailView: View {
 
 #Preview {
     NavigationStack {
-        ExerciseDetailView(exerciseName: .constant("Bench Press"),
-                           selectedExercise: (text: "String", type: "String", name: "String", sets: [], max: 1.0),
+        ExerciseDetailView(selectedExercise: DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0),
                            lastCompletedItem: .constant(0))
             .environmentObject(NavigationManager())
     }
