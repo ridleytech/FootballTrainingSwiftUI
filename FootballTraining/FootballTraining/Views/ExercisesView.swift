@@ -21,7 +21,7 @@ struct ExercisesView: View {
 
     var body: some View {
         VStack {
-            HStack {
+            ZStack {
                 Spacer()
 
                 Text("\(currentDay)")
@@ -30,17 +30,20 @@ struct ExercisesView: View {
 
                 Spacer()
 
-                Button(action: {
-                    completeWorkout()
-
-                }) {
-                    Text("C")
-                        .font(.system(size: 16, weight: .bold, design: .default))
-//                        .frame(maxWidth: .infinity)
-                        .frame(width: 25, height: 25)
-                        .background(Color(hex: "7FBF30"))
-                        .foregroundColor(.white)
-                        .cornerRadius(5)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        completeWorkout()
+                        
+                    }) {
+                        Text("C")
+                            .font(.system(size: 16, weight: .bold, design: .default))
+                        //                        .frame(maxWidth: .infinity)
+                            .frame(width: 25, height: 25)
+                            .background(Color(hex: "7FBF30"))
+                            .foregroundColor(.white)
+                            .cornerRadius(5)
+                    }
                 }
             }
 

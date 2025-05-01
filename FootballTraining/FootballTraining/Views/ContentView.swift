@@ -78,76 +78,92 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
-            Button(action: {
-                pickingPhase.toggle()
-            }) {
-                HStack {
+            VStack {
+                Spacer()
+                    .frame(height: 50)
+
+                ZStack {
                     Spacer()
-                    Text("P")
-                        .font(.system(size: 16, weight: .bold))
-                        .frame(width: 35, height: 35)
-                        .background(Color(hex: "7FBF30"))
-                        .foregroundColor(.white)
-                        .cornerRadius(5)
+
+                    Text("Football Training")
+                        .font(.system(size: 18, weight: .bold, design: .default))
+                        .foregroundColor(AppConfig.greenColor)
+
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            pickingPhase.toggle()
+
+                        }) {
+                            Text("P")
+                                .font(.system(size: 16, weight: .bold, design: .default))
+                                //                        .frame(maxWidth: .infinity)
+                                .frame(width: 25, height: 25)
+                                .background(Color(hex: "7FBF30"))
+                                .foregroundColor(.white)
+                                .cornerRadius(5)
+                        }
+                    }
+                }
+
+                if pickingPhase {
+                    let pickerHeight: CGFloat = 200
+
+                    VStack {
+                        Spacer().frame(height: 10)
+                        Text("Select Phase")
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundColor(AppConfig.grayColor)
+
+                        Picker("Select Phase", selection: $selectedPhase) {
+                            ForEach(phases, id: \.self) { phase in
+                                Text(phase)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        .frame(height: pickerHeight)
+                        //                    .background(Color.yellow)
+                        .onChange(of: selectedPhase) { newPhase in
+                            phaseChanged(to: newPhase)
+                        }
+
+                        Picker("Select Week", selection: $selectedWeek) {
+                            ForEach(weeks, id: \.self) { week in
+                                Text("Week \(week)")
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        .frame(height: pickerHeight)
+                        //                    .background(Color.green)
+                        .onChange(of: selectedWeek) { newWeek in
+                            weekChanged(to: newWeek)
+                        }
+
+                        Picker("Select Day", selection: $selectedDay) {
+                            ForEach(days, id: \.self) { day in
+                                Text("\(day)")
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        .frame(height: pickerHeight)
+                        //                    .background(Color.green)
+                        .onChange(of: selectedDay) { newDay in
+                            dayChanged(to: newDay)
+                        }
+                    }
+                    //                .background(Color.red)
+
+                    Spacer()
+                } else {
+                    BaseScreen(
+                        currentPhase: $selectedPhase,
+                        currentDay: $selectedDay,
+                        currentWeek: $selectedWeek,
+                        lastCompletedItem: $lastCompletedItem
+                    )
                 }
             }
             .padding([.leading, .trailing], 16)
-
-            if pickingPhase {
-                let pickerHeight: CGFloat = 200
-
-                VStack {
-                    Text("Select Phase")
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(AppConfig.greenColor)
-
-                    Picker("Select Phase", selection: $selectedPhase) {
-                        ForEach(phases, id: \.self) { phase in
-                            Text(phase)
-                        }
-                    }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(height: pickerHeight)
-//                    .background(Color.yellow)
-                    .onChange(of: selectedPhase) { newPhase in
-                        phaseChanged(to: newPhase)
-                    }
-
-                    Picker("Select Week", selection: $selectedWeek) {
-                        ForEach(weeks, id: \.self) { week in
-                            Text("Week \(week)")
-                        }
-                    }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(height: pickerHeight)
-//                    .background(Color.green)
-                    .onChange(of: selectedWeek) { newWeek in
-                        weekChanged(to: newWeek)
-                    }
-
-                    Picker("Select Day", selection: $selectedDay) {
-                        ForEach(days, id: \.self) { day in
-                            Text("\(day)")
-                        }
-                    }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(height: pickerHeight)
-//                    .background(Color.green)
-                    .onChange(of: selectedDay) { newDay in
-                        dayChanged(to: newDay)
-                    }
-                }
-//                .background(Color.red)
-
-                Spacer()
-            } else {
-                BaseScreen(
-                    currentPhase: $selectedPhase,
-                    currentDay: $selectedDay,
-                    currentWeek: $selectedWeek,
-                    lastCompletedItem: $lastCompletedItem
-                )
-            }
         }
         .onAppear {
             if let record = phaseManager.phaseRecord {

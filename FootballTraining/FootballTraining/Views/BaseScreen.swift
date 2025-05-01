@@ -17,10 +17,10 @@ struct BaseScreen: View {
 
     var body: some View {
         VStack {
-            Spacer().frame(height: 30)
-            Text("Football Training")
-                .font(.system(size: 18, weight: .bold, design: .default))
-                .foregroundColor(AppConfig.greenColor)
+//            Spacer().frame(height: 30)
+//            Text("Football Training")
+//                .font(.system(size: 18, weight: .bold, design: .default))
+//                .foregroundColor(AppConfig.greenColor)
 
             Spacer().frame(height: 20)
 
@@ -30,7 +30,7 @@ struct BaseScreen: View {
                         .font(.system(size: 16, weight: .bold, design: .default))
                         + Text("\(currentPhase) Week \(currentWeek)")
 
-                    Spacer().frame(height: 10)
+                    Spacer().frame(height: 5)
 
                     Text("Day: ")
                         .font(.system(size: 16, weight: .bold, design: .default))
@@ -55,7 +55,7 @@ struct BaseScreen: View {
                     .cornerRadius(5)
             }
         }
-        .padding([.leading, .trailing], 16)
+//        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $goToWorkout) {
             DayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
         }
