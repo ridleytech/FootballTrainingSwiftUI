@@ -19,6 +19,7 @@ struct ContentView: View {
 
     @State private var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
     @State private var weeks = [1, 2, 3, 4, 5, 6, 7]
+    @State private var days = ["Monday", "Tuesday", "Thursday", "Friday"]
     @State private var pickingPhase = false
 
     func getPhaseData() {
@@ -61,6 +62,17 @@ struct ContentView: View {
         )
     }
 
+    func dayChanged(to newDay: String) {
+        print("Day changed to: \(newDay)")
+        phaseManager.update(
+            phaseName: selectedPhase,
+            phaseWeek: selectedWeek,
+            phaseDay: newDay,
+            lastCompletedItem: lastCompletedItem,
+            phaseWeekTotal: weeks.count
+        )
+    }
+
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             Button(action: {
@@ -79,6 +91,8 @@ struct ContentView: View {
             .padding([.leading, .trailing], 16)
 
             if pickingPhase {
+                let pickerHeight: CGFloat = 200
+
                 VStack {
                     Text("Select Phase")
                         .font(.system(size: 18, weight: .bold))
@@ -90,7 +104,9 @@ struct ContentView: View {
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
-                    .padding()
+                    .frame(height: pickerHeight)
+//                    .background(Color.yellow)
+//                    .padding()
                     .onChange(of: selectedPhase) { newPhase in
                         phaseChanged(to: newPhase)
                     }
@@ -101,12 +117,28 @@ struct ContentView: View {
                         }
                     }
                     .pickerStyle(WheelPickerStyle())
-                    .padding()
+                    .frame(height: pickerHeight)
+//                    .background(Color.green)
+//                    .padding()
                     .onChange(of: selectedWeek) { newWeek in
                         weekChanged(to: newWeek)
                     }
+
+                    Picker("Select Day", selection: $selectedDay) {
+                        ForEach(days, id: \.self) { day in
+                            Text("\(day)")
+                        }
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(height: pickerHeight)
+//                    .background(Color.green)
+//                    .padding()
+                    .onChange(of: selectedDay) { newDay in
+                        dayChanged(to: newDay)
+                    }
                 }
-                .padding()
+//                .background(Color.red)
+//                .padding()
 
                 Spacer()
             } else {

@@ -16,6 +16,7 @@ struct MaxHistoryView: View {
     @State private var allRecords: [MaxIntensityRecord] = []
     @State private var records: [MaxIntensityRecord] = []
     @State var gotoToSaveMax = false
+    @State private var selectedRecord: MaxIntensityRecord?
 
     private func loadAllRecords() {
         let descriptor = FetchDescriptor<MaxIntensityRecord>(
@@ -75,28 +76,99 @@ struct MaxHistoryView: View {
                 Text("No \(exerciseName) records.")
                     .foregroundColor(.gray)
             } else {
+//                Chart(records) { record in
+//                    LineMark(
+//                        x: .value("Date", record.dateRecorded),
+//                        y: .value("Max Weight", record.maxIntensity)
+//                    )
+//                    .symbol(Circle())
+//                    .annotation(position: .top) {
+//                        VStack(spacing: 2) {
+//                            Text("\(Int(record.maxIntensity)) lbs")
+//                                .font(.caption2)
+//                                .foregroundColor(.white)
+//                            Text(record.dateRecorded.formatted(date: .numeric, time: .omitted))
+//                                .font(.caption2)
+//                                .foregroundColor(.white)
+//                        }
+//                        .padding(6)
+//                        .background(Color.black.opacity(0.8))
+//                        .cornerRadius(5)
+//                    }
+//                }
+//                .chartXAxis {
+//                    AxisMarks(values: .automatic) { value in
+//                        if let dateValue = value.as(Date.self) {
+//                            AxisGridLine()
+//                            AxisValueLabel {
+//                                //                                Text(dateValue.formatted(date: .numeric, time: .omitted))
+//                                //                                    .font(.caption)
+//                                Text("")
+//                                    .font(.caption)
+//                            }
+//                        }
+//                    }
+//                }
+//                //                .chartXAxisLabel("Date")
+//                .padding(.top, 20)
+
                 Chart(records) { record in
                     LineMark(
                         x: .value("Date", record.dateRecorded),
-                        y: .value("Max Weight", record.maxIntensity)
+                        y: .value("Max", record.maxIntensity)
                     )
+                    .interpolationMethod(.catmullRom)
                     .symbol(Circle())
+
+                    if selectedRecord?.dateRecorded == record.dateRecorded {
+                        PointMark(
+                            x: .value("Date", record.dateRecorded),
+                            y: .value("Max", record.maxIntensity)
+                        )
+                        .annotation(position: .top) {
+                            VStack(spacing: 2) {
+                                Text("\(Int(record.maxIntensity)) lbs")
+                                Text(record.dateRecorded.formatted(date: .numeric, time: .omitted))
+                            }
+                            .foregroundColor(Color.white)
+                            .font(.caption2)
+                            .padding(6)
+                            .background(Color.black.opacity(0.8))
+                            .cornerRadius(5)
+                        }
+                    }
+                }
+                .chartOverlay { proxy in
+                    GeometryReader { _ in
+                        Rectangle().fill(Color.clear).contentShape(Rectangle())
+                            .gesture(
+                                DragGesture(minimumDistance: 0)
+                                    .onChanged { value in
+                                        let location = value.location
+                                        if let date: Date = proxy.value(atX: location.x) {
+                                            if let nearest = records.min(by: {
+                                                abs($0.dateRecorded.timeIntervalSince(date)) <
+                                                    abs($1.dateRecorded.timeIntervalSince(date))
+                                            }) {
+                                                selectedRecord = nearest
+                                            }
+                                        }
+                                    }
+                            )
+                    }
                 }
                 .chartXAxis {
                     AxisMarks(values: .automatic) { value in
                         if let dateValue = value.as(Date.self) {
                             AxisGridLine()
                             AxisValueLabel {
-                                Text(dateValue, format: .dateTime.month().day().year())
+                                Text("")
                                     .font(.caption)
                             }
                         }
                     }
                 }
-                .chartYAxisLabel("Weight (lbs)")
-                .chartXAxisLabel("Date")
-                .frame(height: 300)
-                .padding()
+                .padding(.top, 20)
             }
 
             Spacer()

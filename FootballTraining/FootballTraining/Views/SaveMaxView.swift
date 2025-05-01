@@ -8,16 +8,21 @@
 import SwiftData
 import SwiftUI
 
+import SwiftData
+import SwiftUI
+
 struct SaveMax: View {
     @Binding var exerciseName: String
     @Binding var selectedExercise: (text: String, type: String, name: String, sets: [SetElement], max: Double)
     @State var intensity: String = ""
     @Environment(\.modelContext) private var modelContext
     @State private var records: [MaxIntensityRecord] = []
+    @FocusState private var isKeyboardFocused: Bool
+    @State private var showSaveDecisionAlert = false
+    @State private var recentRecord: MaxIntensityRecord?
+    @State private var pendingIntensity: Double?
 
     private func loadExerciseRecords() {
-        print("loadExerciseRecords")
-
         let descriptor = FetchDescriptor<MaxIntensityRecord>(
             predicate: #Predicate { $0.exerciseName == exerciseName },
             sortBy: [SortDescriptor(\.dateRecorded, order: .forward)]
@@ -25,65 +30,138 @@ struct SaveMax: View {
 
         do {
             records = try modelContext.fetch(descriptor)
-
             if let latest = records.last {
-                print("Latest \(exerciseName) Max: \(latest.maxIntensity) lbs")
+                intensity = String(format: "%.0f", latest.maxIntensity)
             }
-
         } catch {
             print("Failed to fetch records:", error)
         }
     }
 
-    func saveMaxIntensity(exerciseName: String, intensity: Double, context: ModelContext) {
-        let record = MaxIntensityRecord(exerciseName: exerciseName, maxIntensity: intensity, dateRecorded: Date())
+    func attemptSaveMaxIntensity(exerciseName: String, intensity: Double, context: ModelContext) {
+        var descriptor = FetchDescriptor<MaxIntensityRecord>(
+            predicate: #Predicate { $0.exerciseName == exerciseName },
+            sortBy: [SortDescriptor(\.dateRecorded, order: .reverse)]
+        )
+        descriptor.fetchLimit = 1
+
+        do {
+            if let latest = try context.fetch(descriptor).first,
+               let days = Calendar.current.dateComponents([.day], from: latest.dateRecorded, to: Date()).day,
+               days < 2
+            {
+                recentRecord = latest
+                pendingIntensity = intensity
+                showSaveDecisionAlert = true
+                return
+            }
+        } catch {
+            print("Failed to fetch latest record:", error)
+        }
+
+        saveNewMaxIntensity(exerciseName: exerciseName, intensity: intensity, context: context)
+    }
+
+    func saveNewMaxIntensity(exerciseName: String, intensity: Double, context: ModelContext) {
+//        let testDate = Date().addingTimeInterval(86400 * 10) // 3 days in the future
+        let todayDate = Date()
+
+        let record = MaxIntensityRecord(exerciseName: exerciseName, maxIntensity: intensity, dateRecorded: todayDate)
         context.insert(record)
 
         do {
             try context.save()
-            print("Saved \(exerciseName) with intensity \(intensity) on \(record.dateRecorded)")
-
             selectedExercise.max = intensity
-
             loadExerciseRecords()
-
         } catch {
-            print("Failed to save:", error)
+            print("Failed to save new record:", error)
         }
+
+        UIApplication.shared.endEditing()
+    }
+
+    func updateRecentMaxIntensity(context: ModelContext) {
+        guard let record = recentRecord, let newIntensity = pendingIntensity, let dateRecorded = recentRecord?.dateRecorded else { return }
+
+//        let yesterday = Date().addingTimeInterval(-(86400 / 2))
+
+        record.maxIntensity = newIntensity
+        record.dateRecorded = dateRecorded
+
+        do {
+            try context.save()
+            selectedExercise.max = newIntensity
+            loadExerciseRecords()
+        } catch {
+            print("Failed to update record:", error)
+        }
+
+        UIApplication.shared.endEditing()
     }
 
     var body: some View {
-        VStack(spacing: 20) {
-            TextField("Exercise Name", text: $exerciseName)
-                .textFieldStyle(.roundedBorder)
+        VStack {
+            Text("\(exerciseName)")
+                .font(.system(size: 18, weight: .bold))
+                .foregroundColor(AppConfig.greenColor)
 
-            TextField("Max Amount", text: $intensity)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.numberPad)
+            Spacer().frame(height: 3)
 
-            Spacer()
+            Text("1 (Rep Max)")
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundColor(AppConfig.greenColor)
 
-            Button(action: {
-                if let intensityValue = Double(intensity) {
-                    saveMaxIntensity(exerciseName: exerciseName, intensity: intensityValue, context: modelContext)
+            Spacer().frame(height: 10)
+
+            VStack(spacing: 20) {
+                TextField("Max Amount", text: $intensity)
+                    .keyboardType(.numberPad)
+                    .focused($isKeyboardFocused)
+                    .padding(10)
+                    .background(Color(hex: "F0F0F0"))
+
+                Spacer()
+
+                Button("Save Max") {
+                    if let intensityValue = Double(intensity) {
+                        attemptSaveMaxIntensity(
+                            exerciseName: exerciseName,
+                            intensity: intensityValue,
+                            context: modelContext
+                        )
+                    }
                 }
-
-//                to do: dismiss keyboard
-            }) {
-                Text("Save Max")
-                    .font(.system(size: 16, weight: .bold, design: .default))
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 45)
-                    .background(Color(hex: "7FBF30"))
-                    .foregroundColor(.white)
-                    .cornerRadius(5)
+                .font(.system(size: 16, weight: .bold))
+                .frame(maxWidth: .infinity, minHeight: 45)
+                .background(Color(hex: "7FBF30"))
+                .foregroundColor(.white)
+                .cornerRadius(5)
             }
-            .padding([.leading, .trailing], 16)
-            .onAppear {
-                loadExerciseRecords()
+            .padding()
+        }
+        // ✅ Move toolbar to top-level VStack to avoid ambiguity
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    isKeyboardFocused = false
+                }
             }
         }
-        .padding()
+        .alert("A max intensity was already saved in the last 2 days. What do you want to do?", isPresented: $showSaveDecisionAlert) {
+            Button("Update Existing", role: .destructive) {
+                updateRecentMaxIntensity(context: modelContext)
+            }
+            Button("Save New Record") {
+                if let newIntensity = pendingIntensity {
+                    saveNewMaxIntensity(exerciseName: exerciseName, intensity: newIntensity, context: modelContext)
+                }
+            }
+            Button("Cancel", role: .cancel) {}
+        }
+        .onAppear {
+            loadExerciseRecords()
+        }
     }
 }
 
