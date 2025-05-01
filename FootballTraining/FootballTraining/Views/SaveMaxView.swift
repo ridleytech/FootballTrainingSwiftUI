@@ -15,6 +15,7 @@ struct SaveMax: View {
     @State private var records: [MaxIntensityRecord] = []
     @FocusState private var isKeyboardFocused: Bool
     @State private var showSaveDecisionAlert = false
+    @State private var showMaxSavedAlert = false
     @State private var recentRecord: MaxIntensityRecord?
     @State private var pendingIntensity: Double?
 
@@ -70,6 +71,7 @@ struct SaveMax: View {
         do {
             try context.save()
             selectedExercise.max = intensity
+            showMaxSavedAlert = true
             loadExerciseRecords()
         } catch {
             print("Failed to save new record:", error)
@@ -89,6 +91,7 @@ struct SaveMax: View {
         do {
             try context.save()
             selectedExercise.max = newIntensity
+            showMaxSavedAlert = true
             loadExerciseRecords()
         } catch {
             print("Failed to update record:", error)
@@ -135,8 +138,8 @@ struct SaveMax: View {
                 .foregroundColor(.white)
                 .cornerRadius(5)
             }
-            .padding()
         }
+        .padding([.leading, .trailing], 16)
         // ✅ Move toolbar to top-level VStack to avoid ambiguity
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
@@ -146,7 +149,10 @@ struct SaveMax: View {
                 }
             }
         }
-        .alert("A max intensity was already saved in the last 2 days. What do you want to do?", isPresented: $showSaveDecisionAlert) {
+        .alert("Max Saved", isPresented: $showMaxSavedAlert) {
+            Button("Ok") {}
+        }
+        .alert("A max intensity was already saved recently. What do you want to do?", isPresented: $showSaveDecisionAlert) {
             Button("Update Existing", role: .destructive) {
                 updateRecentMaxIntensity(context: modelContext)
             }

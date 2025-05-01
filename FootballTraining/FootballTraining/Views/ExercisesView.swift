@@ -21,69 +21,98 @@ struct ExercisesView: View {
 
     var body: some View {
         VStack {
-            Text("\(currentDay)")
-                .font(.system(size: 18, weight: .bold, design: .default))
-                .foregroundColor(AppConfig.greenColor)
+            HStack {
+                Spacer()
 
-            List(Array(exercises.enumerated()), id: \.element.id) { index, exercise in
+                Text("\(currentDay)")
+                    .font(.system(size: 18, weight: .bold, design: .default))
+                    .foregroundColor(AppConfig.greenColor)
 
-                HStack {
-                    VStack {
-                        HStack {
-                            Utils.iconForExerciseType2(exercise.type)
-                                // .font(.system(size: 16, weight: .medium, design: .default))
+                Spacer()
+
+                Button(action: {
+                    completeWorkout()
+
+                }) {
+                    Text("C")
+                        .font(.system(size: 16, weight: .bold, design: .default))
+//                        .frame(maxWidth: .infinity)
+                        .frame(width: 25, height: 25)
+                        .background(Color(hex: "7FBF30"))
+                        .foregroundColor(.white)
+                        .cornerRadius(5)
+                }
+            }
+
+            ZStack(alignment: .bottom) {
+                List(Array(exercises.enumerated()), id: \.element.id) { index, exercise in
+                    HStack {
+                        VStack {
+                            HStack {
+                                Utils.iconForExerciseType2(exercise.type)
+                                    .frame(width: 25, height: 25)
+                                    .background(exercise.type == "Basic" ? Color.blue : Color.red)
+                                    .foregroundColor(Color.white)
+                                    .cornerRadius(5)
+                                    .padding(.trailing, 2)
+
+                                Text(exercise.name)
+                                    .font(.system(size: 16, weight: .medium, design: .default))
+                                Spacer()
+                            }
+
+                            HStack {
+                                Text(exercise.text)
+                                    .padding(.leading, 8)
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                        }
+
+                        if index < lastCompletedItem && index > -1 {
+                            Image("AppIconSplash")
+                                .resizable()
                                 .frame(width: 25, height: 25)
-                                .background(exercise.type == "Basic" ? Color.blue : Color.red)
-                                .foregroundColor(Color.white)
-                                .cornerRadius(5)
-                                .padding(.trailing, 2)
-
-                            Text(exercise.name)
-                                .font(.system(size: 16, weight: .medium, design: .default))
-                            Spacer()
+                                .scaledToFit()
                         }
-
-                        HStack {
-                            Text(exercise.text)
-                                .padding(.leading, 8)
-                            Spacer()
+                    }
+                    .onTapGesture {
+                        if lastCompletedItem == index {
+                            selectedExercise = exercise
+                            gotoToExercise = true
                         }
-                        .frame(maxWidth: .infinity)
-//                        .background(Color.white)
-                        .padding(.vertical, 8)
                     }
-
-                    if index < lastCompletedItem && index > -1 {
-                        Image("AppIconSplash").resizable().frame(width: 25, height: 25).scaledToFit()
-                    }
+                    .listRowBackground(lastCompletedItem != index ? Color.white.opacity(0.5) : Color.white)
+                    .padding(16)
+                    .listRowInsets(EdgeInsets())
                 }
-                .onTapGesture {
-                    if lastCompletedItem == index {
-                        selectedExercise = exercise
-                        gotoToExercise = true
-                    }
+//                .listStyle(.plain)
 
-//                    navigationManager.path.append(Route.exerciseDetail)
-                }
-                .listRowBackground(lastCompletedItem != index ? Color.white.opacity(0.5) : Color.white)
-                .padding(16) // Custom padding
-                .listRowInsets(EdgeInsets()) // Remove default inset
+                // 👇 Bottom shadow overlay
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.black.opacity(0.05), Color.clear]),
+                    startPoint: .bottom,
+                    endPoint: .top
+                )
+                .frame(height: 20)
+                .allowsHitTesting(false)
             }
 
             Spacer().frame(height: 10)
 
-            Button(action: {
-                completeWorkout()
-
-            }) {
-                Text("Complete Workout")
-                    .font(.system(size: 16, weight: .bold, design: .default))
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 45)
-                    .background(Color(hex: "7FBF30"))
-                    .foregroundColor(.white)
-                    .cornerRadius(5)
-            }
+//            Button(action: {
+//                completeWorkout()
+//
+//            }) {
+//                Text("Complete Workout")
+//                    .font(.system(size: 16, weight: .bold, design: .default))
+//                    .frame(maxWidth: .infinity)
+//                    .frame(height: 45)
+//                    .background(Color(hex: "7FBF30"))
+//                    .foregroundColor(.white)
+//                    .cornerRadius(5)
+//            }
 
             // .navigationTitle("\(currentDay) Lifts")
         }
@@ -110,7 +139,19 @@ struct ExercisesView: View {
         ExercisesView(currentDay: .constant("Monday"),
                       exercises: [DayExercises(text: ".68 x 8",
                                                type: "Basic",
-                                               name: "Bench Press", sets: [], max: 1.0)], lastCompletedItem: .constant(0))
+                                               name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
+                                                                                                      type: "Basic",
+                                                                                                      name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
+                                                                                                                                                             type: "Basic",
+                                                                                                                                                             name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
+                                                                                                                                                                                                                    type: "Basic",
+                                                                                                                                                                                                                    name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
+                                                                                                                                                                                                                                                                           type: "Basic",
+                                                                                                                                                                                                                                                                           name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
+                                                                                                                                                                                                                                                                                                                                  type: "Basic",
+                                                                                                                                                                                                                                                                                                                                  name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
+                                                                                                                                                                                                                                                                                                                                                                                         type: "Basic",
+                                                                                                                                                                                                                                                                                                                                                                                         name: "Bench Press", sets: [], max: 1.0)], lastCompletedItem: .constant(0))
             .environmentObject(NavigationManager())
     }
 }

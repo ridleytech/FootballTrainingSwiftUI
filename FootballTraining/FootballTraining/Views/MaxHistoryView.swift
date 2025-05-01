@@ -61,16 +61,6 @@ struct MaxHistoryView: View {
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
 
-            HStack {
-                Spacer()
-
-                Button("+ Add Max") {
-                    gotoToSaveMax = true
-                }
-                .font(.system(size: 16, weight: .bold, design: .default))
-                .foregroundColor(AppConfig.greenColor)
-            }
-
             Spacer()
 
             if records.isEmpty {
@@ -178,6 +168,19 @@ struct MaxHistoryView: View {
             }
 
             Spacer()
+
+            Button(action: {
+                gotoToSaveMax = true
+//                navigationManager.path.append(Route.currentSet)
+            }) {
+                Text("Add Max")
+                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+                    .background(Color(hex: "7FBF30"))
+                    .foregroundColor(.white)
+                    .cornerRadius(5)
+            }
         }
         .padding([.leading, .trailing], 16)
         .onAppear {
