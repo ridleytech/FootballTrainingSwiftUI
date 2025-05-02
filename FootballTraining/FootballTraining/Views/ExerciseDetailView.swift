@@ -12,6 +12,7 @@ struct ExerciseDetailView: View {
     @Binding var lastCompletedItem: Int
     @State var gotoToMaxHistory = false
     @State var gotoToExercise = false
+    @State var selectedExerciseIndex: Int
     @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
@@ -65,6 +66,8 @@ struct ExerciseDetailView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
+            .disabled(selectedExerciseIndex != lastCompletedItem)
+            .opacity(selectedExerciseIndex != lastCompletedItem ? 0.75 : 1.0)
 //            .padding([.leading, .trailing], 16)
             
             Spacer().frame(height: 10)
@@ -112,7 +115,7 @@ struct ExerciseDetailView: View {
 #Preview {
     NavigationStack {
         ExerciseDetailView(selectedExercise: DayExercises(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
-                           lastCompletedItem: .constant(0))
+                           lastCompletedItem: .constant(0), selectedExerciseIndex: 1)
             .environmentObject(NavigationManager())
     }
 }
