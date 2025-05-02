@@ -1,5 +1,5 @@
 //
-//  BaseScreen.swift
+//  PhaseDataView.swift
 //  FootballTraining
 //
 //  Created by Randall Ridley on 4/26/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BaseScreen: View {
+struct PhaseDataView: View {
     @State var goToWorkout = false
     @Binding var currentPhase: String
     @Binding var currentDay: String
@@ -17,11 +17,6 @@ struct BaseScreen: View {
 
     var body: some View {
         VStack {
-//            Spacer().frame(height: 30)
-//            Text("Football Training")
-//                .font(.system(size: 18, weight: .bold, design: .default))
-//                .foregroundColor(AppConfig.greenColor)
-
             Spacer().frame(height: 20)
 
             HStack {
@@ -75,7 +70,7 @@ struct BaseScreen: View {
     NavigationStack {
 //        ContentView(currentPhase: .constant("Postseason"), currentDay: .constant("Monday"), currentWeek: .constant("1"))
 //
-        BaseScreen(
+        PhaseDataView(
             currentPhase: .constant("Postseason"),
             currentDay: .constant("Monday"),
             currentWeek: .constant(1),

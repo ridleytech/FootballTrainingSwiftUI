@@ -115,7 +115,7 @@ struct DayWorkoutView: View {
                 }
 
         } else {
-            ExercisesView(currentDay: $currentDay, exercises: dayExercises, lastCompletedItem: $lastCompletedItem)
+            ExercisesView(currentDay: $currentDay, lastCompletedItem: $lastCompletedItem, exercises: dayExercises)
                 .onChange(of: lastCompletedItem) { newValue in
                     print("lastCompletedItem changed to: \(newValue)")
 //                    savePhase()

@@ -22,60 +22,6 @@ struct ContentView: View {
     @State private var days = ["Monday", "Tuesday", "Thursday", "Friday"]
     @State private var pickingPhase = false
 
-    func getPhaseData() {
-        do {
-            if let url = Bundle.main.url(forResource: selectedPhase, withExtension: "json"),
-               let data = try? Data(contentsOf: url),
-               let postseason = try? JSONDecoder().decode(PostseasonModel.self, from: data)
-            {
-                weeks = Array(1 ..< postseason.week.count)
-            }
-        } catch {
-            print("Failed to fetch all records:", error)
-        }
-    }
-
-    func phaseChanged(to newPhase: String) {
-        print("Phase changed to: \(newPhase)")
-        selectedWeek = 1
-        lastCompletedItem = 0
-
-        getPhaseData()
-
-        phaseManager.update(
-            phaseName: newPhase,
-            phaseWeek: selectedWeek,
-            phaseDay: selectedDay,
-            lastCompletedItem: lastCompletedItem,
-            phaseWeekTotal: weeks.count
-        )
-    }
-
-    func weekChanged(to newWeek: Int) {
-        print("Week changed to: \(newWeek)")
-        phaseManager.update(
-            phaseName: selectedPhase,
-            phaseWeek: newWeek,
-            phaseDay: selectedDay,
-            lastCompletedItem: lastCompletedItem,
-            phaseWeekTotal: weeks.count
-        )
-    }
-
-    func dayChanged(to newDay: String) {
-        print("Day changed to: \(newDay)")
-
-        lastCompletedItem = 0
-
-        phaseManager.update(
-            phaseName: selectedPhase,
-            phaseWeek: selectedWeek,
-            phaseDay: newDay,
-            lastCompletedItem: lastCompletedItem,
-            phaseWeekTotal: weeks.count
-        )
-    }
-
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
             VStack {
@@ -107,55 +53,19 @@ struct ContentView: View {
                 }
 
                 if pickingPhase {
-                    let pickerHeight: CGFloat = 200
-
-                    VStack {
-                        Spacer().frame(height: 10)
-                        Text("Select Phase")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(AppConfig.grayColor)
-
-                        Picker("Select Phase", selection: $selectedPhase) {
-                            ForEach(phases, id: \.self) { phase in
-                                Text(phase)
-                            }
-                        }
-                        .pickerStyle(WheelPickerStyle())
-                        .frame(height: pickerHeight)
-                        //                    .background(Color.yellow)
-                        .onChange(of: selectedPhase) { newPhase in
-                            phaseChanged(to: newPhase)
-                        }
-
-                        Picker("Select Week", selection: $selectedWeek) {
-                            ForEach(weeks, id: \.self) { week in
-                                Text("Week \(week)")
-                            }
-                        }
-                        .pickerStyle(WheelPickerStyle())
-                        .frame(height: pickerHeight)
-                        //                    .background(Color.green)
-                        .onChange(of: selectedWeek) { newWeek in
-                            weekChanged(to: newWeek)
-                        }
-
-                        Picker("Select Day", selection: $selectedDay) {
-                            ForEach(days, id: \.self) { day in
-                                Text("\(day)")
-                            }
-                        }
-                        .pickerStyle(WheelPickerStyle())
-                        .frame(height: pickerHeight)
-                        //                    .background(Color.green)
-                        .onChange(of: selectedDay) { newDay in
-                            dayChanged(to: newDay)
-                        }
-                    }
-                    //                .background(Color.red)
+                    PhasePickerView(
+                        selectedPhase: $selectedPhase,
+                        selectedWeek: $selectedWeek,
+                        selectedDay: $selectedDay,
+                        lastCompletedItem: $lastCompletedItem,
+                        phases: $phases,
+                        days: $days, weeks: $weeks
+                    )
+                    // .background(Color.red)
 
                     Spacer()
                 } else {
-                    BaseScreen(
+                    PhaseDataView(
                         currentPhase: $selectedPhase,
                         currentDay: $selectedDay,
                         currentWeek: $selectedWeek,
@@ -164,15 +74,6 @@ struct ContentView: View {
                 }
             }
             .padding([.leading, .trailing], 16)
-        }
-        .onAppear {
-            if let record = phaseManager.phaseRecord {
-                selectedPhase = record.phaseName
-                selectedWeek = record.phaseWeek
-                selectedDay = record.phaseDay
-                lastCompletedItem = record.lastCompletedItem
-                getPhaseData()
-            }
         }
         .onChange(of: pickingPhase) { _ in
 //            print("pickingPhase to: \(newValue)")

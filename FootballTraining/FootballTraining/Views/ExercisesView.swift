@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ExercisesView: View {
     @Binding var currentDay: String
-    let exercises: [DayExercises]
     @Binding var lastCompletedItem: Int
     @State var gotoToExercise = false
     @State var selectedExercise: DayExercises?
     @EnvironmentObject var navigationManager: NavigationManager
+    let exercises: [DayExercises]
 
     func completeWorkout() {
         print("completeWorkout")
@@ -34,11 +34,11 @@ struct ExercisesView: View {
                     Spacer()
                     Button(action: {
                         completeWorkout()
-                        
+
                     }) {
                         Text("C")
                             .font(.system(size: 16, weight: .bold, design: .default))
-                        //                        .frame(maxWidth: .infinity)
+                            //                        .frame(maxWidth: .infinity)
                             .frame(width: 25, height: 25)
                             .background(Color(hex: "7FBF30"))
                             .foregroundColor(.white)
@@ -140,21 +140,30 @@ struct ExercisesView: View {
 #Preview {
     NavigationStack {
         ExercisesView(currentDay: .constant("Monday"),
-                      exercises: [DayExercises(text: ".68 x 8",
-                                               type: "Basic",
-                                               name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
-                                                                                                      type: "Basic",
-                                                                                                      name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
-                                                                                                                                                             type: "Basic",
-                                                                                                                                                             name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
-                                                                                                                                                                                                                    type: "Basic",
-                                                                                                                                                                                                                    name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
-                                                                                                                                                                                                                                                                           type: "Basic",
-                                                                                                                                                                                                                                                                           name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
-                                                                                                                                                                                                                                                                                                                                  type: "Basic",
-                                                                                                                                                                                                                                                                                                                                  name: "Bench Press", sets: [], max: 1.0), DayExercises(text: ".68 x 8",
-                                                                                                                                                                                                                                                                                                                                                                                         type: "Basic",
-                                                                                                                                                                                                                                                                                                                                                                                         name: "Bench Press", sets: [], max: 1.0)], lastCompletedItem: .constant(0))
-            .environmentObject(NavigationManager())
+                      lastCompletedItem: .constant(0),
+                      exercises: [
+                          DayExercises(text: ".68 x 8",
+                                       type: "Basic",
+                                       name: "Bench Press", sets: [], max: 1.0),
+                          DayExercises(text: ".68 x 8",
+                                       type: "Basic",
+                                       name: "Bench Press", sets: [], max: 1.0),
+                          DayExercises(text: ".68 x 8",
+                                       type: "Basic",
+                                       name: "Bench Press", sets: [], max: 1.0),
+                          DayExercises(text: ".68 x 8",
+                                       type: "Basic",
+                                       name: "Bench Press", sets: [], max: 1.0),
+                          DayExercises(text: ".68 x 8",
+                                       type: "Basic",
+                                       name: "Bench Press", sets: [], max: 1.0),
+                          DayExercises(text: ".68 x 8",
+                                       type: "Basic",
+                                       name: "Bench Press", sets: [], max: 1.0),
+                          DayExercises(text: ".68 x 8",
+                                       type: "Basic",
+                                       name: "Bench Press", sets: [], max: 1.0),
+                      ])
+                      .environmentObject(NavigationManager())
     }
 }
