@@ -14,31 +14,40 @@ struct ExerciseItemView: View {
     @Binding var selectedExercise: DayExercises?
     @Binding var gotoToExercise: Bool
     @Binding var exerciseIndex: Int
+    let showExerciseType = false
 
     var body: some View {
         HStack {
+            Utils.iconForExerciseType2(exercise.type)
+                .frame(width: 50, height: 50)
+                .background(exercise.type == "Basic" ? Color.blue : Color.red)
+                .foregroundColor(Color.white)
+                .cornerRadius(5)
+                .padding(.trailing, 2)
+
             VStack {
                 HStack {
-                    Utils.iconForExerciseType2(exercise.type)
-                        .frame(width: 25, height: 25)
-                        .background(exercise.type == "Basic" ? Color.blue : Color.red)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(5)
-                        .padding(.trailing, 2)
-
                     Text(exercise.name)
-                        .font(.system(size: 16, weight: .medium, design: .default))
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                        .foregroundColor(AppConfig.grayColor)
+//                        .font(.caption2)
+
                     Spacer()
                 }
+//                .background(Color.yellow)
 
                 HStack {
                     Text(exercise.text)
-                        .padding(.leading, 8)
+                        .foregroundColor(AppConfig.grayColor)
+
+//                        .padding(.leading, 8)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 8)
+//                .background(Color.red)
             }
+//            .background(Color.orange)
 
             if index < lastCompletedItem && index > -1 {
                 Image("AppIconSplash")

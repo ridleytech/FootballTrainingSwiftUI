@@ -45,6 +45,7 @@ struct ExercisesView: View {
                             .foregroundColor(.white)
                             .cornerRadius(5)
                     }
+                    Spacer().frame(width: 16)
                 }
             }
 
@@ -63,7 +64,7 @@ struct ExercisesView: View {
 
                 // 👇 Bottom shadow overlay
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.black.opacity(0.05), Color.clear]),
+                    gradient: Gradient(colors: [Color.black.opacity(0.2), Color.clear]),
                     startPoint: .bottom,
                     endPoint: .top
                 )
@@ -71,30 +72,18 @@ struct ExercisesView: View {
                 .allowsHitTesting(false)
             }
 
-            Spacer().frame(height: 10)
-
-//            Button(action: {
-//                completeWorkout()
-//
-//            }) {
-//                Text("Complete Workout")
-//                    .font(.system(size: 16, weight: .bold, design: .default))
-//                    .frame(maxWidth: .infinity)
-//                    .frame(height: 45)
-//                    .background(Color(hex: "7FBF30"))
-//                    .foregroundColor(.white)
-//                    .cornerRadius(5)
-//            }
+//            Spacer().frame(height: 10)
 
             // .navigationTitle("\(currentDay) Lifts")
         }
-        .padding([.leading, .trailing], 16)
+//        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $gotoToExercise) {
             ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex)
         }
         .onAppear {
             print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
         }
+        .ignoresSafeArea(.container, edges: .bottom)
 //        .navigationDestination(for: Route.self) { route in
 //            switch route {
 //            case .exerciseDetail:

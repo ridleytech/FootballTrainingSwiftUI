@@ -76,6 +76,7 @@ struct ContentView: View {
         .onChange(of: pickingPhase) { _ in
 //            print("pickingPhase to: \(newValue)")
         }
+        .tint(AppConfig.greenColor)
     }
 }
 

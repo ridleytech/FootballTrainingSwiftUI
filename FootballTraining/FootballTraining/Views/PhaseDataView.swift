@@ -50,6 +50,7 @@ struct PhaseDataView: View {
                     .cornerRadius(5)
             }
         }
+        
 //        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $goToWorkout) {
             DayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
