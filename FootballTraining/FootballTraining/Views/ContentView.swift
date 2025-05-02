@@ -16,7 +16,6 @@ struct ContentView: View {
     @State var selectedWeek: Int = 1
     @State var selectedDay: String = "Monday"
     @State var lastCompletedItem: Int = 0
-
     @State private var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
     @State private var weeks = [1, 2, 3, 4, 5, 6, 7]
     @State private var days = ["Monday", "Tuesday", "Thursday", "Friday"]
@@ -43,7 +42,6 @@ struct ContentView: View {
                         }) {
                             Text("P")
                                 .font(.system(size: 16, weight: .bold, design: .default))
-                                //                        .frame(maxWidth: .infinity)
                                 .frame(width: 25, height: 25)
                                 .background(Color(hex: "7FBF30"))
                                 .foregroundColor(.white)
