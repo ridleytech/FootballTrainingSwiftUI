@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SaveMax: View {
     @Binding var selectedExercise: DayExercises
+    @Binding var maxDataChanged: Bool
     @State var intensity: String = ""
     @Environment(\.modelContext) private var modelContext
     @State private var records: [MaxIntensityRecord] = []
@@ -72,6 +73,7 @@ struct SaveMax: View {
             try context.save()
             selectedExercise.max = intensity
             showMaxSavedAlert = true
+            maxDataChanged = true
             loadExerciseRecords()
         } catch {
             print("Failed to save new record:", error)
@@ -92,6 +94,7 @@ struct SaveMax: View {
             try context.save()
             selectedExercise.max = newIntensity
             showMaxSavedAlert = true
+            maxDataChanged = true
             loadExerciseRecords()
         } catch {
             print("Failed to update record:", error)
@@ -175,7 +178,7 @@ struct SaveMax: View {
     @State var intensity = "300"
 
     // 2. Return the view with Bindings and SwiftData modelContainer
-    SaveMax(selectedExercise: .constant(DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0)), intensity: intensity)
+    SaveMax(selectedExercise: .constant(DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0)), maxDataChanged: .constant(false), intensity: intensity)
 //        .modelContainer(for: MaxIntensityRecord.self, inMemory: true)
         .modelContainer(for: MaxIntensityRecord.self)
 }

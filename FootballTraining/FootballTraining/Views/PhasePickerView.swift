@@ -21,23 +21,13 @@ struct PhasePickerView: View {
 
     let pickerHeight: CGFloat = 200
 
-//    @Binding private var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
-//    @Binding private var weeks = [1, 2, 3, 4, 5, 6, 7]
-//    @Binding private var days = ["Monday", "Tuesday", "Thursday", "Friday"]
-//    @Binding private var pickerHeight: CGFloat = 200
-//    @State private var pickingPhase = false
-//    @State private var phaseChanged = false
-//    @State private var weekChanged = false
-//    @State private var dayChanged = false
-//    @State private var phaseChangedTo: String = ""
-
     func getPhaseData() {
         do {
             if let url = Bundle.main.url(forResource: selectedPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
-               let postseason = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+               let currentPhaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
             {
-                weeks = Array(1 ..< postseason.week.count)
+                weeks = Array(1 ..< currentPhaseData.week.count)
             }
         } catch {
             print("Failed to fetch all records:", error)

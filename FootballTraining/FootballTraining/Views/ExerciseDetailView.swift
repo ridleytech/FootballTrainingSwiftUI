@@ -13,6 +13,7 @@ struct ExerciseDetailView: View {
     @State var gotoToMaxHistory = false
     @State var gotoToExercise = false
     @State var selectedExerciseIndex: Int
+    @Binding var maxDataChanged: Bool
     @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
@@ -97,7 +98,7 @@ struct ExerciseDetailView: View {
 //        }
         
         .navigationDestination(isPresented: $gotoToMaxHistory) {
-            MaxHistoryView(selectedExercise: $selectedExercise)
+            MaxHistoryView(selectedExercise: $selectedExercise, maxDataChanged: $maxDataChanged)
         }
         .navigationDestination(isPresented: $gotoToExercise) {
             CurrentSetView(dayExercises: selectedExercise, lastCompletedItem: $lastCompletedItem)
@@ -115,7 +116,7 @@ struct ExerciseDetailView: View {
 #Preview {
     NavigationStack {
         ExerciseDetailView(selectedExercise: DayExercises(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
-                           lastCompletedItem: .constant(0), selectedExerciseIndex: 1)
+                           lastCompletedItem: .constant(0), selectedExerciseIndex: 1, maxDataChanged: .constant(false))
             .environmentObject(NavigationManager())
     }
 }

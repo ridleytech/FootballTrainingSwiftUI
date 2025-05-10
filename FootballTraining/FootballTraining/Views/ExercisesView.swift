@@ -14,10 +14,22 @@ struct ExercisesView: View {
     @State var selectedExercise: DayExercises?
     @EnvironmentObject var navigationManager: NavigationManager
     let exercises: [DayExercises]
+    @Binding var maxDataChanged: Bool
     @State var exerciseIndex: Int = 0
+    @State var tappedExercise = false
+    @State var tappedItemIndex: Int = 0
 
     func completeWorkout() {
         print("completeWorkout")
+    }
+
+    func updateLastCompletedItem() {
+        print("Complete Set tappedItemIndex: \(tappedItemIndex)")
+
+//                lastCompletedItem = tappedItemIndex
+        lastCompletedItem += 1
+
+        print("Complete Set lastCompletedItem: \(lastCompletedItem)")
     }
 
     var body: some View {
@@ -57,7 +69,9 @@ struct ExercisesView: View {
                         lastCompletedItem: $lastCompletedItem,
                         selectedExercise: $selectedExercise,
                         gotoToExercise: $gotoToExercise,
-                        exerciseIndex: $exerciseIndex
+                        exerciseIndex: $exerciseIndex,
+                        tappedExercise: $tappedExercise,
+                        tappedItemIndex: $tappedItemIndex
                     )
                 }
 //                .listStyle(.plain)
@@ -78,13 +92,31 @@ struct ExercisesView: View {
         }
 //        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $gotoToExercise) {
-            ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex)
+            ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex, maxDataChanged: $maxDataChanged)
         }
         .onAppear {
-            print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
+//            print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
         }
         .ignoresSafeArea(.container, edges: .bottom)
-//        .navigationDestination(for: Route.self) { route in
+        .alert(selectedExercise?.name ?? "", isPresented: $tappedExercise) {
+            Button("View Details") {
+                print("View Details")
+
+                gotoToExercise = true
+            }
+            Button("Complete Set") {
+                updateLastCompletedItem()
+            }
+            Button("Cancel", role: .cancel) {}
+        }
+        .onChange(of: tappedItemIndex) { newValue in
+            print("tappedItemIndex changed to: \(newValue)")
+        }
+        .onChange(of: lastCompletedItem) { newValue in
+            print("Exercises view lastCompletedItem changed to: \(newValue)")
+        }
+
+        //        .navigationDestination(for: Route.self) { route in
 //            switch route {
 //            case .exerciseDetail:
 //                ExerciseDetailView(exerciseName: $exerciseName, selectedExercise: selectedExercise ?? (text: "String", type: "String", name: "String", sets: [], max: 1.0))
@@ -105,7 +137,7 @@ struct ExercisesView: View {
                                        name: "Bench Press", sets: [], max: 1.0),
                           DayExercises(text: ".68 x 8",
                                        type: "Basic",
-                                       name: "Bench Press", sets: [], max: 1.0),
+                                       name: "Military Press", sets: [], max: 1.0),
                           DayExercises(text: ".68 x 8",
                                        type: "Basic",
                                        name: "Bench Press", sets: [], max: 1.0),
@@ -121,7 +153,7 @@ struct ExercisesView: View {
                           DayExercises(text: ".68 x 8",
                                        type: "Basic",
                                        name: "Bench Press", sets: [], max: 1.0),
-                      ])
+                      ], maxDataChanged: .constant(false))
                       .environmentObject(NavigationManager())
     }
 }

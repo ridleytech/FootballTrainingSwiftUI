@@ -73,8 +73,28 @@ struct ContentView: View {
             }
             .padding([.leading, .trailing], 16)
         }
+        .onAppear {
+            print("ContentView loaded saved phase: \(phaseManager.phaseRecord?.phaseName)")
+
+            // Set the initial phase data on the screen
+
+            if let phaseRecord = phaseManager.phaseRecord {
+                selectedPhase = phaseRecord.phaseName
+                selectedWeek = phaseRecord.phaseWeek
+                selectedDay = phaseRecord.phaseDay
+                lastCompletedItem = phaseRecord.lastCompletedItem
+                weeks = Array(1 ..< phaseRecord.phaseWeekTotal)
+            } else {
+//                selectedPhase = "Postseason"
+//                selectedWeek = 1
+//                selectedDay = "Monday"
+            }
+        }
         .onChange(of: pickingPhase) { _ in
 //            print("pickingPhase to: \(newValue)")
+        }
+        .onChange(of: phaseManager.phaseRecord) { record in
+            print("ContentView phaseInfo changed to: \(record)")
         }
         .tint(AppConfig.greenColor)
     }

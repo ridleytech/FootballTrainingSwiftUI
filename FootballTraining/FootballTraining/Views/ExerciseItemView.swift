@@ -14,6 +14,8 @@ struct ExerciseItemView: View {
     @Binding var selectedExercise: DayExercises?
     @Binding var gotoToExercise: Bool
     @Binding var exerciseIndex: Int
+    @Binding var tappedExercise: Bool
+    @Binding var tappedItemIndex: Int
     let showExerciseType = false
 
     var body: some View {
@@ -23,7 +25,13 @@ struct ExerciseItemView: View {
                 .background(exercise.type == "Basic" ? Color.blue : Color.red)
                 .foregroundColor(Color.white)
                 .cornerRadius(5)
-                .padding(.trailing, 2)
+                .padding(.trailing, 5)
+                .onTapGesture {
+//                    print("exercise type tapped: \(index)")
+                    selectedExercise = exercise
+                    tappedItemIndex = index
+                    tappedExercise = true
+                }
 
             VStack {
                 HStack {
@@ -57,6 +65,7 @@ struct ExerciseItemView: View {
             }
         }
         .onTapGesture {
+            print("tapped")
             //                        if lastCompletedItem == index {
             selectedExercise = exercise
             gotoToExercise = true
@@ -76,6 +85,8 @@ struct ExerciseItemView: View {
         lastCompletedItem: .constant(0),
         selectedExercise: .constant(nil),
         gotoToExercise: .constant(false),
-        exerciseIndex: .constant(0)
+        exerciseIndex: .constant(0),
+        tappedExercise: .constant(false),
+        tappedItemIndex: .constant(0)
     )
 }

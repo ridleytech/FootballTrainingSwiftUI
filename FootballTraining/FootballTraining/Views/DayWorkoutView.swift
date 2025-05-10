@@ -14,6 +14,7 @@ struct DayWorkoutView: View {
     @Binding var currentDay: String
     @Binding var currentWeek: Int
     @Binding var lastCompletedItem: Int
+    @State var maxDataChanged: Bool = false
 
     @State private var dayExercises: [DayExercises] = []
 
@@ -77,11 +78,6 @@ struct DayWorkoutView: View {
     }
 
     func getDayData() {
-//        print("getDayData")
-//        print("currentPhase: \(currentPhase)")
-//        print("currentWeek: \(currentWeek)")
-//        print("currentDay: \(currentDay)")
-
         do {
             if let url = Bundle.main.url(forResource: currentPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
@@ -115,15 +111,23 @@ struct DayWorkoutView: View {
                 }
 
         } else {
-            ExercisesView(currentDay: $currentDay, lastCompletedItem: $lastCompletedItem, exercises: dayExercises)
+            ExercisesView(currentDay: $currentDay, lastCompletedItem: $lastCompletedItem, exercises: dayExercises, maxDataChanged: $maxDataChanged)
                 .onChange(of: lastCompletedItem) { newValue in
-                    print("lastCompletedItem changed to: \(newValue)")
-//                    savePhase()
+                    print("DayWorkoutView lastCompletedItem changed to: \(newValue)")
 
                     ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExercises.count, lastCompletedItem: &lastCompletedItem, currentPhase: &currentPhase, currentDay: &currentDay, currentWeek: &currentWeek, phaseManager: phaseManager, modelContext: modelContext)
                 }
+                .onChange(of: maxDataChanged) { newValue in
+
+                    if maxDataChanged {
+                        print("maxDataChanged changed to: \(newValue)")
+                        getDayData()
+                    }
+
+                    maxDataChanged = false
+                }
                 .onAppear {
-//                    getDayData()
+//                    print("DayWorkoutView onAppear")
                 }
         }
     }
