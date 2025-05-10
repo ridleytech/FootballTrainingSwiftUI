@@ -35,7 +35,7 @@ class ModelUtils {
                           currentWeek: inout Int,
                           phaseManager: PhaseManager, modelContext: ModelContext)
     {
-        print("savePhase DayWorkoutView")
+        print("savePhase CurrentDayWorkoutView")
 
         //            when day workout is finished,
         //            check if last exercise in day, if so, advance to next day, week, or phase

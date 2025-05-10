@@ -31,7 +31,7 @@ class PhaseManager: ObservableObject {
 
             if let existing = records.first {
                 phaseRecord = existing
-                print("Loaded existing PhaseRecord: \(existing.description)")
+//                print("Loaded existing PhaseRecord: \(existing.description)")
             } else {
                 let new = PhaseRecord(phaseName: "Postseason", phaseWeek: 1, phaseDay: "Monday", lastCompletedItem: 0, phaseWeekTotal: 5)
                 modelContext.insert(new)

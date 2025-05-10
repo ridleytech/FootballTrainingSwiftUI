@@ -85,17 +85,16 @@ struct ExerciseDetailView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-//            .padding([.leading, .trailing], 16)
         }
         .padding([.leading, .trailing], 16)
-//        .navigationDestination(for: Route.self) { route in
-//            switch route {
-//            case .currentSet:
-//                CurrentSetView(exerciseName: $exerciseName, dayExercises: selectedExercise)
-//            default:
-//                EmptyView()
-//            }
-//        }
+        .navigationDestination(for: Route.self) { route in
+            switch route {
+            case .currentSet:
+                CurrentSetView(dayExercises: selectedExercise, lastCompletedItem: $lastCompletedItem)
+            default:
+                EmptyView()
+            }
+        }
         
         .navigationDestination(isPresented: $gotoToMaxHistory) {
             MaxHistoryView(selectedExercise: $selectedExercise, maxDataChanged: $maxDataChanged)

@@ -1,5 +1,5 @@
 //
-//  DayWorkoutView.swift
+//  CurrentDayWorkoutView.swift
 //  FootballTraining
 //
 //  Created by Randall Ridley on 4/26/25.
@@ -8,7 +8,7 @@
 import _SwiftData_SwiftUI
 import SwiftUI
 
-struct DayWorkoutView: View {
+struct CurrentDayWorkoutView: View {
     @Environment(\.modelContext) private var modelContext
     @Binding var currentPhase: String
     @Binding var currentDay: String
@@ -37,8 +37,6 @@ struct DayWorkoutView: View {
 //            print("no stuff")
             return []
         }
-
-//        print("get stuff")
 
         var results: [DayExercises] = []
 
@@ -111,9 +109,9 @@ struct DayWorkoutView: View {
                 }
 
         } else {
-            ExercisesView(currentDay: $currentDay, lastCompletedItem: $lastCompletedItem, exercises: dayExercises, maxDataChanged: $maxDataChanged)
+            ExercisesListView(currentDay: $currentDay, lastCompletedItem: $lastCompletedItem, exercises: dayExercises, maxDataChanged: $maxDataChanged)
                 .onChange(of: lastCompletedItem) { newValue in
-                    print("DayWorkoutView lastCompletedItem changed to: \(newValue)")
+                    print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
                     ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExercises.count, lastCompletedItem: &lastCompletedItem, currentPhase: &currentPhase, currentDay: &currentDay, currentWeek: &currentWeek, phaseManager: phaseManager, modelContext: modelContext)
                 }
@@ -127,7 +125,7 @@ struct DayWorkoutView: View {
                     maxDataChanged = false
                 }
                 .onAppear {
-//                    print("DayWorkoutView onAppear")
+//                    print("CurrentDayWorkoutView onAppear")
                 }
         }
     }
@@ -147,7 +145,7 @@ struct DayWorkoutView: View {
         let phaseManager = PhaseManager(modelContext: modelContext)
 
         return NavigationStack {
-            DayWorkoutView(currentPhase: .constant("Preseason"), currentDay: .constant("Monday"), currentWeek: .constant(1), lastCompletedItem: .constant(0))
+            CurrentDayWorkoutView(currentPhase: .constant("Preseason"), currentDay: .constant("Monday"), currentWeek: .constant(1), lastCompletedItem: .constant(0))
                 //        .modelContainer(for: Item.self, inMemory: true)
                 .modelContainer(for: MaxIntensityRecord.self)
                 .environmentObject(NavigationManager())

@@ -174,8 +174,6 @@ struct CurrentSetView: View {
             Spacer().frame(height: 10)
 
             Button(action: {
-                //            gotoToMaxHistory = true
-
                 setStarted ? completeSet() : startSet()
             }) {
                 Text("\(workoutEnded ? "Lift Completed" : setStarted ? "End Set" : "Start Set")")
@@ -186,7 +184,6 @@ struct CurrentSetView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-//            .padding([.leading, .trailing], 16)
             .disabled(currentSet == dayExercises.sets.count && !workoutStarted)
 
             Spacer()
@@ -202,8 +199,8 @@ struct CurrentSetView: View {
         .alert("Lift Completed", isPresented: $showAlert) {
             Button("OK", role: .cancel) {
                 print("go back to workout")
-                //                fire event to update current highlighted exercise in list
-                //                navigationManager.path.removeLast(2)
+                // fire event to update current highlighted exercise in list
+                // navigationManager.path.removeLast(2)
             }
         } message: {
             Text("")
@@ -215,8 +212,6 @@ struct CurrentSetView: View {
             .foregroundColor(AppConfig.grayColor)
         }
 //        }
-
-//        Spacer()
     }
 }
 

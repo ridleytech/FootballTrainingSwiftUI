@@ -18,6 +18,8 @@ struct MaxHistoryView: View {
     @State var gotoToSaveMax = false
     @State private var selectedRecord: MaxIntensityRecord?
     @State private var animatedRecords: [MaxIntensityRecord] = []
+    @EnvironmentObject var navigationManager: NavigationManager
+
 //    private func loadAllRecords() {
 //        let descriptor = FetchDescriptor<MaxIntensityRecord>(
 //            sortBy: [SortDescriptor(\.dateRecorded, order: .forward)]
@@ -171,7 +173,8 @@ struct MaxHistoryView: View {
             Spacer()
 
             Button(action: {
-                gotoToSaveMax = true
+//                gotoToSaveMax = true
+//                navigationManager.path.removeLast(2)
 //                navigationManager.path.append(Route.currentSet)
             }) {
                 Text("Add Max")

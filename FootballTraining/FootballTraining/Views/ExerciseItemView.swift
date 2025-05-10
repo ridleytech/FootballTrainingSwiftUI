@@ -17,6 +17,7 @@ struct ExerciseItemView: View {
     @Binding var tappedExercise: Bool
     @Binding var tappedItemIndex: Int
     let showExerciseType = false
+    @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
         HStack {

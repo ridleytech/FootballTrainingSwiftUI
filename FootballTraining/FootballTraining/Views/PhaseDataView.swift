@@ -39,7 +39,7 @@ struct PhaseDataView: View {
 
             Button(action: {
                 goToWorkout = true
-//                        navigationManager.path.append(Route.dayWorkout)
+//                navigationManager.path.append(Route.dayWorkout)
             }) {
                 Text("Train")
                     .font(.system(size: 16, weight: .bold, design: .default))
@@ -50,32 +50,30 @@ struct PhaseDataView: View {
                     .cornerRadius(5)
             }
         }
-        
 //        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $goToWorkout) {
-            DayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
+            CurrentDayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
         }
 //        .navigationDestination(for: Route.self) { route in
 //            switch route {
 //            case .dayWorkout:
-//                DayWorkoutView(currentPhase: .constant("Postseason"), currentDay: .constant("Monday"), currentWeek: .constant("1"))
+//                CurrentDayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
 //            default:
 //                EmptyView()
 //            }
 //        }
-        //        .background(Color.pink)
+        // .background(Color.pink)
     }
 }
 
 #Preview {
     NavigationStack {
-//        ContentView(currentPhase: .constant("Postseason"), currentDay: .constant("Monday"), currentWeek: .constant("1"))
-//
         PhaseDataView(
             currentPhase: .constant("Postseason"),
             currentDay: .constant("Monday"),
             currentWeek: .constant(1),
-            lastCompletedItem: .constant(0))
-            .environmentObject(NavigationManager())
+            lastCompletedItem: .constant(0)
+        )
+        .environmentObject(NavigationManager())
     }
 }

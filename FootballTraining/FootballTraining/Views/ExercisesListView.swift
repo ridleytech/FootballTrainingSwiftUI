@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExercisesView: View {
+struct ExercisesListView: View {
     @Binding var currentDay: String
     @Binding var lastCompletedItem: Int
     @State var gotoToExercise = false
@@ -21,6 +21,7 @@ struct ExercisesView: View {
 
     func completeWorkout() {
         print("completeWorkout")
+        navigationManager.path.removeLast(1)
     }
 
     func updateLastCompletedItem() {
@@ -115,45 +116,56 @@ struct ExercisesView: View {
         .onChange(of: lastCompletedItem) { newValue in
             print("Exercises view lastCompletedItem changed to: \(newValue)")
         }
+        .onChange(of: gotoToExercise) { newValue in
+            print("gotoToExercise changed to: \(newValue)")
 
-        //        .navigationDestination(for: Route.self) { route in
+            if gotoToExercise {
+                print("gotoToExercise is true")
+
+//                navigationManager.path.append(Route.exerciseDetail)
+            }
+        }
+//        .navigationDestination(for: Route.self) { route in
 //            switch route {
 //            case .exerciseDetail:
-//                ExerciseDetailView(exerciseName: $exerciseName, selectedExercise: selectedExercise ?? (text: "String", type: "String", name: "String", sets: [], max: 1.0))
+//                ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex, maxDataChanged: $maxDataChanged)
 //            default:
 //                EmptyView()
 //            }
 //        }
+        .onAppear {
+//            gotoToExercise = false
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        ExercisesView(currentDay: .constant("Monday"),
-                      lastCompletedItem: .constant(0),
-                      exercises: [
-                          DayExercises(text: ".68 x 8",
-                                       type: "Basic",
-                                       name: "Bench Press", sets: [], max: 1.0),
-                          DayExercises(text: ".68 x 8",
-                                       type: "Basic",
-                                       name: "Military Press", sets: [], max: 1.0),
-                          DayExercises(text: ".68 x 8",
-                                       type: "Basic",
-                                       name: "Bench Press", sets: [], max: 1.0),
-                          DayExercises(text: ".68 x 8",
-                                       type: "Basic",
-                                       name: "Bench Press", sets: [], max: 1.0),
-                          DayExercises(text: ".68 x 8",
-                                       type: "Basic",
-                                       name: "Bench Press", sets: [], max: 1.0),
-                          DayExercises(text: ".68 x 8",
-                                       type: "Basic",
-                                       name: "Bench Press", sets: [], max: 1.0),
-                          DayExercises(text: ".68 x 8",
-                                       type: "Basic",
-                                       name: "Bench Press", sets: [], max: 1.0),
-                      ], maxDataChanged: .constant(false))
-                      .environmentObject(NavigationManager())
+        ExercisesListView(currentDay: .constant("Monday"),
+                          lastCompletedItem: .constant(0),
+                          exercises: [
+                              DayExercises(text: ".68 x 8",
+                                           type: "Basic",
+                                           name: "Bench Press", sets: [], max: 1.0),
+                              DayExercises(text: ".68 x 8",
+                                           type: "Basic",
+                                           name: "Military Press", sets: [], max: 1.0),
+                              DayExercises(text: ".68 x 8",
+                                           type: "Basic",
+                                           name: "Bench Press", sets: [], max: 1.0),
+                              DayExercises(text: ".68 x 8",
+                                           type: "Basic",
+                                           name: "Bench Press", sets: [], max: 1.0),
+                              DayExercises(text: ".68 x 8",
+                                           type: "Basic",
+                                           name: "Bench Press", sets: [], max: 1.0),
+                              DayExercises(text: ".68 x 8",
+                                           type: "Basic",
+                                           name: "Bench Press", sets: [], max: 1.0),
+                              DayExercises(text: ".68 x 8",
+                                           type: "Basic",
+                                           name: "Bench Press", sets: [], max: 1.0),
+                          ], maxDataChanged: .constant(false))
+            .environmentObject(NavigationManager())
     }
 }
