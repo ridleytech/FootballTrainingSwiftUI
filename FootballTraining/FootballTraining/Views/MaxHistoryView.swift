@@ -173,7 +173,7 @@ struct MaxHistoryView: View {
             Spacer()
 
             Button(action: {
-//                gotoToSaveMax = true
+                gotoToSaveMax = true
 //                navigationManager.path.removeLast(2)
 //                navigationManager.path.append(Route.currentSet)
             }) {
