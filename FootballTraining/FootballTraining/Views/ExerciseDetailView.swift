@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
-    @State var selectedExercise: DayExercises
+    @State var selectedExercise: DayExercise
     @Binding var lastCompletedItem: Int
     @State var gotoToMaxHistory = false
     @State var gotoToExercise = false
@@ -90,7 +90,7 @@ struct ExerciseDetailView: View {
         .navigationDestination(for: Route.self) { route in
             switch route {
             case .currentSet:
-                CurrentSetView(dayExercises: selectedExercise, lastCompletedItem: $lastCompletedItem)
+                CurrentSetView(DayExercise: selectedExercise, lastCompletedItem: $lastCompletedItem)
             default:
                 EmptyView()
             }
@@ -100,7 +100,7 @@ struct ExerciseDetailView: View {
             MaxHistoryView(selectedExercise: $selectedExercise, maxDataChanged: $maxDataChanged)
         }
         .navigationDestination(isPresented: $gotoToExercise) {
-            CurrentSetView(dayExercises: selectedExercise, lastCompletedItem: $lastCompletedItem)
+            CurrentSetView(DayExercise: selectedExercise, lastCompletedItem: $lastCompletedItem)
         }
         .onChange(of: selectedExercise.max) { newMax in
             
@@ -114,7 +114,7 @@ struct ExerciseDetailView: View {
 
 #Preview {
     NavigationStack {
-        ExerciseDetailView(selectedExercise: DayExercises(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
+        ExerciseDetailView(selectedExercise: DayExercise(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
                            lastCompletedItem: .constant(0), selectedExerciseIndex: 1, maxDataChanged: .constant(false))
             .environmentObject(NavigationManager())
     }

@@ -16,8 +16,8 @@ enum Route: Hashable {
 
 enum Route2: Hashable {
     case dayWorkout(currentPhase: String, currentDay: String, currentWeek: Int, lastCompletedItem: Int)
-    case exerciseDetail(selectedExercise: DayExercises, lastCompletedItem: Int, selectedExerciseIndex: Int, maxDataChanged: Bool)
-    case currentSet(dayExercises: DayExercises, lastCompletedItem: Int)
+    case exerciseDetail(selectedExercise: DayExercise, lastCompletedItem: Int, selectedExerciseIndex: Int, maxDataChanged: Bool)
+    case currentSet(DayExercise: DayExercise, lastCompletedItem: Int)
 }
 
 class NavigationManager: ObservableObject {

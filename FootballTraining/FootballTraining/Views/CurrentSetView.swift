@@ -9,7 +9,7 @@ import Combine
 import SwiftUI
 
 struct CurrentSetView: View {
-    @State var dayExercises: DayExercises
+    @State var DayExercise: DayExercise
     @Binding var lastCompletedItem: Int
     @State var currentSet: Int = 1
     @State var setStarted = false
@@ -25,7 +25,7 @@ struct CurrentSetView: View {
     func completeSet() {
         setStarted = false
 
-        if currentSet == dayExercises.sets.count {
+        if currentSet == DayExercise.sets.count {
             workoutCompleted()
             return
         }
@@ -99,7 +99,7 @@ struct CurrentSetView: View {
     var body: some View {
 //        ZStack {
         VStack {
-            Text(dayExercises.name)
+            Text(DayExercise.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
             Spacer().frame(height: 20)
@@ -114,19 +114,19 @@ struct CurrentSetView: View {
                     + Text(" of ")
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.grayColor)
-                    + Text("\(dayExercises.sets.count)")
+                    + Text("\(DayExercise.sets.count)")
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.greenColor)
                 //                Spacer()
             }
             Spacer().frame(height: 10)
 
-            if dayExercises.sets.count > 0 && currentSet < dayExercises.sets.count + 1 {
-                if dayExercises.max > 0.0 {
-                    if let intensityString = dayExercises.sets[currentSet-1].intensity, let reps = dayExercises.sets[currentSet-1].reps {
+            if DayExercise.sets.count > 0 && currentSet < DayExercise.sets.count + 1 {
+                if DayExercise.max > 0.0 {
+                    if let intensityString = DayExercise.sets[currentSet-1].intensity, let reps = DayExercise.sets[currentSet-1].reps {
                         if let intensity = Double(intensityString) {
                             // Calculate real lift amount
-                            let calculatedLift = intensity * dayExercises.max
+                            let calculatedLift = intensity * DayExercise.max
                             let formattedLift = String(format: "%.0f", roundToNearestMultipleOfFive(calculatedLift)) // no decimals
                             Text("\(formattedLift) x \(reps)")
                                 .font(.system(size: 50, weight: .bold, design: .default))
@@ -138,7 +138,7 @@ struct CurrentSetView: View {
                         }
                     }
                 } else {
-                    Text("\(dayExercises.sets[currentSet-1].intensity ?? "") x \(dayExercises.sets[currentSet-1].reps ?? "")")
+                    Text("\(DayExercise.sets[currentSet-1].intensity ?? "") x \(DayExercise.sets[currentSet-1].reps ?? "")")
                         .font(.system(size: 50, weight: .bold, design: .default))
                         .foregroundColor(AppConfig.greenColor)
                 }
@@ -180,19 +180,19 @@ struct CurrentSetView: View {
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
-                    .background(currentSet == dayExercises.sets.count && !workoutStarted ? Color.gray : Color(hex: "7FBF30"))
+                    .background(currentSet == DayExercise.sets.count && !workoutStarted ? Color.gray : Color(hex: "7FBF30"))
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .disabled(currentSet == dayExercises.sets.count && !workoutStarted)
+            .disabled(currentSet == DayExercise.sets.count && !workoutStarted)
 
             Spacer()
         }
         .padding([.leading, .trailing], 16)
         .onAppear {
-            print("dayExercises: \(dayExercises)")
+            print("DayExercise: \(DayExercise)")
 
-            if let firstSet = dayExercises.sets.first {
+            if let firstSet = DayExercise.sets.first {
                 print("First Set: \(firstSet.description)")
             }
         }
@@ -248,7 +248,7 @@ struct CurrentSetView: View {
         rest: "90"
     )
 
-    CurrentSetView(dayExercises: DayExercises(text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0), lastCompletedItem: .constant(-1))
+    CurrentSetView(DayExercise: DayExercise(text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0), lastCompletedItem: .constant(-1))
         .environmentObject(NavigationManager())
 }
 

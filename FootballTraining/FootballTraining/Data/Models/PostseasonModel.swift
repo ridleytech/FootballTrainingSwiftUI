@@ -15,7 +15,7 @@ import SwiftUI
 import Foundation
 import SwiftUI
 
-class DayExercises: Codable, Hashable, Identifiable {
+class DayExercise: Codable, Hashable, Identifiable {
     let id: UUID
     var text: String
     var type: String
@@ -32,7 +32,7 @@ class DayExercises: Codable, Hashable, Identifiable {
         self.max = max
     }
 
-    static func == (lhs: DayExercises, rhs: DayExercises) -> Bool {
+    static func == (lhs: DayExercise, rhs: DayExercise) -> Bool {
         lhs.id == rhs.id
     }
 

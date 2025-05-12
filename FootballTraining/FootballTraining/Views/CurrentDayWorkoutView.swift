@@ -16,7 +16,7 @@ struct CurrentDayWorkoutView: View {
     @Binding var lastCompletedItem: Int
     @State var maxDataChanged: Bool = false
 
-    @State private var dayExercises: [DayExercises] = []
+    @State private var DayExercise: [DayExercise] = []
 
     @State private var selectedItems: Set<String> = []
     @EnvironmentObject var navigationManager: NavigationManager
@@ -29,7 +29,7 @@ struct CurrentDayWorkoutView: View {
         return val
     }
 
-    func listExercisesForDay(in postseason: PostseasonModel, week: Int, dayName: String, context: ModelContext) -> [DayExercises] {
+    func listExercisesForDay(in postseason: PostseasonModel, week: Int, dayName: String, context: ModelContext) -> [DayExercise] {
         guard let week = postseason.week.first(where: { $0.name == "\(week)" }),
               let day = week.days.first(where: { $0.name == dayName }),
               let exercises = day.exercises
@@ -38,7 +38,7 @@ struct CurrentDayWorkoutView: View {
             return []
         }
 
-        var results: [DayExercises] = []
+        var results: [DayExercise] = []
 
         for exercise in exercises {
             var line = "" // "\(exercise.name):"
@@ -64,7 +64,14 @@ struct CurrentDayWorkoutView: View {
                     }
                 }
 
-                let exercise = DayExercises(text: line.trim(), type: exercise.type, name: exercise.name, sets: sets, max: (savedMaxLift != nil) ? savedMaxLift! : 0.0)
+//                self.id = id
+//                self.text = text
+//                self.type = type
+//                self.name = name
+//                self.sets = sets
+//                self.max = max
+
+                let exercise = FootballTraining.DayExercise(text: line.trim(), type: exercise.type, name: exercise.name, sets: sets, max: (savedMaxLift != nil) ? savedMaxLift! : 0.0)
 
 //                print("exercise: \(exercise.id) \(exercise.name) \(exercise.type) \(exercise.sets.count) \(exercise.max)")
 
@@ -85,7 +92,7 @@ struct CurrentDayWorkoutView: View {
                 print("currentWeek: \(currentWeek)")
                 print("currentDay: \(currentDay)")
 
-                dayExercises = listExercisesForDay(
+                DayExercise = listExercisesForDay(
                     in: postseason,
                     week: currentWeek,
                     dayName: currentDay,
@@ -102,18 +109,18 @@ struct CurrentDayWorkoutView: View {
     }
 
     var body: some View {
-        if dayExercises.isEmpty {
+        if DayExercise.isEmpty {
             ProgressView("Loading...")
                 .onAppear {
                     getDayData()
                 }
 
         } else {
-            ExercisesListView(currentDay: $currentDay, lastCompletedItem: $lastCompletedItem, exercises: dayExercises, maxDataChanged: $maxDataChanged)
+            ExercisesListView(currentDay: $currentDay, lastCompletedItem: $lastCompletedItem, exercises: DayExercise, maxDataChanged: $maxDataChanged)
                 .onChange(of: lastCompletedItem) { newValue in
                     print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
-                    ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExercises.count, lastCompletedItem: &lastCompletedItem, currentPhase: &currentPhase, currentDay: &currentDay, currentWeek: &currentWeek, phaseManager: phaseManager, modelContext: modelContext)
+                    ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: DayExercise.count, lastCompletedItem: &lastCompletedItem, currentPhase: &currentPhase, currentDay: &currentDay, currentWeek: &currentWeek, phaseManager: phaseManager, modelContext: modelContext)
                 }
                 .onChange(of: maxDataChanged) { newValue in
 

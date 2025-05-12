@@ -11,9 +11,9 @@ struct ExercisesListView: View {
     @Binding var currentDay: String
     @Binding var lastCompletedItem: Int
     @State var gotoToExercise = false
-    @State var selectedExercise: DayExercises?
+    @State var selectedExercise: DayExercise?
     @EnvironmentObject var navigationManager: NavigationManager
-    let exercises: [DayExercises]
+    let exercises: [DayExercise]
     @Binding var maxDataChanged: Bool
     @State var exerciseIndex: Int = 0
     @State var tappedExercise = false
@@ -93,7 +93,7 @@ struct ExercisesListView: View {
         }
 //        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $gotoToExercise) {
-            ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex, maxDataChanged: $maxDataChanged)
+            ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex, maxDataChanged: $maxDataChanged)
         }
         .onAppear {
 //            print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
@@ -128,7 +128,7 @@ struct ExercisesListView: View {
 //        .navigationDestination(for: Route.self) { route in
 //            switch route {
 //            case .exerciseDetail:
-//                ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex, maxDataChanged: $maxDataChanged)
+//                ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex, maxDataChanged: $maxDataChanged)
 //            default:
 //                EmptyView()
 //            }
@@ -144,25 +144,25 @@ struct ExercisesListView: View {
         ExercisesListView(currentDay: .constant("Monday"),
                           lastCompletedItem: .constant(0),
                           exercises: [
-                              DayExercises(text: ".68 x 8",
+                              DayExercise(text: ".68 x 8",
                                            type: "Basic",
                                            name: "Bench Press", sets: [], max: 1.0),
-                              DayExercises(text: ".68 x 8",
+                              DayExercise(text: ".68 x 8",
                                            type: "Basic",
                                            name: "Military Press", sets: [], max: 1.0),
-                              DayExercises(text: ".68 x 8",
+                              DayExercise(text: ".68 x 8",
                                            type: "Basic",
                                            name: "Bench Press", sets: [], max: 1.0),
-                              DayExercises(text: ".68 x 8",
+                              DayExercise(text: ".68 x 8",
                                            type: "Basic",
                                            name: "Bench Press", sets: [], max: 1.0),
-                              DayExercises(text: ".68 x 8",
+                              DayExercise(text: ".68 x 8",
                                            type: "Basic",
                                            name: "Bench Press", sets: [], max: 1.0),
-                              DayExercises(text: ".68 x 8",
+                              DayExercise(text: ".68 x 8",
                                            type: "Basic",
                                            name: "Bench Press", sets: [], max: 1.0),
-                              DayExercises(text: ".68 x 8",
+                              DayExercise(text: ".68 x 8",
                                            type: "Basic",
                                            name: "Bench Press", sets: [], max: 1.0),
                           ], maxDataChanged: .constant(false))

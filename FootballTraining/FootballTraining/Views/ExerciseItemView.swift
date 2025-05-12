@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ExerciseItemView: View {
-    var exercise: DayExercises
+    var exercise: DayExercise
     var index: Int
     @Binding var lastCompletedItem: Int
-    @Binding var selectedExercise: DayExercises?
+    @Binding var selectedExercise: DayExercise?
     @Binding var gotoToExercise: Bool
     @Binding var exerciseIndex: Int
     @Binding var tappedExercise: Bool
@@ -81,7 +81,7 @@ struct ExerciseItemView: View {
 
 #Preview {
     ExerciseItemView(
-        exercise: DayExercises(text: ".68 x 8", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
+        exercise: DayExercise(text: ".68 x 8", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
         index: 0,
         lastCompletedItem: .constant(0),
         selectedExercise: .constant(nil),

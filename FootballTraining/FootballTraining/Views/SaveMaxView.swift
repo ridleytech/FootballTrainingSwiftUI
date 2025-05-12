@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct SaveMax: View {
-    @Binding var selectedExercise: DayExercises
+    @Binding var selectedExercise: DayExercise
     @Binding var maxDataChanged: Bool
     @State var intensity: String = ""
     @Environment(\.modelContext) private var modelContext
@@ -178,7 +178,7 @@ struct SaveMax: View {
     @State var intensity = "300"
 
     // 2. Return the view with Bindings and SwiftData modelContainer
-    SaveMax(selectedExercise: .constant(DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0)), maxDataChanged: .constant(false), intensity: intensity)
+    SaveMax(selectedExercise: .constant(DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0)), maxDataChanged: .constant(false), intensity: intensity)
 //        .modelContainer(for: MaxIntensityRecord.self, inMemory: true)
         .modelContainer(for: MaxIntensityRecord.self)
 }

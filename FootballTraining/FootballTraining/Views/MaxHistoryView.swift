@@ -10,7 +10,7 @@ import Charts
 import SwiftUI
 
 struct MaxHistoryView: View {
-    @Binding var selectedExercise: DayExercises
+    @Binding var selectedExercise: DayExercise
     @Binding var maxDataChanged: Bool
     @Environment(\.modelContext) private var modelContext
 //    @State private var allRecords: [MaxIntensityRecord] = []
@@ -199,5 +199,5 @@ struct MaxHistoryView: View {
 }
 
 #Preview {
-    MaxHistoryView(selectedExercise: .constant(DayExercises(text: "String", type: "String", name: "String", sets: [], max: 1.0)), maxDataChanged: .constant(false))
+    MaxHistoryView(selectedExercise: .constant(DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0)), maxDataChanged: .constant(false))
 }

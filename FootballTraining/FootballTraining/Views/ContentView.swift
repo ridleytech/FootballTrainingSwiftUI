@@ -8,18 +8,23 @@
 import SwiftData
 import SwiftUI
 
+class PhaseViewModel: ObservableObject {
+    @Published var currentPhase: String = "Postseason"
+    @Published var currentWeek: Int = 1
+    @Published var currentDay: String = "Monday"
+    @Published var selectedExercise: DayExercise?
+    @Published var lastCompletedItem: Int = 0
+    @State var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
+    @Published var weeks = [1, 2, 3, 4, 5, 6, 7]
+    @Published var days = ["Monday", "Tuesday", "Thursday", "Friday"]
+    @Published var pickingPhase = false
+}
+
 struct ContentView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var phaseManager: PhaseManager
 
-    @State var selectedPhase: String = "Postseason"
-    @State var selectedWeek: Int = 1
-    @State var selectedDay: String = "Monday"
-    @State var lastCompletedItem: Int = 0
-    @State private var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
-    @State private var weeks = [1, 2, 3, 4, 5, 6, 7]
-    @State private var days = ["Monday", "Tuesday", "Thursday", "Friday"]
-    @State private var pickingPhase = false
+    @StateObject var viewModel = PhaseViewModel()
 
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
@@ -37,7 +42,7 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            pickingPhase.toggle()
+                            viewModel.pickingPhase.toggle()
 
                         }) {
                             Text("P")
@@ -50,24 +55,24 @@ struct ContentView: View {
                     }
                 }
 
-                if pickingPhase {
+                if viewModel.pickingPhase {
                     PhasePickerView(
-                        selectedPhase: $selectedPhase,
-                        selectedWeek: $selectedWeek,
-                        selectedDay: $selectedDay,
-                        lastCompletedItem: $lastCompletedItem,
-                        phases: $phases,
-                        days: $days, weeks: $weeks
+                        selectedPhase: $viewModel.currentPhase,
+                        selectedWeek: $viewModel.currentWeek,
+                        selectedDay: $viewModel.currentDay,
+                        lastCompletedItem: $viewModel.lastCompletedItem,
+                        phases: $viewModel.phases,
+                        days: $viewModel.days, weeks: $viewModel.weeks
                     )
                     // .background(Color.red)
 
                     Spacer()
                 } else {
                     PhaseDataView(
-                        currentPhase: $selectedPhase,
-                        currentDay: $selectedDay,
-                        currentWeek: $selectedWeek,
-                        lastCompletedItem: $lastCompletedItem
+                        currentPhase: $viewModel.currentPhase,
+                        currentDay: $viewModel.currentDay,
+                        currentWeek: $viewModel.currentWeek,
+                        lastCompletedItem: $viewModel.lastCompletedItem
                     )
                 }
             }
@@ -79,18 +84,18 @@ struct ContentView: View {
             // Set the initial phase data on the screen
 
             if let phaseRecord = phaseManager.phaseRecord {
-                selectedPhase = phaseRecord.phaseName
-                selectedWeek = phaseRecord.phaseWeek
-                selectedDay = phaseRecord.phaseDay
-                lastCompletedItem = phaseRecord.lastCompletedItem
-                weeks = Array(1 ..< phaseRecord.phaseWeekTotal)
+                viewModel.currentPhase = phaseRecord.phaseName
+                viewModel.currentWeek = phaseRecord.phaseWeek
+                viewModel.currentDay = phaseRecord.phaseDay
+                viewModel.lastCompletedItem = phaseRecord.lastCompletedItem
+                viewModel.weeks = Array(1 ..< phaseRecord.phaseWeekTotal)
             } else {
 //                selectedPhase = "Postseason"
 //                selectedWeek = 1
 //                selectedDay = "Monday"
             }
         }
-        .onChange(of: pickingPhase) { _ in
+        .onChange(of: viewModel.pickingPhase) { _ in
 //            print("pickingPhase to: \(newValue)")
         }
         .onChange(of: phaseManager.phaseRecord) { record in
