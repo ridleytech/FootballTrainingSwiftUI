@@ -57,12 +57,12 @@ struct ContentView: View {
 
                 if viewModel.pickingPhase {
                     PhasePickerView(
-                        selectedPhase: $viewModel.currentPhase,
-                        selectedWeek: $viewModel.currentWeek,
-                        selectedDay: $viewModel.currentDay,
-                        lastCompletedItem: $viewModel.lastCompletedItem,
-                        phases: $viewModel.phases,
-                        days: $viewModel.days, weeks: $viewModel.weeks
+                        //                        selectedPhase: $viewModel.currentPhase,
+//                        selectedWeek: $viewModel.currentWeek,
+//                        selectedDay: $viewModel.currentDay,
+//                        lastCompletedItem: $viewModel.lastCompletedItem,
+//                        phases: $viewModel.phases,
+//                        days: $viewModel.days, weeks: $viewModel.weeks
                     )
                     // .background(Color.red)
 
@@ -77,6 +77,7 @@ struct ContentView: View {
                 }
             }
             .padding([.leading, .trailing], 16)
+            .environmentObject(viewModel)
         }
         .onAppear {
             print("ContentView loaded saved phase: \(phaseManager.phaseRecord?.phaseName)")
