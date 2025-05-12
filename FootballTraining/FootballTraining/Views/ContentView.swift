@@ -58,38 +58,26 @@ struct ContentView: View {
                 }
 
                 if viewModel.pickingPhase {
-                    PhasePickerView(
-                        //                        selectedPhase: $viewModel.currentPhase,
-//                        selectedWeek: $viewModel.currentWeek,
-//                        selectedDay: $viewModel.currentDay,
-//                        lastCompletedItem: $viewModel.lastCompletedItem,
-//                        phases: $viewModel.phases,
-//                        days: $viewModel.days, weeks: $viewModel.weeks
-                    )
+                    PhasePickerView()
                     // .background(Color.red)
 
                     Spacer()
                 } else {
-                    PhaseDataView(
-                        //                        currentPhase: $viewModel.currentPhase,
-//                        currentDay: $viewModel.currentDay,
-//                        currentWeek: $viewModel.currentWeek,
-//                        lastCompletedItem: $viewModel.lastCompletedItem
-                    )
-                    .navigationDestination(for: Route2.self) { route in
-                        switch route {
-                        case .currentSet:
-                            CurrentSetView()
-                        case .dayWorkout:
-                            CurrentDayWorkoutView()
-                        case .exerciseDetail:
-                            ExerciseDetailView()
-                        case .maxHistory:
-                            MaxHistoryView()
-                        default:
-                            EmptyView()
+                    PhaseDataView()
+                        .navigationDestination(for: Route2.self) { route in
+                            switch route {
+                            case .currentSet:
+                                CurrentSetView()
+                            case .dayWorkout:
+                                CurrentDayWorkoutView()
+                            case .exerciseDetail:
+                                ExerciseDetailView()
+                            case .maxHistory:
+                                MaxHistoryView()
+                            default:
+                                EmptyView()
+                            }
                         }
-                    }
                 }
             }
             .padding([.leading, .trailing], 16)

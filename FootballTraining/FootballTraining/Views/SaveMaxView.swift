@@ -12,7 +12,6 @@ struct SaveMax: View {
     @EnvironmentObject var viewModel: PhaseViewModel
     @Environment(\.modelContext) private var modelContext
 
-//    @Binding var selectedExercise: DayExercise
     @State var intensity: String = ""
     @State private var records: [MaxIntensityRecord] = []
     @State private var showSaveDecisionAlert = false

@@ -9,10 +9,6 @@ import SwiftUI
 
 struct PhaseDataView: View {
     @State var goToWorkout = false
-//    @Binding var currentPhase: String
-//    @Binding var currentDay: String
-//    @Binding var currentWeek: Int
-//    @Binding var lastCompletedItem: Int
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var viewModel: PhaseViewModel
 
@@ -39,7 +35,6 @@ struct PhaseDataView: View {
             }
 
             Button(action: {
-//                goToWorkout = true
                 navigationManager.path.append(Route2.dayWorkout)
             }) {
                 Text("Train")
@@ -52,11 +47,6 @@ struct PhaseDataView: View {
             }
         }
 //        .padding([.leading, .trailing], 16)
-//        .navigationDestination(isPresented: $goToWorkout) {
-//            CurrentDayWorkoutView(
-//                //                currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem
-//            )
-//        }
     }
 }
 

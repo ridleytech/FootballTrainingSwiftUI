@@ -21,16 +21,17 @@ struct ExercisesListView: View {
 
     func completeWorkout() {
         print("completeWorkout")
-        navigationManager.path.removeLast(1)
+//        navigationManager.path.removeLast(1)
     }
 
     func updateLastCompletedItem() {
         print("Complete Set tappedItemIndex: \(tappedItemIndex)")
 
-//                lastCompletedItem = tappedItemIndex
         viewModel.lastCompletedItem += 1
 
         print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
+
+//        ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExerciseList.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
     }
 
     var body: some View {

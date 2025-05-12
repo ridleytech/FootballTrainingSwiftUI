@@ -10,7 +10,6 @@ import Charts
 import SwiftUI
 
 struct MaxHistoryView: View {
-//    @Binding var selectedExercise: DayExercise
     @Environment(\.modelContext) private var modelContext
 //    @State private var allRecords: [MaxIntensityRecord] = []
     @State private var records: [MaxIntensityRecord] = []
@@ -70,42 +69,6 @@ struct MaxHistoryView: View {
                 Text("No \(viewModel.selectedExercise.name) records.")
                     .foregroundColor(.gray)
             } else {
-//                Chart(records) { record in
-//                    LineMark(
-//                        x: .value("Date", record.dateRecorded),
-//                        y: .value("Max Weight", record.maxIntensity)
-//                    )
-//                    .symbol(Circle())
-//                    .annotation(position: .top) {
-//                        VStack(spacing: 2) {
-//                            Text("\(Int(record.maxIntensity)) lbs")
-//                                .font(.caption2)
-//                                .foregroundColor(.white)
-//                            Text(record.dateRecorded.formatted(date: .numeric, time: .omitted))
-//                                .font(.caption2)
-//                                .foregroundColor(.white)
-//                        }
-//                        .padding(6)
-//                        .background(Color.black.opacity(0.8))
-//                        .cornerRadius(5)
-//                    }
-//                }
-//                .chartXAxis {
-//                    AxisMarks(values: .automatic) { value in
-//                        if let dateValue = value.as(Date.self) {
-//                            AxisGridLine()
-//                            AxisValueLabel {
-//                                //                                Text(dateValue.formatted(date: .numeric, time: .omitted))
-//                                //                                    .font(.caption)
-//                                Text("")
-//                                    .font(.caption)
-//                            }
-//                        }
-//                    }
-//                }
-//                //                .chartXAxisLabel("Date")
-//                .padding(.top, 20)
-
                 Chart(animatedRecords) { record in
                     LineMark(
                         x: .value("Date", record.dateRecorded),
