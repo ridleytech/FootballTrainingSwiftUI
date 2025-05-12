@@ -18,6 +18,7 @@ class PhaseViewModel: ObservableObject {
     @Published var weeks = [1, 2, 3, 4, 5, 6, 7]
     @Published var days = ["Monday", "Tuesday", "Thursday", "Friday"]
     @Published var pickingPhase = false
+    @Published var maxDataChanged: Bool = false
 }
 
 struct ContentView: View {
@@ -103,6 +104,23 @@ struct ContentView: View {
         }
         .tint(AppConfig.greenColor)
         .environmentObject(viewModel)
+        //        .navigationDestination(for: Route.self) { route in
+        //            switch route {
+        //            case .currentSet:
+        //                CurrentSetView(currentExercise: selectedExercise)
+        //            default:
+        //                EmptyView()
+        //            }
+        //        }
+        //        .navigationDestination(for: Route.self) { route in
+        //            switch route {
+        //            case .dayWorkout:
+        //                CurrentDayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
+        //            default:
+        //                EmptyView()
+        //            }
+        //        }
+        // .background(Color.pink)
     }
 }
 

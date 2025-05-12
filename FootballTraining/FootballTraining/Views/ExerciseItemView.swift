@@ -10,7 +10,6 @@ import SwiftUI
 struct ExerciseItemView: View {
     var exercise: DayExercise
     var index: Int
-    @Binding var lastCompletedItem: Int
     @Binding var selectedExercise: DayExercise?
     @Binding var gotoToExercise: Bool
     @Binding var exerciseIndex: Int
@@ -18,6 +17,7 @@ struct ExerciseItemView: View {
     @Binding var tappedItemIndex: Int
     let showExerciseType = false
     @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var viewModel: PhaseViewModel
 
     var body: some View {
         HStack {
@@ -58,7 +58,7 @@ struct ExerciseItemView: View {
             }
 //            .background(Color.orange)
 
-            if index < lastCompletedItem && index > -1 {
+            if index < viewModel.lastCompletedItem && index > -1 {
                 Image("AppIconSplash")
                     .resizable()
                     .frame(width: 25, height: 25)
@@ -73,7 +73,7 @@ struct ExerciseItemView: View {
             exerciseIndex = index
             //                        }
         }
-        .listRowBackground(lastCompletedItem != index ? Color.white.opacity(0.5) : Color.white)
+        .listRowBackground(viewModel.lastCompletedItem != index ? Color.white.opacity(0.5) : Color.white)
         .padding(16)
         .listRowInsets(EdgeInsets())
     }
@@ -83,7 +83,6 @@ struct ExerciseItemView: View {
     ExerciseItemView(
         exercise: DayExercise(text: ".68 x 8", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
         index: 0,
-        lastCompletedItem: .constant(0),
         selectedExercise: .constant(nil),
         gotoToExercise: .constant(false),
         exerciseIndex: .constant(0),

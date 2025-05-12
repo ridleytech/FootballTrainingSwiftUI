@@ -14,8 +14,7 @@ struct CurrentDayWorkoutView: View {
     @EnvironmentObject var phaseManager: PhaseManager
     @EnvironmentObject var viewModel: PhaseViewModel
 
-    @State var maxDataChanged: Bool = false
-    @State private var DayExercise: [DayExercise] = []
+    @State private var dayExerciseList: [DayExercise] = []
     @State private var selectedItems: Set<String> = []
 
     let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
@@ -83,7 +82,7 @@ struct CurrentDayWorkoutView: View {
                 print("currentWeek: \(viewModel.currentWeek)")
                 print("currentDay: \(viewModel.currentDay)")
 
-                DayExercise = listExercisesForDay(
+                dayExerciseList = listExercisesForDay(
                     in: postseason,
                     week: viewModel.currentWeek,
                     dayName: viewModel.currentDay,
@@ -100,31 +99,33 @@ struct CurrentDayWorkoutView: View {
     }
 
     var body: some View {
-        if DayExercise.isEmpty {
+        if dayExerciseList.isEmpty {
             ProgressView("Loading...")
                 .onAppear {
                     getDayData()
                 }
 
         } else {
-            ExercisesListView(currentDay: $viewModel.currentDay, lastCompletedItem: $viewModel.lastCompletedItem, exercises: DayExercise, maxDataChanged: $maxDataChanged)
-                .onChange(of: viewModel.lastCompletedItem) { newValue in
-                    print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
+            ExercisesListView(
+                dayExerciseList: dayExerciseList
+            )
+            .onChange(of: viewModel.lastCompletedItem) { newValue in
+                print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
-                    ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: DayExercise.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
+                ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExerciseList.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
+            }
+            .onChange(of: viewModel.maxDataChanged) { newValue in
+
+                if viewModel.maxDataChanged {
+                    print("maxDataChanged changed to: \(newValue)")
+                    getDayData()
                 }
-                .onChange(of: maxDataChanged) { newValue in
 
-                    if maxDataChanged {
-                        print("maxDataChanged changed to: \(newValue)")
-                        getDayData()
-                    }
-
-                    maxDataChanged = false
-                }
-                .onAppear {
+                viewModel.maxDataChanged = false
+            }
+            .onAppear {
 //                    print("CurrentDayWorkoutView onAppear")
-                }
+            }
         }
     }
 }

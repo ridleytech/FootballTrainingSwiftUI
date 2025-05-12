@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ExercisesListView: View {
-    @Binding var currentDay: String
-    @Binding var lastCompletedItem: Int
+    @EnvironmentObject var viewModel: PhaseViewModel
+    @EnvironmentObject var navigationManager: NavigationManager
+
     @State var gotoToExercise = false
     @State var selectedExercise: DayExercise?
-    @EnvironmentObject var navigationManager: NavigationManager
-    let exercises: [DayExercise]
-    @Binding var maxDataChanged: Bool
+
+    let dayExerciseList: [DayExercise]
     @State var exerciseIndex: Int = 0
     @State var tappedExercise = false
     @State var tappedItemIndex: Int = 0
@@ -28,9 +28,9 @@ struct ExercisesListView: View {
         print("Complete Set tappedItemIndex: \(tappedItemIndex)")
 
 //                lastCompletedItem = tappedItemIndex
-        lastCompletedItem += 1
+        viewModel.lastCompletedItem += 1
 
-        print("Complete Set lastCompletedItem: \(lastCompletedItem)")
+        print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
     }
 
     var body: some View {
@@ -38,7 +38,7 @@ struct ExercisesListView: View {
             ZStack {
                 Spacer()
 
-                Text("\(currentDay)")
+                Text("\(viewModel.currentDay)")
                     .font(.system(size: 18, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.greenColor)
 
@@ -52,7 +52,7 @@ struct ExercisesListView: View {
                     }) {
                         Text("C")
                             .font(.system(size: 16, weight: .bold, design: .default))
-                            //                        .frame(maxWidth: .infinity)
+                            // .frame(maxWidth: .infinity)
                             .frame(width: 25, height: 25)
                             .background(Color(hex: "7FBF30"))
                             .foregroundColor(.white)
@@ -63,11 +63,10 @@ struct ExercisesListView: View {
             }
 
             ZStack(alignment: .bottom) {
-                List(Array(exercises.enumerated()), id: \.element.id) { index, exercise in
+                List(Array(dayExerciseList.enumerated()), id: \.element.id) { index, exercise in
                     ExerciseItemView(
                         exercise: exercise,
                         index: index,
-                        lastCompletedItem: $lastCompletedItem,
                         selectedExercise: $selectedExercise,
                         gotoToExercise: $gotoToExercise,
                         exerciseIndex: $exerciseIndex,
@@ -93,7 +92,10 @@ struct ExercisesListView: View {
         }
 //        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $gotoToExercise) {
-            ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex, maxDataChanged: $maxDataChanged)
+            ExerciseDetailView(
+                selectedExercise: selectedExercise ?? DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0),
+                selectedExerciseIndex: exerciseIndex
+            )
         }
         .onAppear {
 //            print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
@@ -113,7 +115,7 @@ struct ExercisesListView: View {
         .onChange(of: tappedItemIndex) { newValue in
             print("tappedItemIndex changed to: \(newValue)")
         }
-        .onChange(of: lastCompletedItem) { newValue in
+        .onChange(of: viewModel.lastCompletedItem) { newValue in
             print("Exercises view lastCompletedItem changed to: \(newValue)")
         }
         .onChange(of: gotoToExercise) { newValue in
@@ -125,14 +127,6 @@ struct ExercisesListView: View {
 //                navigationManager.path.append(Route.exerciseDetail)
             }
         }
-//        .navigationDestination(for: Route.self) { route in
-//            switch route {
-//            case .exerciseDetail:
-//                ExerciseDetailView(selectedExercise: selectedExercise ?? DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0), lastCompletedItem: $lastCompletedItem, selectedExerciseIndex: exerciseIndex, maxDataChanged: $maxDataChanged)
-//            default:
-//                EmptyView()
-//            }
-//        }
         .onAppear {
 //            gotoToExercise = false
         }
@@ -141,31 +135,31 @@ struct ExercisesListView: View {
 
 #Preview {
     NavigationStack {
-        ExercisesListView(currentDay: .constant("Monday"),
-                          lastCompletedItem: .constant(0),
-                          exercises: [
-                              DayExercise(text: ".68 x 8",
-                                           type: "Basic",
-                                           name: "Bench Press", sets: [], max: 1.0),
-                              DayExercise(text: ".68 x 8",
-                                           type: "Basic",
-                                           name: "Military Press", sets: [], max: 1.0),
-                              DayExercise(text: ".68 x 8",
-                                           type: "Basic",
-                                           name: "Bench Press", sets: [], max: 1.0),
-                              DayExercise(text: ".68 x 8",
-                                           type: "Basic",
-                                           name: "Bench Press", sets: [], max: 1.0),
-                              DayExercise(text: ".68 x 8",
-                                           type: "Basic",
-                                           name: "Bench Press", sets: [], max: 1.0),
-                              DayExercise(text: ".68 x 8",
-                                           type: "Basic",
-                                           name: "Bench Press", sets: [], max: 1.0),
-                              DayExercise(text: ".68 x 8",
-                                           type: "Basic",
-                                           name: "Bench Press", sets: [], max: 1.0),
-                          ], maxDataChanged: .constant(false))
-            .environmentObject(NavigationManager())
+//        ExercisesListView(currentDay: .constant("Monday"),
+//                          lastCompletedItem: .constant(0),
+//                          exercises: [
+//                              DayExercise(text: ".68 x 8",
+//                                          type: "Basic",
+//                                          name: "Bench Press", sets: [], max: 1.0),
+//                              DayExercise(text: ".68 x 8",
+//                                          type: "Basic",
+//                                          name: "Military Press", sets: [], max: 1.0),
+//                              DayExercise(text: ".68 x 8",
+//                                          type: "Basic",
+//                                          name: "Bench Press", sets: [], max: 1.0),
+//                              DayExercise(text: ".68 x 8",
+//                                          type: "Basic",
+//                                          name: "Bench Press", sets: [], max: 1.0),
+//                              DayExercise(text: ".68 x 8",
+//                                          type: "Basic",
+//                                          name: "Bench Press", sets: [], max: 1.0),
+//                              DayExercise(text: ".68 x 8",
+//                                          type: "Basic",
+//                                          name: "Bench Press", sets: [], max: 1.0),
+//                              DayExercise(text: ".68 x 8",
+//                                          type: "Basic",
+//                                          name: "Bench Press", sets: [], max: 1.0),
+//                          ], maxDataChanged: .constant(false))
+//            .environmentObject(NavigationManager())
     }
 }

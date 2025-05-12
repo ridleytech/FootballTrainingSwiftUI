@@ -9,16 +9,17 @@ import SwiftData
 import SwiftUI
 
 struct SaveMax: View {
-    @Binding var selectedExercise: DayExercise
-    @Binding var maxDataChanged: Bool
-    @State var intensity: String = ""
+    @EnvironmentObject var viewModel: PhaseViewModel
     @Environment(\.modelContext) private var modelContext
+
+    @Binding var selectedExercise: DayExercise
+    @State var intensity: String = ""
     @State private var records: [MaxIntensityRecord] = []
-    @FocusState private var isKeyboardFocused: Bool
     @State private var showSaveDecisionAlert = false
     @State private var showMaxSavedAlert = false
     @State private var recentRecord: MaxIntensityRecord?
     @State private var pendingIntensity: Double?
+    @FocusState private var isKeyboardFocused: Bool
 
     private func loadExerciseRecords() {
         let exerciseName = selectedExercise.name // ✅ capture value first
@@ -73,7 +74,7 @@ struct SaveMax: View {
             try context.save()
             selectedExercise.max = intensity
             showMaxSavedAlert = true
-            maxDataChanged = true
+            viewModel.maxDataChanged = true
             loadExerciseRecords()
         } catch {
             print("Failed to save new record:", error)
@@ -94,7 +95,7 @@ struct SaveMax: View {
             try context.save()
             selectedExercise.max = newIntensity
             showMaxSavedAlert = true
-            maxDataChanged = true
+            viewModel.maxDataChanged = true
             loadExerciseRecords()
         } catch {
             print("Failed to update record:", error)
@@ -178,7 +179,7 @@ struct SaveMax: View {
     @State var intensity = "300"
 
     // 2. Return the view with Bindings and SwiftData modelContainer
-    SaveMax(selectedExercise: .constant(DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0)), maxDataChanged: .constant(false), intensity: intensity)
+    SaveMax(selectedExercise: .constant(DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0)), intensity: intensity)
 //        .modelContainer(for: MaxIntensityRecord.self, inMemory: true)
         .modelContainer(for: MaxIntensityRecord.self)
 }

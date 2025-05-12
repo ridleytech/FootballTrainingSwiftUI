@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
+    @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var viewModel: PhaseViewModel
+    
     @State var selectedExercise: DayExercise
-    @Binding var lastCompletedItem: Int
     @State var gotoToMaxHistory = false
     @State var gotoToExercise = false
     @State var selectedExerciseIndex: Int
-    @Binding var maxDataChanged: Bool
-    @EnvironmentObject var navigationManager: NavigationManager
-
+    
     var body: some View {
         VStack {
             Text(selectedExercise.name)
@@ -67,8 +67,8 @@ struct ExerciseDetailView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .disabled(selectedExerciseIndex != lastCompletedItem)
-            .opacity(selectedExerciseIndex != lastCompletedItem ? 0.75 : 1.0)
+            .disabled(selectedExerciseIndex != viewModel.lastCompletedItem)
+            .opacity(selectedExerciseIndex != viewModel.lastCompletedItem ? 0.75 : 1.0)
 //            .padding([.leading, .trailing], 16)
             
             Spacer().frame(height: 10)
@@ -87,20 +87,11 @@ struct ExerciseDetailView: View {
             }
         }
         .padding([.leading, .trailing], 16)
-        .navigationDestination(for: Route.self) { route in
-            switch route {
-            case .currentSet:
-                CurrentSetView(DayExercise: selectedExercise, lastCompletedItem: $lastCompletedItem)
-            default:
-                EmptyView()
-            }
-        }
-        
         .navigationDestination(isPresented: $gotoToMaxHistory) {
-            MaxHistoryView(selectedExercise: $selectedExercise, maxDataChanged: $maxDataChanged)
+            MaxHistoryView(selectedExercise: $selectedExercise)
         }
         .navigationDestination(isPresented: $gotoToExercise) {
-            CurrentSetView(DayExercise: selectedExercise, lastCompletedItem: $lastCompletedItem)
+            CurrentSetView(currentExercise: selectedExercise)
         }
         .onChange(of: selectedExercise.max) { newMax in
             
@@ -114,8 +105,7 @@ struct ExerciseDetailView: View {
 
 #Preview {
     NavigationStack {
-        ExerciseDetailView(selectedExercise: DayExercise(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
-                           lastCompletedItem: .constant(0), selectedExerciseIndex: 1, maxDataChanged: .constant(false))
+        ExerciseDetailView(selectedExercise: DayExercise(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0), selectedExerciseIndex: 1)
             .environmentObject(NavigationManager())
     }
 }

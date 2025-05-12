@@ -9,14 +9,15 @@ import Combine
 import SwiftUI
 
 struct CurrentSetView: View {
-    @State var DayExercise: DayExercise
-    @Binding var lastCompletedItem: Int
+    @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var viewModel: PhaseViewModel
+
+    @State var currentExercise: DayExercise
     @State var currentSet: Int = 1
     @State var setStarted = false
     @State var workoutStarted = false
     @State private var showAlert = false
     @State private var workoutEnded = false
-    @EnvironmentObject var navigationManager: NavigationManager
 
     @State private var remainingTime: Int = 120 // starting time in seconds (example: 5 minutes)
     @State private var timerRunning = false
@@ -25,7 +26,7 @@ struct CurrentSetView: View {
     func completeSet() {
         setStarted = false
 
-        if currentSet == DayExercise.sets.count {
+        if currentSet == currentExercise.sets.count {
             workoutCompleted()
             return
         }
@@ -49,7 +50,7 @@ struct CurrentSetView: View {
         workoutStarted = false
         showAlert = true
         workoutEnded = true
-        lastCompletedItem += 1
+        viewModel.lastCompletedItem += 1
 
         // pause exercise video
     }
@@ -99,7 +100,7 @@ struct CurrentSetView: View {
     var body: some View {
 //        ZStack {
         VStack {
-            Text(DayExercise.name)
+            Text(currentExercise.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
             Spacer().frame(height: 20)
@@ -114,19 +115,19 @@ struct CurrentSetView: View {
                     + Text(" of ")
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.grayColor)
-                    + Text("\(DayExercise.sets.count)")
+                    + Text("\(currentExercise.sets.count)")
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.greenColor)
                 //                Spacer()
             }
             Spacer().frame(height: 10)
 
-            if DayExercise.sets.count > 0 && currentSet < DayExercise.sets.count + 1 {
-                if DayExercise.max > 0.0 {
-                    if let intensityString = DayExercise.sets[currentSet-1].intensity, let reps = DayExercise.sets[currentSet-1].reps {
+            if currentExercise.sets.count > 0 && currentSet < currentExercise.sets.count + 1 {
+                if currentExercise.max > 0.0 {
+                    if let intensityString = currentExercise.sets[currentSet-1].intensity, let reps = currentExercise.sets[currentSet-1].reps {
                         if let intensity = Double(intensityString) {
                             // Calculate real lift amount
-                            let calculatedLift = intensity * DayExercise.max
+                            let calculatedLift = intensity * currentExercise.max
                             let formattedLift = String(format: "%.0f", roundToNearestMultipleOfFive(calculatedLift)) // no decimals
                             Text("\(formattedLift) x \(reps)")
                                 .font(.system(size: 50, weight: .bold, design: .default))
@@ -138,7 +139,7 @@ struct CurrentSetView: View {
                         }
                     }
                 } else {
-                    Text("\(DayExercise.sets[currentSet-1].intensity ?? "") x \(DayExercise.sets[currentSet-1].reps ?? "")")
+                    Text("\(currentExercise.sets[currentSet-1].intensity ?? "") x \(currentExercise.sets[currentSet-1].reps ?? "")")
                         .font(.system(size: 50, weight: .bold, design: .default))
                         .foregroundColor(AppConfig.greenColor)
                 }
@@ -180,19 +181,19 @@ struct CurrentSetView: View {
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
-                    .background(currentSet == DayExercise.sets.count && !workoutStarted ? Color.gray : Color(hex: "7FBF30"))
+                    .background(currentSet == currentExercise.sets.count && !workoutStarted ? Color.gray : Color(hex: "7FBF30"))
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .disabled(currentSet == DayExercise.sets.count && !workoutStarted)
+            .disabled(currentSet == currentExercise.sets.count && !workoutStarted)
 
             Spacer()
         }
         .padding([.leading, .trailing], 16)
         .onAppear {
-            print("DayExercise: \(DayExercise)")
+            print("currentExercise: \(currentExercise)")
 
-            if let firstSet = DayExercise.sets.first {
+            if let firstSet = currentExercise.sets.first {
                 print("First Set: \(firstSet.description)")
             }
         }
@@ -248,7 +249,7 @@ struct CurrentSetView: View {
         rest: "90"
     )
 
-    CurrentSetView(DayExercise: DayExercise(text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0), lastCompletedItem: .constant(-1))
+    CurrentSetView(currentExercise: DayExercise(text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0))
         .environmentObject(NavigationManager())
 }
 

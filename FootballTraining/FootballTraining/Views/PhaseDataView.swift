@@ -57,15 +57,6 @@ struct PhaseDataView: View {
                 //                currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem
             )
         }
-//        .navigationDestination(for: Route.self) { route in
-//            switch route {
-//            case .dayWorkout:
-//                CurrentDayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
-//            default:
-//                EmptyView()
-//            }
-//        }
-        // .background(Color.pink)
     }
 }
 
