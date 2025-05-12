@@ -113,6 +113,10 @@ struct CurrentDayWorkoutView: View {
                 print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
                 ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExerciseList.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
+
+                if viewModel.lastCompletedItem == 0 {
+                    getDayData()
+                }
             }
             .onChange(of: viewModel.maxDataChanged) { newValue in
 

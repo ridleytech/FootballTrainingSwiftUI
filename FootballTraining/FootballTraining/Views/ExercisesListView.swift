@@ -22,6 +22,8 @@ struct ExercisesListView: View {
     func completeWorkout() {
         print("completeWorkout")
 //        navigationManager.path.removeLast(1)
+
+        viewModel.lastCompletedItem = dayExerciseList.count
     }
 
     func updateLastCompletedItem() {
