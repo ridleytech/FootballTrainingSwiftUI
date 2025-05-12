@@ -12,7 +12,7 @@ struct SaveMax: View {
     @EnvironmentObject var viewModel: PhaseViewModel
     @Environment(\.modelContext) private var modelContext
 
-    @Binding var selectedExercise: DayExercise
+//    @Binding var selectedExercise: DayExercise
     @State var intensity: String = ""
     @State private var records: [MaxIntensityRecord] = []
     @State private var showSaveDecisionAlert = false
@@ -22,7 +22,7 @@ struct SaveMax: View {
     @FocusState private var isKeyboardFocused: Bool
 
     private func loadExerciseRecords() {
-        let exerciseName = selectedExercise.name // ✅ capture value first
+        let exerciseName = viewModel.selectedExercise.name // ✅ capture value first
 
         let descriptor = FetchDescriptor<MaxIntensityRecord>(
             predicate: #Predicate { $0.exerciseName == exerciseName },
@@ -60,19 +60,19 @@ struct SaveMax: View {
             print("Failed to fetch latest record:", error)
         }
 
-        saveNewMaxIntensity(exerciseName: exerciseName, intensity: intensity, context: context)
+        saveNewMaxIntensity(intensity: intensity, context: context)
     }
 
-    func saveNewMaxIntensity(exerciseName: String, intensity: Double, context: ModelContext) {
+    func saveNewMaxIntensity(intensity: Double, context: ModelContext) {
 //        let testDate = Date().addingTimeInterval(86400 * 10) // 3 days in the future
         let todayDate = Date()
 
-        let record = MaxIntensityRecord(exerciseName: exerciseName, maxIntensity: intensity, dateRecorded: todayDate)
+        let record = MaxIntensityRecord(exerciseName: viewModel.selectedExercise.name, maxIntensity: intensity, dateRecorded: todayDate)
         context.insert(record)
 
         do {
             try context.save()
-            selectedExercise.max = intensity
+            viewModel.selectedExercise.max = intensity
             showMaxSavedAlert = true
             viewModel.maxDataChanged = true
             loadExerciseRecords()
@@ -93,7 +93,7 @@ struct SaveMax: View {
 
         do {
             try context.save()
-            selectedExercise.max = newIntensity
+            viewModel.selectedExercise.max = newIntensity
             showMaxSavedAlert = true
             viewModel.maxDataChanged = true
             loadExerciseRecords()
@@ -106,7 +106,7 @@ struct SaveMax: View {
 
     var body: some View {
         VStack {
-            Text("\(selectedExercise.name)")
+            Text("\(viewModel.selectedExercise.name)")
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(AppConfig.greenColor)
 
@@ -130,7 +130,7 @@ struct SaveMax: View {
                 Button("Save Max") {
                     if let intensityValue = Double(intensity) {
                         attemptSaveMaxIntensity(
-                            exerciseName: selectedExercise.name,
+                            exerciseName: viewModel.selectedExercise.name,
                             intensity: intensityValue,
                             context: modelContext
                         )
@@ -162,7 +162,7 @@ struct SaveMax: View {
             }
             Button("Save New Record") {
                 if let newIntensity = pendingIntensity {
-                    saveNewMaxIntensity(exerciseName: selectedExercise.name, intensity: newIntensity, context: modelContext)
+                    saveNewMaxIntensity(intensity: newIntensity, context: modelContext)
                 }
             }
             Button("Cancel", role: .cancel) {}
@@ -179,7 +179,10 @@ struct SaveMax: View {
     @State var intensity = "300"
 
     // 2. Return the view with Bindings and SwiftData modelContainer
-    SaveMax(selectedExercise: .constant(DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0)), intensity: intensity)
+    SaveMax(
+        //        selectedExercise: .constant(DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0)),
+        intensity: intensity
+    )
 //        .modelContainer(for: MaxIntensityRecord.self, inMemory: true)
-        .modelContainer(for: MaxIntensityRecord.self)
+    .modelContainer(for: MaxIntensityRecord.self)
 }

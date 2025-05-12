@@ -39,8 +39,8 @@ struct PhaseDataView: View {
             }
 
             Button(action: {
-                goToWorkout = true
-//                navigationManager.path.append(Route.dayWorkout)
+//                goToWorkout = true
+                navigationManager.path.append(Route2.dayWorkout)
             }) {
                 Text("Train")
                     .font(.system(size: 16, weight: .bold, design: .default))
@@ -52,11 +52,11 @@ struct PhaseDataView: View {
             }
         }
 //        .padding([.leading, .trailing], 16)
-        .navigationDestination(isPresented: $goToWorkout) {
-            CurrentDayWorkoutView(
-                //                currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem
-            )
-        }
+//        .navigationDestination(isPresented: $goToWorkout) {
+//            CurrentDayWorkoutView(
+//                //                currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem
+//            )
+//        }
     }
 }
 

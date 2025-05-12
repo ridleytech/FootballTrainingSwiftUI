@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ExerciseItemView: View {
-    var exercise: DayExercise
-    var index: Int
-    @Binding var selectedExercise: DayExercise?
+    let exerciseListItem: DayExercise
+    let exerciseListItemIndex: Int
     @Binding var gotoToExercise: Bool
-    @Binding var exerciseIndex: Int
     @Binding var tappedExercise: Bool
     @Binding var tappedItemIndex: Int
     let showExerciseType = false
@@ -21,22 +19,22 @@ struct ExerciseItemView: View {
 
     var body: some View {
         HStack {
-            Utils.iconForExerciseType2(exercise.type)
+            Utils.iconForExerciseType2(exerciseListItem.type)
                 .frame(width: 50, height: 50)
-                .background(exercise.type == "Basic" ? Color.blue : Color.red)
+                .background(exerciseListItem.type == "Basic" ? Color.blue : Color.red)
                 .foregroundColor(Color.white)
                 .cornerRadius(5)
                 .padding(.trailing, 5)
                 .onTapGesture {
 //                    print("exercise type tapped: \(index)")
-                    selectedExercise = exercise
-                    tappedItemIndex = index
+                    viewModel.selectedExercise = exerciseListItem
+                    tappedItemIndex = exerciseListItemIndex
                     tappedExercise = true
                 }
 
             VStack {
                 HStack {
-                    Text(exercise.name)
+                    Text(exerciseListItem.name)
                         .font(.system(size: 16, weight: .bold, design: .default))
                         .foregroundColor(AppConfig.grayColor)
 //                        .font(.caption2)
@@ -46,7 +44,7 @@ struct ExerciseItemView: View {
 //                .background(Color.yellow)
 
                 HStack {
-                    Text(exercise.text)
+                    Text(exerciseListItem.text)
                         .foregroundColor(AppConfig.grayColor)
 
 //                        .padding(.leading, 8)
@@ -58,7 +56,7 @@ struct ExerciseItemView: View {
             }
 //            .background(Color.orange)
 
-            if index < viewModel.lastCompletedItem && index > -1 {
+            if exerciseListItemIndex < viewModel.lastCompletedItem && exerciseListItemIndex > -1 {
                 Image("AppIconSplash")
                     .resizable()
                     .frame(width: 25, height: 25)
@@ -68,12 +66,12 @@ struct ExerciseItemView: View {
         .onTapGesture {
             print("tapped")
             //                        if lastCompletedItem == index {
-            selectedExercise = exercise
+            viewModel.selectedExercise = exerciseListItem
             gotoToExercise = true
-            exerciseIndex = index
+            viewModel.selectedExerciseIndex = exerciseListItemIndex
             //                        }
         }
-        .listRowBackground(viewModel.lastCompletedItem != index ? Color.white.opacity(0.5) : Color.white)
+        .listRowBackground(viewModel.lastCompletedItem != exerciseListItemIndex ? Color.white.opacity(0.5) : Color.white)
         .padding(16)
         .listRowInsets(EdgeInsets())
     }
@@ -81,11 +79,9 @@ struct ExerciseItemView: View {
 
 #Preview {
     ExerciseItemView(
-        exercise: DayExercise(text: ".68 x 8", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
-        index: 0,
-        selectedExercise: .constant(nil),
+        exerciseListItem: DayExercise(text: ".68 x 8", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
+        exerciseListItemIndex: 0,
         gotoToExercise: .constant(false),
-        exerciseIndex: .constant(0),
         tappedExercise: .constant(false),
         tappedItemIndex: .constant(0)
     )

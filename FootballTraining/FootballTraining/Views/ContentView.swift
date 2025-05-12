@@ -12,13 +12,14 @@ class PhaseViewModel: ObservableObject {
     @Published var currentPhase: String = "Postseason"
     @Published var currentWeek: Int = 1
     @Published var currentDay: String = "Monday"
-    @Published var selectedExercise: DayExercise?
+    @Published var selectedExercise: DayExercise = .init(text: "String", type: "String", name: "String", sets: [], max: 0.0)
     @Published var lastCompletedItem: Int = 0
     @State var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
     @Published var weeks = [1, 2, 3, 4, 5, 6, 7]
     @Published var days = ["Monday", "Tuesday", "Thursday", "Friday"]
     @Published var pickingPhase = false
     @Published var maxDataChanged: Bool = false
+    @Published var selectedExerciseIndex: Int = 0
 }
 
 struct ContentView: View {
@@ -75,6 +76,20 @@ struct ContentView: View {
 //                        currentWeek: $viewModel.currentWeek,
 //                        lastCompletedItem: $viewModel.lastCompletedItem
                     )
+                    .navigationDestination(for: Route2.self) { route in
+                        switch route {
+                        case .currentSet:
+                            CurrentSetView()
+                        case .dayWorkout:
+                            CurrentDayWorkoutView()
+                        case .exerciseDetail:
+                            ExerciseDetailView()
+                        case .maxHistory:
+                            MaxHistoryView()
+                        default:
+                            EmptyView()
+                        }
+                    }
                 }
             }
             .padding([.leading, .trailing], 16)
@@ -104,22 +119,7 @@ struct ContentView: View {
         }
         .tint(AppConfig.greenColor)
         .environmentObject(viewModel)
-        //        .navigationDestination(for: Route.self) { route in
-        //            switch route {
-        //            case .currentSet:
-        //                CurrentSetView(currentExercise: selectedExercise)
-        //            default:
-        //                EmptyView()
-        //            }
-        //        }
-        //        .navigationDestination(for: Route.self) { route in
-        //            switch route {
-        //            case .dayWorkout:
-        //                CurrentDayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
-        //            default:
-        //                EmptyView()
-        //            }
-        //        }
+
         // .background(Color.pink)
     }
 }

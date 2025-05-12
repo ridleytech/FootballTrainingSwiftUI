@@ -65,11 +65,9 @@ struct ExercisesListView: View {
             ZStack(alignment: .bottom) {
                 List(Array(dayExerciseList.enumerated()), id: \.element.id) { index, exercise in
                     ExerciseItemView(
-                        exercise: exercise,
-                        index: index,
-                        selectedExercise: $selectedExercise,
+                        exerciseListItem: exercise,
+                        exerciseListItemIndex: index,
                         gotoToExercise: $gotoToExercise,
-                        exerciseIndex: $exerciseIndex,
                         tappedExercise: $tappedExercise,
                         tappedItemIndex: $tappedItemIndex
                     )
@@ -91,21 +89,22 @@ struct ExercisesListView: View {
             // .navigationTitle("\(currentDay) Lifts")
         }
 //        .padding([.leading, .trailing], 16)
-        .navigationDestination(isPresented: $gotoToExercise) {
-            ExerciseDetailView(
-                selectedExercise: selectedExercise ?? DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0),
-                selectedExerciseIndex: exerciseIndex
-            )
-        }
+//        .navigationDestination(isPresented: $gotoToExercise) {
+//            ExerciseDetailView(
+//                ////                selectedExercise: selectedExercise ?? DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0),
+        ////                selectedExerciseIndex: exerciseIndex
+//            )
+//        }
         .onAppear {
 //            print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
         }
         .ignoresSafeArea(.container, edges: .bottom)
-        .alert(selectedExercise?.name ?? "", isPresented: $tappedExercise) {
+        .alert(viewModel.selectedExercise.name ?? "", isPresented: $tappedExercise) {
             Button("View Details") {
                 print("View Details")
 
-                gotoToExercise = true
+//                gotoToExercise = true
+                navigationManager.path.append(Route2.exerciseDetail)
             }
             Button("Complete Set") {
                 updateLastCompletedItem()
@@ -118,17 +117,17 @@ struct ExercisesListView: View {
         .onChange(of: viewModel.lastCompletedItem) { newValue in
             print("Exercises view lastCompletedItem changed to: \(newValue)")
         }
-        .onChange(of: gotoToExercise) { newValue in
-            print("gotoToExercise changed to: \(newValue)")
+        .onChange(of: gotoToExercise) { _ in
+//            print("gotoToExercise changed to: \(newValue)")
 
             if gotoToExercise {
                 print("gotoToExercise is true")
 
-//                navigationManager.path.append(Route.exerciseDetail)
+                navigationManager.path.append(Route2.exerciseDetail)
             }
         }
         .onAppear {
-//            gotoToExercise = false
+            gotoToExercise = false
         }
     }
 }

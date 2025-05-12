@@ -12,7 +12,7 @@ struct CurrentSetView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var viewModel: PhaseViewModel
 
-    @State var currentExercise: DayExercise
+//    @State var selectedExercise: DayExercise
     @State var currentSet: Int = 1
     @State var setStarted = false
     @State var workoutStarted = false
@@ -26,7 +26,7 @@ struct CurrentSetView: View {
     func completeSet() {
         setStarted = false
 
-        if currentSet == currentExercise.sets.count {
+        if currentSet == viewModel.selectedExercise.sets.count {
             workoutCompleted()
             return
         }
@@ -65,8 +65,21 @@ struct CurrentSetView: View {
             .sink { _ in
                 if remainingTime > 0 {
                     remainingTime -= 1
+
+                    if remainingTime == 3 || remainingTime == 2 || remainingTime == 1 {
+                        print(
+                            "play countdown sound"
+                        )
+                    }
                 } else {
                     stopTimer()
+
+                    if viewModel.selectedExercise.sets.count > 0 && currentSet < viewModel.selectedExercise.sets.count + 1 {
+                        print(
+                            "play start set sound"
+                        )
+                        startSet()
+                    }
                 }
             }
     }
@@ -88,19 +101,10 @@ struct CurrentSetView: View {
         return "\(minutes):" + String(format: "%02d", seconds)
     }
 
-    func roundToNearestMultipleOfFive(_ number: Double) -> Double {
-//        print("number: \(number)")
-
-        let val = 5 * round(Double(number) / 5.0)
-
-//        print("rounded: \(val)")
-        return val
-    }
-
     var body: some View {
 //        ZStack {
         VStack {
-            Text(currentExercise.name)
+            Text(viewModel.selectedExercise.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
             Spacer().frame(height: 20)
@@ -115,20 +119,20 @@ struct CurrentSetView: View {
                     + Text(" of ")
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.grayColor)
-                    + Text("\(currentExercise.sets.count)")
+                    + Text("\(viewModel.selectedExercise.sets.count)")
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.greenColor)
                 //                Spacer()
             }
             Spacer().frame(height: 10)
 
-            if currentExercise.sets.count > 0 && currentSet < currentExercise.sets.count + 1 {
-                if currentExercise.max > 0.0 {
-                    if let intensityString = currentExercise.sets[currentSet-1].intensity, let reps = currentExercise.sets[currentSet-1].reps {
+            if viewModel.selectedExercise.sets.count > 0 && currentSet < viewModel.selectedExercise.sets.count + 1 {
+                if viewModel.selectedExercise.max > 0.0 {
+                    if let intensityString = viewModel.selectedExercise.sets[currentSet-1].intensity, let reps = viewModel.selectedExercise.sets[currentSet-1].reps {
                         if let intensity = Double(intensityString) {
                             // Calculate real lift amount
-                            let calculatedLift = intensity * currentExercise.max
-                            let formattedLift = String(format: "%.0f", roundToNearestMultipleOfFive(calculatedLift)) // no decimals
+                            let calculatedLift = intensity * viewModel.selectedExercise.max
+                            let formattedLift = String(format: "%.0f", Utils.roundToNearestMultipleOfFive(calculatedLift)) // no decimals
                             Text("\(formattedLift) x \(reps)")
                                 .font(.system(size: 50, weight: .bold, design: .default))
                                 .foregroundColor(AppConfig.greenColor)
@@ -139,7 +143,7 @@ struct CurrentSetView: View {
                         }
                     }
                 } else {
-                    Text("\(currentExercise.sets[currentSet-1].intensity ?? "") x \(currentExercise.sets[currentSet-1].reps ?? "")")
+                    Text("\(viewModel.selectedExercise.sets[currentSet-1].intensity ?? "") x \(viewModel.selectedExercise.sets[currentSet-1].reps ?? "")")
                         .font(.system(size: 50, weight: .bold, design: .default))
                         .foregroundColor(AppConfig.greenColor)
                 }
@@ -181,19 +185,19 @@ struct CurrentSetView: View {
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
-                    .background(currentSet == currentExercise.sets.count && !workoutStarted ? Color.gray : Color(hex: "7FBF30"))
+                    .background(currentSet == viewModel.selectedExercise.sets.count && !workoutStarted ? Color.gray : Color(hex: "7FBF30"))
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .disabled(currentSet == currentExercise.sets.count && !workoutStarted)
+            .disabled(currentSet == viewModel.selectedExercise.sets.count && !workoutStarted)
 
             Spacer()
         }
         .padding([.leading, .trailing], 16)
         .onAppear {
-            print("currentExercise: \(currentExercise)")
+            print("viewModel.selectedExercise: \(viewModel.selectedExercise)")
 
-            if let firstSet = currentExercise.sets.first {
+            if let firstSet = viewModel.selectedExercise.sets.first {
                 print("First Set: \(firstSet.description)")
             }
         }
@@ -201,7 +205,7 @@ struct CurrentSetView: View {
             Button("OK", role: .cancel) {
                 print("go back to workout")
                 // fire event to update current highlighted exercise in list
-                // navigationManager.path.removeLast(2)
+                navigationManager.path.removeLast(2)
             }
         } message: {
             Text("")
@@ -249,8 +253,10 @@ struct CurrentSetView: View {
         rest: "90"
     )
 
-    CurrentSetView(currentExercise: DayExercise(text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0))
-        .environmentObject(NavigationManager())
+    CurrentSetView(
+        //        selectedExercise: DayExercise(text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0)
+    )
+    .environmentObject(NavigationManager())
 }
 
 // var name: String

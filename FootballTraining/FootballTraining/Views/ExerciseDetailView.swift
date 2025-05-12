@@ -11,14 +11,14 @@ struct ExerciseDetailView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var viewModel: PhaseViewModel
     
-    @State var selectedExercise: DayExercise
+//    @State var selectedExercise: DayExercise
     @State var gotoToMaxHistory = false
     @State var gotoToExercise = false
-    @State var selectedExerciseIndex: Int
+//    @State var selectedExerciseIndex: Int
     
     var body: some View {
         VStack {
-            Text(selectedExercise.name)
+            Text(viewModel.selectedExercise.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
             Spacer().frame(height: 10)
@@ -28,9 +28,6 @@ struct ExerciseDetailView: View {
                 Image("AppIconSplash")
                     .resizable()
                     .frame(width: 300, height: 300)
-//                    .scaledToFill()
-//                    .frame(maxWidth: .infinity)
-                //                .frame(height: 600)
                    
                 Spacer()
             }
@@ -43,21 +40,10 @@ struct ExerciseDetailView: View {
             
             Spacer().frame(height: 10)
             
-//            Button("Max History"){
-//
-//                gotoToMaxHistory = true
-//            }
-//            .font(.system(size: 16, weight: .bold, design: .default))
-//            .frame(maxWidth: .infinity)
-//            .frame(height: 45)
-//            .background(Color(hex: "7FBF30"))
-//            .foregroundColor(Color.white)
-//            .padding([.leading, .trailing] ,16)
-//
-//            Spacer()
-            
             Button(action: {
-                gotoToExercise = true
+//                gotoToExercise = true
+                navigationManager.path.append(Route2.currentSet)
+
             }) {
                 Text("Start Exercise")
                     .font(.system(size: 16, weight: .bold, design: .default))
@@ -67,15 +53,15 @@ struct ExerciseDetailView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .disabled(selectedExerciseIndex != viewModel.lastCompletedItem)
-            .opacity(selectedExerciseIndex != viewModel.lastCompletedItem ? 0.75 : 1.0)
+            .disabled(viewModel.selectedExerciseIndex != viewModel.lastCompletedItem)
+            .opacity(viewModel.selectedExerciseIndex != viewModel.lastCompletedItem ? 0.75 : 1.0)
 //            .padding([.leading, .trailing], 16)
             
             Spacer().frame(height: 10)
             
             Button(action: {
-                gotoToMaxHistory = true
-//                navigationManager.path.append(Route.currentSet)
+//                gotoToMaxHistory = true
+                navigationManager.path.append(Route2.maxHistory)
             }) {
                 Text("Max History")
                     .font(.system(size: 16, weight: .bold, design: .default))
@@ -87,25 +73,25 @@ struct ExerciseDetailView: View {
             }
         }
         .padding([.leading, .trailing], 16)
-        .navigationDestination(isPresented: $gotoToMaxHistory) {
-            MaxHistoryView(selectedExercise: $selectedExercise)
-        }
-        .navigationDestination(isPresented: $gotoToExercise) {
-            CurrentSetView(currentExercise: selectedExercise)
-        }
-        .onChange(of: selectedExercise.max) { newMax in
+//        .navigationDestination(isPresented: $gotoToMaxHistory) {
+//            MaxHistoryView()
+//        }
+//        .navigationDestination(isPresented: $gotoToExercise) {
+//            CurrentSetView()
+//        }
+        .onChange(of: viewModel.selectedExercise.max) { newMax in
             
             print("max changed to: \(newMax)")
 //            weekChanged(to: newWeek)
         }
-        
-//        SaveMax(exerciseName: $exerciseName)
     }
 }
 
 #Preview {
     NavigationStack {
-        ExerciseDetailView(selectedExercise: DayExercise(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0), selectedExerciseIndex: 1)
-            .environmentObject(NavigationManager())
+        ExerciseDetailView(
+            //            selectedExercise: DayExercise(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0)
+        )
+        .environmentObject(NavigationManager())
     }
 }

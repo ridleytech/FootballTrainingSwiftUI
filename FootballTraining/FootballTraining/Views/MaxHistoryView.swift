@@ -10,7 +10,7 @@ import Charts
 import SwiftUI
 
 struct MaxHistoryView: View {
-    @Binding var selectedExercise: DayExercise
+//    @Binding var selectedExercise: DayExercise
     @Environment(\.modelContext) private var modelContext
 //    @State private var allRecords: [MaxIntensityRecord] = []
     @State private var records: [MaxIntensityRecord] = []
@@ -37,7 +37,7 @@ struct MaxHistoryView: View {
     private func loadExerciseRecords() {
         print("loadExerciseRecords")
 
-        let exerciseName = selectedExercise.name
+        let exerciseName = viewModel.selectedExercise.name
 
         let descriptor = FetchDescriptor<MaxIntensityRecord>(
             predicate: #Predicate { $0.exerciseName == exerciseName },
@@ -60,14 +60,14 @@ struct MaxHistoryView: View {
 
     var body: some View {
         VStack {
-            Text(selectedExercise.name)
+            Text(viewModel.selectedExercise.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(AppConfig.greenColor)
 
             Spacer()
 
             if records.isEmpty {
-                Text("No \(selectedExercise.name) records.")
+                Text("No \(viewModel.selectedExercise.name) records.")
                     .foregroundColor(.gray)
             } else {
 //                Chart(records) { record in
@@ -192,12 +192,14 @@ struct MaxHistoryView: View {
 //            loadAllRecords()
         }
         .navigationDestination(isPresented: $gotoToSaveMax) {
-            SaveMax(selectedExercise: $selectedExercise)
+            SaveMax()
         }
 //        .navigationTitle("\(exerciseName) History")
     }
 }
 
 #Preview {
-    MaxHistoryView(selectedExercise: .constant(DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0)))
+    MaxHistoryView(
+        //        selectedExercise: .constant(DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0))
+    )
 }
