@@ -55,6 +55,12 @@ enum Utils {
             return Text("A")
         }
     }
+
+    static func roundToNearestMultipleOfFive(_ number: Double) -> Double {
+        let val = 5 * round(Double(number) / 5.0)
+
+        return val
+    }
 }
 
 extension UIApplication {

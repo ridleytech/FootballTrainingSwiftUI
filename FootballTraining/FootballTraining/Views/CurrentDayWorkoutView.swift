@@ -10,24 +10,15 @@ import SwiftUI
 
 struct CurrentDayWorkoutView: View {
     @Environment(\.modelContext) private var modelContext
-    @Binding var currentPhase: String
-    @Binding var currentDay: String
-    @Binding var currentWeek: Int
-    @Binding var lastCompletedItem: Int
-    @State var maxDataChanged: Bool = false
-
-    @State private var DayExercise: [DayExercise] = []
-
-    @State private var selectedItems: Set<String> = []
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var phaseManager: PhaseManager
+    @EnvironmentObject var viewModel: PhaseViewModel
+
+    @State var maxDataChanged: Bool = false
+    @State private var DayExercise: [DayExercise] = []
+    @State private var selectedItems: Set<String> = []
+
     let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
-
-    func roundToNearestMultipleOfFive(_ number: Double) -> Double {
-        let val = 5 * round(Double(number) / 5.0)
-
-        return val
-    }
 
     func listExercisesForDay(in postseason: PostseasonModel, week: Int, dayName: String, context: ModelContext) -> [DayExercise] {
         guard let week = postseason.week.first(where: { $0.name == "\(week)" }),
@@ -55,7 +46,7 @@ struct CurrentDayWorkoutView: View {
                         if let intensity = Double(intensityString), let maxLift = savedMaxLift {
                             // Calculate real lift amount
                             let calculatedLift = intensity * maxLift
-                            let formattedLift = String(format: "%.0f", roundToNearestMultipleOfFive(calculatedLift)) // no decimals
+                            let formattedLift = String(format: "%.0f", Utils.roundToNearestMultipleOfFive(calculatedLift)) // no decimals
                             line += " \(formattedLift) x \(reps)"
                         } else {
                             // fallback to showing raw intensity
@@ -84,23 +75,23 @@ struct CurrentDayWorkoutView: View {
 
     func getDayData() {
         do {
-            if let url = Bundle.main.url(forResource: currentPhase, withExtension: "json"),
+            if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
                let postseason = try? JSONDecoder().decode(PostseasonModel.self, from: data)
             {
-                print("getDayData currentPhase: \(currentPhase)")
-                print("currentWeek: \(currentWeek)")
-                print("currentDay: \(currentDay)")
+                print("getDayData currentPhase: \(viewModel.currentPhase)")
+                print("currentWeek: \(viewModel.currentWeek)")
+                print("currentDay: \(viewModel.currentDay)")
 
                 DayExercise = listExercisesForDay(
                     in: postseason,
-                    week: currentWeek,
-                    dayName: currentDay,
+                    week: viewModel.currentWeek,
+                    dayName: viewModel.currentDay,
                     context: modelContext
                 )
 
             } else {
-                print("can't get data for \(currentPhase)")
+                print("can't get data for \(viewModel.currentPhase)")
             }
 
         } catch {
@@ -116,11 +107,11 @@ struct CurrentDayWorkoutView: View {
                 }
 
         } else {
-            ExercisesListView(currentDay: $currentDay, lastCompletedItem: $lastCompletedItem, exercises: DayExercise, maxDataChanged: $maxDataChanged)
-                .onChange(of: lastCompletedItem) { newValue in
+            ExercisesListView(currentDay: $viewModel.currentDay, lastCompletedItem: $viewModel.lastCompletedItem, exercises: DayExercise, maxDataChanged: $maxDataChanged)
+                .onChange(of: viewModel.lastCompletedItem) { newValue in
                     print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
-                    ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: DayExercise.count, lastCompletedItem: &lastCompletedItem, currentPhase: &currentPhase, currentDay: &currentDay, currentWeek: &currentWeek, phaseManager: phaseManager, modelContext: modelContext)
+                    ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: DayExercise.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
                 }
                 .onChange(of: maxDataChanged) { newValue in
 
@@ -148,15 +139,17 @@ struct CurrentDayWorkoutView: View {
     let container = try! ModelContainer(for: schema, configurations: [configuration])
 
     // 3. Use a context from the model container to create the PhaseManager
-    return ModelContextPreview(container: container) { modelContext in
+    ModelContextPreview(container: container) { modelContext in
         let phaseManager = PhaseManager(modelContext: modelContext)
 
         return NavigationStack {
-            CurrentDayWorkoutView(currentPhase: .constant("Preseason"), currentDay: .constant("Monday"), currentWeek: .constant(1), lastCompletedItem: .constant(0))
-                //        .modelContainer(for: Item.self, inMemory: true)
-                .modelContainer(for: MaxIntensityRecord.self)
-                .environmentObject(NavigationManager())
-                .environmentObject(phaseManager)
+            CurrentDayWorkoutView(
+                //                currentPhase: .constant("Preseason"), currentDay: .constant("Monday"), currentWeek: .constant(1), lastCompletedItem: .constant(0)
+            )
+            //        .modelContainer(for: Item.self, inMemory: true)
+            .modelContainer(for: MaxIntensityRecord.self)
+            .environmentObject(NavigationManager())
+            .environmentObject(phaseManager)
         }
     }
     .modelContainer(container)

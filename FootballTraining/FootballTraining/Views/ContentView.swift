@@ -69,15 +69,14 @@ struct ContentView: View {
                     Spacer()
                 } else {
                     PhaseDataView(
-                        currentPhase: $viewModel.currentPhase,
-                        currentDay: $viewModel.currentDay,
-                        currentWeek: $viewModel.currentWeek,
-                        lastCompletedItem: $viewModel.lastCompletedItem
+                        //                        currentPhase: $viewModel.currentPhase,
+//                        currentDay: $viewModel.currentDay,
+//                        currentWeek: $viewModel.currentWeek,
+//                        lastCompletedItem: $viewModel.lastCompletedItem
                     )
                 }
             }
             .padding([.leading, .trailing], 16)
-            .environmentObject(viewModel)
         }
         .onAppear {
             print("ContentView loaded saved phase: \(phaseManager.phaseRecord?.phaseName)")
@@ -103,6 +102,7 @@ struct ContentView: View {
             print("ContentView phaseInfo changed to: \(record)")
         }
         .tint(AppConfig.greenColor)
+        .environmentObject(viewModel)
     }
 }
 

@@ -9,11 +9,12 @@ import SwiftUI
 
 struct PhaseDataView: View {
     @State var goToWorkout = false
-    @Binding var currentPhase: String
-    @Binding var currentDay: String
-    @Binding var currentWeek: Int
-    @Binding var lastCompletedItem: Int
+//    @Binding var currentPhase: String
+//    @Binding var currentDay: String
+//    @Binding var currentWeek: Int
+//    @Binding var lastCompletedItem: Int
     @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var viewModel: PhaseViewModel
 
     var body: some View {
         VStack {
@@ -23,13 +24,13 @@ struct PhaseDataView: View {
                 VStack(alignment: .leading) {
                     Text("Phase: ")
                         .font(.system(size: 16, weight: .bold, design: .default))
-                        + Text("\(currentPhase) Week \(currentWeek)")
+                        + Text("\(viewModel.currentPhase) Week \(viewModel.currentWeek)")
 
                     Spacer().frame(height: 5)
 
                     Text("Day: ")
                         .font(.system(size: 16, weight: .bold, design: .default))
-                        + Text(currentDay)
+                        + Text(viewModel.currentDay)
 
                     Spacer()
                 }
@@ -52,7 +53,9 @@ struct PhaseDataView: View {
         }
 //        .padding([.leading, .trailing], 16)
         .navigationDestination(isPresented: $goToWorkout) {
-            CurrentDayWorkoutView(currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem)
+            CurrentDayWorkoutView(
+                //                currentPhase: $currentPhase, currentDay: $currentDay, currentWeek: $currentWeek, lastCompletedItem: $lastCompletedItem
+            )
         }
 //        .navigationDestination(for: Route.self) { route in
 //            switch route {
@@ -69,10 +72,10 @@ struct PhaseDataView: View {
 #Preview {
     NavigationStack {
         PhaseDataView(
-            currentPhase: .constant("Postseason"),
-            currentDay: .constant("Monday"),
-            currentWeek: .constant(1),
-            lastCompletedItem: .constant(0)
+            //            currentPhase: .constant("Postseason"),
+//            currentDay: .constant("Monday"),
+//            currentWeek: .constant(1),
+//            lastCompletedItem: .constant(0)
         )
         .environmentObject(NavigationManager())
     }
