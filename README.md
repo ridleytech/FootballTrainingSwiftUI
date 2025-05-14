@@ -8,6 +8,8 @@ FootballTraining is a SwiftUI-based iOS application designed to help users manag
 - **Exercise Tracking**: Displays exercises for the day, including sets, reps, and calculated lift intensities.
 - **Phase Progression**: Automatically transitions to the next day, week, or phase when workouts are completed.
 - **Data Persistence**: Saves and retrieves user progress using SwiftData.
+- **Reactive UI**: Updates the workout list and progress in real time as user data changes.
+- **Multiple Training Phases**: Supports Postseason, Winter, Spring, Summer, Preseason, and In-Season phases.
 
 ## Technologies Used
 
@@ -18,10 +20,12 @@ FootballTraining is a SwiftUI-based iOS application designed to help users manag
 
 ## File Structure
 
-- `DayWorkoutView.swift`: The main view for displaying and managing daily workouts.
+- `CurrentDayWorkoutView.swift`: Displays and manages the current day's workout, updating as user data changes.
+- `ExercisesListView.swift`: Renders the list of exercises for the day.
 - `PhaseManager.swift`: Handles phase-related logic and state management.
 - `NavigationManager.swift`: Manages navigation between views.
 - `PostseasonModel.swift`: Decodes JSON data for workout phases, weeks, and days.
+- `ModelUtils.swift`: Utility functions for saving and updating phase progress.
 
 ## How It Works
 
@@ -29,6 +33,7 @@ FootballTraining is a SwiftUI-based iOS application designed to help users manag
 2. **Exercise Display**: Exercises for the day are displayed, including calculated lift intensities based on user maxes.
 3. **Progression**: As users complete exercises, the app updates the current day, week, or phase and saves the progress.
 4. **Persistence**: User progress is saved using SwiftData for seamless continuity.
+5. **Reactive Updates**: The UI updates automatically when user maxes or completion status change.
 
 ## Setup and Installation
 
