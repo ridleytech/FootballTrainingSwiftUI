@@ -9,6 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct SaveMax: View {
+    @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var viewModel: PhaseViewModel
     @Environment(\.modelContext) private var modelContext
 
@@ -153,7 +154,9 @@ struct SaveMax: View {
             }
         }
         .alert("Max Saved", isPresented: $showMaxSavedAlert) {
-            Button("Ok") {}
+            Button("Ok") {
+                navigationManager.path.removeLast(1)
+            }
         }
         .alert("A max intensity was already saved recently. What do you want to do?", isPresented: $showSaveDecisionAlert) {
             Button("Update Existing", role: .destructive) {
@@ -166,6 +169,7 @@ struct SaveMax: View {
             }
             Button("Cancel", role: .cancel) {}
         }
+
         .onAppear {
             loadExerciseRecords()
         }

@@ -8,19 +8,7 @@
 import SwiftData
 import SwiftUI
 
-class PhaseViewModel: ObservableObject {
-    @Published var currentPhase: String = "Postseason"
-    @Published var currentWeek: Int = 1
-    @Published var currentDay: String = "Monday"
-    @Published var selectedExercise: DayExercise = .init(text: "String", type: "String", name: "String", sets: [], max: 0.0)
-    @Published var lastCompletedItem: Int = 0
-    @State var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
-    @Published var weeks = [1, 2, 3, 4, 5, 6, 7]
-    @Published var days = ["Monday", "Tuesday", "Thursday", "Friday"]
-    @Published var pickingPhase = false
-    @Published var maxDataChanged: Bool = false
-    @Published var selectedExerciseIndex: Int = 0
-}
+
 
 struct ContentView: View {
     @EnvironmentObject var navigationManager: NavigationManager
@@ -74,6 +62,8 @@ struct ContentView: View {
                                 ExerciseDetailView()
                             case .maxHistory:
                                 MaxHistoryView()
+                            case .saveMax:
+                                SaveMax()
                             default:
                                 EmptyView()
                             }

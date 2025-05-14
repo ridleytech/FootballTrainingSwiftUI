@@ -10,14 +10,14 @@ import Charts
 import SwiftUI
 
 struct MaxHistoryView: View {
+    @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var viewModel: PhaseViewModel
     @Environment(\.modelContext) private var modelContext
 //    @State private var allRecords: [MaxIntensityRecord] = []
     @State private var records: [MaxIntensityRecord] = []
     @State var gotoToSaveMax = false
     @State private var selectedRecord: MaxIntensityRecord?
     @State private var animatedRecords: [MaxIntensityRecord] = []
-    @EnvironmentObject var navigationManager: NavigationManager
-    @EnvironmentObject var viewModel: PhaseViewModel
 
 //    private func loadAllRecords() {
 //        let descriptor = FetchDescriptor<MaxIntensityRecord>(
@@ -136,9 +136,8 @@ struct MaxHistoryView: View {
             Spacer()
 
             Button(action: {
-                gotoToSaveMax = true
-//                navigationManager.path.removeLast(2)
-//                navigationManager.path.append(Route.currentSet)
+//                gotoToSaveMax = true
+                navigationManager.path.append(Route2.saveMax)
             }) {
                 Text("Add Max")
                     .font(.system(size: 16, weight: .bold, design: .default))
