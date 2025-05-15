@@ -5,6 +5,7 @@
 //  Created by Randall Ridley on 4/26/25.
 //
 
+import AVFoundation
 import SwiftData
 import SwiftUI
 
@@ -19,6 +20,15 @@ struct ModelContextView<Content: View>: View {
 
 @main
 struct FootballTrainingApp: App {
+    init() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Failed to set audio session:", error)
+        }
+    }
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,

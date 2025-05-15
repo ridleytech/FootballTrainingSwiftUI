@@ -5,12 +5,35 @@
 //  Created by Randall Ridley on 4/26/25.
 //
 
+import AVFoundation
 import Combine
 import SwiftUI
+
+class SoundManager: ObservableObject {
+    var player: AVAudioPlayer?
+
+    func loadSound(_ name: String, ext: String = "wav") {
+        guard let url = Bundle.main.url(forResource: name, withExtension: ext) else { return }
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.volume = 0.75
+
+//            print("player loaded")
+
+        } catch {
+            print("player load failed: \(error)")
+        }
+    }
+
+    func playSound() {
+        player?.play()
+    }
+}
 
 struct CurrentSetView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var viewModel: PhaseViewModel
+    @StateObject var sound = SoundManager()
 
 //    @State var selectedExercise: DayExercise
     @State var currentSet: Int = 1
@@ -22,6 +45,7 @@ struct CurrentSetView: View {
     @State private var remainingTime: Int = 120 // starting time in seconds (example: 5 minutes)
     @State private var timerRunning = false
     @State private var timerCancellable: Cancellable?
+    @State private var audioPlayer: AVAudioPlayer?
 
     func completeSet() {
         setStarted = false
@@ -67,17 +91,14 @@ struct CurrentSetView: View {
                     remainingTime -= 1
 
                     if remainingTime == 3 || remainingTime == 2 || remainingTime == 1 {
-                        print(
-                            "play countdown sound"
-                        )
+                        print("play countdown sound")
+
+                        sound.playSound()
                     }
                 } else {
                     stopTimer()
 
                     if viewModel.selectedExercise.sets.count > 0 && currentSet < viewModel.selectedExercise.sets.count + 1 {
-                        print(
-                            "play start set sound"
-                        )
                         startSet()
                     }
                 }
@@ -92,7 +113,7 @@ struct CurrentSetView: View {
 
     private func resetTimer() {
         stopTimer()
-        remainingTime = 120 // reset to 5 minutes (or whatever you want)
+        remainingTime = 5 // reset to 5 minutes (or whatever you want)
     }
 
     private func timeString(from seconds: Int) -> String {
@@ -197,9 +218,13 @@ struct CurrentSetView: View {
         .onAppear {
             print("viewModel.selectedExercise: \(viewModel.selectedExercise)")
 
-            if let firstSet = viewModel.selectedExercise.sets.first {
-                print("First Set: \(firstSet.description)")
-            }
+//            if let firstSet = viewModel.selectedExercise.sets.first {
+//                print("First Set: \(firstSet.description)")
+//            }
+
+            sound.loadSound("countdown-beep", ext: "wav")
+
+//            loadPlayer(named: "countdown-beep")
         }
         .alert("Lift Completed", isPresented: $showAlert) {
             Button("OK", role: .cancel) {
@@ -211,7 +236,7 @@ struct CurrentSetView: View {
             Text("")
         }
 
-        if !setStarted && workoutStarted { Text(timeString(from: remainingTime))
+        if !setStarted && workoutStarted && remainingTime > 0 { Text(timeString(from: remainingTime))
             .font(.system(size: 100, weight: .bold, design: .default))
 //            .background(Color.gray)
             .foregroundColor(AppConfig.grayColor)
