@@ -8,6 +8,7 @@
 import AVFoundation
 import SwiftData
 import SwiftUI
+import UserNotifications
 
 struct ModelContextView<Content: View>: View {
     @Environment(\.modelContext) private var modelContext
@@ -22,11 +23,52 @@ struct ModelContextView<Content: View>: View {
 struct FootballTrainingApp: App {
     init() {
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setCategory(
+                .ambient, // or .playback if you need background audio
+                mode: .default,
+                options: [.mixWithOthers]
+            )
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            print("Failed to set audio session:", error)
+            print("Failed to configure audio session:", error)
         }
+
+        requestPushNotificationPermission()
+    }
+
+    private func requestPushNotificationPermission() {
+        UNUserNotificationCenter.current().delegate = UNUserNotificationCenterDelegateProxy.shared
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("🚫 Notification permission error: \(error)")
+                return
+            }
+
+            print("✅ Notification permission granted: \(granted)")
+
+            if granted {
+//                print("try to register")
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+    }
+
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+    {
+        print("didRegisterForRemoteNotificationsWithDeviceToken")
+        let tokenParts = deviceToken.map { String(format: "%02.2hhx", $0) }
+        let token = tokenParts.joined()
+        print("📱 Device Token: \(token)")
+    }
+
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error)
+    {
+        print("❌ Failed to register: \(error)")
     }
 
     var sharedModelContainer: ModelContainer = {
@@ -57,5 +99,19 @@ struct FootballTrainingApp: App {
             }
         }
         .modelContainer(sharedModelContainer)
+    }
+}
+
+// Optional: Shared delegate to handle foreground display
+class UNUserNotificationCenterDelegateProxy: NSObject, UNUserNotificationCenterDelegate {
+    static let shared = UNUserNotificationCenterDelegateProxy()
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+        print("UNUserNotificationCenterDelegateProxy userNotificationCenter")
+
+        completionHandler([.banner, .sound, .badge])
     }
 }

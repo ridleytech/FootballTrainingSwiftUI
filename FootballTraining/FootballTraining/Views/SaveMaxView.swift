@@ -47,9 +47,10 @@ struct SaveMax: View {
         descriptor.fetchLimit = 1
 
         do {
-            if let latest = try context.fetch(descriptor).first,
-               let days = Calendar.current.dateComponents([.day], from: latest.dateRecorded, to: Date()).day,
-               days < 2
+            if let latest = try context.fetch(descriptor).first
+//                ,
+//               let days = Calendar.current.dateComponents([.day], from: latest.dateRecorded, to: Date()).day,
+//               days < 2
             {
                 recentRecord = latest
                 pendingIntensity = intensity
@@ -158,11 +159,12 @@ struct SaveMax: View {
                 navigationManager.path.removeLast(1)
             }
         }
-        .alert("A max intensity was already saved recently. What do you want to do?", isPresented: $showSaveDecisionAlert) {
-            Button("Update Existing", role: .destructive) {
+//        .alert("A max intensity was already saved recently. What do you want to do?", isPresented: $showSaveDecisionAlert) {
+        .alert("What would you like to do?", isPresented: $showSaveDecisionAlert) {
+            Button("Update Existing Max", role: .destructive) {
                 updateRecentMaxIntensity(context: modelContext)
             }
-            Button("Save New Record") {
+            Button("Save New Max") {
                 if let newIntensity = pendingIntensity {
                     saveNewMaxIntensity(intensity: newIntensity, context: modelContext)
                 }

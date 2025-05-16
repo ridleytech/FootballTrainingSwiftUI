@@ -53,10 +53,9 @@ struct ExercisesListView: View {
                         completeWorkout()
 
                     }) {
-                        Text("C")
-                            .font(.system(size: 16, weight: .bold, design: .default))
-                            // .frame(maxWidth: .infinity)
-                            .frame(width: 25, height: 25)
+                        Image(systemName: "checkmark")
+                            .imageScale(.medium)
+                            .padding(5)
                             .background(Color(hex: "7FBF30"))
                             .foregroundColor(.white)
                             .cornerRadius(5)

@@ -8,8 +8,6 @@
 import SwiftData
 import SwiftUI
 
-
-
 struct ContentView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var phaseManager: PhaseManager
@@ -35,9 +33,9 @@ struct ContentView: View {
                             viewModel.pickingPhase.toggle()
 
                         }) {
-                            Text("P")
-                                .font(.system(size: 16, weight: .bold, design: .default))
-                                .frame(width: 25, height: 25)
+                            Image(systemName: "moonphase.first.quarter")
+                                .imageScale(.medium)
+                                .padding(5)
                                 .background(Color(hex: "7FBF30"))
                                 .foregroundColor(.white)
                                 .cornerRadius(5)

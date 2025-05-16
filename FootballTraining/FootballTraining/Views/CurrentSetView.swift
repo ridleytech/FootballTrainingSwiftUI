@@ -28,6 +28,10 @@ class SoundManager: ObservableObject {
     func playSound() {
         player?.play()
     }
+
+    func stopSound() {
+        player?.stop()
+    }
 }
 
 struct CurrentSetView: View {
@@ -42,6 +46,7 @@ struct CurrentSetView: View {
     @State private var showAlert = false
     @State private var workoutEnded = false
 
+    @State private var exerciseRestTime: Int = 120
     @State private var remainingTime: Int = 120 // starting time in seconds (example: 5 minutes)
     @State private var timerRunning = false
     @State private var timerCancellable: Cancellable?
@@ -90,7 +95,7 @@ struct CurrentSetView: View {
                 if remainingTime > 0 {
                     remainingTime -= 1
 
-                    if remainingTime == 3 || remainingTime == 2 || remainingTime == 1 {
+                    if remainingTime == 3 {
                         print("play countdown sound")
 
                         sound.playSound()
@@ -113,7 +118,7 @@ struct CurrentSetView: View {
 
     private func resetTimer() {
         stopTimer()
-        remainingTime = 5 // reset to 5 minutes (or whatever you want)
+        remainingTime = exerciseRestTime
     }
 
     private func timeString(from seconds: Int) -> String {
@@ -123,7 +128,6 @@ struct CurrentSetView: View {
     }
 
     var body: some View {
-//        ZStack {
         VStack {
             Text(viewModel.selectedExercise.name)
                 .font(.system(size: 18, weight: .bold, design: .default))
@@ -188,14 +192,7 @@ struct CurrentSetView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(AppConfig.greenColor)
-
-                //            Spacer()
-
-//                if setStarted {
-//                    Text("Lift")
-//                        .font(.system(size: 100, weight: .bold, design: .default))
-//                        .foregroundColor(AppConfig.grayColor)
-//                }
+                .opacity(0)
             }
             Spacer().frame(height: 10)
 
@@ -218,13 +215,30 @@ struct CurrentSetView: View {
         .onAppear {
             print("viewModel.selectedExercise: \(viewModel.selectedExercise)")
 
-//            if let firstSet = viewModel.selectedExercise.sets.first {
-//                print("First Set: \(firstSet.description)")
-//            }
+            if let firstSet = viewModel.selectedExercise.sets.first {
+                print("First Set: \(firstSet.description)")
+            }
+
+            print(viewModel.selectedExercise.type)
 
             sound.loadSound("countdown-beep", ext: "wav")
 
+            if viewModel.selectedExercise.type == "Basic" {
+                exerciseRestTime = 120
+            } else {
+                exerciseRestTime = 90
+            }
+
+            remainingTime = exerciseRestTime
+
 //            loadPlayer(named: "countdown-beep")
+        }
+        .onChange(of: exerciseRestTime) { newVal in
+            print("exerciseRestTime: \(newVal)")
+        }
+        .onDisappear {
+            sound.stopSound()
+            stopTimer()
         }
         .alert("Lift Completed", isPresented: $showAlert) {
             Button("OK", role: .cancel) {
@@ -241,7 +255,6 @@ struct CurrentSetView: View {
 //            .background(Color.gray)
             .foregroundColor(AppConfig.grayColor)
         }
-//        }
     }
 }
 
