@@ -5,6 +5,7 @@
 //  Created by Randall Ridley on 5/15/25.
 //
 
+import os.log
 import UserNotifications
 
 class NotificationService: UNNotificationServiceExtension {
@@ -12,6 +13,8 @@ class NotificationService: UNNotificationServiceExtension {
     var bestAttemptContent: UNMutableNotificationContent?
 
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        os_log("Notification Service didReceive triggered!", log: OSLog.default, type: .info)
+
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
