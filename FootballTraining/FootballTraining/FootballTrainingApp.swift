@@ -6,6 +6,8 @@
 //
 
 import AVFoundation
+// import Firebase
+// import FirebaseMessaging
 import SwiftData
 import SwiftUI
 import UserNotifications
@@ -19,25 +21,38 @@ struct ModelContextView<Content: View>: View {
     }
 }
 
-@main
-struct FootballTrainingApp: App {
-    init() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(
-                .ambient, // or .playback if you need background audio
-                mode: .default,
-                options: [.mixWithOthers]
-            )
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Failed to configure audio session:", error)
-        }
+// Optional: Shared delegate to handle foreground display
+class UNUserNotificationCenterDelegateProxy: NSObject, UNUserNotificationCenterDelegate {
+    static let shared = UNUserNotificationCenterDelegateProxy()
 
-        requestPushNotificationPermission()
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+        print("UNUserNotificationCenterDelegateProxy userNotificationCenter")
+
+        completionHandler([.banner, .sound, .badge])
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate
+//    MessagingDelegate, UNUserNotificationCenterDelegate
+{
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool
+    {
+        print("AppDelegate didFinishLaunchingWithOptions")
+//        FirebaseApp.configure()
+//
+//        Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
+        requestPushNotificationPermission(application: application)
+
+        return true
     }
 
-    private func requestPushNotificationPermission() {
-        UNUserNotificationCenter.current().delegate = UNUserNotificationCenterDelegateProxy.shared
+    private func requestPushNotificationPermission(application: UIApplication) {
+//        UNUserNotificationCenter.current().delegate = UNUserNotificationCenterDelegateProxy.shared
 
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if let error = error {
@@ -48,9 +63,9 @@ struct FootballTrainingApp: App {
             print("✅ Notification permission granted: \(granted)")
 
             if granted {
-//                print("try to register")
                 DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
+//                    UIApplication.shared.registerForRemoteNotifications()
+                    application.registerForRemoteNotifications()
                 }
             }
         }
@@ -69,6 +84,48 @@ struct FootballTrainingApp: App {
                      didFailToRegisterForRemoteNotificationsWithError error: Error)
     {
         print("❌ Failed to register: \(error)")
+    }
+
+//    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+//        //        print("FCM token: \(fcmToken ?? "nil")")
+//
+//        print("Firebase registration token: \(String(describing: fcmToken))")
+//        guard let fcmToken = fcmToken else { return }
+//        UserDefaults.standard.set(fcmToken, forKey: "fcm_token")
+//        print("FCM Token saved to UserDefaults: \(fcmToken)")
+//    }
+
+//    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+//        print("Firebase registration token: \(String(describing: fcmToken))")
+//
+//        Messaging.messaging().token { token, error in
+//            if let error = error {
+//                print("Error fetching FCM registration token: \(error)")
+//            } else if let token = token {
+//                print("FCM registration token: \(token)")
+    ////                self.fcmRegTokenMessage.text = "Remote FCM registration token: \(token)"
+//            }
+//        }
+//    }
+}
+
+@main
+struct FootballTrainingApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
+    init() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(
+                .ambient, // or .playback if you need background audio
+                mode: .default,
+                options: [.mixWithOthers]
+            )
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Failed to configure audio session:", error)
+        }
+
+//        requestPushNotificationPermission()
     }
 
     var sharedModelContainer: ModelContainer = {
@@ -99,19 +156,5 @@ struct FootballTrainingApp: App {
             }
         }
         .modelContainer(sharedModelContainer)
-    }
-}
-
-// Optional: Shared delegate to handle foreground display
-class UNUserNotificationCenterDelegateProxy: NSObject, UNUserNotificationCenterDelegate {
-    static let shared = UNUserNotificationCenterDelegateProxy()
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-    {
-        print("UNUserNotificationCenterDelegateProxy userNotificationCenter")
-
-        completionHandler([.banner, .sound, .badge])
     }
 }
