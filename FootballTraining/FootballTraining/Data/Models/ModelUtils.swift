@@ -56,6 +56,8 @@ class ModelUtils {
 
                     } else {
                         currentWeek += 1
+                        print("new currentWeek: \(currentWeek)")
+
                         currentDay = "Monday"
                         lastCompletedItem = 0
                         print("go to next week")
@@ -66,6 +68,8 @@ class ModelUtils {
                     print("Next day: \(currentDay)")
                 }
             }
+
+            print("currentWeek: \(currentWeek)")
 
             phaseManager.update(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem, phaseWeekTotal: phaseManager.phaseRecord!.phaseWeekTotal)
 

@@ -1,0 +1,5345 @@
+{
+   "phasename": "Sprint Optimization Phase",
+   "weeks": [
+      {
+         "name": "1",
+         "yearweek": "21",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "2",
+         "yearweek": "22",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "3",
+         "yearweek": "23",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "4",
+         "yearweek": "24",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "5",
+         "yearweek": "25",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "6",
+         "yearweek": "26",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "7",
+         "yearweek": "27",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "8",
+         "yearweek": "28",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "9",
+         "yearweek": "29",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "10",
+         "yearweek": "30",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "11",
+         "yearweek": "31",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "12",
+         "yearweek": "32",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Light Foam Rolling",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "1m/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Hydration + Protein",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "Post-workout"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sleep Focus",
+                     "type": "Recovery",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8-9hrs"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Straight Leg Raise Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "30s/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "30s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Seated Hamstring Stretch",
+                     "type": "Stretch",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "60s/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Active Kickbacks",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Foam Rolling",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "2m/area"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Dynamic Leg Swings",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 front/back"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "15 side/side"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Walking Toe Touch",
+                     "type": "Mobility",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "15 steps"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "A-Skips",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Straight-Leg Bounds",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "20m"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "20m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wall Drill",
+                     "type": "Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3x10s each leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Sprint Bursts",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "4-6x30m"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Nordic Curls",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "3-6"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "3-6"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Glute Bridge March",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "10/leg"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "10/leg"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Romanian Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "2",
+                           "reps": "8"
+                        },
+                        {
+                           "name": "3",
+                           "reps": "8"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}

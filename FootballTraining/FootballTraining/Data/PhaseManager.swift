@@ -37,7 +37,150 @@ class PhaseManager: ObservableObject {
         loadOrCreatePhaseRecord()
     }
 
-    func getDayData(viewModel: PhaseViewModel) -> [DayExercise] {
+    func getDayData(viewModel: PhaseViewModel) -> ([DayExercise], [DayExercise], [ConditioningExercise]) {
+        var weightExercises: [DayExercise] = []
+        var accelerationExercises: [DayExercise] = []
+        var conditioningExercises: [ConditioningExercise] = []
+
+        do {
+            // Load primary phase JSON (e.g., weights)
+            if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
+               let data = try? Data(contentsOf: url),
+               let phaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+            {
+                let primary = PhaseManager.listExercisesForDay(
+                    in: phaseData,
+                    week: viewModel.currentWeek,
+                    dayName: viewModel.currentDay,
+                    context: modelContext
+                )
+
+                weightExercises.append(contentsOf: primary)
+            }
+
+            // Load acceleration phase JSON
+            if let accUrl = Bundle.main.url(forResource: "Acceleration2", withExtension: "json"),
+               let accData = try? Data(contentsOf: accUrl),
+               let accPhase = try? JSONDecoder().decode(PostseasonModel.self, from: accData)
+            {
+//                let accel = PhaseManager.listExercisesForDay(
+//                    in: accPhase,
+//                    week: viewModel.currentWeek,
+//                    dayName: viewModel.currentDay,
+//                    context: modelContext
+//                )
+
+                let (accel, conditioning) = PhaseManager.listExercisesForDay2(
+                    in: accPhase,
+                    week: viewModel.currentWeek,
+                    dayName: viewModel.currentDay,
+                    context: modelContext
+                )
+
+                print("accel PM: \(accel)")
+                print("conditioning PM: \(conditioning)")
+
+                conditioningExercises.append(contentsOf: conditioning)
+                accelerationExercises.append(contentsOf: accel)
+            }
+
+        } catch {
+            print("Error decoding day data: \(error)")
+        }
+
+        return (weightExercises, accelerationExercises, conditioningExercises)
+    }
+
+    func getDayData3(viewModel: PhaseViewModel) -> ([DayExercise], [DayExercise]) {
+        var weightExercises: [DayExercise] = []
+        var accelerationExercises: [DayExercise] = []
+
+        do {
+            // Load primary phase JSON (e.g., weights)
+            if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
+               let data = try? Data(contentsOf: url),
+               let phaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+            {
+                let primary = PhaseManager.listExercisesForDay(
+                    in: phaseData,
+                    week: viewModel.currentWeek,
+                    dayName: viewModel.currentDay,
+                    context: modelContext
+                )
+                weightExercises.append(contentsOf: primary)
+            }
+
+            // Load acceleration phase JSON
+            if let accUrl = Bundle.main.url(forResource: "Acceleration2", withExtension: "json"),
+               let accData = try? Data(contentsOf: accUrl),
+               let accPhase = try? JSONDecoder().decode(PostseasonModel.self, from: accData)
+            {
+                let accel = PhaseManager.listExercisesForDay(
+                    in: accPhase,
+                    week: viewModel.currentWeek,
+                    dayName: viewModel.currentDay,
+                    context: modelContext
+                )
+                accelerationExercises.append(contentsOf: accel)
+            }
+
+        } catch {
+            print("Error decoding day data: \(error)")
+        }
+
+        return (weightExercises, accelerationExercises)
+    }
+
+    func getDayData2(viewModel: PhaseViewModel) -> [DayExercise] {
+        var allExercises: [DayExercise] = []
+
+        do {
+            // Load the acceleration JSON
+            if let accUrl = Bundle.main.url(forResource: "Acceleration2", withExtension: "json"),
+               let accData = try? Data(contentsOf: accUrl),
+               let accelerationData = try? JSONDecoder().decode(PostseasonModel.self, from: accData)
+            {
+                let accExercises = PhaseManager.listExercisesForDay(
+                    in: accelerationData,
+                    week: viewModel.currentWeek,
+                    dayName: viewModel.currentDay,
+                    context: modelContext
+                )
+
+                allExercises.append(contentsOf: accExercises)
+            } else {
+                print("Can't get data for acceleration_phase_program_fresh")
+            }
+
+            // Load the main phase JSON
+            if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
+               let data = try? Data(contentsOf: url),
+               let phaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+            {
+                print("getDayData currentPhase: \(viewModel.currentPhase)")
+                print("currentWeek: \(viewModel.currentWeek)")
+                print("currentDay: \(viewModel.currentDay)")
+
+                let exercises = PhaseManager.listExercisesForDay(
+                    in: phaseData,
+                    week: viewModel.currentWeek,
+                    dayName: viewModel.currentDay,
+                    context: modelContext
+                )
+
+                allExercises.append(contentsOf: exercises)
+            } else {
+                print("Can't get data for \(viewModel.currentPhase)")
+            }
+
+        } catch {
+            print("Failed to fetch all records:", error)
+        }
+
+        return allExercises
+    }
+
+    func getDayData1(viewModel: PhaseViewModel) -> [DayExercise] {
         do {
             if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
@@ -67,12 +210,75 @@ class PhaseManager: ObservableObject {
         }
     }
 
+    static func listExercisesForDay2(
+        in postseason: PostseasonModel,
+        week: Int,
+        dayName: String,
+        context: ModelContext
+    ) -> ([DayExercise], [ConditioningExercise]) {
+        guard let week = postseason.week.first(where: { $0.name == "\(week)" }),
+              let day = week.days.first(where: { $0.name == dayName })
+        else {
+            print("no stuff")
+            return ([], [])
+        }
+
+        var results: [DayExercise] = []
+        var conditioningResults: [ConditioningExercise] = []
+
+        // Handle main exercises
+        if let exercises = day.exercises {
+            for exercise in exercises {
+                var line = ""
+
+                // Fetch max lift
+                let descriptor = FetchDescriptor<MaxIntensityRecord>(
+                    predicate: #Predicate { $0.exerciseName == exercise.name }
+                )
+                let savedMaxLift = (try? context.fetch(descriptor).first?.maxIntensity)
+
+                if let sets = exercise.sets {
+                    for set in sets {
+                        if let intensityString = set.intensity, let reps = set.reps {
+                            if let intensity = Double(intensityString), let maxLift = savedMaxLift {
+                                let calculatedLift = intensity * maxLift
+                                let formattedLift = String(format: "%.0f", Utils.roundToNearestMultipleOfFive(calculatedLift))
+                                line += " \(formattedLift) x \(reps)"
+                            } else {
+                                line += " \(intensityString) x \(reps)"
+                            }
+                        }
+                    }
+
+                    let exercise = DayExercise(
+                        text: line.trim(),
+                        type: exercise.type,
+                        name: exercise.name,
+                        sets: sets,
+                        max: savedMaxLift ?? 0.0
+                    )
+
+                    results.append(exercise)
+                }
+            }
+        }
+
+        // Handle conditioning (pull all conditioning blocks & exercises)
+        if let conditioningBlocks = day.conditioning {
+            for block in conditioningBlocks {
+                conditioningResults.append(contentsOf: block.exercise)
+            }
+        }
+
+        return (results, conditioningResults)
+    }
+
     static func listExercisesForDay(in postseason: PostseasonModel, week: Int, dayName: String, context: ModelContext) -> [DayExercise] {
         guard let week = postseason.week.first(where: { $0.name == "\(week)" }),
               let day = week.days.first(where: { $0.name == dayName }),
               let exercises = day.exercises
         else {
-//            print("no stuff")
+            print("no stuff")
             return []
         }
 
@@ -102,13 +308,6 @@ class PhaseManager: ObservableObject {
                     }
                 }
 
-//                self.id = id
-//                self.text = text
-//                self.type = type
-//                self.name = name
-//                self.sets = sets
-//                self.max = max
-
                 let exercise = FootballTraining.DayExercise(text: line.trim(), type: exercise.type, name: exercise.name, sets: sets, max: (savedMaxLift != nil) ? savedMaxLift! : 0.0)
 
 //                print("exercise: \(exercise.id) \(exercise.name) \(exercise.type) \(exercise.sets.count) \(exercise.max)")
@@ -131,7 +330,7 @@ class PhaseManager: ObservableObject {
                 phaseRecord = existing
 //                print("Loaded existing PhaseRecord: \(existing.description)")
             } else {
-                let new = PhaseRecord(phaseName: "Postseason", phaseWeek: 1, phaseDay: "Monday", lastCompletedItem: 0, phaseWeekTotal: 5)
+                let new = PhaseRecord(phaseName: "Postseason", phaseWeek: 1, phaseDay: "Monday", lastCompletedItem: 0, phaseWeekTotal: 6)
                 modelContext.insert(new)
                 try modelContext.save()
                 phaseRecord = new

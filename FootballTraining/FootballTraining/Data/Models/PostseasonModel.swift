@@ -8,13 +8,6 @@
 import Foundation
 import SwiftUI
 
-//  PostseasonModel.swift
-//  FootballTraining
-//  JSON-Decodable version
-
-import Foundation
-import SwiftUI
-
 class DayExercise: Codable, Hashable, Identifiable {
     let id: UUID
     var text: String

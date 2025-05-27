@@ -21,12 +21,12 @@ struct ExerciseItemView: View {
         HStack {
             Utils.iconForExerciseType2(exerciseListItem.type)
                 .frame(width: 50, height: 50)
-                .background(exerciseListItem.type == "Basic" ? Color.blue : Color.red)
+                .background(exerciseListItem.type == "Basic" ? Color.blue : exerciseListItem.type == "Sprint" ? Color.red : exerciseListItem.type == "Plyometric" ? Color.yellow : Color.red)
                 .foregroundColor(Color.white)
                 .cornerRadius(5)
                 .padding(.trailing, 5)
                 .onTapGesture {
-//                    print("exercise type tapped: \(index)")
+                    print("exercise type tapped: \(exerciseListItemIndex)")
                     viewModel.selectedExercise = exerciseListItem
                     tappedItemIndex = exerciseListItemIndex
                     tappedExercise = true

@@ -14,36 +14,82 @@ struct CurrentDayWorkoutView: View {
     @EnvironmentObject var phaseManager: PhaseManager
     @EnvironmentObject var viewModel: PhaseViewModel
 
-    @State private var dayExerciseList: [DayExercise] = []
+//    @State private var dayExerciseList: [DayExercise] = []
+    @State private var weightExercises: [DayExercise] = []
+    @State private var accelerationExercises: [DayExercise] = []
+    @State private var conditioningExercises: [ConditioningExercise] = []
+
     @State private var selectedItems: Set<String> = []
+    @State var gotData: Bool = false
 
     let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
 
     var body: some View {
-        if dayExerciseList.isEmpty {
+        if weightExercises.isEmpty && !gotData {
             ProgressView("Loading...")
                 .onAppear {
-                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
-                }
+                    let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
+                    weightExercises = weights
+                    accelerationExercises = sprints
+                    conditioningExercises = conditioning
 
-        } else {
-            ExercisesListView(
-                dayExerciseList: dayExerciseList
+                    print("cdwv weightExercises: \(weightExercises)")
+                    print("cdwv conditioningExercises: \(conditioningExercises)")
+
+                    gotData = true
+
+//                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
+                }
+        }
+        else if weightExercises.isEmpty && gotData {
+            Text("Off week")
+        }
+        else {
+            let convertedConditioning: [DayExercise] = conditioningExercises.map { cond in
+                DayExercise(
+                    text: cond.sets.map { set in
+                        if let reps = set.reps {
+                            return "\(reps) reps"
+                        }
+                        else {
+                            return ""
+                        }
+                    }.joined(separator: ", "),
+                    type: cond.type,
+                    name: cond.name,
+                    sets: cond.sets,
+                    max: 0.0
+                )
+            }
+
+            ExercisesListView(weightExercises: weightExercises, accelerationExercises: accelerationExercises, conditioningExercises: convertedConditioning
+//                dayExerciseList: dayExerciseList
             )
             .onChange(of: viewModel.lastCompletedItem) { newValue in
                 print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
-                ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExerciseList.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
+                ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: weightExercises.count + accelerationExercises.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
 
                 if viewModel.lastCompletedItem == 0 {
-                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
+                    let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
+                    weightExercises = weights
+                    accelerationExercises = sprints
+                    conditioningExercises = conditioning
+
+//                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
                 }
             }
             .onChange(of: viewModel.maxDataChanged) { newValue in
 
                 if viewModel.maxDataChanged {
                     print("maxDataChanged changed to: \(newValue)")
-                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
+
+                    let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
+                    weightExercises = weights
+                    accelerationExercises = sprints
+                    conditioningExercises = conditioning
+
+//                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
                 }
 
                 viewModel.maxDataChanged = false
@@ -66,16 +112,15 @@ struct CurrentDayWorkoutView: View {
 
     // 3. Use a context from the model container to create the PhaseManager
     ModelContextPreview(container: container) { modelContext in
-        let phaseManager = PhaseManager(modelContext: modelContext)
 
-        return NavigationStack {
-            CurrentDayWorkoutView(
-                //                currentPhase: .constant("Preseason"), currentDay: .constant("Monday"), currentWeek: .constant(1), lastCompletedItem: .constant(0)
-            )
-            //        .modelContainer(for: Item.self, inMemory: true)
-            .modelContainer(for: MaxIntensityRecord.self)
-            .environmentObject(NavigationManager())
-            .environmentObject(phaseManager)
+        NavigationStack {
+            let phaseManager = PhaseManager(modelContext: modelContext)
+
+            CurrentDayWorkoutView()
+                //        .modelContainer(for: Item.self, inMemory: true)
+                .modelContainer(for: MaxIntensityRecord.self)
+                .environmentObject(NavigationManager())
+                .environmentObject(phaseManager)
         }
     }
     .modelContainer(container)

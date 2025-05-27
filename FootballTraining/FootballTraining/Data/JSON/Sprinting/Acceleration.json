@@ -1,0 +1,1041 @@
+{
+   "name": "Acceleration Phase",
+   "week": [
+      {
+         "name": "1",
+         "yearweek": "202522",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "Sled Push Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "5",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "6",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Trap Bar Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": ".85",
+                           "reps": "3"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Broad Jumps",
+                     "type": "Plyometric",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "5"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "5"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "5"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "Hill Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "5",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Flying Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wicket Runs",
+                     "type": "Sprint Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "Contrast Sprints (Sled + Free)",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Power Cleans",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": ".85",
+                           "reps": "3"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Depth Jumps to Sprint",
+                     "type": "Plyometric",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "3"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            }
+         ],
+         "rests": []
+      },
+      {
+         "name": "2",
+         "yearweek": "202523",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "Sled Push Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "5",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "6",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Trap Bar Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": ".85",
+                           "reps": "3"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Broad Jumps",
+                     "type": "Plyometric",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "5"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "5"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "5"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "Hill Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "5",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Flying Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wicket Runs",
+                     "type": "Sprint Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "Contrast Sprints (Sled + Free)",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Power Cleans",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": ".85",
+                           "reps": "3"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Depth Jumps to Sprint",
+                     "type": "Plyometric",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "3"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            }
+         ],
+         "rests": []
+      },
+      {
+         "name": "3",
+         "yearweek": "202524",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "Sled Push Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "5",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "6",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Trap Bar Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": ".85",
+                           "reps": "3"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Broad Jumps",
+                     "type": "Plyometric",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "5"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "5"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "5"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "Hill Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "5",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Flying Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wicket Runs",
+                     "type": "Sprint Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "Contrast Sprints (Sled + Free)",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Power Cleans",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": ".85",
+                           "reps": "3"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Depth Jumps to Sprint",
+                     "type": "Plyometric",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "3"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            }
+         ],
+         "rests": []
+      },
+      {
+         "name": "4",
+         "yearweek": "202525",
+         "days": [
+            {
+               "name": "Monday",
+               "exercises": [
+                  {
+                     "name": "Sled Push Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "5",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "6",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Trap Bar Deadlifts",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": ".85",
+                           "reps": "3"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Broad Jumps",
+                     "type": "Plyometric",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "5"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "5"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "5"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            },
+            {
+               "name": "Wednesday",
+               "exercises": [
+                  {
+                     "name": "Hill Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "5",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Flying Sprints",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yd fly zone"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Wicket Runs",
+                     "type": "Sprint Drill",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "10 yds"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            },
+            {
+               "name": "Friday",
+               "exercises": [
+                  {
+                     "name": "Contrast Sprints (Sled + Free)",
+                     "type": "Sprint",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "",
+                           "reps": "2x10 yds"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Power Cleans",
+                     "type": "Strength",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": ".85",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": ".85",
+                           "reps": "3"
+                        }
+                     ]
+                  },
+                  {
+                     "name": "Depth Jumps to Sprint",
+                     "type": "Plyometric",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "",
+                           "reps": "3"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "",
+                           "reps": "3"
+                        }
+                     ]
+                  }
+               ],
+               "conditioning": null
+            }
+         ],
+         "rests": []
+      }
+   ]
+}

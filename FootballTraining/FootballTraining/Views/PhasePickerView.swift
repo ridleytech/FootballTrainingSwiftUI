@@ -21,7 +21,7 @@ struct PhasePickerView: View {
                let data = try? Data(contentsOf: url),
                let currentPhaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
             {
-                viewModel.weeks = Array(1 ..< currentPhaseData.week.count)
+                viewModel.weeks = Array(1 ..< currentPhaseData.week.count + 1)
             }
         } catch {
             print("Failed to fetch all records:", error)

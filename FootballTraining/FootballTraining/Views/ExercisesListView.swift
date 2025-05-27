@@ -14,7 +14,11 @@ struct ExercisesListView: View {
     @State var gotoToExercise = false
     @State var selectedExercise: DayExercise?
 
-    let dayExerciseList: [DayExercise]
+//    let dayExerciseList: [DayExercise]
+    let weightExercises: [DayExercise]
+    let accelerationExercises: [DayExercise]
+    let conditioningExercises: [DayExercise]
+
     @State var exerciseIndex: Int = 0
     @State var tappedExercise = false
     @State var tappedItemIndex: Int = 0
@@ -23,7 +27,7 @@ struct ExercisesListView: View {
         print("completeWorkout")
 //        navigationManager.path.removeLast(1)
 
-        viewModel.lastCompletedItem = dayExerciseList.count
+        viewModel.lastCompletedItem = weightExercises.count + accelerationExercises.count
     }
 
     func updateLastCompletedItem() {
@@ -32,8 +36,6 @@ struct ExercisesListView: View {
         viewModel.lastCompletedItem += 1
 
         print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
-
-//        ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: dayExerciseList.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
     }
 
     var body: some View {
@@ -65,15 +67,57 @@ struct ExercisesListView: View {
             }
 
             ZStack(alignment: .bottom) {
-                List(Array(dayExerciseList.enumerated()), id: \.element.id) { index, exercise in
-                    ExerciseItemView(
-                        exerciseListItem: exercise,
-                        exerciseListItemIndex: index,
-                        gotoToExercise: $gotoToExercise,
-                        tappedExercise: $tappedExercise,
-                        tappedItemIndex: $tappedItemIndex
-                    )
+                List {
+                    if !accelerationExercises.isEmpty {
+                        Section(header: Text("Acceleration Training")) {
+                            ForEach(Array(accelerationExercises.enumerated()), id: \.element.id) { index, exercise in
+                                ExerciseItemView(
+                                    exerciseListItem: exercise,
+                                    exerciseListItemIndex: index,
+                                    gotoToExercise: $gotoToExercise,
+                                    tappedExercise: $tappedExercise,
+                                    tappedItemIndex: $tappedItemIndex
+                                )
+                            }
+                        }
+                    }
+
+                    if !conditioningExercises.isEmpty {
+                        Section(header: Text("Conditioning Training")) {
+                            ForEach(Array(conditioningExercises.enumerated()), id: \.element.id) { index2, exercise in
+                                ExerciseItemView(
+                                    exerciseListItem: exercise,
+                                    exerciseListItemIndex: index2 + accelerationExercises.count,
+                                    gotoToExercise: $gotoToExercise,
+                                    tappedExercise: $tappedExercise,
+                                    tappedItemIndex: $tappedItemIndex
+                                )
+                            }
+                        }
+                    }
+
+                    Section(header: Text("Weight Training")) {
+                        ForEach(Array(weightExercises.enumerated()), id: \.element.id) { index3, exercise in
+                            ExerciseItemView(
+                                exerciseListItem: exercise,
+                                exerciseListItemIndex: index3 + accelerationExercises.count + conditioningExercises.count,
+                                gotoToExercise: $gotoToExercise,
+                                tappedExercise: $tappedExercise,
+                                tappedItemIndex: $tappedItemIndex
+                            )
+                        }
+                    }
                 }
+
+//                List(Array(dayExerciseList.enumerated()), id: \.element.id) { index, exercise in
+//                    ExerciseItemView(
+//                        exerciseListItem: exercise,
+//                        exerciseListItemIndex: index,
+//                        gotoToExercise: $gotoToExercise,
+//                        tappedExercise: $tappedExercise,
+//                        tappedItemIndex: $tappedItemIndex
+//                    )
+//                }
 //                .listStyle(.plain)
 
                 // 👇 Bottom shadow overlay
@@ -98,6 +142,8 @@ struct ExercisesListView: View {
 //            )
 //        }
         .onAppear {
+            print("conditioningExercises: \(conditioningExercises)")
+
 //            print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
         }
         .ignoresSafeArea(.container, edges: .bottom)

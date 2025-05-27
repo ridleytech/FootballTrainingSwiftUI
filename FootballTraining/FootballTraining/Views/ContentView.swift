@@ -80,7 +80,7 @@ struct ContentView: View {
                 viewModel.currentWeek = phaseRecord.phaseWeek
                 viewModel.currentDay = phaseRecord.phaseDay
                 viewModel.lastCompletedItem = phaseRecord.lastCompletedItem
-                viewModel.weeks = Array(1 ..< phaseRecord.phaseWeekTotal)
+                viewModel.weeks = Array(1 ..< phaseRecord.phaseWeekTotal + 1)
             } else {
 //                selectedPhase = "Postseason"
 //                selectedWeek = 1

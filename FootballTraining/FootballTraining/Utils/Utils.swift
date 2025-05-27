@@ -51,6 +51,12 @@ enum Utils {
             return Text("C")
         case "Supporting":
             return Text("S")
+        case "Supporting":
+            return Text("S")
+        case "Plyometric":
+            return Text("P")
+        case "Sprint":
+            return Text("SP")
         default:
             return Text("A")
         }
