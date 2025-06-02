@@ -1,5 +1,5 @@
 //
-//  PostseasonModelSwift.swift
+//  PhaseModelSwift.swift
 //  FootballTraining
 //
 //  Created by Randall Ridley on 5/1/25.
@@ -8,12 +8,12 @@
 import Foundation
 import SwiftData
 
-//  PostseasonModel.swift
+//  PhaseModel.swift
 //  FootballTraining
 //  SwiftData-compatible version
 
 // @Model
-// class PostseasonModelSwift {
+// class PhaseModelSwift {
 //    var name: String
 //    @Relationship var week: [Week]
 //

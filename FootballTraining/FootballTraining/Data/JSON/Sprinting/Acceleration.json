@@ -46,7 +46,7 @@
                   },
                   {
                      "name": "Trap Bar Deadlifts",
-                     "type": "Strength",
+                     "type": "Basic",
                      "sets": [
                         {
                            "name": "1",
@@ -92,7 +92,63 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Conditioning",
+                     "exercise": [
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Nordic Hamstring Curls",
+                     "type": "Basic",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "0",
+                           "reps": "6"
+                        }
+                     ]
+                  },
+               ],
+               "conditioning": []
             },
             {
                "name": "Wednesday",
@@ -181,7 +237,63 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Conditioning",
+                     "exercise": [
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Nordic Hamstring Curls",
+                     "type": "Basic",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "0",
+                           "reps": "6"
+                        }
+                     ]
+                  },
+               ],
+               "conditioning": []
             },
             {
                "name": "Friday",
@@ -214,7 +326,7 @@
                   },
                   {
                      "name": "Power Cleans",
-                     "type": "Strength",
+                     "type": "Basic",
                      "sets": [
                         {
                            "name": "1",
@@ -255,10 +367,65 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Endurance",
+                     "exercise": [
+                        {
+                           "name": "Curve Sprints",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "Moderate",
+                                 "reps": "10",
+                                 "time": "30 sec",
+                                 "rest": "60 sec"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "High",
+                                 "reps": "8",
+                                 "time": "20 sec",
+                                 "rest": "45 sec"
+                              }
+                           ]
+                        },
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Run",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "Moderate",
+                                 "reps": "10",
+                                 "time": "30 sec",
+                                 "rest": "60 sec"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "High",
+                                 "reps": "8",
+                                 "time": "20 sec",
+                                 "rest": "45 sec"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
             }
          ],
-         "rests": []
+         "rests": [
+            {
+               "name": "Sunday",
+               "time": "20 min foam roll and mobility"
+            },
+            {
+               "name": "Sunday",
+               "time": "Full Day"
+            }
+         ]
       },
       {
          "name": "2",
@@ -305,7 +472,7 @@
                   },
                   {
                      "name": "Trap Bar Deadlifts",
-                     "type": "Strength",
+                     "type": "Basic",
                      "sets": [
                         {
                            "name": "1",
@@ -351,7 +518,63 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Conditioning",
+                     "exercise": [
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Nordic Hamstring Curls",
+                     "type": "Basic",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "0",
+                           "reps": "6"
+                        }
+                     ]
+                  },
+               ],
+               "conditioning": []
             },
             {
                "name": "Wednesday",
@@ -440,7 +663,63 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Conditioning",
+                     "exercise": [
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Nordic Hamstring Curls",
+                     "type": "Basic",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "0",
+                           "reps": "6"
+                        }
+                     ]
+                  },
+               ],
+               "conditioning": []
             },
             {
                "name": "Friday",
@@ -473,7 +752,7 @@
                   },
                   {
                      "name": "Power Cleans",
-                     "type": "Strength",
+                     "type": "Basic",
                      "sets": [
                         {
                            "name": "1",
@@ -514,10 +793,65 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Endurance",
+                     "exercise": [
+                        {
+                           "name": "Curve Sprints",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "Moderate",
+                                 "reps": "10",
+                                 "time": "30 sec",
+                                 "rest": "60 sec"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "High",
+                                 "reps": "8",
+                                 "time": "20 sec",
+                                 "rest": "45 sec"
+                              }
+                           ]
+                        },
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Run",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "Moderate",
+                                 "reps": "10",
+                                 "time": "30 sec",
+                                 "rest": "60 sec"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "High",
+                                 "reps": "8",
+                                 "time": "20 sec",
+                                 "rest": "45 sec"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
             }
          ],
-         "rests": []
+         "rests": [
+            {
+               "name": "Sunday",
+               "time": "20 min foam roll and mobility"
+            },
+            {
+               "name": "Sunday",
+               "time": "45 mins"
+            }
+         ]
       },
       {
          "name": "3",
@@ -564,7 +898,7 @@
                   },
                   {
                      "name": "Trap Bar Deadlifts",
-                     "type": "Strength",
+                     "type": "Basic",
                      "sets": [
                         {
                            "name": "1",
@@ -610,7 +944,63 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Conditioning",
+                     "exercise": [
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Nordic Hamstring Curls",
+                     "type": "Basic",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "0",
+                           "reps": "6"
+                        }
+                     ]
+                  },
+               ],
+               "conditioning": []
             },
             {
                "name": "Wednesday",
@@ -699,7 +1089,63 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Conditioning",
+                     "exercise": [
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Nordic Hamstring Curls",
+                     "type": "Basic",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "0",
+                           "reps": "6"
+                        }
+                     ]
+                  },
+               ],
+               "conditioning": []
             },
             {
                "name": "Friday",
@@ -732,7 +1178,7 @@
                   },
                   {
                      "name": "Power Cleans",
-                     "type": "Strength",
+                     "type": "Basic",
                      "sets": [
                         {
                            "name": "1",
@@ -773,10 +1219,65 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Endurance",
+                     "exercise": [
+                        {
+                           "name": "Curve Sprints",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "Moderate",
+                                 "reps": "10",
+                                 "time": "30 sec",
+                                 "rest": "60 sec"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "High",
+                                 "reps": "8",
+                                 "time": "20 sec",
+                                 "rest": "45 sec"
+                              }
+                           ]
+                        },
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Run",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "Moderate",
+                                 "reps": "10",
+                                 "time": "30 sec",
+                                 "rest": "60 sec"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "High",
+                                 "reps": "8",
+                                 "time": "20 sec",
+                                 "rest": "45 sec"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
             }
          ],
-         "rests": []
+         "rests": [
+            {
+               "name": "Sunday",
+               "time": "20 min foam roll and mobility"
+            },
+            {
+               "name": "Sunday",
+               "time": "Full Day"
+            }
+         ]
       },
       {
          "name": "4",
@@ -823,7 +1324,7 @@
                   },
                   {
                      "name": "Trap Bar Deadlifts",
-                     "type": "Strength",
+                     "type": "Basic",
                      "sets": [
                         {
                            "name": "1",
@@ -869,7 +1370,63 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Conditioning",
+                     "exercise": [
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Tuesday",
+               "exercises": [
+                  {
+                     "name": "Nordic Hamstring Curls",
+                     "type": "Basic",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "0",
+                           "reps": "6"
+                        }
+                     ]
+                  },
+               ],
+               "conditioning": []
             },
             {
                "name": "Wednesday",
@@ -958,7 +1515,63 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Conditioning",
+                     "exercise": [
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "0.6",
+                                 "reps": "4x40 yds",
+                                 "rest": "30s"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "name": "Thursday",
+               "exercises": [
+                  {
+                     "name": "Nordic Hamstring Curls",
+                     "type": "Basic",
+                     "sets": [
+                        {
+                           "name": "1",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "2",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "3",
+                           "intensity": "0",
+                           "reps": "6"
+                        },
+                        {
+                           "name": "4",
+                           "intensity": "0",
+                           "reps": "6"
+                        }
+                     ]
+                  },
+               ],
+               "conditioning": []
             },
             {
                "name": "Friday",
@@ -991,7 +1604,7 @@
                   },
                   {
                      "name": "Power Cleans",
-                     "type": "Strength",
+                     "type": "Basic",
                      "sets": [
                         {
                            "name": "1",
@@ -1032,10 +1645,65 @@
                      ]
                   }
                ],
-               "conditioning": null
+               "conditioning": [
+                  {
+                     "name": "Sprint Endurance",
+                     "exercise": [
+                        {
+                           "name": "Curve Sprints",
+                           "type": "Sprint",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "Moderate",
+                                 "reps": "10",
+                                 "time": "30 sec",
+                                 "rest": "60 sec"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "High",
+                                 "reps": "8",
+                                 "time": "20 sec",
+                                 "rest": "45 sec"
+                              }
+                           ]
+                        },
+                        {
+                           "name": "Tempo Runs",
+                           "type": "Run",
+                           "sets": [
+                              {
+                                 "name": "1",
+                                 "intensity": "Moderate",
+                                 "reps": "10",
+                                 "time": "30 sec",
+                                 "rest": "60 sec"
+                              },
+                              {
+                                 "name": "2",
+                                 "intensity": "High",
+                                 "reps": "8",
+                                 "time": "20 sec",
+                                 "rest": "45 sec"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
             }
          ],
-         "rests": []
+         "rests": [
+            {
+               "name": "Sunday",
+               "time": "20 min foam roll and mobility"
+            },
+            {
+               "name": "Sunday",
+               "time": "30 mins"
+            }
+         ]
       }
    ]
 }

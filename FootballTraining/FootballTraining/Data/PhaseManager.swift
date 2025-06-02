@@ -46,7 +46,7 @@ class PhaseManager: ObservableObject {
             // Load primary phase JSON (e.g., weights)
             if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
-               let phaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+               let phaseData = try? JSONDecoder().decode(PhaseModel.self, from: data)
             {
                 let primary = PhaseManager.listExercisesForDay(
                     in: phaseData,
@@ -59,9 +59,9 @@ class PhaseManager: ObservableObject {
             }
 
             // Load acceleration phase JSON
-            if let accUrl = Bundle.main.url(forResource: "Acceleration2", withExtension: "json"),
+            if let accUrl = Bundle.main.url(forResource: "Acceleration", withExtension: "json"),
                let accData = try? Data(contentsOf: accUrl),
-               let accPhase = try? JSONDecoder().decode(PostseasonModel.self, from: accData)
+               let accPhase = try? JSONDecoder().decode(PhaseModel.self, from: accData)
             {
 //                let accel = PhaseManager.listExercisesForDay(
 //                    in: accPhase,
@@ -99,7 +99,7 @@ class PhaseManager: ObservableObject {
             // Load primary phase JSON (e.g., weights)
             if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
-               let phaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+               let phaseData = try? JSONDecoder().decode(PhaseModel.self, from: data)
             {
                 let primary = PhaseManager.listExercisesForDay(
                     in: phaseData,
@@ -111,9 +111,9 @@ class PhaseManager: ObservableObject {
             }
 
             // Load acceleration phase JSON
-            if let accUrl = Bundle.main.url(forResource: "Acceleration2", withExtension: "json"),
+            if let accUrl = Bundle.main.url(forResource: "Acceleration", withExtension: "json"),
                let accData = try? Data(contentsOf: accUrl),
-               let accPhase = try? JSONDecoder().decode(PostseasonModel.self, from: accData)
+               let accPhase = try? JSONDecoder().decode(PhaseModel.self, from: accData)
             {
                 let accel = PhaseManager.listExercisesForDay(
                     in: accPhase,
@@ -136,9 +136,9 @@ class PhaseManager: ObservableObject {
 
         do {
             // Load the acceleration JSON
-            if let accUrl = Bundle.main.url(forResource: "Acceleration2", withExtension: "json"),
+            if let accUrl = Bundle.main.url(forResource: "Acceleration", withExtension: "json"),
                let accData = try? Data(contentsOf: accUrl),
-               let accelerationData = try? JSONDecoder().decode(PostseasonModel.self, from: accData)
+               let accelerationData = try? JSONDecoder().decode(PhaseModel.self, from: accData)
             {
                 let accExercises = PhaseManager.listExercisesForDay(
                     in: accelerationData,
@@ -155,7 +155,7 @@ class PhaseManager: ObservableObject {
             // Load the main phase JSON
             if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
-               let phaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+               let phaseData = try? JSONDecoder().decode(PhaseModel.self, from: data)
             {
                 print("getDayData currentPhase: \(viewModel.currentPhase)")
                 print("currentWeek: \(viewModel.currentWeek)")
@@ -184,7 +184,7 @@ class PhaseManager: ObservableObject {
         do {
             if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
-               let postseason = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+               let postseason = try? JSONDecoder().decode(PhaseModel.self, from: data)
             {
                 print("getDayData currentPhase: \(viewModel.currentPhase)")
                 print("currentWeek: \(viewModel.currentWeek)")
@@ -211,12 +211,12 @@ class PhaseManager: ObservableObject {
     }
 
     static func listExercisesForDay2(
-        in postseason: PostseasonModel,
+        in postseason: PhaseModel,
         week: Int,
         dayName: String,
         context: ModelContext
     ) -> ([DayExercise], [ConditioningExercise]) {
-        guard let week = postseason.week.first(where: { $0.name == "\(week)" }),
+        guard let week = postseason.week.last(where: { $0.name == "\(week)" }),
               let day = week.days.first(where: { $0.name == dayName })
         else {
             print("no stuff")
@@ -273,7 +273,7 @@ class PhaseManager: ObservableObject {
         return (results, conditioningResults)
     }
 
-    static func listExercisesForDay(in postseason: PostseasonModel, week: Int, dayName: String, context: ModelContext) -> [DayExercise] {
+    static func listExercisesForDay(in postseason: PhaseModel, week: Int, dayName: String, context: ModelContext) -> [DayExercise] {
         guard let week = postseason.week.first(where: { $0.name == "\(week)" }),
               let day = week.days.first(where: { $0.name == dayName }),
               let exercises = day.exercises

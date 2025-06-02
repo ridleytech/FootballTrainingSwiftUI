@@ -19,7 +19,7 @@ struct PhasePickerView: View {
         do {
             if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
                let data = try? Data(contentsOf: url),
-               let currentPhaseData = try? JSONDecoder().decode(PostseasonModel.self, from: data)
+               let currentPhaseData = try? JSONDecoder().decode(PhaseModel.self, from: data)
             {
                 viewModel.weeks = Array(1 ..< currentPhaseData.week.count + 1)
             }

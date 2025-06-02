@@ -1,5 +1,5 @@
 //
-//  PostseasonModel.swift
+//  PhaseModel.swift
 //  FootballTraining
 //
 //  Created by Randall Ridley on 4/26/25.
@@ -34,11 +34,11 @@ class DayExercise: Codable, Hashable, Identifiable {
     }
 }
 
-class PostseasonModel: Codable, Hashable {
+class PhaseModel: Codable, Hashable {
     var name: String
     var week: [Week]
 
-    static func == (lhs: PostseasonModel, rhs: PostseasonModel) -> Bool {
+    static func == (lhs: PhaseModel, rhs: PhaseModel) -> Bool {
         lhs.name == rhs.name && lhs.week == rhs.week
     }
 
