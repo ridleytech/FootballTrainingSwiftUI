@@ -23,12 +23,29 @@ struct ContentView: View {
                 ZStack {
                     Spacer()
 
+                    HStack {
+                        Button(action: {
+                            navigationManager.path.append(Route2.notification)
+
+                        }) {
+                            Image(systemName: "gearshape.fill")
+                                .imageScale(.medium)
+                                .padding(5)
+                                .background(Color(hex: "7FBF30"))
+                                .foregroundColor(.white)
+                                .cornerRadius(5)
+                        }
+
+                        Spacer()
+                    }
+
                     Text("Football Training")
                         .font(.system(size: 18, weight: .bold, design: .default))
                         .foregroundColor(AppConfig.greenColor)
 
                     HStack {
                         Spacer()
+
                         Button(action: {
                             viewModel.pickingPhase.toggle()
 
@@ -49,6 +66,7 @@ struct ContentView: View {
 
                     Spacer()
                 } else {
+                    Spacer().frame(height: 20)
                     PhaseDataView()
                         .navigationDestination(for: Route2.self) { route in
                             switch route {
@@ -62,6 +80,8 @@ struct ContentView: View {
                                 MaxHistoryView()
                             case .saveMax:
                                 SaveMax()
+                            case .notification:
+                                NotificationSettings()
                             default:
                                 EmptyView()
                             }

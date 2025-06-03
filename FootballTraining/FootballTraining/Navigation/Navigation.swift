@@ -20,6 +20,7 @@ enum Route2: Hashable {
     case maxHistory
     case currentSet
     case saveMax
+    case notification
 }
 
 class NavigationManager: ObservableObject {
