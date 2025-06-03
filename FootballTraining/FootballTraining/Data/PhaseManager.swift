@@ -289,9 +289,9 @@ class PhaseManager: ObservableObject {
 
             // Try to fetch the max lift saved in SwiftData
             let descriptor = FetchDescriptor<MaxIntensityRecord>(predicate: #Predicate { $0.exerciseName == exercise.name })
-            let savedMaxLift = (try? context.fetch(descriptor).first?.maxIntensity)
+            let savedMaxLift = (try? context.fetch(descriptor).last?.maxIntensity)
 
-//            print("savedMaxLift \(exercise.name): \(savedMaxLift)")
+            print("savedMaxLift \(exercise.name): \(savedMaxLift)")
 
             if let sets = exercise.sets {
                 for set in sets {
