@@ -9,9 +9,6 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-import Foundation
-import SwiftData
-
 class PhaseViewModel: ObservableObject {
     @Published var currentPhase: String = "Postseason"
     @Published var currentWeek: Int = 1
@@ -89,125 +86,6 @@ class PhaseManager: ObservableObject {
         }
 
         return (weightExercises, accelerationExercises, conditioningExercises)
-    }
-
-    func getDayData3(viewModel: PhaseViewModel) -> ([DayExercise], [DayExercise]) {
-        var weightExercises: [DayExercise] = []
-        var accelerationExercises: [DayExercise] = []
-
-        do {
-            // Load primary phase JSON (e.g., weights)
-            if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
-               let data = try? Data(contentsOf: url),
-               let phaseData = try? JSONDecoder().decode(PhaseModel.self, from: data)
-            {
-                let primary = PhaseManager.listExercisesForDay(
-                    in: phaseData,
-                    week: viewModel.currentWeek,
-                    dayName: viewModel.currentDay,
-                    context: modelContext
-                )
-                weightExercises.append(contentsOf: primary)
-            }
-
-            // Load acceleration phase JSON
-            if let accUrl = Bundle.main.url(forResource: "Acceleration", withExtension: "json"),
-               let accData = try? Data(contentsOf: accUrl),
-               let accPhase = try? JSONDecoder().decode(PhaseModel.self, from: accData)
-            {
-                let accel = PhaseManager.listExercisesForDay(
-                    in: accPhase,
-                    week: viewModel.currentWeek,
-                    dayName: viewModel.currentDay,
-                    context: modelContext
-                )
-                accelerationExercises.append(contentsOf: accel)
-            }
-
-        } catch {
-            print("Error decoding day data: \(error)")
-        }
-
-        return (weightExercises, accelerationExercises)
-    }
-
-    func getDayData2(viewModel: PhaseViewModel) -> [DayExercise] {
-        var allExercises: [DayExercise] = []
-
-        do {
-            // Load the acceleration JSON
-            if let accUrl = Bundle.main.url(forResource: "Acceleration", withExtension: "json"),
-               let accData = try? Data(contentsOf: accUrl),
-               let accelerationData = try? JSONDecoder().decode(PhaseModel.self, from: accData)
-            {
-                let accExercises = PhaseManager.listExercisesForDay(
-                    in: accelerationData,
-                    week: viewModel.currentWeek,
-                    dayName: viewModel.currentDay,
-                    context: modelContext
-                )
-
-                allExercises.append(contentsOf: accExercises)
-            } else {
-                print("Can't get data for acceleration_phase_program_fresh")
-            }
-
-            // Load the main phase JSON
-            if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
-               let data = try? Data(contentsOf: url),
-               let phaseData = try? JSONDecoder().decode(PhaseModel.self, from: data)
-            {
-                print("getDayData currentPhase: \(viewModel.currentPhase)")
-                print("currentWeek: \(viewModel.currentWeek)")
-                print("currentDay: \(viewModel.currentDay)")
-
-                let exercises = PhaseManager.listExercisesForDay(
-                    in: phaseData,
-                    week: viewModel.currentWeek,
-                    dayName: viewModel.currentDay,
-                    context: modelContext
-                )
-
-                allExercises.append(contentsOf: exercises)
-            } else {
-                print("Can't get data for \(viewModel.currentPhase)")
-            }
-
-        } catch {
-            print("Failed to fetch all records:", error)
-        }
-
-        return allExercises
-    }
-
-    func getDayData1(viewModel: PhaseViewModel) -> [DayExercise] {
-        do {
-            if let url = Bundle.main.url(forResource: viewModel.currentPhase, withExtension: "json"),
-               let data = try? Data(contentsOf: url),
-               let postseason = try? JSONDecoder().decode(PhaseModel.self, from: data)
-            {
-                print("getDayData currentPhase: \(viewModel.currentPhase)")
-                print("currentWeek: \(viewModel.currentWeek)")
-                print("currentDay: \(viewModel.currentDay)")
-
-                return PhaseManager.listExercisesForDay(
-                    in: postseason,
-                    week: viewModel.currentWeek,
-                    dayName: viewModel.currentDay,
-                    context: modelContext
-                )
-
-            } else {
-                print("can't get data for \(viewModel.currentPhase)")
-
-                return []
-            }
-
-        } catch {
-            print("Failed to fetch all records:", error)
-
-            return []
-        }
     }
 
     static func listExercisesForDay2(
@@ -291,7 +169,7 @@ class PhaseManager: ObservableObject {
             let descriptor = FetchDescriptor<MaxIntensityRecord>(predicate: #Predicate { $0.exerciseName == exercise.name })
             let savedMaxLift = (try? context.fetch(descriptor).last?.maxIntensity)
 
-            print("savedMaxLift \(exercise.name): \(savedMaxLift)")
+//            print("savedMaxLift \(exercise.name): \(savedMaxLift)")
 
             if let sets = exercise.sets {
                 for set in sets {

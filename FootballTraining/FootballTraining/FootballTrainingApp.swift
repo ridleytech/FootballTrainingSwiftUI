@@ -132,7 +132,9 @@ struct FootballTrainingApp: App {
         let schema = Schema([
             Item.self,
             MaxIntensityRecord.self,
-            PhaseRecord.self
+            PhaseRecord.self,
+            TrainingKPI.self,
+            WeightRecord.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

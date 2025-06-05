@@ -18,6 +18,7 @@ struct MaxHistoryView: View {
     @State var gotoToSaveMax = false
     @State private var selectedRecord: MaxIntensityRecord?
     @State private var animatedRecords: [MaxIntensityRecord] = []
+    @State private var chartVisible = false
 
 //    private func loadAllRecords() {
 //        let descriptor = FetchDescriptor<MaxIntensityRecord>(
@@ -69,74 +70,72 @@ struct MaxHistoryView: View {
                 Text("No \(viewModel.selectedExercise.name) records.")
                     .foregroundColor(.gray)
             } else {
-                Chart(animatedRecords) { record in
-                    LineMark(
-                        x: .value("Date", record.dateRecorded),
-                        y: .value("Max", record.maxIntensity)
-                    )
-                    .interpolationMethod(.catmullRom)
-                    .symbol(Circle())
-
-                    if selectedRecord?.dateRecorded == record.dateRecorded {
-                        PointMark(
+                if chartVisible {
+                    Chart(animatedRecords) { record in
+                        LineMark(
                             x: .value("Date", record.dateRecorded),
                             y: .value("Max", record.maxIntensity)
                         )
-                        .annotation(position: .top) {
-                            VStack(spacing: 2) {
-                                Text("\(Int(record.maxIntensity)) lbs")
-                                Text(record.dateRecorded.formatted(date: .numeric, time: .omitted))
+                        .interpolationMethod(.catmullRom)
+                        .symbol(Circle())
+
+                        if selectedRecord?.dateRecorded == record.dateRecorded {
+                            PointMark(
+                                x: .value("Date", record.dateRecorded),
+                                y: .value("Max", record.maxIntensity)
+                            )
+                            .annotation(position: .top) {
+                                VStack(spacing: 2) {
+                                    Text("\(Int(record.maxIntensity)) lbs")
+                                    Text(record.dateRecorded.formatted(date: .numeric, time: .omitted))
+                                }
+                                .foregroundColor(Color.white)
+                                .font(.caption2)
+                                .padding(6)
+                                .background(Color.black.opacity(0.8))
+                                .cornerRadius(5)
                             }
-                            .foregroundColor(Color.white)
-                            .font(.caption2)
-                            .padding(6)
-                            .background(Color.black.opacity(0.8))
-                            .cornerRadius(5)
                         }
                     }
-                }
-                .chartOverlay { proxy in
-                    GeometryReader { _ in
-                        Rectangle().fill(Color.clear).contentShape(Rectangle())
-                            .gesture(
-                                DragGesture(minimumDistance: 0)
-                                    .onChanged { value in
-                                        let location = value.location
-                                        if let date: Date = proxy.value(atX: location.x) {
-                                            if let nearest = records.min(by: {
-                                                abs($0.dateRecorded.timeIntervalSince(date)) <
-                                                    abs($1.dateRecorded.timeIntervalSince(date))
-                                            }) {
-                                                selectedRecord = nearest
+                    .chartOverlay { proxy in
+                        GeometryReader { _ in
+                            Rectangle().fill(Color.clear).contentShape(Rectangle())
+                                .gesture(
+                                    DragGesture(minimumDistance: 0)
+                                        .onChanged { value in
+                                            let location = value.location
+                                            if let date: Date = proxy.value(atX: location.x) {
+                                                if let nearest = animatedRecords.min(by: {
+                                                    abs($0.dateRecorded.timeIntervalSince(date)) <
+                                                        abs($1.dateRecorded.timeIntervalSince(date))
+                                                }) {
+                                                    selectedRecord = nearest
+                                                }
                                             }
                                         }
-                                    }
-                            )
+                                )
+                        }
                     }
-                }
-                .chartXAxis {
-                    AxisMarks(values: .automatic) { value in
-                        if let dateValue = value.as(Date.self) {
-                            AxisGridLine()
-                            AxisValueLabel {
-                                Text("")
-                                    .font(.caption)
+                    .chartXAxis {
+                        AxisMarks(values: .automatic) { value in
+                            if let dateValue = value.as(Date.self) {
+                                AxisGridLine()
+                                AxisValueLabel {
+                                    Text(dateValue.formatted(date: .abbreviated, time: .omitted))
+                                        .font(.caption2)
+                                }
                             }
                         }
                     }
-                }
-                .padding(.top, 20)
-                .onAppear {
-                    withAnimation(.easeOut(duration: 1.0)) {
-                        animatedRecords = records
-                    }
+                    .transition(.opacity)
+                    .animation(.easeOut(duration: 1.0), value: chartVisible)
+                    .padding(.top, 20)
                 }
             }
 
             Spacer()
 
             Button(action: {
-//                gotoToSaveMax = true
                 navigationManager.path.append(Route2.saveMax)
             }) {
                 Text("Add Max")
@@ -152,6 +151,8 @@ struct MaxHistoryView: View {
         .onAppear {
             loadExerciseRecords()
 //            loadAllRecords()
+            animatedRecords = records
+            chartVisible = true
         }
         .navigationDestination(isPresented: $gotoToSaveMax) {
             SaveMax()

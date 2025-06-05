@@ -11,8 +11,56 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var phaseManager: PhaseManager
-
     @StateObject var viewModel = PhaseViewModel()
+    @Environment(\.modelContext) private var modelContext
+
+    @MainActor
+    func preloadSampleKPIs(context: ModelContext) async throws {
+        let todayDate = Date()
+
+        let sampleKPIs: [TrainingKPI] = [
+            TrainingKPI(exerciseName: "Squat", dateRecorded: todayDate, bodyWeightMultiplierMin: 1.5, bodyWeightMultiplierMax: 1.75, repsMin: 3, repsMax: 5, liftSpeedConcentricMin: 0.6, liftSpeedConcentricMax: 0.8, notes: "Heels elevated"),
+            TrainingKPI(exerciseName: "Chin Up", dateRecorded: todayDate, repsMin: 10, repsMax: 12, notes: "Underhand grip"),
+            TrainingKPI(exerciseName: "Trap Bar Deadlift", dateRecorded: todayDate, bodyWeightMultiplierMin: 2.0, bodyWeightMultiplierMax: 2.2, liftSpeedConcentricMin: 0.6, liftSpeedConcentricMax: 0.8),
+            TrainingKPI(exerciseName: "Barbell RDL", dateRecorded: todayDate, bodyWeightMultiplierMin: 1.5, bodyWeightMultiplierMax: 1.75, repsMin: 3, repsMax: 5, liftSpeedConcentricMin: 0.6, liftSpeedConcentricMax: 0.8, notes: "Use straps)"),
+            TrainingKPI(exerciseName: "Lateral Lunge", dateRecorded: todayDate, bodyWeightMultiplierMin: 0.4, bodyWeightMultiplierMax: 0.6, repsMin: 3, repsMax: 5),
+            TrainingKPI(exerciseName: "Nordic Curl", dateRecorded: todayDate, liftSpeedEccentric: 3.0),
+            TrainingKPI(exerciseName: "Calf Raise - Barbell on Chair", dateRecorded: todayDate, bodyWeightMultiplierMin: 1.5, bodyWeightMultiplierMax: 1.85, repsMin: 3, repsMax: 5),
+            TrainingKPI(exerciseName: "Calf Raise - Single Leg", dateRecorded: todayDate, repsMin: 12, repsMax: 12),
+            TrainingKPI(exerciseName: "Calf Raise - Machine", dateRecorded: todayDate, bodyWeightMultiplierMin: 2.0, bodyWeightMultiplierMax: 2.5, repsMin: 3, repsMax: 5),
+            TrainingKPI(exerciseName: "Soleus Calf Raise - Smith Machine", dateRecorded: todayDate, bodyWeightMultiplierMin: 1.5, bodyWeightMultiplierMax: 2.0, repsMin: 3, repsMax: 5),
+            TrainingKPI(exerciseName: "Pogo Jumps", dateRecorded: todayDate, lengthSecondsMin: 120, lengthSecondsMax: 180),
+            TrainingKPI(exerciseName: "Hold Iso Lunge", dateRecorded: todayDate, lengthSecondsMin: 120, lengthSecondsMax: 180),
+            TrainingKPI(exerciseName: "Hip Thrust - Bar", dateRecorded: todayDate, bodyWeightMultiplierMin: 1.5, bodyWeightMultiplierMax: 2.0, repsMin: 3, repsMax: 8, weightRangeDescription: "Past 360–400 lbs"),
+            TrainingKPI(exerciseName: "Split Squat", dateRecorded: todayDate, bodyWeightMultiplierMin: 1.35, bodyWeightMultiplierMax: 1.5),
+            TrainingKPI(exerciseName: "Hip Flexor Strength - Cable", dateRecorded: todayDate, bodyWeightMultiplierMin: 0.3, bodyWeightMultiplierMax: 0.5, repsMin: 8, repsMax: 15),
+            TrainingKPI(exerciseName: "DB Press", dateRecorded: todayDate, bodyWeightMultiplierMin: 1.4, bodyWeightMultiplierMax: 1.6, repsMin: 6, repsMax: 10, weightRangeDescription: "65–100 lbs")
+        ]
+
+        for kpi in sampleKPIs {
+            context.insert(kpi)
+        }
+
+        let weightRecord = WeightRecord(weight: 188.0, dateRecorded: todayDate)
+        context.insert(weightRecord)
+
+        try context.save()
+    }
+
+    func deleteAllKPIs(modelContext: ModelContext) {
+        let descriptor = FetchDescriptor<TrainingKPI>()
+
+        do {
+            let allKPIs = try modelContext.fetch(descriptor)
+            for kpi in allKPIs {
+                modelContext.delete(kpi)
+            }
+            try modelContext.save()
+            print("Deleted all TrainingKPI records.")
+        } catch {
+            print("Failed to delete KPIs:", error)
+        }
+    }
 
     var body: some View {
         NavigationStack(path: $navigationManager.path) {
@@ -115,6 +163,7 @@ struct ContentView: View {
         }
         .tint(AppConfig.greenColor)
         .environmentObject(viewModel)
+//        .deleteAllKPIs(modelContext: modelContext)
 
         // .background(Color.pink)
     }

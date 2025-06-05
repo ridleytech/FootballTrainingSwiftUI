@@ -128,7 +128,7 @@ struct SaveMax: View {
 
                 Spacer()
 
-                Button("Save Max") {
+                Button(action: {
                     if let intensityValue = Double(intensity) {
                         attemptSaveMaxIntensity(
                             exerciseName: viewModel.selectedExercise.name,
@@ -136,12 +136,15 @@ struct SaveMax: View {
                             context: modelContext
                         )
                     }
+                }) {
+                    Text("Save Max")
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .background(Color(hex: "7FBF30"))
+                        .foregroundColor(.white)
+                        .cornerRadius(5)
                 }
-                .font(.system(size: 16, weight: .bold))
-                .frame(maxWidth: .infinity, minHeight: 45)
-                .background(Color(hex: "7FBF30"))
-                .foregroundColor(.white)
-                .cornerRadius(5)
             }
         }
         .padding([.leading, .trailing], 16)
