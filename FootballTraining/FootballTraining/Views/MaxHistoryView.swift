@@ -154,9 +154,7 @@ struct MaxHistoryView: View {
             animatedRecords = records
             chartVisible = true
         }
-        .navigationDestination(isPresented: $gotoToSaveMax) {
-            SaveMax()
-        }
+
 //        .navigationTitle("\(exerciseName) History")
     }
 }

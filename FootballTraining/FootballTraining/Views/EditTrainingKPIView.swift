@@ -7,42 +7,43 @@
 
 import SwiftUI
 
-struct TrainingKPIFormView: View {
+struct KPIDetailsView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var viewModel: PhaseViewModel
 
-    @Binding var kpi: TrainingKPI
-    @State private var exerciseName: String
-    @State private var bodyWeightMultiplierMin: String
-    @State private var bodyWeightMultiplierMax: String
-    @State private var repsMin: String
-    @State private var repsMax: String
-    @State private var liftSpeedConcentricMin: String
-    @State private var liftSpeedConcentricMax: String
-    @State private var liftSpeedEccentric: String
-    @State private var lengthSecondsMin: String
-    @State private var lengthSecondsMax: String
-    @State private var weightRangeDescription: String
-    @State private var notes: String
-    @State private var currentProgress: String
-    @State private var targetGoal: String
+    @State private var exerciseName: String = ""
+    @State private var bodyWeightMultiplierMin: String = ""
+    @State private var bodyWeightMultiplierMax: String = ""
+    @State private var repsMin: String = ""
+    @State private var repsMax: String = ""
+    @State private var liftSpeedConcentricMin: String = ""
+    @State private var liftSpeedConcentricMax: String = ""
+    @State private var liftSpeedEccentric: String = ""
+    @State private var lengthSecondsMin: String = ""
+    @State private var lengthSecondsMax: String = ""
+    @State private var weightRangeDescription: String = ""
+    @State private var notes: String = ""
+    @State private var currentProgress: String = ""
+    @State private var targetGoal: String = ""
 
     // Placeholder initializer for creating a new KPI
-    init(kpi: Binding<TrainingKPI>) {
-        _kpi = kpi
-        _exerciseName = State(initialValue: kpi.wrappedValue.exerciseName)
-        _bodyWeightMultiplierMin = State(initialValue: kpi.wrappedValue.bodyWeightMultiplierMin?.description ?? "")
-        _bodyWeightMultiplierMax = State(initialValue: kpi.wrappedValue.bodyWeightMultiplierMax?.description ?? "")
-        _repsMin = State(initialValue: kpi.wrappedValue.repsMin?.description ?? "")
-        _repsMax = State(initialValue: kpi.wrappedValue.repsMax?.description ?? "")
-        _liftSpeedConcentricMin = State(initialValue: kpi.wrappedValue.liftSpeedConcentricMin?.description ?? "")
-        _liftSpeedConcentricMax = State(initialValue: kpi.wrappedValue.liftSpeedConcentricMax?.description ?? "")
-        _liftSpeedEccentric = State(initialValue: kpi.wrappedValue.liftSpeedEccentric?.description ?? "")
-        _lengthSecondsMin = State(initialValue: kpi.wrappedValue.lengthSecondsMin?.description ?? "")
-        _lengthSecondsMax = State(initialValue: kpi.wrappedValue.lengthSecondsMax?.description ?? "")
-        _weightRangeDescription = State(initialValue: kpi.wrappedValue.weightRangeDescription ?? "")
-        _notes = State(initialValue: kpi.wrappedValue.notes ?? "")
-        _currentProgress = State(initialValue: kpi.wrappedValue.currentProgress ?? "")
-        _targetGoal = State(initialValue: kpi.wrappedValue.targetGoal ?? "")
+    func mapKPIData() {
+        let kpi = viewModel.selectedKPI
+
+        exerciseName = kpi.exerciseName
+        bodyWeightMultiplierMin = kpi.bodyWeightMultiplierMin?.description ?? ""
+        bodyWeightMultiplierMax = kpi.bodyWeightMultiplierMax?.description ?? ""
+        repsMin = kpi.repsMin?.description ?? ""
+        repsMax = kpi.repsMax?.description ?? ""
+        liftSpeedConcentricMin = kpi.liftSpeedConcentricMin?.description ?? ""
+        liftSpeedConcentricMax = kpi.liftSpeedConcentricMax?.description ?? ""
+        liftSpeedEccentric = kpi.liftSpeedEccentric?.description ?? ""
+        lengthSecondsMin = kpi.lengthSecondsMin?.description ?? ""
+        lengthSecondsMax = kpi.lengthSecondsMax?.description ?? ""
+        weightRangeDescription = kpi.weightRangeDescription ?? ""
+        notes = kpi.notes ?? ""
+        currentProgress = kpi.currentProgress ?? ""
+        targetGoal = kpi.targetGoal ?? ""
     }
 
     var body: some View {
@@ -186,53 +187,58 @@ struct TrainingKPIFormView: View {
 
             Button("Save KPI") {
                 // Save or update the KPI model
-                kpi.exerciseName = exerciseName
-                kpi.bodyWeightMultiplierMin = Double(bodyWeightMultiplierMin)
-                kpi.bodyWeightMultiplierMax = Double(bodyWeightMultiplierMax)
-                kpi.repsMin = Int(repsMin)
-                kpi.repsMax = Int(repsMax)
-                kpi.liftSpeedConcentricMin = Double(liftSpeedConcentricMin)
-                kpi.liftSpeedConcentricMax = Double(liftSpeedConcentricMax)
-                kpi.liftSpeedEccentric = Double(liftSpeedEccentric)
-                kpi.lengthSecondsMin = Int(lengthSecondsMin)
-                kpi.lengthSecondsMax = Int(lengthSecondsMax)
-                kpi.weightRangeDescription = weightRangeDescription
-                kpi.notes = notes
-                kpi.currentProgress = currentProgress
-                kpi.targetGoal = targetGoal
+                viewModel.selectedKPI.exerciseName = exerciseName
+                viewModel.selectedKPI.bodyWeightMultiplierMin = Double(bodyWeightMultiplierMin)
+                viewModel.selectedKPI.bodyWeightMultiplierMax = Double(bodyWeightMultiplierMax)
+                viewModel.selectedKPI.repsMin = Int(repsMin)
+                viewModel.selectedKPI.repsMax = Int(repsMax)
+                viewModel.selectedKPI.liftSpeedConcentricMin = Double(liftSpeedConcentricMin)
+                viewModel.selectedKPI.liftSpeedConcentricMax = Double(liftSpeedConcentricMax)
+                viewModel.selectedKPI.liftSpeedEccentric = Double(liftSpeedEccentric)
+                viewModel.selectedKPI.lengthSecondsMin = Int(lengthSecondsMin)
+                viewModel.selectedKPI.lengthSecondsMax = Int(lengthSecondsMax)
+                viewModel.selectedKPI.weightRangeDescription = weightRangeDescription
+                viewModel.selectedKPI.notes = notes
+                viewModel.selectedKPI.currentProgress = currentProgress
+
+                if targetGoal != "N/A" {
+                    viewModel.selectedKPI.targetGoal = targetGoal
+                }
+
+                // to do: give option to update or save new KPI
+
+                if !currentProgress.isEmpty {
+                    let kpiProgress = KPIProgress(weight: Double(currentProgress)!, exercise: exerciseName, dateRecorded: Date())
+
+                    modelContext.insert(kpiProgress)
+                }
+
+//                modelContext.save()
             }
         }
         .navigationTitle("Create/Edit KPI")
         .onAppear {
             let mm = MaxManager(modelContext: modelContext)
 
+            mapKPIData()
+
             if let weight = mm.weightRecord?.weight {
-                kpi.calculateTargetGoal(weight: weight)
+                print("current weight: \(weight)")
 
-                if let kpiTargetGoal = kpi.targetGoal {
-//                    print("range: \(kpiTargetGoal)")
+                targetGoal = viewModel.selectedKPI.calculateTargetGoal(weight: weight)
 
-                    targetGoal = kpiTargetGoal
-                }
+//                if let kpiTargetGoal = viewModel.selectedKPI.targetGoal {
+                ////                    print("range: \(kpiTargetGoal)")
+//
+//                    targetGoal = kpiTargetGoal
+//                }
             }
-        }
-    }
-}
-
-struct EditKPIView: View {
-    @State private var kpi = TrainingKPI(
-        exerciseName: "Squat", dateRecorded: Date(), bodyWeightMultiplierMin: 1.5, bodyWeightMultiplierMax: 2.0
-    )
-
-    var body: some View {
-        NavigationView {
-            TrainingKPIFormView(kpi: $kpi)
         }
     }
 }
 
 struct TrainingKPIFormView_Previews: PreviewProvider {
     static var previews: some View {
-        EditKPIView()
+        KPIDetailsView()
     }
 }

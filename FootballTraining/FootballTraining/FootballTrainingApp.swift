@@ -74,10 +74,10 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
     {
-        print("didRegisterForRemoteNotificationsWithDeviceToken")
-        let tokenParts = deviceToken.map { String(format: "%02.2hhx", $0) }
-        let token = tokenParts.joined()
-        print("📱 Device Token: \(token)")
+//        print("didRegisterForRemoteNotificationsWithDeviceToken")
+//        let tokenParts = deviceToken.map { String(format: "%02.2hhx", $0) }
+//        let token = tokenParts.joined()
+//        print("📱 Device Token: \(token)")
     }
 
     func application(_ application: UIApplication,

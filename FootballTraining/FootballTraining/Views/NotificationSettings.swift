@@ -9,9 +9,14 @@ import SwiftUI
 
 struct NotificationSettings: View {
     @AppStorage("notificationsEnabled") private var notificationsEnabled = false
+    @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
         VStack(spacing: 20) {
+            Button("View KPIs") {
+                navigationManager.path.append(Route2.kpi)
+            }
+
             Toggle("Enable Daily Notifications", isOn: $notificationsEnabled)
                 .padding()
                 .onChange(of: notificationsEnabled) { isEnabled in

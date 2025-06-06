@@ -23,6 +23,21 @@ class WeightRecord {
 }
 
 @Model
+class KPIProgress {
+    var id: UUID
+    var exercise: String
+    var weight: Double
+    var dateRecorded: Date
+
+    init(weight: Double, exercise: String, dateRecorded: Date = Date()) {
+        self.id = UUID()
+        self.exercise = exercise
+        self.weight = weight
+        self.dateRecorded = dateRecorded
+    }
+}
+
+@Model
 class TrainingKPI {
     @Attribute(.unique) var id = UUID()
     var exerciseName: String
@@ -82,7 +97,9 @@ class TrainingKPI {
     }
 
     // Calculate targetGoal based on the latest weight record and multipliers
-    func calculateTargetGoal(weight: Double) {
+    func calculateTargetGoal(weight: Double) -> String {
+        var targetGoal = ""
+
         if bodyWeightMultiplierMin != nil && bodyWeightMultiplierMin != nil {
             let latestWeight = weight
             let minWeight = Utils.roundToNearestMultipleOfFive(latestWeight * bodyWeightMultiplierMin!)
@@ -92,7 +109,7 @@ class TrainingKPI {
             targetGoal = "N/A"
         }
 
-//        return targetGoal
+        return targetGoal
     }
 }
 

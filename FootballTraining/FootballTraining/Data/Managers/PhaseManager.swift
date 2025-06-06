@@ -22,6 +22,7 @@ class PhaseViewModel: ObservableObject {
     @Published var maxDataChanged: Bool = false
     @Published var selectedExerciseIndex: Int = 0
     @Published var completedDayExercises: [Int] = []
+    @Published var selectedKPI: TrainingKPI = .init(exerciseName: "", dateRecorded: Date())
 }
 
 class PhaseManager: ObservableObject {

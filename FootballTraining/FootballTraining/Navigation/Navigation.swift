@@ -21,6 +21,8 @@ enum Route2: Hashable {
     case currentSet
     case saveMax
     case notification
+    case kpi
+    case kpiDetails
 }
 
 class NavigationManager: ObservableObject {

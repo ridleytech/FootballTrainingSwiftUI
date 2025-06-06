@@ -14,8 +14,59 @@ struct ContentView: View {
     @StateObject var viewModel = PhaseViewModel()
     @Environment(\.modelContext) private var modelContext
 
+    @State private var kpis: [TrainingKPI] = []
+
+    // FetchDescriptor to query TrainingKPI objects from SwiftData
+
+    private func fetchKPIs() {
+        // Define the FetchDescriptor for TrainingKPI
+        let fetchDescriptor = FetchDescriptor<TrainingKPI>(
+            sortBy: [SortDescriptor(\TrainingKPI.exerciseName)] // Corrected SortDescriptor usage
+        )
+
+        // Query the context with the FetchDescriptor
+        do {
+            kpis = try modelContext.fetch(fetchDescriptor)
+
+            print("kpis: \(kpis.count)")
+
+            if kpis.isEmpty {
+                print("create kpis")
+//
+                Task {
+                    preloadSampleKPIs(context: modelContext)
+                }
+            } else {
+                let mm = MaxManager(modelContext: modelContext)
+
+                if let weight = mm.weightRecord?.weight {
+                    print("current weight: \(weight)")
+
+                    let updatedKPIs = kpis.map { kpi in
+
+                        let targetGoal = kpi.calculateTargetGoal(weight: weight)
+
+                        if targetGoal != "N/A" {
+                            kpi.targetGoal = kpi.calculateTargetGoal(weight: weight)
+                        }
+                    }
+
+                    do { try modelContext.save(); print("kpis updated") } catch {}
+
+//                    if let kpiTargetGoal = viewModel.selectedKPI.targetGoal {
+//                        //                    print("range: \(kpiTargetGoal)")
+//
+                    ////                        targetGoal = kpiTargetGoal
+//                    }
+                }
+            }
+        } catch {
+            print("Error fetching KPIs: \(error)")
+        }
+    }
+
     @MainActor
-    func preloadSampleKPIs(context: ModelContext) async throws {
+    func preloadSampleKPIs(context: ModelContext) {
         let todayDate = Date()
 
         let sampleKPIs: [TrainingKPI] = [
@@ -44,7 +95,7 @@ struct ContentView: View {
         let weightRecord = WeightRecord(weight: 188.0, dateRecorded: todayDate)
         context.insert(weightRecord)
 
-        try context.save()
+        do { try context.save(); print("kpis saved") } catch {}
     }
 
     func deleteAllKPIs(modelContext: ModelContext) {
@@ -130,6 +181,10 @@ struct ContentView: View {
                                 SaveMax()
                             case .notification:
                                 NotificationSettings()
+                            case .kpi:
+                                KPIListView()
+                            case .kpiDetails:
+                                KPIDetailsView()
                             default:
                                 EmptyView()
                             }
@@ -154,7 +209,10 @@ struct ContentView: View {
 //                selectedWeek = 1
 //                selectedDay = "Monday"
             }
+
+            fetchKPIs()
         }
+
         .onChange(of: viewModel.pickingPhase) { _ in
 //            print("pickingPhase to: \(newValue)")
         }
