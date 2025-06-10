@@ -33,7 +33,7 @@ struct PhasePickerView: View {
         viewModel.currentWeek = 1
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
-        viewModel.completedDayAccelerationExercises = []
+        viewModel.completedDayExercises = []
 
         getPhaseData()
 
@@ -42,7 +42,7 @@ struct PhasePickerView: View {
             phaseWeek: viewModel.currentWeek,
             phaseDay: viewModel.currentDay,
             phaseWeekTotal: viewModel.weeks.count,
-            completedDayExercises: viewModel.completedDayAccelerationExercises,
+            completedDayExercises: viewModel.completedDayExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
             completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
         )
@@ -53,14 +53,14 @@ struct PhasePickerView: View {
 
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
-        viewModel.completedDayAccelerationExercises = []
+        viewModel.completedDayExercises = []
 
         phaseManager.update(
             phaseName: viewModel.currentPhase,
             phaseWeek: newWeek,
             phaseDay: viewModel.currentDay,
             phaseWeekTotal: viewModel.weeks.count,
-            completedDayExercises: viewModel.completedDayAccelerationExercises,
+            completedDayExercises: viewModel.completedDayExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
             completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
         )
@@ -71,14 +71,14 @@ struct PhasePickerView: View {
 
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
-        viewModel.completedDayAccelerationExercises = []
+        viewModel.completedDayExercises = []
 
         phaseManager.update(
             phaseName: viewModel.currentPhase,
             phaseWeek: viewModel.currentWeek,
             phaseDay: newDay,
             phaseWeekTotal: viewModel.weeks.count,
-            completedDayExercises: viewModel.completedDayAccelerationExercises,
+            completedDayExercises: viewModel.completedDayExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
             completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
         )
