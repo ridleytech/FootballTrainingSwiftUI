@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ExercisesListView: View {
+    @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var viewModel: PhaseViewModel
     @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var phaseManager: PhaseManager
 
     let weightExercises: [DayExercise]
     let accelerationExercises: [DayExercise]
@@ -24,15 +26,24 @@ struct ExercisesListView: View {
     func completeWorkout() {
         print("completeWorkout")
 
-        viewModel.lastCompletedItem = weightExercises.count + accelerationExercises.count + conditioningExercises.count
+//        viewModel.lastCompletedItem = weightExercises.count + accelerationExercises.count + conditioningExercises.count
+
+        ModelUtils.updatePhase(
+            dayExerciseCount: weightExercises.count + accelerationExercises.count + conditioningExercises.count,
+            currentPhase: &viewModel.currentPhase,
+            currentDay: &viewModel.currentDay,
+            currentWeek: &viewModel.currentWeek,
+            completedDayExercises: &viewModel.completedDayAccelerationExercises,
+            completedDayConditioningExercises: &viewModel.completedDayConditioningExercises,
+            completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises,
+            phaseManager: phaseManager,
+            modelContext: modelContext,
+            dayCompleted: true
+        )
     }
 
     func updateLastCompletedItem() {
         print("Complete Set tappedItemIndex: \(tappedItemIndex)")
-
-//        viewModel.lastCompletedItem += 1
-        //
-        //            print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
 
         if viewModel.selectedSectionIndex == 0 {
             viewModel.completedDayAccelerationExercises.append(accelerationExercises[tappedItemIndex].name)
@@ -156,9 +167,6 @@ struct ExercisesListView: View {
         }
         .onChange(of: viewModel.selectedSectionIndex) { newValue in
             print("viewModel.selectedSectionIndex changed to: \(newValue)")
-        }
-        .onChange(of: viewModel.lastCompletedItem) { newValue in
-            print("Exercises view lastCompletedItem changed to: \(newValue)")
         }
         .onChange(of: gotoToExercise) { _ in
 //            print("gotoToExercise changed to: \(newValue)")

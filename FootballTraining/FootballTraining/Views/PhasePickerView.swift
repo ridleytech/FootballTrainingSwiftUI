@@ -31,7 +31,6 @@ struct PhasePickerView: View {
     func phaseChanged(to newPhase: String) {
         print("Phase changed to: \(newPhase)")
         viewModel.currentWeek = 1
-        viewModel.lastCompletedItem = 0
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayAccelerationExercises = []
@@ -42,7 +41,6 @@ struct PhasePickerView: View {
             phaseName: newPhase,
             phaseWeek: viewModel.currentWeek,
             phaseDay: viewModel.currentDay,
-            lastCompletedItem: viewModel.lastCompletedItem,
             phaseWeekTotal: viewModel.weeks.count,
             completedDayExercises: viewModel.completedDayAccelerationExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
@@ -53,7 +51,6 @@ struct PhasePickerView: View {
     func weekChanged(to newWeek: Int) {
         print("Week changed to: \(newWeek)")
 
-        viewModel.lastCompletedItem = 0
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayAccelerationExercises = []
@@ -62,7 +59,6 @@ struct PhasePickerView: View {
             phaseName: viewModel.currentPhase,
             phaseWeek: newWeek,
             phaseDay: viewModel.currentDay,
-            lastCompletedItem: viewModel.lastCompletedItem,
             phaseWeekTotal: viewModel.weeks.count,
             completedDayExercises: viewModel.completedDayAccelerationExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
@@ -73,7 +69,6 @@ struct PhasePickerView: View {
     func dayChanged(to newDay: String) {
         print("Day changed to: \(newDay)")
 
-        viewModel.lastCompletedItem = 0
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayAccelerationExercises = []
@@ -82,7 +77,6 @@ struct PhasePickerView: View {
             phaseName: viewModel.currentPhase,
             phaseWeek: viewModel.currentWeek,
             phaseDay: newDay,
-            lastCompletedItem: viewModel.lastCompletedItem,
             phaseWeekTotal: viewModel.weeks.count,
             completedDayExercises: viewModel.completedDayAccelerationExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
@@ -138,7 +132,6 @@ struct PhasePickerView: View {
                 viewModel.currentPhase = record.phaseName
                 viewModel.currentWeek = record.phaseWeek
                 viewModel.currentDay = record.phaseDay
-                viewModel.lastCompletedItem = record.lastCompletedItem
 //                getPhaseData()
             }
         }

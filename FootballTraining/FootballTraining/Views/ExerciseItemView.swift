@@ -59,13 +59,6 @@ struct ExerciseItemView: View {
             }
 //            .background(Color.orange)
 
-//            if exerciseListItemIndex < viewModel.lastCompletedItem && exerciseListItemIndex > -1 {
-//                Image("AppIconSplash")
-//                    .resizable()
-//                    .frame(width: 25, height: 25)
-//                    .scaledToFit()
-//            }
-
             if section == 0 && (viewModel.completedDayAccelerationExercises.index(of: exerciseListItem.name) != nil) {
                 Image("AppIconSplash")
                     .resizable()
@@ -93,7 +86,7 @@ struct ExerciseItemView: View {
             viewModel.selectedExerciseIndex = exerciseListItemIndex
             //                        }
         }
-        .listRowBackground(viewModel.lastCompletedItem != exerciseListItemIndex ? Color.white.opacity(0.5) : Color.white)
+//        .listRowBackground(viewModel.lastCompletedItem != exerciseListItemIndex ? Color.white.opacity(0.5) : Color.white)
         .padding(16)
         .listRowInsets(EdgeInsets())
     }

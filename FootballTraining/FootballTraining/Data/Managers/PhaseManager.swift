@@ -14,7 +14,6 @@ class PhaseViewModel: ObservableObject {
     @Published var currentWeek: Int = 1
     @Published var currentDay: String = "Monday"
     @Published var selectedExercise: DayExercise = .init(text: "String", type: "String", name: "String", sets: [], max: 0.0)
-    @Published var lastCompletedItem: Int = 0
     @Published var lastSprintCompletedItem: Int = 0
     @Published var lastConditioningCompletedItem: Int = 0
     @State var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
@@ -218,7 +217,6 @@ class PhaseManager: ObservableObject {
                     phaseName: "Postseason",
                     phaseWeek: 1,
                     phaseDay: "Monday",
-                    lastCompletedItem: 0,
                     phaseWeekTotal: 6,
                     completedDayExercises: [],
                     completedDayConditioningExercises: [],
@@ -239,7 +237,6 @@ class PhaseManager: ObservableObject {
         phaseName: String,
         phaseWeek: Int,
         phaseDay: String,
-        lastCompletedItem: Int,
         phaseWeekTotal: Int,
         completedDayExercises: [String],
         completedDayConditioningExercises: [String],
@@ -250,7 +247,6 @@ class PhaseManager: ObservableObject {
         record.phaseName = phaseName
         record.phaseWeek = phaseWeek
         record.phaseDay = phaseDay
-        record.lastCompletedItem = lastCompletedItem
         record.phaseWeekTotal = phaseWeekTotal
         record.completedDayExercises = completedDayExercises
         record.completedDayConditioningExercises = completedDayConditioningExercises

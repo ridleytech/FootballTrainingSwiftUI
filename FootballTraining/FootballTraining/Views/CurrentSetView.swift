@@ -79,7 +79,6 @@ struct CurrentSetView: View {
         workoutStarted = false
         showAlert = true
         workoutEnded = true
-//        viewModel.lastCompletedItem += 1
 
         if viewModel.selectedSectionIndex == 0 {
             viewModel.completedDayAccelerationExercises.append(viewModel.selectedExercise.name)

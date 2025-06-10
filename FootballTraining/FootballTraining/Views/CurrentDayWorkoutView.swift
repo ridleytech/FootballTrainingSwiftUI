@@ -22,13 +22,11 @@ struct CurrentDayWorkoutView: View {
     @State private var selectedItems: Set<String> = []
     @State var gotData: Bool = false
 
-    let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
+//    let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
 
     func updatePhaseData() {
         ModelUtils.updatePhase(
-            phaseOptions: phaseOptions,
             dayExerciseCount: weightExercises.count + accelerationExercises.count + conditioningExercises.count,
-            lastCompletedItem: &viewModel.lastCompletedItem,
             currentPhase: &viewModel.currentPhase,
             currentDay: &viewModel.currentDay,
             currentWeek: &viewModel.currentWeek,
@@ -36,10 +34,13 @@ struct CurrentDayWorkoutView: View {
             completedDayConditioningExercises: &viewModel.completedDayConditioningExercises,
             completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises,
             phaseManager: phaseManager,
-            modelContext: modelContext
+            modelContext: modelContext,
+            dayCompleted: false
         )
 
-        if viewModel.lastCompletedItem == 0 {
+        let completedExerciseCount = viewModel.completedDayExercises.count + viewModel.completedDayConditioningExercises.count + viewModel.completedDayAccelerationExercises.count
+
+        if completedExerciseCount == 0 {
             let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
             weightExercises = weights
             accelerationExercises = sprints
@@ -102,11 +103,6 @@ struct CurrentDayWorkoutView: View {
             }
             .onChange(of: viewModel.completedDayConditioningExercises) { newValue in
                 print("CDWV viewModel.completedDayConditioningExercises changed to: \(newValue)")
-
-                updatePhaseData()
-            }
-            .onChange(of: viewModel.lastCompletedItem) { newValue in
-                print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
                 updatePhaseData()
             }

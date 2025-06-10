@@ -202,7 +202,6 @@ struct ContentView: View {
                 viewModel.currentPhase = phaseRecord.phaseName
                 viewModel.currentWeek = phaseRecord.phaseWeek
                 viewModel.currentDay = phaseRecord.phaseDay
-                viewModel.lastCompletedItem = phaseRecord.lastCompletedItem
                 viewModel.weeks = Array(1 ..< phaseRecord.phaseWeekTotal + 1)
                 viewModel.completedDayAccelerationExercises = phaseRecord.completedDayAccelerationExercises
                 viewModel.completedDayConditioningExercises = phaseRecord.completedDayConditioningExercises
