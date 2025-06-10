@@ -27,6 +27,7 @@ class PhaseViewModel: ObservableObject {
     @Published var completedDayConditioningExercises: [String] = []
     @Published var completedDayAccelerationExercises: [String] = []
     @Published var selectedKPI: TrainingKPI = .init(exerciseName: "", dateRecorded: Date())
+    @Published var dayCompleted: Bool = false
 }
 
 class PhaseManager: ObservableObject {
@@ -211,7 +212,7 @@ class PhaseManager: ObservableObject {
 
             if let existing = records.first {
                 phaseRecord = existing
-                print("Loaded existing PhaseRecord: \(existing.description)")
+//                print("Loaded existing PhaseRecord: \(existing.description)")
             } else {
                 let new = PhaseRecord(
                     phaseName: "Postseason",

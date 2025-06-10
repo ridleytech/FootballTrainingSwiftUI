@@ -84,10 +84,12 @@ struct CurrentSetView: View {
             viewModel.completedDayAccelerationExercises.append(viewModel.selectedExercise.name)
 
             print("ELV viewModel.completedDayAccelerationExercises: \(viewModel.completedDayAccelerationExercises)")
+
         } else if viewModel.selectedSectionIndex == 1 {
             viewModel.completedDayConditioningExercises.append(viewModel.selectedExercise.name)
 
             print("ELV viewModel.completedDayConditioningExercises: \(viewModel.completedDayConditioningExercises)")
+
         } else if viewModel.selectedSectionIndex == 2 {
             viewModel.completedDayExercises.append(viewModel.selectedExercise.name)
 

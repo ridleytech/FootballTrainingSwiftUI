@@ -24,20 +24,29 @@ struct CurrentDayWorkoutView: View {
 
 //    let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
 
-    func updatePhaseData() {
+    func updatePhaseData(dayCompleted: Bool) {
+        print("CDWV updatePhaseData")
         ModelUtils.updatePhase(
             dayExerciseCount: weightExercises.count + accelerationExercises.count + conditioningExercises.count,
             currentPhase: &viewModel.currentPhase,
             currentDay: &viewModel.currentDay,
             currentWeek: &viewModel.currentWeek,
-            completedDayExercises: &viewModel.completedDayAccelerationExercises,
+            completedDayExercises: &viewModel.completedDayExercises,
             completedDayConditioningExercises: &viewModel.completedDayConditioningExercises,
             completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises,
             phaseManager: phaseManager,
             modelContext: modelContext,
-            dayCompleted: false
+            dayCompleted: dayCompleted
         )
 
+        if dayCompleted == true {
+            viewModel.dayCompleted = false
+        }
+
+        refreshDayData()
+    }
+
+    func refreshDayData() {
         let completedExerciseCount = viewModel.completedDayExercises.count + viewModel.completedDayConditioningExercises.count + viewModel.completedDayAccelerationExercises.count
 
         if completedExerciseCount == 0 {
@@ -46,7 +55,7 @@ struct CurrentDayWorkoutView: View {
             accelerationExercises = sprints
             conditioningExercises = conditioning
 
-//                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
+            //                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
         }
     }
 
@@ -63,8 +72,6 @@ struct CurrentDayWorkoutView: View {
 //                    print("cdwv conditioningExercises: \(conditioningExercises)")
 
                     gotData = true
-
-//                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
                 }
         }
         else if weightExercises.isEmpty && gotData {
@@ -88,42 +95,45 @@ struct CurrentDayWorkoutView: View {
                 )
             }
 
-            ExercisesListView(weightExercises: weightExercises, accelerationExercises: accelerationExercises, conditioningExercises: convertedConditioning
-//                dayExerciseList: dayExerciseList
-            )
-            .onChange(of: viewModel.completedDayExercises) { newValue in
-                print("CDWV viewModel.completedDayExercises changed to: \(newValue)")
+            ExercisesListView(weightExercises: weightExercises, accelerationExercises: accelerationExercises, conditioningExercises: convertedConditioning)
+                .onChange(of: viewModel.dayCompleted) { newValue in
+                    print("CDWV viewModel.dayCompleted changed to: \(newValue)")
 
-                updatePhaseData()
-            }
-            .onChange(of: viewModel.completedDayAccelerationExercises) { newValue in
-                print("CDWV viewModel.completedDayAccelerationExercises changed to: \(newValue)")
+                    updatePhaseData(dayCompleted: newValue)
+                }
+                .onChange(of: viewModel.completedDayExercises) { newValue in
+                    print("CDWV viewModel.completedDayExercises changed to: \(newValue)")
 
-                updatePhaseData()
-            }
-            .onChange(of: viewModel.completedDayConditioningExercises) { newValue in
-                print("CDWV viewModel.completedDayConditioningExercises changed to: \(newValue)")
+                    updatePhaseData(dayCompleted: false)
+                }
+                .onChange(of: viewModel.completedDayAccelerationExercises) { newValue in
+                    print("CDWV viewModel.completedDayAccelerationExercises changed to: \(newValue)")
 
-                updatePhaseData()
-            }
-            .onChange(of: viewModel.maxDataChanged) { newValue in
+                    updatePhaseData(dayCompleted: false)
+                }
+                .onChange(of: viewModel.completedDayConditioningExercises) { newValue in
+                    print("CDWV viewModel.completedDayConditioningExercises changed to: \(newValue)")
 
-                if viewModel.maxDataChanged {
-                    print("maxDataChanged changed to: \(newValue)")
+                    updatePhaseData(dayCompleted: false)
+                }
+                .onChange(of: viewModel.maxDataChanged) { newValue in
 
-                    let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
-                    weightExercises = weights
-                    accelerationExercises = sprints
-                    conditioningExercises = conditioning
+                    if viewModel.maxDataChanged {
+                        print("maxDataChanged changed to: \(newValue)")
+
+                        let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
+                        weightExercises = weights
+                        accelerationExercises = sprints
+                        conditioningExercises = conditioning
 
 //                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
-                }
+                    }
 
-                viewModel.maxDataChanged = false
-            }
-            .onAppear {
+                    viewModel.maxDataChanged = false
+                }
+                .onAppear {
 //                    print("CurrentDayWorkoutView onAppear")
-            }
+                }
         }
     }
 }

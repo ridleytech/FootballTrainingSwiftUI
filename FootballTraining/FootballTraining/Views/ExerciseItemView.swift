@@ -19,6 +19,25 @@ struct ExerciseItemView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var viewModel: PhaseViewModel
 
+    private func shouldShowCompletionIcon() -> Bool {
+        let cleanedName = exerciseListItem.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+
+        func match(in list: [String]) -> Bool {
+            list.contains { $0.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() == cleanedName }
+        }
+
+        switch section {
+        case 0:
+            return match(in: viewModel.completedDayAccelerationExercises)
+        case 1:
+            return match(in: viewModel.completedDayConditioningExercises)
+        case 2:
+            return match(in: viewModel.completedDayExercises)
+        default:
+            return false
+        }
+    }
+
     var body: some View {
         HStack {
             Utils.iconForExerciseType2(exerciseListItem.type)
@@ -49,7 +68,6 @@ struct ExerciseItemView: View {
                 HStack {
                     Text(exerciseListItem.text)
                         .foregroundColor(AppConfig.grayColor)
-
 //                        .padding(.leading, 8)
                     Spacer()
                 }
@@ -59,19 +77,7 @@ struct ExerciseItemView: View {
             }
 //            .background(Color.orange)
 
-            if section == 0 && (viewModel.completedDayAccelerationExercises.index(of: exerciseListItem.name) != nil) {
-                Image("AppIconSplash")
-                    .resizable()
-                    .frame(width: 25, height: 25)
-                    .scaledToFit()
-            }
-            else if section == 1 && viewModel.completedDayConditioningExercises.index(of: exerciseListItem.name) != nil {
-                Image("AppIconSplash")
-                    .resizable()
-                    .frame(width: 25, height: 25)
-                    .scaledToFit()
-            }
-            else if section == 2 && viewModel.completedDayExercises.index(of: exerciseListItem.name) != nil {
+            if shouldShowCompletionIcon() {
                 Image("AppIconSplash")
                     .resizable()
                     .frame(width: 25, height: 25)
@@ -82,9 +88,14 @@ struct ExerciseItemView: View {
             print("tapped")
             //                        if lastCompletedItem == index {
             viewModel.selectedExercise = exerciseListItem
-            gotoToExercise = true
             viewModel.selectedExerciseIndex = exerciseListItemIndex
+            viewModel.selectedSectionIndex = section
+            gotoToExercise = true
+
             //                        }
+        }
+        .onAppear {
+            print("EIV section: \(section) exerciseListItem.name: \(exerciseListItem.name)")
         }
 //        .listRowBackground(viewModel.lastCompletedItem != exerciseListItemIndex ? Color.white.opacity(0.5) : Color.white)
         .padding(16)

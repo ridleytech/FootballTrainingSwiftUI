@@ -42,7 +42,7 @@ class ModelUtils {
                             modelContext: ModelContext,
                             dayCompleted: Bool)
     {
-        print("savePhase CurrentDayWorkoutView")
+        print("updatePhase ModelUtils")
 
         //            when day workout is finished,
         //            check if last exercise in day, if so, advance to next day, week, or phase

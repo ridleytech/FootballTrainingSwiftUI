@@ -194,7 +194,9 @@ struct ContentView: View {
             .padding([.leading, .trailing], 16)
         }
         .onAppear {
-            print("ContentView loaded saved phase: \(phaseManager.phaseRecord?.description)")
+            if let pr = phaseManager.phaseRecord {
+                print("ContentView loaded saved phase: \(pr.description)")
+            }
 
             // Set the initial phase data on the screen
 
@@ -205,7 +207,7 @@ struct ContentView: View {
                 viewModel.weeks = Array(1 ..< phaseRecord.phaseWeekTotal + 1)
                 viewModel.completedDayAccelerationExercises = phaseRecord.completedDayAccelerationExercises
                 viewModel.completedDayConditioningExercises = phaseRecord.completedDayConditioningExercises
-                viewModel.completedDayAccelerationExercises = phaseRecord.completedDayAccelerationExercises
+                viewModel.completedDayExercises = phaseRecord.completedDayExercises
 
             } else {
 //                selectedPhase = "Postseason"

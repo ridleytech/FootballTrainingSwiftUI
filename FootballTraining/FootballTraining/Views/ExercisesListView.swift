@@ -28,18 +28,23 @@ struct ExercisesListView: View {
 
 //        viewModel.lastCompletedItem = weightExercises.count + accelerationExercises.count + conditioningExercises.count
 
-        ModelUtils.updatePhase(
-            dayExerciseCount: weightExercises.count + accelerationExercises.count + conditioningExercises.count,
-            currentPhase: &viewModel.currentPhase,
-            currentDay: &viewModel.currentDay,
-            currentWeek: &viewModel.currentWeek,
-            completedDayExercises: &viewModel.completedDayAccelerationExercises,
-            completedDayConditioningExercises: &viewModel.completedDayConditioningExercises,
-            completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises,
-            phaseManager: phaseManager,
-            modelContext: modelContext,
-            dayCompleted: true
-        )
+//        ModelUtils.updatePhase(
+//            dayExerciseCount: weightExercises.count + accelerationExercises.count + conditioningExercises.count,
+//            currentPhase: &viewModel.currentPhase,
+//            currentDay: &viewModel.currentDay,
+//            currentWeek: &viewModel.currentWeek,
+//            completedDayExercises: &viewModel.completedDayExercises,
+//            completedDayConditioningExercises: &viewModel.completedDayConditioningExercises,
+//            completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises,
+//            phaseManager: phaseManager,
+//            modelContext: modelContext,
+//            dayCompleted: true
+//        )
+
+        viewModel.completedDayExercises = []
+        viewModel.completedDayConditioningExercises = []
+        viewModel.completedDayAccelerationExercises = []
+        viewModel.dayCompleted = true
     }
 
     func updateLastCompletedItem() {
