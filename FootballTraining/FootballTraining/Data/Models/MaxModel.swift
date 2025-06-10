@@ -133,11 +133,11 @@ class PhaseRecord {
     var phaseDay: String
     var lastCompletedItem: Int
     var phaseWeekTotal: Int
-    var completedDayExercises: [UUID]
-    var completedDayConditioningExercises: [UUID]
-    var completedDayAccelerationExercises: [UUID]
+    var completedDayExercises: [String]
+    var completedDayConditioningExercises: [String]
+    var completedDayAccelerationExercises: [String]
 
-    init(phaseName: String, phaseWeek: Int, phaseDay: String, lastCompletedItem: Int, phaseWeekTotal: Int, completedDayExercises: [UUID], completedDayConditioningExercises: [UUID], completedDayAccelerationExercises: [UUID]) {
+    init(phaseName: String, phaseWeek: Int, phaseDay: String, lastCompletedItem: Int, phaseWeekTotal: Int, completedDayExercises: [String], completedDayConditioningExercises: [String], completedDayAccelerationExercises: [String]) {
         self.phaseName = phaseName
         self.phaseWeek = phaseWeek
         self.phaseDay = phaseDay

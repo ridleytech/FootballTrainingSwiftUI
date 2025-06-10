@@ -24,6 +24,31 @@ struct CurrentDayWorkoutView: View {
 
     let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
 
+    func updatePhaseData() {
+        ModelUtils.updatePhase(
+            phaseOptions: phaseOptions,
+            dayExerciseCount: weightExercises.count + accelerationExercises.count + conditioningExercises.count,
+            lastCompletedItem: &viewModel.lastCompletedItem,
+            currentPhase: &viewModel.currentPhase,
+            currentDay: &viewModel.currentDay,
+            currentWeek: &viewModel.currentWeek,
+            completedDayExercises: &viewModel.completedDayAccelerationExercises,
+            completedDayConditioningExercises: &viewModel.completedDayConditioningExercises,
+            completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises,
+            phaseManager: phaseManager,
+            modelContext: modelContext
+        )
+
+        if viewModel.lastCompletedItem == 0 {
+            let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
+            weightExercises = weights
+            accelerationExercises = sprints
+            conditioningExercises = conditioning
+
+//                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
+        }
+    }
+
     var body: some View {
         if weightExercises.isEmpty && !gotData {
             ProgressView("Loading...")
@@ -33,8 +58,8 @@ struct CurrentDayWorkoutView: View {
                     accelerationExercises = sprints
                     conditioningExercises = conditioning
 
-                    print("cdwv weightExercises: \(weightExercises)")
-                    print("cdwv conditioningExercises: \(conditioningExercises)")
+//                    print("cdwv weightExercises: \(weightExercises)")
+//                    print("cdwv conditioningExercises: \(conditioningExercises)")
 
                     gotData = true
 
@@ -67,38 +92,23 @@ struct CurrentDayWorkoutView: View {
             )
             .onChange(of: viewModel.completedDayExercises) { newValue in
                 print("CDWV viewModel.completedDayExercises changed to: \(newValue)")
+
+                updatePhaseData()
             }
             .onChange(of: viewModel.completedDayAccelerationExercises) { newValue in
                 print("CDWV viewModel.completedDayAccelerationExercises changed to: \(newValue)")
+
+                updatePhaseData()
             }
             .onChange(of: viewModel.completedDayConditioningExercises) { newValue in
                 print("CDWV viewModel.completedDayConditioningExercises changed to: \(newValue)")
+
+                updatePhaseData()
             }
             .onChange(of: viewModel.lastCompletedItem) { newValue in
                 print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
-                ModelUtils.savePhase(
-                    phaseOptions: phaseOptions,
-                    dayExerciseCount: weightExercises.count + accelerationExercises.count,
-                    lastCompletedItem: &viewModel.lastCompletedItem,
-                    currentPhase: &viewModel.currentPhase,
-                    currentDay: &viewModel.currentDay,
-                    currentWeek: &viewModel.currentWeek,
-                    completedDayExercises: viewModel.completedDayAccelerationExercises,
-                    completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
-                    completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises,
-                    phaseManager: phaseManager,
-                    modelContext: modelContext
-                )
-
-                if viewModel.lastCompletedItem == 0 {
-                    let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
-                    weightExercises = weights
-                    accelerationExercises = sprints
-                    conditioningExercises = conditioning
-
-//                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
-                }
+                updatePhaseData()
             }
             .onChange(of: viewModel.maxDataChanged) { newValue in
 

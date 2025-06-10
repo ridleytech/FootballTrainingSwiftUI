@@ -24,28 +24,28 @@ struct ExercisesListView: View {
     func completeWorkout() {
         print("completeWorkout")
 
-        viewModel.lastCompletedItem = weightExercises.count + accelerationExercises.count
+        viewModel.lastCompletedItem = weightExercises.count + accelerationExercises.count + conditioningExercises.count
     }
 
     func updateLastCompletedItem() {
         print("Complete Set tappedItemIndex: \(tappedItemIndex)")
 
+//        viewModel.lastCompletedItem += 1
+        //
+        //            print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
+
         if viewModel.selectedSectionIndex == 0 {
-            viewModel.completedDayAccelerationExercises.append(accelerationExercises[tappedItemIndex].id)
+            viewModel.completedDayAccelerationExercises.append(accelerationExercises[tappedItemIndex].name)
 
             print("ELV viewModel.completedDayAccelerationExercises: \(viewModel.completedDayAccelerationExercises)")
         }
         else if viewModel.selectedSectionIndex == 1 {
-            viewModel.completedDayConditioningExercises.append(conditioningExercises[tappedItemIndex].id)
+            viewModel.completedDayConditioningExercises.append(conditioningExercises[tappedItemIndex].name)
 
             print("ELV viewModel.completedDayConditioningExercises: \(viewModel.completedDayConditioningExercises)")
         }
         else if viewModel.selectedSectionIndex == 2 {
-//            viewModel.lastCompletedItem += 1
-//
-//            print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
-
-            viewModel.completedDayExercises.append(weightExercises[tappedItemIndex].id)
+            viewModel.completedDayExercises.append(weightExercises[tappedItemIndex].name)
 
             print("ELV viewModel.completedDayExercises: \(viewModel.completedDayExercises)")
         }

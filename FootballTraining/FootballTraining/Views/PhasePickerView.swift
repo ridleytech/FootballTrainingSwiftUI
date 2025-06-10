@@ -32,6 +32,9 @@ struct PhasePickerView: View {
         print("Phase changed to: \(newPhase)")
         viewModel.currentWeek = 1
         viewModel.lastCompletedItem = 0
+        viewModel.completedDayAccelerationExercises = []
+        viewModel.completedDayConditioningExercises = []
+        viewModel.completedDayAccelerationExercises = []
 
         getPhaseData()
 
@@ -49,6 +52,12 @@ struct PhasePickerView: View {
 
     func weekChanged(to newWeek: Int) {
         print("Week changed to: \(newWeek)")
+
+        viewModel.lastCompletedItem = 0
+        viewModel.completedDayAccelerationExercises = []
+        viewModel.completedDayConditioningExercises = []
+        viewModel.completedDayAccelerationExercises = []
+
         phaseManager.update(
             phaseName: viewModel.currentPhase,
             phaseWeek: newWeek,
@@ -65,6 +74,9 @@ struct PhasePickerView: View {
         print("Day changed to: \(newDay)")
 
         viewModel.lastCompletedItem = 0
+        viewModel.completedDayAccelerationExercises = []
+        viewModel.completedDayConditioningExercises = []
+        viewModel.completedDayAccelerationExercises = []
 
         phaseManager.update(
             phaseName: viewModel.currentPhase,

@@ -24,9 +24,9 @@ class PhaseViewModel: ObservableObject {
     @Published var maxDataChanged: Bool = false
     @Published var selectedExerciseIndex: Int = 0
     @Published var selectedSectionIndex: Int = 0
-    @Published var completedDayExercises: [UUID] = []
-    @Published var completedDayConditioningExercises: [UUID] = []
-    @Published var completedDayAccelerationExercises: [UUID] = []
+    @Published var completedDayExercises: [String] = []
+    @Published var completedDayConditioningExercises: [String] = []
+    @Published var completedDayAccelerationExercises: [String] = []
     @Published var selectedKPI: TrainingKPI = .init(exerciseName: "", dateRecorded: Date())
 }
 
@@ -80,8 +80,8 @@ class PhaseManager: ObservableObject {
                     context: modelContext
                 )
 
-                print("accel PM: \(accel)")
-                print("conditioning PM: \(conditioning)")
+//                print("accel PM: \(accel)")
+//                print("conditioning PM: \(conditioning)")
 
                 conditioningExercises.append(contentsOf: conditioning)
                 accelerationExercises.append(contentsOf: accel)
@@ -241,9 +241,9 @@ class PhaseManager: ObservableObject {
         phaseDay: String,
         lastCompletedItem: Int,
         phaseWeekTotal: Int,
-        completedDayExercises: [UUID],
-        completedDayConditioningExercises: [UUID],
-        completedDayAccelerationExercises: [UUID]
+        completedDayExercises: [String],
+        completedDayConditioningExercises: [String],
+        completedDayAccelerationExercises: [String]
     ) {
         guard let record = phaseRecord else { return }
 

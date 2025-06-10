@@ -66,19 +66,19 @@ struct ExerciseItemView: View {
 //                    .scaledToFit()
 //            }
 
-            if section == 0 && (viewModel.completedDayAccelerationExercises.index(of: exerciseListItem.id) != nil) {
+            if section == 0 && (viewModel.completedDayAccelerationExercises.index(of: exerciseListItem.name) != nil) {
                 Image("AppIconSplash")
                     .resizable()
                     .frame(width: 25, height: 25)
                     .scaledToFit()
             }
-            else if section == 1 && viewModel.completedDayConditioningExercises.index(of: exerciseListItem.id) != nil {
+            else if section == 1 && viewModel.completedDayConditioningExercises.index(of: exerciseListItem.name) != nil {
                 Image("AppIconSplash")
                     .resizable()
                     .frame(width: 25, height: 25)
                     .scaledToFit()
             }
-            else if viewModel.completedDayExercises.index(of: exerciseListItem.id) != nil {
+            else if section == 2 && viewModel.completedDayExercises.index(of: exerciseListItem.name) != nil {
                 Image("AppIconSplash")
                     .resizable()
                     .frame(width: 25, height: 25)

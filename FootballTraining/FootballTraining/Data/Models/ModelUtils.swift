@@ -29,17 +29,17 @@ class ModelUtils {
         return days[nextIndex]
     }
 
-    static func savePhase(phaseOptions: [String],
-                          dayExerciseCount: Int,
-                          lastCompletedItem: inout Int,
-                          currentPhase: inout String,
-                          currentDay: inout String,
-                          currentWeek: inout Int,
-                          completedDayExercises: [UUID],
-                          completedDayConditioningExercises: [UUID],
-                          completedDayAccelerationExercises: [UUID],
-                          phaseManager: PhaseManager,
-                          modelContext: ModelContext)
+    static func updatePhase(phaseOptions: [String],
+                            dayExerciseCount: Int,
+                            lastCompletedItem: inout Int,
+                            currentPhase: inout String,
+                            currentDay: inout String,
+                            currentWeek: inout Int,
+                            completedDayExercises: inout [String],
+                            completedDayConditioningExercises: inout [String],
+                            completedDayAccelerationExercises: inout [String],
+                            phaseManager: PhaseManager,
+                            modelContext: ModelContext)
     {
         print("savePhase CurrentDayWorkoutView")
 
@@ -57,6 +57,9 @@ class ModelUtils {
                             currentWeek = 1
                             currentDay = "Monday"
                             lastCompletedItem = 0
+                            completedDayExercises = []
+                            completedDayConditioningExercises = []
+                            completedDayAccelerationExercises = []
                             print("Next phase: \(currentPhase)")
                         }
 
@@ -66,11 +69,17 @@ class ModelUtils {
 
                         currentDay = "Monday"
                         lastCompletedItem = 0
+                        completedDayExercises = []
+                        completedDayConditioningExercises = []
+                        completedDayAccelerationExercises = []
                         print("go to next week")
                     }
                 } else if let nextDay = getNextDay(currentDay: currentDay) {
                     currentDay = nextDay
                     lastCompletedItem = 0
+                    completedDayExercises = []
+                    completedDayConditioningExercises = []
+                    completedDayAccelerationExercises = []
                     print("Next day: \(currentDay)")
                 }
             }
@@ -104,12 +113,19 @@ class ModelUtils {
                 existingRecord.phaseDay = currentDay
                 existingRecord.phaseName = currentPhase
                 existingRecord.lastCompletedItem = lastCompletedItem
-                print("Updated \(currentPhase) with week \(currentWeek) and day \(currentDay) and lastCompletedItem \(lastCompletedItem)")
+                existingRecord.completedDayExercises = completedDayExercises
+                existingRecord.completedDayConditioningExercises = completedDayConditioningExercises
+                existingRecord.completedDayAccelerationExercises = completedDayAccelerationExercises
+
+                print("Updated \(currentPhase) with week \(currentWeek) and day \(currentDay) and lastCompletedItem \(lastCompletedItem) and completedDayExercises \(completedDayExercises) and completedDayConditioningExercises \(completedDayConditioningExercises) and completedDayAccelerationExercises \(completedDayAccelerationExercises)")
 
                 currentPhase = existingRecord.phaseName
                 currentWeek = existingRecord.phaseWeek
                 currentDay = existingRecord.phaseDay
                 lastCompletedItem = existingRecord.lastCompletedItem
+                completedDayExercises = existingRecord.completedDayExercises
+                completedDayConditioningExercises = existingRecord.completedDayConditioningExercises
+                completedDayAccelerationExercises = existingRecord.completedDayAccelerationExercises
             } else {
                 let newRecord = PhaseRecord(
                     phaseName: currentPhase,
@@ -123,7 +139,7 @@ class ModelUtils {
                     completedDayAccelerationExercises: completedDayAccelerationExercises
                 )
                 modelContext.insert(newRecord)
-                print("Saved new \(currentPhase) with week \(currentWeek) and day \(currentDay) and lastCompletedItem \(lastCompletedItem)")
+                print("Saved new \(currentPhase) with week \(currentWeek) and day \(currentDay) and lastCompletedItem \(lastCompletedItem) and completedDayExercises \(completedDayExercises) and completedDayConditioningExercises \(completedDayConditioningExercises) and completedDayAccelerationExercises \(completedDayAccelerationExercises)")
             }
 
             try modelContext.save()
