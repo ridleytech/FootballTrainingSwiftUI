@@ -56,7 +56,6 @@ struct PhaseDataView: View {
             //            currentPhase: .constant("Postseason"),
 //            currentDay: .constant("Monday"),
 //            currentWeek: .constant(1),
-//            lastCompletedItem: .constant(0)
         )
         .environmentObject(NavigationManager())
     }

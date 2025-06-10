@@ -212,7 +212,6 @@ struct ContentView: View {
 
             fetchKPIs()
         }
-
         .onChange(of: viewModel.pickingPhase) { _ in
 //            print("pickingPhase to: \(newValue)")
         }

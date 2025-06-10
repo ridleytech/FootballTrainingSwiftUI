@@ -11,21 +11,18 @@ struct ExercisesListView: View {
     @EnvironmentObject var viewModel: PhaseViewModel
     @EnvironmentObject var navigationManager: NavigationManager
 
-    @State var gotoToExercise = false
-    @State var selectedExercise: DayExercise?
-
-//    let dayExerciseList: [DayExercise]
     let weightExercises: [DayExercise]
     let accelerationExercises: [DayExercise]
     let conditioningExercises: [DayExercise]
 
+    @State var gotoToExercise = false
+    @State var selectedExercise: DayExercise?
     @State var exerciseIndex: Int = 0
     @State var tappedExercise = false
     @State var tappedItemIndex: Int = 0
 
     func completeWorkout() {
         print("completeWorkout")
-//        navigationManager.path.removeLast(1)
 
         viewModel.lastCompletedItem = weightExercises.count + accelerationExercises.count
     }
@@ -108,18 +105,6 @@ struct ExercisesListView: View {
                         }
                     }
                 }
-
-//                List(Array(dayExerciseList.enumerated()), id: \.element.id) { index, exercise in
-//                    ExerciseItemView(
-//                        exerciseListItem: exercise,
-//                        exerciseListItemIndex: index,
-//                        gotoToExercise: $gotoToExercise,
-//                        tappedExercise: $tappedExercise,
-//                        tappedItemIndex: $tappedItemIndex
-//                    )
-//                }
-//                .listStyle(.plain)
-
                 // 👇 Bottom shadow overlay
                 LinearGradient(
                     gradient: Gradient(colors: [Color.black.opacity(0.2), Color.clear]),
@@ -134,17 +119,8 @@ struct ExercisesListView: View {
 
             // .navigationTitle("\(currentDay) Lifts")
         }
-//        .padding([.leading, .trailing], 16)
-//        .navigationDestination(isPresented: $gotoToExercise) {
-//            ExerciseDetailView(
-//                ////                selectedExercise: selectedExercise ?? DayExercise(text: "String", type: "String", name: "String", sets: [], max: 1.0),
-        ////                selectedExerciseIndex: exerciseIndex
-//            )
-//        }
         .onAppear {
             print("conditioningExercises: \(conditioningExercises)")
-
-//            print("ExerciseView lastCompletedItem: \(lastCompletedItem)")
         }
         .ignoresSafeArea(.container, edges: .bottom)
         .alert(viewModel.selectedExercise.name ?? "", isPresented: $tappedExercise) {
@@ -182,31 +158,33 @@ struct ExercisesListView: View {
 
 #Preview {
     NavigationStack {
-//        ExercisesListView(currentDay: .constant("Monday"),
-//                          lastCompletedItem: .constant(0),
-//                          exercises: [
-//                              DayExercise(text: ".68 x 8",
-//                                          type: "Basic",
-//                                          name: "Bench Press", sets: [], max: 1.0),
-//                              DayExercise(text: ".68 x 8",
-//                                          type: "Basic",
-//                                          name: "Military Press", sets: [], max: 1.0),
-//                              DayExercise(text: ".68 x 8",
-//                                          type: "Basic",
-//                                          name: "Bench Press", sets: [], max: 1.0),
-//                              DayExercise(text: ".68 x 8",
-//                                          type: "Basic",
-//                                          name: "Bench Press", sets: [], max: 1.0),
-//                              DayExercise(text: ".68 x 8",
-//                                          type: "Basic",
-//                                          name: "Bench Press", sets: [], max: 1.0),
-//                              DayExercise(text: ".68 x 8",
-//                                          type: "Basic",
-//                                          name: "Bench Press", sets: [], max: 1.0),
-//                              DayExercise(text: ".68 x 8",
-//                                          type: "Basic",
-//                                          name: "Bench Press", sets: [], max: 1.0),
-//                          ], maxDataChanged: .constant(false))
-//            .environmentObject(NavigationManager())
+        ExercisesListView(
+            weightExercises: [
+                DayExercise(text: ".68 x 8",
+                            type: "Basic",
+                            name: "Bench Press", sets: [], max: 1.0),
+                DayExercise(text: ".68 x 8",
+                            type: "Basic",
+                            name: "Military Press", sets: [], max: 1.0)
+            ],
+            accelerationExercises: [
+                DayExercise(text: ".68 x 8",
+                            type: "Basic",
+                            name: "Bench Press", sets: [], max: 1.0),
+                DayExercise(text: ".68 x 8",
+                            type: "Basic",
+                            name: "Military Press", sets: [], max: 1.0)
+            ],
+            conditioningExercises: [
+                DayExercise(text: ".68 x 8",
+                            type: "Basic",
+                            name: "Bench Press", sets: [], max: 1.0),
+                DayExercise(text: ".68 x 8",
+                            type: "Basic",
+                            name: "Military Press", sets: [], max: 1.0)
+            ]
+        )
+        .environmentObject(NavigationManager())
+        .environmentObject(PhaseViewModel())
     }
 }

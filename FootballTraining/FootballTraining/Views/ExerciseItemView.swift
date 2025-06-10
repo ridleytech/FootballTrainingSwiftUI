@@ -5,6 +5,7 @@
 //  Created by Randall Ridley on 5/2/25.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ExerciseItemView: View {
@@ -79,10 +80,18 @@ struct ExerciseItemView: View {
 
 #Preview {
     ExerciseItemView(
-        exerciseListItem: DayExercise(text: ".68 x 8", type: "Basic", name: "Bench Press", sets: [], max: 1.0),
+        exerciseListItem: DayExercise(
+            text: "3 sets x 10",
+            type: "Basic",
+            name: "Mock",
+            sets: [],
+            max: 1.0
+        ),
         exerciseListItemIndex: 0,
         gotoToExercise: .constant(false),
         tappedExercise: .constant(false),
         tappedItemIndex: .constant(0)
     )
+    .environmentObject(NavigationManager())
+    .environmentObject(PhaseViewModel())
 }

@@ -11,10 +11,8 @@ struct ExerciseDetailView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var viewModel: PhaseViewModel
     
-//    @State var selectedExercise: DayExercise
     @State var gotoToMaxHistory = false
     @State var gotoToExercise = false
-//    @State var selectedExerciseIndex: Int
     
     var body: some View {
         VStack {
@@ -34,14 +32,10 @@ struct ExerciseDetailView: View {
             .frame(maxWidth: .infinity)
             .background(AppConfig.greenColor)
             .opacity(0)
-//            Spacer()
-//                .frame(maxWidth: .infinity)
-//                .background(Color(UIColor(red: 235 / 255, green: 235 / 255, blue: 235 / 255, alpha: 1.0)))
             
             Spacer().frame(height: 10)
             
             Button(action: {
-//                gotoToExercise = true
                 navigationManager.path.append(Route2.currentSet)
 
             }) {
@@ -53,14 +47,12 @@ struct ExerciseDetailView: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }
-            .disabled(viewModel.selectedExerciseIndex != viewModel.lastCompletedItem)
-            .opacity(viewModel.selectedExerciseIndex != viewModel.lastCompletedItem ? 0.75 : 1.0)
-//            .padding([.leading, .trailing], 16)
+//            .disabled(viewModel.selectedExerciseIndex != viewModel.lastCompletedItem)
+//            .opacity(viewModel.selectedExerciseIndex != viewModel.lastCompletedItem ? 0.75 : 1.0)
             
             Spacer().frame(height: 10)
             
             Button(action: {
-//                gotoToMaxHistory = true
                 navigationManager.path.append(Route2.maxHistory)
             }) {
                 Text("Max History")
@@ -73,12 +65,6 @@ struct ExerciseDetailView: View {
             }
         }
         .padding([.leading, .trailing], 16)
-//        .navigationDestination(isPresented: $gotoToMaxHistory) {
-//            MaxHistoryView()
-//        }
-//        .navigationDestination(isPresented: $gotoToExercise) {
-//            CurrentSetView()
-//        }
         .onChange(of: viewModel.selectedExercise.max) { newMax in
             
             print("max changed to: \(newMax)")

@@ -15,6 +15,8 @@ class PhaseViewModel: ObservableObject {
     @Published var currentDay: String = "Monday"
     @Published var selectedExercise: DayExercise = .init(text: "String", type: "String", name: "String", sets: [], max: 0.0)
     @Published var lastCompletedItem: Int = 0
+    @Published var lastSprintCompletedItem: Int = 0
+    @Published var lastConditioningCompletedItem: Int = 0
     @State var phases = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
     @Published var weeks = [1, 2, 3, 4, 5, 6, 7]
     @Published var days = ["Monday", "Tuesday", "Thursday", "Friday"]
