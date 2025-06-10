@@ -14,6 +14,7 @@ struct ExerciseItemView: View {
     @Binding var gotoToExercise: Bool
     @Binding var tappedExercise: Bool
     @Binding var tappedItemIndex: Int
+    @Binding var section: Int
     let showExerciseType = false
     @EnvironmentObject var navigationManager: NavigationManager
     @EnvironmentObject var viewModel: PhaseViewModel
@@ -30,6 +31,7 @@ struct ExerciseItemView: View {
                     print("exercise type tapped: \(exerciseListItemIndex)")
                     viewModel.selectedExercise = exerciseListItem
                     tappedItemIndex = exerciseListItemIndex
+                    viewModel.selectedSectionIndex = section
                     tappedExercise = true
                 }
 
@@ -57,7 +59,26 @@ struct ExerciseItemView: View {
             }
 //            .background(Color.orange)
 
-            if exerciseListItemIndex < viewModel.lastCompletedItem && exerciseListItemIndex > -1 {
+//            if exerciseListItemIndex < viewModel.lastCompletedItem && exerciseListItemIndex > -1 {
+//                Image("AppIconSplash")
+//                    .resizable()
+//                    .frame(width: 25, height: 25)
+//                    .scaledToFit()
+//            }
+
+            if section == 0 && (viewModel.completedDayAccelerationExercises.index(of: exerciseListItem.id) != nil) {
+                Image("AppIconSplash")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .scaledToFit()
+            }
+            else if section == 1 && viewModel.completedDayConditioningExercises.index(of: exerciseListItem.id) != nil {
+                Image("AppIconSplash")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .scaledToFit()
+            }
+            else if viewModel.completedDayExercises.index(of: exerciseListItem.id) != nil {
                 Image("AppIconSplash")
                     .resizable()
                     .frame(width: 25, height: 25)
@@ -90,7 +111,8 @@ struct ExerciseItemView: View {
         exerciseListItemIndex: 0,
         gotoToExercise: .constant(false),
         tappedExercise: .constant(false),
-        tappedItemIndex: .constant(0)
+        tappedItemIndex: .constant(0),
+        section: .constant(0)
     )
     .environmentObject(NavigationManager())
     .environmentObject(PhaseViewModel())

@@ -40,7 +40,10 @@ struct PhasePickerView: View {
             phaseWeek: viewModel.currentWeek,
             phaseDay: viewModel.currentDay,
             lastCompletedItem: viewModel.lastCompletedItem,
-            phaseWeekTotal: viewModel.weeks.count
+            phaseWeekTotal: viewModel.weeks.count,
+            completedDayExercises: viewModel.completedDayAccelerationExercises,
+            completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
+            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
         )
     }
 
@@ -51,7 +54,10 @@ struct PhasePickerView: View {
             phaseWeek: newWeek,
             phaseDay: viewModel.currentDay,
             lastCompletedItem: viewModel.lastCompletedItem,
-            phaseWeekTotal: viewModel.weeks.count
+            phaseWeekTotal: viewModel.weeks.count,
+            completedDayExercises: viewModel.completedDayAccelerationExercises,
+            completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
+            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
         )
     }
 
@@ -65,7 +71,10 @@ struct PhasePickerView: View {
             phaseWeek: viewModel.currentWeek,
             phaseDay: newDay,
             lastCompletedItem: viewModel.lastCompletedItem,
-            phaseWeekTotal: viewModel.weeks.count
+            phaseWeekTotal: viewModel.weeks.count,
+            completedDayExercises: viewModel.completedDayAccelerationExercises,
+            completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
+            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
         )
     }
 
@@ -124,34 +133,25 @@ struct PhasePickerView: View {
     }
 }
 
-#Preview {
-    let schema = Schema([
-        Item.self,
-        MaxIntensityRecord.self,
-        PhaseRecord.self
-    ])
-    let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: schema, configurations: [configuration])
+struct PhasePickerView_Previews: PreviewProvider {
+    static var previews: some View {
+        // 1. Create an in-memory SwiftData model container
+        let schema = Schema([
+            Item.self,
+            MaxIntensityRecord.self,
+            PhaseRecord.self
+        ])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: schema, configurations: [configuration])
 
-    // 3. Use a context from the model container to create the PhaseManager
-    ModelContextPreview(container: container) { modelContext in
-        let phaseManager = PhaseManager(modelContext: modelContext)
+        // 3. Use a context from the model container to create the PhaseManager
+        return ModelContextPreview(container: container) { modelContext in
+            let phaseManager = PhaseManager(modelContext: modelContext)
 
-        return NavigationStack {
-            PhasePickerView(
-                //                selectedPhase: .constant("Postseason"),
-//                selectedWeek: .constant(1),
-//                selectedDay: .constant("Monday"),
-//                lastCompletedItem: .constant(0),
-//                phases: .constant(["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]),
-//                days: .constant(["Monday", "Tuesday", "Thursday", "Friday"]),
-//                weeks: .constant([1, 2, 3, 4, 5, 6, 7])
-            )
-            //        .modelContainer(for: Item.self, inMemory: true)
-            .modelContainer(for: MaxIntensityRecord.self)
-            .environmentObject(NavigationManager())
-            .environmentObject(phaseManager)
+            return PhasePickerView()
+                .environmentObject(phaseManager)
+                .environmentObject(PhaseViewModel())
         }
+        .modelContainer(container)
     }
-    .modelContainer(container)
 }

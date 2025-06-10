@@ -65,10 +65,31 @@ struct CurrentDayWorkoutView: View {
             ExercisesListView(weightExercises: weightExercises, accelerationExercises: accelerationExercises, conditioningExercises: convertedConditioning
 //                dayExerciseList: dayExerciseList
             )
+            .onChange(of: viewModel.completedDayExercises) { newValue in
+                print("CDWV viewModel.completedDayExercises changed to: \(newValue)")
+            }
+            .onChange(of: viewModel.completedDayAccelerationExercises) { newValue in
+                print("CDWV viewModel.completedDayAccelerationExercises changed to: \(newValue)")
+            }
+            .onChange(of: viewModel.completedDayConditioningExercises) { newValue in
+                print("CDWV viewModel.completedDayConditioningExercises changed to: \(newValue)")
+            }
             .onChange(of: viewModel.lastCompletedItem) { newValue in
                 print("CurrentDayWorkoutView lastCompletedItem changed to: \(newValue)")
 
-                ModelUtils.savePhase(phaseOptions: phaseOptions, dayExerciseCount: weightExercises.count + accelerationExercises.count, lastCompletedItem: &viewModel.lastCompletedItem, currentPhase: &viewModel.currentPhase, currentDay: &viewModel.currentDay, currentWeek: &viewModel.currentWeek, phaseManager: phaseManager, modelContext: modelContext)
+                ModelUtils.savePhase(
+                    phaseOptions: phaseOptions,
+                    dayExerciseCount: weightExercises.count + accelerationExercises.count,
+                    lastCompletedItem: &viewModel.lastCompletedItem,
+                    currentPhase: &viewModel.currentPhase,
+                    currentDay: &viewModel.currentDay,
+                    currentWeek: &viewModel.currentWeek,
+                    completedDayExercises: viewModel.completedDayAccelerationExercises,
+                    completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
+                    completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises,
+                    phaseManager: phaseManager,
+                    modelContext: modelContext
+                )
 
                 if viewModel.lastCompletedItem == 0 {
                     let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
@@ -101,27 +122,29 @@ struct CurrentDayWorkoutView: View {
     }
 }
 
-#Preview {
-    let schema = Schema([
-        Item.self,
-        MaxIntensityRecord.self,
-        PhaseRecord.self
-    ])
-    let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: schema, configurations: [configuration])
+struct CurrentDayWorkoutView_Previews: PreviewProvider {
+    static var previews: some View {
+        // 1. Create an in-memory SwiftData model container
+        let schema = Schema([
+            Item.self,
+            MaxIntensityRecord.self,
+            PhaseRecord.self
+        ])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: schema, configurations: [configuration])
 
-    // 3. Use a context from the model container to create the PhaseManager
-    ModelContextPreview(container: container) { modelContext in
+        // 2. Create a mock navigation manager
+        let navigationManager = NavigationManager()
 
-        NavigationStack {
+        // 3. Use a context from the model container to create the PhaseManager
+        return ModelContextPreview(container: container) { modelContext in
             let phaseManager = PhaseManager(modelContext: modelContext)
 
-            CurrentDayWorkoutView()
-                //        .modelContainer(for: Item.self, inMemory: true)
-                .modelContainer(for: MaxIntensityRecord.self)
-                .environmentObject(NavigationManager())
+            return CurrentDayWorkoutView()
+                .environmentObject(navigationManager)
                 .environmentObject(phaseManager)
+                .environmentObject(PhaseViewModel())
         }
+        .modelContainer(container)
     }
-    .modelContainer(container)
 }

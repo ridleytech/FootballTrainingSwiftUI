@@ -58,5 +58,6 @@ struct PhaseDataView: View {
 //            currentWeek: .constant(1),
         )
         .environmentObject(NavigationManager())
+        .environmentObject(PhaseViewModel())
     }
 }

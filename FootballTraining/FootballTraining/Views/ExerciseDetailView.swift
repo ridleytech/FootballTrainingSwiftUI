@@ -66,9 +66,7 @@ struct ExerciseDetailView: View {
         }
         .padding([.leading, .trailing], 16)
         .onChange(of: viewModel.selectedExercise.max) { newMax in
-            
             print("max changed to: \(newMax)")
-//            weekChanged(to: newWeek)
         }
     }
 }
@@ -79,5 +77,6 @@ struct ExerciseDetailView: View {
             //            selectedExercise: DayExercise(text: "0 x .68", type: "Basic", name: "Bench Press", sets: [], max: 1.0)
         )
         .environmentObject(NavigationManager())
+        .environmentObject(PhaseViewModel())
     }
 }

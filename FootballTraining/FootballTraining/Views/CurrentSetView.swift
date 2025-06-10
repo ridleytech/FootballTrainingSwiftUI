@@ -79,7 +79,25 @@ struct CurrentSetView: View {
         workoutStarted = false
         showAlert = true
         workoutEnded = true
-        viewModel.lastCompletedItem += 1
+//        viewModel.lastCompletedItem += 1
+
+        if viewModel.selectedSectionIndex == 0 {
+            viewModel.completedDayAccelerationExercises.append(viewModel.selectedExercise.id)
+
+            print("ELV viewModel.completedDayAccelerationExercises: \(viewModel.completedDayAccelerationExercises)")
+        } else if viewModel.selectedSectionIndex == 1 {
+            viewModel.completedDayConditioningExercises.append(viewModel.selectedExercise.id)
+
+            print("ELV viewModel.completedDayConditioningExercises: \(viewModel.completedDayConditioningExercises)")
+        } else if viewModel.selectedSectionIndex == 2 {
+//            viewModel.lastCompletedItem += 1
+//
+//            print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
+
+            viewModel.completedDayExercises.append(viewModel.selectedExercise.id)
+
+            print("ELV viewModel.completedDayExercises: \(viewModel.completedDayExercises)")
+        }
 
         // pause exercise video
     }
@@ -295,6 +313,7 @@ struct CurrentSetView: View {
         //        selectedExercise: DayExercise(text: "String", type: "String", name: "String", sets: [sampleSet, sampleSet2, sampleSet3], max: 0.0)
     )
     .environmentObject(NavigationManager())
+    .environmentObject(PhaseViewModel())
 }
 
 // var name: String

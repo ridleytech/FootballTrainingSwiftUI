@@ -32,6 +32,16 @@ class DayExercise: Codable, Hashable, Identifiable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+
+    var description: String {
+        return """
+        PhaseRecord:
+        - Name: \(name)
+        - ID: \(String(describing: id))
+        - text: \(String(describing: text))
+        - max: \(String(describing: max))
+        """
+    }
 }
 
 class PhaseModel: Codable, Hashable {

@@ -23,7 +23,10 @@ class PhaseViewModel: ObservableObject {
     @Published var pickingPhase = false
     @Published var maxDataChanged: Bool = false
     @Published var selectedExerciseIndex: Int = 0
-    @Published var completedDayExercises: [Int] = []
+    @Published var selectedSectionIndex: Int = 0
+    @Published var completedDayExercises: [UUID] = []
+    @Published var completedDayConditioningExercises: [UUID] = []
+    @Published var completedDayAccelerationExercises: [UUID] = []
     @Published var selectedKPI: TrainingKPI = .init(exerciseName: "", dateRecorded: Date())
 }
 
@@ -209,9 +212,18 @@ class PhaseManager: ObservableObject {
 
             if let existing = records.first {
                 phaseRecord = existing
-//                print("Loaded existing PhaseRecord: \(existing.description)")
+                print("Loaded existing PhaseRecord: \(existing.description)")
             } else {
-                let new = PhaseRecord(phaseName: "Postseason", phaseWeek: 1, phaseDay: "Monday", lastCompletedItem: 0, phaseWeekTotal: 6)
+                let new = PhaseRecord(
+                    phaseName: "Postseason",
+                    phaseWeek: 1,
+                    phaseDay: "Monday",
+                    lastCompletedItem: 0,
+                    phaseWeekTotal: 6,
+                    completedDayExercises: [],
+                    completedDayConditioningExercises: [],
+                    completedDayAccelerationExercises: []
+                )
                 modelContext.insert(new)
                 try modelContext.save()
                 phaseRecord = new
@@ -223,7 +235,16 @@ class PhaseManager: ObservableObject {
         }
     }
 
-    func update(phaseName: String, phaseWeek: Int, phaseDay: String, lastCompletedItem: Int, phaseWeekTotal: Int) {
+    func update(
+        phaseName: String,
+        phaseWeek: Int,
+        phaseDay: String,
+        lastCompletedItem: Int,
+        phaseWeekTotal: Int,
+        completedDayExercises: [UUID],
+        completedDayConditioningExercises: [UUID],
+        completedDayAccelerationExercises: [UUID]
+    ) {
         guard let record = phaseRecord else { return }
 
         record.phaseName = phaseName
@@ -231,6 +252,9 @@ class PhaseManager: ObservableObject {
         record.phaseDay = phaseDay
         record.lastCompletedItem = lastCompletedItem
         record.phaseWeekTotal = phaseWeekTotal
+        record.completedDayExercises = completedDayExercises
+        record.completedDayConditioningExercises = completedDayConditioningExercises
+        record.completedDayAccelerationExercises = completedDayAccelerationExercises
 
         do {
             try modelContext.save()

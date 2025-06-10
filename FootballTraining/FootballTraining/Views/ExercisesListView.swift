@@ -30,9 +30,25 @@ struct ExercisesListView: View {
     func updateLastCompletedItem() {
         print("Complete Set tappedItemIndex: \(tappedItemIndex)")
 
-        viewModel.lastCompletedItem += 1
+        if viewModel.selectedSectionIndex == 0 {
+            viewModel.completedDayAccelerationExercises.append(accelerationExercises[tappedItemIndex].id)
 
-        print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
+            print("ELV viewModel.completedDayAccelerationExercises: \(viewModel.completedDayAccelerationExercises)")
+        }
+        else if viewModel.selectedSectionIndex == 1 {
+            viewModel.completedDayConditioningExercises.append(conditioningExercises[tappedItemIndex].id)
+
+            print("ELV viewModel.completedDayConditioningExercises: \(viewModel.completedDayConditioningExercises)")
+        }
+        else if viewModel.selectedSectionIndex == 2 {
+//            viewModel.lastCompletedItem += 1
+//
+//            print("Complete Set lastCompletedItem: \(viewModel.lastCompletedItem)")
+
+            viewModel.completedDayExercises.append(weightExercises[tappedItemIndex].id)
+
+            print("ELV viewModel.completedDayExercises: \(viewModel.completedDayExercises)")
+        }
     }
 
     var body: some View {
@@ -73,7 +89,8 @@ struct ExercisesListView: View {
                                     exerciseListItemIndex: index,
                                     gotoToExercise: $gotoToExercise,
                                     tappedExercise: $tappedExercise,
-                                    tappedItemIndex: $tappedItemIndex
+                                    tappedItemIndex: $tappedItemIndex,
+                                    section: .constant(0)
                                 )
                             }
                         }
@@ -84,10 +101,11 @@ struct ExercisesListView: View {
                             ForEach(Array(conditioningExercises.enumerated()), id: \.element.id) { index2, exercise in
                                 ExerciseItemView(
                                     exerciseListItem: exercise,
-                                    exerciseListItemIndex: index2 + accelerationExercises.count,
+                                    exerciseListItemIndex: index2,
                                     gotoToExercise: $gotoToExercise,
                                     tappedExercise: $tappedExercise,
-                                    tappedItemIndex: $tappedItemIndex
+                                    tappedItemIndex: $tappedItemIndex,
+                                    section: .constant(1)
                                 )
                             }
                         }
@@ -97,10 +115,11 @@ struct ExercisesListView: View {
                         ForEach(Array(weightExercises.enumerated()), id: \.element.id) { index3, exercise in
                             ExerciseItemView(
                                 exerciseListItem: exercise,
-                                exerciseListItemIndex: index3 + accelerationExercises.count + conditioningExercises.count,
+                                exerciseListItemIndex: index3,
                                 gotoToExercise: $gotoToExercise,
                                 tappedExercise: $tappedExercise,
-                                tappedItemIndex: $tappedItemIndex
+                                tappedItemIndex: $tappedItemIndex,
+                                section: .constant(2)
                             )
                         }
                     }
@@ -115,19 +134,16 @@ struct ExercisesListView: View {
                 .allowsHitTesting(false)
             }
 
-//            Spacer().frame(height: 10)
-
             // .navigationTitle("\(currentDay) Lifts")
         }
         .onAppear {
-            print("conditioningExercises: \(conditioningExercises)")
+//            if let exercise = conditioningExercises.first {
+//                print("conditioningExercises: \(exercise.description)")
+//            }
         }
         .ignoresSafeArea(.container, edges: .bottom)
         .alert(viewModel.selectedExercise.name ?? "", isPresented: $tappedExercise) {
             Button("View Details") {
-                print("View Details")
-
-//                gotoToExercise = true
                 navigationManager.path.append(Route2.exerciseDetail)
             }
             Button("Complete Set") {
@@ -137,6 +153,9 @@ struct ExercisesListView: View {
         }
         .onChange(of: tappedItemIndex) { newValue in
             print("tappedItemIndex changed to: \(newValue)")
+        }
+        .onChange(of: viewModel.selectedSectionIndex) { newValue in
+            print("viewModel.selectedSectionIndex changed to: \(newValue)")
         }
         .onChange(of: viewModel.lastCompletedItem) { newValue in
             print("Exercises view lastCompletedItem changed to: \(newValue)")
@@ -169,19 +188,16 @@ struct ExercisesListView: View {
             ],
             accelerationExercises: [
                 DayExercise(text: ".68 x 8",
-                            type: "Basic",
-                            name: "Bench Press", sets: [], max: 1.0),
+                            type: "Sprint",
+                            name: "Sled Push Sprints", sets: [], max: 1.0),
                 DayExercise(text: ".68 x 8",
-                            type: "Basic",
-                            name: "Military Press", sets: [], max: 1.0)
+                            type: "Plyometric",
+                            name: "Broad Jumps", sets: [], max: 1.0)
             ],
             conditioningExercises: [
                 DayExercise(text: ".68 x 8",
-                            type: "Basic",
-                            name: "Bench Press", sets: [], max: 1.0),
-                DayExercise(text: ".68 x 8",
-                            type: "Basic",
-                            name: "Military Press", sets: [], max: 1.0)
+                            type: "Sprint",
+                            name: "Tempo runs", sets: [], max: 1.0)
             ]
         )
         .environmentObject(NavigationManager())

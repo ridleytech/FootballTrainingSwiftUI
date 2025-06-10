@@ -29,11 +29,17 @@ class ModelUtils {
         return days[nextIndex]
     }
 
-    static func savePhase(phaseOptions: [String], dayExerciseCount: Int, lastCompletedItem: inout Int,
+    static func savePhase(phaseOptions: [String],
+                          dayExerciseCount: Int,
+                          lastCompletedItem: inout Int,
                           currentPhase: inout String,
                           currentDay: inout String,
                           currentWeek: inout Int,
-                          phaseManager: PhaseManager, modelContext: ModelContext)
+                          completedDayExercises: [UUID],
+                          completedDayConditioningExercises: [UUID],
+                          completedDayAccelerationExercises: [UUID],
+                          phaseManager: PhaseManager,
+                          modelContext: ModelContext)
     {
         print("savePhase CurrentDayWorkoutView")
 
@@ -71,7 +77,18 @@ class ModelUtils {
 
             print("currentWeek: \(currentWeek)")
 
-            phaseManager.update(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem, phaseWeekTotal: phaseManager.phaseRecord!.phaseWeekTotal)
+            phaseManager.update(
+                phaseName: currentPhase,
+                phaseWeek: currentWeek,
+                phaseDay: currentDay,
+                lastCompletedItem:
+                lastCompletedItem,
+                phaseWeekTotal:
+                phaseManager.phaseRecord!.phaseWeekTotal,
+                completedDayExercises: completedDayExercises,
+                completedDayConditioningExercises: completedDayConditioningExercises,
+                completedDayAccelerationExercises: completedDayAccelerationExercises
+            )
 
 //            print("Phase: \(phaseManager.phaseRecord?.phaseName)")
 
@@ -94,7 +111,17 @@ class ModelUtils {
                 currentDay = existingRecord.phaseDay
                 lastCompletedItem = existingRecord.lastCompletedItem
             } else {
-                let newRecord = PhaseRecord(phaseName: currentPhase, phaseWeek: currentWeek, phaseDay: currentDay, lastCompletedItem: lastCompletedItem, phaseWeekTotal: phaseManager.phaseRecord!.phaseWeekTotal)
+                let newRecord = PhaseRecord(
+                    phaseName: currentPhase,
+                    phaseWeek: currentWeek,
+                    phaseDay: currentDay,
+                    lastCompletedItem: lastCompletedItem,
+                    phaseWeekTotal:
+                    phaseManager.phaseRecord!.phaseWeekTotal,
+                    completedDayExercises: completedDayExercises,
+                    completedDayConditioningExercises: completedDayConditioningExercises,
+                    completedDayAccelerationExercises: completedDayAccelerationExercises
+                )
                 modelContext.insert(newRecord)
                 print("Saved new \(currentPhase) with week \(currentWeek) and day \(currentDay) and lastCompletedItem \(lastCompletedItem)")
             }
