@@ -5,6 +5,8 @@
 //  Created by Randall Ridley on 6/4/25.
 //
 
+import _SwiftData_SwiftUI
+import Foundation
 import SwiftUI
 
 struct KPIDetailsView: View {
@@ -239,6 +241,23 @@ struct KPIDetailsView: View {
 
 struct TrainingKPIFormView_Previews: PreviewProvider {
     static var previews: some View {
-        KPIDetailsView()
+        // 1. Create an in-memory SwiftData model container
+        let schema = Schema([
+            Item.self,
+            MaxIntensityRecord.self,
+            PhaseRecord.self
+        ])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: schema, configurations: [configuration])
+
+        // 3. Use a context from the model container to create the PhaseManager
+        return ModelContextPreview(container: container) { modelContext in
+            let phaseManager = PhaseManager(modelContext: modelContext)
+
+            return KPIDetailsView()
+                .environmentObject(phaseManager)
+                .environmentObject(PhaseViewModel())
+        }
+        .modelContainer(container)
     }
 }

@@ -35,7 +35,7 @@ struct PhaseDataView: View {
             }
 
             Button(action: {
-                navigationManager.path.append(Route2.dayWorkout)
+                navigationManager.path.append(Route.dayWorkout)
             }) {
                 Text("Train")
                     .font(.system(size: 16, weight: .bold, design: .default))

@@ -124,7 +124,7 @@ struct ContentView: View {
 
                     HStack {
                         Button(action: {
-                            navigationManager.path.append(Route2.notification)
+                            navigationManager.path.append(Route.notification)
 
                         }) {
                             Image(systemName: "gearshape.fill")
@@ -167,7 +167,7 @@ struct ContentView: View {
                 } else {
                     Spacer().frame(height: 20)
                     PhaseDataView()
-                        .navigationDestination(for: Route2.self) { route in
+                        .navigationDestination(for: Route.self) { route in
                             switch route {
                             case .currentSet:
                                 CurrentSetView()

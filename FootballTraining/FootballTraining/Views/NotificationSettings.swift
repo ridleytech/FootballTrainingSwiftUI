@@ -14,7 +14,7 @@ struct NotificationSettings: View {
     var body: some View {
         VStack(spacing: 20) {
             Button("View KPIs") {
-                navigationManager.path.append(Route2.kpi)
+                navigationManager.path.append(Route.kpi)
             }
 
             Toggle("Enable Daily Notifications", isOn: $notificationsEnabled)

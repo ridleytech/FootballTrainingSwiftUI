@@ -36,7 +36,7 @@ struct ExerciseDetailView: View {
             Spacer().frame(height: 10)
             
             Button(action: {
-                navigationManager.path.append(Route2.currentSet)
+                navigationManager.path.append(Route.currentSet)
 
             }) {
                 Text("Start Exercise")
@@ -53,7 +53,7 @@ struct ExerciseDetailView: View {
             Spacer().frame(height: 10)
             
             Button(action: {
-                navigationManager.path.append(Route2.maxHistory)
+                navigationManager.path.append(Route.maxHistory)
             }) {
                 Text("Max History")
                     .font(.system(size: 16, weight: .bold, design: .default))

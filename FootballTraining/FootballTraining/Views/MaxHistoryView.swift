@@ -136,7 +136,7 @@ struct MaxHistoryView: View {
             Spacer()
 
             Button(action: {
-                navigationManager.path.append(Route2.saveMax)
+                navigationManager.path.append(Route.saveMax)
             }) {
                 Text("Add Max")
                     .font(.system(size: 16, weight: .bold, design: .default))

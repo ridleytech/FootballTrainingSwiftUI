@@ -160,7 +160,7 @@ struct ExercisesListView: View {
         .ignoresSafeArea(.container, edges: .bottom)
         .alert(viewModel.selectedExercise.name ?? "", isPresented: $tappedExercise) {
             Button("View Details") {
-                navigationManager.path.append(Route2.exerciseDetail)
+                navigationManager.path.append(Route.exerciseDetail)
             }
             Button("Complete Set") {
                 updateLastCompletedItem()
@@ -179,7 +179,7 @@ struct ExercisesListView: View {
             if gotoToExercise {
                 print("gotoToExercise is true")
 
-                navigationManager.path.append(Route2.exerciseDetail)
+                navigationManager.path.append(Route.exerciseDetail)
             }
         }
         .onAppear {

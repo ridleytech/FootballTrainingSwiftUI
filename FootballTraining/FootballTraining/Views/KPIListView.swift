@@ -58,7 +58,7 @@ struct KPIListView: View {
                 .padding()
                 .onTapGesture {
                     viewModel.selectedKPI = kpi
-                    navigationManager.path.append(Route2.kpiDetails)
+                    navigationManager.path.append(Route.kpiDetails)
                 }
             }
             .navigationTitle("Training KPIs")
@@ -77,6 +77,23 @@ struct KPIListView: View {
 
 struct KPIListView_Previews: PreviewProvider {
     static var previews: some View {
-        KPIListView()
+        // 1. Create an in-memory SwiftData model container
+        let schema = Schema([
+            Item.self,
+            MaxIntensityRecord.self,
+            PhaseRecord.self
+        ])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        let container = try! ModelContainer(for: schema, configurations: [configuration])
+
+        // 3. Use a context from the model container to create the PhaseManager
+        return ModelContextPreview(container: container) { modelContext in
+            let phaseManager = PhaseManager(modelContext: modelContext)
+
+            return KPIListView()
+                .environmentObject(phaseManager)
+                .environmentObject(PhaseViewModel())
+        }
+        .modelContainer(container)
     }
 }

@@ -95,7 +95,7 @@ struct ExerciseItemView: View {
             //                        }
         }
         .onAppear {
-            print("EIV section: \(section) exerciseListItem.name: \(exerciseListItem.name)")
+//            print("EIV section: \(section) exerciseListItem.name: \(exerciseListItem.name)")
         }
 //        .listRowBackground(viewModel.lastCompletedItem != exerciseListItemIndex ? Color.white.opacity(0.5) : Color.white)
         .padding(16)

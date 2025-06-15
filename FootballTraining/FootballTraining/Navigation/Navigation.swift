@@ -11,12 +11,6 @@ import SwiftUI
 enum Route: Hashable {
     case dayWorkout
     case exerciseDetail
-    case currentSet
-}
-
-enum Route2: Hashable {
-    case dayWorkout
-    case exerciseDetail
     case maxHistory
     case currentSet
     case saveMax
