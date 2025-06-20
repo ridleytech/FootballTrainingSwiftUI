@@ -12,10 +12,30 @@ struct NotificationSettings: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
-        VStack(spacing: 20) {
-            Button("View KPIs") {
-                navigationManager.path.append(Route.kpi)
+        VStack {
+            ZStack {
+                Text("Settings")
+                    .font(.system(size: 18, weight: .bold, design: .default))
+                    .foregroundColor(AppConfig.greenColor)
             }
+
+            Spacer().frame(height: 50)
+
+            Button(action: {
+                navigationManager.path.append(Route.kpi)
+
+            }) {
+                Text("Training KPIs")
+                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+                    .background(Color(hex: "7FBF30"))
+                    .foregroundColor(.white)
+                    .cornerRadius(5)
+            }
+            .padding([.leading, .trailing], 16)
+
+            Spacer()
 
             Toggle("Enable Daily Notifications", isOn: $notificationsEnabled)
                 .padding()
@@ -31,6 +51,8 @@ struct NotificationSettings: View {
 
             Text(notificationsEnabled ? "Notifications are ON" : "Notifications are OFF")
                 .foregroundColor(notificationsEnabled ? .green : .red)
+
+            Spacer().frame(height: 50)
         }
     }
 }

@@ -26,22 +26,19 @@ struct ExercisesListView: View {
     func completeWorkout() {
         print("completeWorkout")
 
-//        viewModel.lastCompletedItem = weightExercises.count + accelerationExercises.count + conditioningExercises.count
+        if viewModel.completedDayExercises.count != weightExercises.count {
+            print("Not all weight exercises completed")
+        }
 
-//        ModelUtils.updatePhase(
-//            dayExerciseCount: weightExercises.count + accelerationExercises.count + conditioningExercises.count,
-//            currentPhase: &viewModel.currentPhase,
-//            currentDay: &viewModel.currentDay,
-//            currentWeek: &viewModel.currentWeek,
-//            completedDayExercises: &viewModel.completedDayExercises,
-//            completedDayConditioningExercises: &viewModel.completedDayConditioningExercises,
-//            completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises,
-//            phaseManager: phaseManager,
-//            modelContext: modelContext,
-//            dayCompleted: true
-//        )
+        // to do. might have to change to DayExercise instead of string
 
-        viewModel.completedDayExercises = []
+//        @Published var completedDayExercises: [String] = []
+//        @Published var completedDayConditioningExercises: [String] = []
+//        @Published var completedDayAccelerationExercises: [String] = []
+
+        return
+
+                viewModel.completedDayExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayAccelerationExercises = []
         viewModel.dayCompleted = true

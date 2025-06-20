@@ -26,6 +26,7 @@ struct CurrentDayWorkoutView: View {
 
     func updatePhaseData(dayCompleted: Bool) {
         print("CDWV updatePhaseData")
+
         ModelUtils.updatePhase(
             dayExerciseCount: weightExercises.count + accelerationExercises.count + conditioningExercises.count,
             currentPhase: &viewModel.currentPhase,

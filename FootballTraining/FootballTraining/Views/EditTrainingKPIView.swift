@@ -49,145 +49,172 @@ struct KPIDetailsView: View {
     }
 
     var body: some View {
-        Form {
-            Section(header: Text("Training KPI")) {
-                // Exercise Name
-                VStack(alignment: .leading) {
-                    if !exerciseName.isEmpty {
-                        Text("Exercise Name")
-                            .font(.headline)
+        VStack {
+            Text(exerciseName)
+                .font(.system(size: 18, weight: .bold, design: .default))
+                .foregroundColor(AppConfig.greenColor)
+            Spacer().frame(height: 20)
+            
+            Form {
+                Section(header: Text("Training KPI")) {
+                    // Exercise Name
+//                    VStack(alignment: .leading) {
+//                        if !exerciseName.isEmpty {
+//                            Text("Exercise Name")
+//                                .font(.headline)
+//                        }
+//                        TextField("Exercise Name", text: $exerciseName)
+//                    }
+//
+                    // Body Weight Multiplier Min
+                    VStack(alignment: .leading) {
+                        if !bodyWeightMultiplierMin.isEmpty {
+                            Text("Body Weight Multiplier Min")
+                                .font(.headline)
+                        }
+                        TextField("Body Weight Multiplier Min", text: $bodyWeightMultiplierMin)
+                            .keyboardType(.decimalPad)
                     }
-                    TextField("Exercise Name", text: $exerciseName)
-                }
-
-                // Body Weight Multiplier Min
-                VStack(alignment: .leading) {
-                    if !bodyWeightMultiplierMin.isEmpty {
-                        Text("Body Weight Multiplier Min")
-                            .font(.headline)
+                    
+                    // Body Weight Multiplier Max
+                    VStack(alignment: .leading) {
+                        if !bodyWeightMultiplierMax.isEmpty {
+                            Text("Body Weight Multiplier Max")
+                                .font(.headline)
+                        }
+                        TextField("Body Weight Multiplier Max", text: $bodyWeightMultiplierMax)
+                            .keyboardType(.decimalPad)
                     }
-                    TextField("Body Weight Multiplier Min", text: $bodyWeightMultiplierMin)
-                        .keyboardType(.decimalPad)
-                }
-
-                // Body Weight Multiplier Max
-                VStack(alignment: .leading) {
-                    if !bodyWeightMultiplierMax.isEmpty {
-                        Text("Body Weight Multiplier Max")
-                            .font(.headline)
+                    
+                    // Reps Min
+                    VStack(alignment: .leading) {
+                        if !repsMin.isEmpty {
+                            Text("Reps Min")
+                                .font(.headline)
+                        }
+                        TextField("Reps Min", text: $repsMin)
+                            .keyboardType(.numberPad)
                     }
-                    TextField("Body Weight Multiplier Max", text: $bodyWeightMultiplierMax)
-                        .keyboardType(.decimalPad)
-                }
-
-                // Reps Min
-                VStack(alignment: .leading) {
-                    if !repsMin.isEmpty {
-                        Text("Reps Min")
-                            .font(.headline)
+                    
+                    // Reps Max
+                    VStack(alignment: .leading) {
+                        if !repsMax.isEmpty {
+                            Text("Reps Max")
+                                .font(.headline)
+                        }
+                        TextField("Reps Max", text: $repsMax)
+                            .keyboardType(.numberPad)
                     }
-                    TextField("Reps Min", text: $repsMin)
-                        .keyboardType(.numberPad)
-                }
-
-                // Reps Max
-                VStack(alignment: .leading) {
-                    if !repsMax.isEmpty {
-                        Text("Reps Max")
-                            .font(.headline)
+                    
+                    // Lift Speed Concentric Min
+                    VStack(alignment: .leading) {
+                        if !liftSpeedConcentricMin.isEmpty {
+                            Text("Lift Speed Concentric Min")
+                                .font(.headline)
+                        }
+                        TextField("Lift Speed Concentric Min", text: $liftSpeedConcentricMin)
+                            .keyboardType(.decimalPad)
                     }
-                    TextField("Reps Max", text: $repsMax)
-                        .keyboardType(.numberPad)
-                }
-
-                // Lift Speed Concentric Min
-                VStack(alignment: .leading) {
-                    if !liftSpeedConcentricMin.isEmpty {
-                        Text("Lift Speed Concentric Min")
-                            .font(.headline)
+                    
+                    // Lift Speed Concentric Max
+                    VStack(alignment: .leading) {
+                        if !liftSpeedConcentricMax.isEmpty {
+                            Text("Lift Speed Concentric Max")
+                                .font(.headline)
+                        }
+                        TextField("Lift Speed Concentric Max", text: $liftSpeedConcentricMax)
+                            .keyboardType(.decimalPad)
                     }
-                    TextField("Lift Speed Concentric Min", text: $liftSpeedConcentricMin)
-                        .keyboardType(.decimalPad)
-                }
-
-                // Lift Speed Concentric Max
-                VStack(alignment: .leading) {
-                    if !liftSpeedConcentricMax.isEmpty {
-                        Text("Lift Speed Concentric Max")
-                            .font(.headline)
+                    
+                    // Lift Speed Eccentric
+                    VStack(alignment: .leading) {
+                        if !liftSpeedEccentric.isEmpty {
+                            Text("Lift Speed Eccentric")
+                                .font(.headline)
+                        }
+                        TextField("Lift Speed Eccentric", text: $liftSpeedEccentric)
+                            .keyboardType(.decimalPad)
                     }
-                    TextField("Lift Speed Concentric Max", text: $liftSpeedConcentricMax)
-                        .keyboardType(.decimalPad)
-                }
-
-                // Lift Speed Eccentric
-                VStack(alignment: .leading) {
-                    if !liftSpeedEccentric.isEmpty {
-                        Text("Lift Speed Eccentric")
-                            .font(.headline)
+                    
+                    // Length (Seconds) Min
+                    VStack(alignment: .leading) {
+                        if !lengthSecondsMin.isEmpty {
+                            Text("Length (Seconds) Min")
+                                .font(.headline)
+                        }
+                        TextField("Length (Seconds) Min", text: $lengthSecondsMin)
+                            .keyboardType(.numberPad)
                     }
-                    TextField("Lift Speed Eccentric", text: $liftSpeedEccentric)
-                        .keyboardType(.decimalPad)
-                }
-
-                // Length (Seconds) Min
-                VStack(alignment: .leading) {
-                    if !lengthSecondsMin.isEmpty {
-                        Text("Length (Seconds) Min")
-                            .font(.headline)
+                    
+                    // Length (Seconds) Max
+                    VStack(alignment: .leading) {
+                        if !lengthSecondsMax.isEmpty {
+                            Text("Length (Seconds) Max")
+                                .font(.headline)
+                        }
+                        TextField("Length (Seconds) Max", text: $lengthSecondsMax)
+                            .keyboardType(.numberPad)
                     }
-                    TextField("Length (Seconds) Min", text: $lengthSecondsMin)
-                        .keyboardType(.numberPad)
-                }
-
-                // Length (Seconds) Max
-                VStack(alignment: .leading) {
-                    if !lengthSecondsMax.isEmpty {
-                        Text("Length (Seconds) Max")
-                            .font(.headline)
+                    
+                    // Weight Range Description
+                    VStack(alignment: .leading) {
+                        if !weightRangeDescription.isEmpty {
+                            Text("Weight Range Description")
+                                .font(.headline)
+                        }
+                        TextField("Weight Range Description", text: $weightRangeDescription)
                     }
-                    TextField("Length (Seconds) Max", text: $lengthSecondsMax)
-                        .keyboardType(.numberPad)
-                }
-
-                // Weight Range Description
-                VStack(alignment: .leading) {
-                    if !weightRangeDescription.isEmpty {
-                        Text("Weight Range Description")
-                            .font(.headline)
+                    
+                    // Notes
+                    VStack(alignment: .leading) {
+                        if !notes.isEmpty {
+                            Text("Notes")
+                                .font(.headline)
+                        }
+                        TextField("Notes", text: $notes)
                     }
-                    TextField("Weight Range Description", text: $weightRangeDescription)
-                }
-
-                // Notes
-                VStack(alignment: .leading) {
-                    if !notes.isEmpty {
-                        Text("Notes")
-                            .font(.headline)
+                    
+                    // Current Progress
+                    VStack(alignment: .leading) {
+                        if !currentProgress.isEmpty {
+                            Text("Current Progress")
+                                .font(.headline)
+                        }
+                        TextField("Current Progress", text: $currentProgress)
                     }
-                    TextField("Notes", text: $notes)
-                }
-
-                // Current Progress
-                VStack(alignment: .leading) {
-                    if !currentProgress.isEmpty {
-                        Text("Current Progress")
-                            .font(.headline)
+                    
+                    // Target Goal
+                    VStack(alignment: .leading) {
+                        if !targetGoal.isEmpty {
+                            Text("Target Goal")
+                                .font(.headline)
+                        }
+                        TextField("Target Goal", text: $targetGoal)
                     }
-                    TextField("Current Progress", text: $currentProgress)
-                }
-
-                // Target Goal
-                VStack(alignment: .leading) {
-                    if !targetGoal.isEmpty {
-                        Text("Target Goal")
-                            .font(.headline)
-                    }
-                    TextField("Target Goal", text: $targetGoal)
                 }
             }
-
-            Button("Save KPI") {
+//            .navigationTitle("Create/Edit KPI")
+            .onAppear {
+                let mm = MaxManager(modelContext: modelContext)
+                
+                mapKPIData()
+                
+                if let weight = mm.weightRecord?.weight {
+                    print("current weight: \(weight)")
+                    
+                    targetGoal = viewModel.selectedKPI.calculateTargetGoal(weight: weight)
+                    
+                    //                if let kpiTargetGoal = viewModel.selectedKPI.targetGoal {
+                    ////                    print("range: \(kpiTargetGoal)")
+                    //
+                    //                    targetGoal = kpiTargetGoal
+                    //                }
+                }
+            }
+            
+            Spacer().frame(height: 20)
+            
+            Button(action: {
                 // Save or update the KPI model
                 viewModel.selectedKPI.exerciseName = exerciseName
                 viewModel.selectedKPI.bodyWeightMultiplierMin = Double(bodyWeightMultiplierMin)
@@ -202,39 +229,30 @@ struct KPIDetailsView: View {
                 viewModel.selectedKPI.weightRangeDescription = weightRangeDescription
                 viewModel.selectedKPI.notes = notes
                 viewModel.selectedKPI.currentProgress = currentProgress
-
+                
                 if targetGoal != "N/A" {
                     viewModel.selectedKPI.targetGoal = targetGoal
                 }
-
+                
                 // to do: give option to update or save new KPI
-
+                
                 if !currentProgress.isEmpty {
                     let kpiProgress = KPIProgress(weight: Double(currentProgress)!, exercise: exerciseName, dateRecorded: Date())
-
+                    
                     modelContext.insert(kpiProgress)
                 }
-
-//                modelContext.save()
+                
+                //                modelContext.save()
+            }) {
+                Text("Save KPI")
+                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+                    .background(Color(hex: "7FBF30"))
+                    .foregroundColor(.white)
+                    .cornerRadius(5)
             }
-        }
-        .navigationTitle("Create/Edit KPI")
-        .onAppear {
-            let mm = MaxManager(modelContext: modelContext)
-
-            mapKPIData()
-
-            if let weight = mm.weightRecord?.weight {
-                print("current weight: \(weight)")
-
-                targetGoal = viewModel.selectedKPI.calculateTargetGoal(weight: weight)
-
-//                if let kpiTargetGoal = viewModel.selectedKPI.targetGoal {
-                ////                    print("range: \(kpiTargetGoal)")
-//
-//                    targetGoal = kpiTargetGoal
-//                }
-            }
+            .padding([.leading, .trailing], 16)
         }
     }
 }

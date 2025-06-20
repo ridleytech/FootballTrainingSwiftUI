@@ -1,12 +1,12 @@
 //
-//  PhaseModel.swift
+//  Exercise.swift
 //  FootballTraining
 //
-//  Created by Randall Ridley on 4/26/25.
+//  Created by Randall Ridley on 6/18/25.
 //
 
 import Foundation
-import SwiftUI
+import SwiftData
 
 class DayExercise: Codable, Hashable, Identifiable {
     let id: UUID
@@ -41,54 +41,6 @@ class DayExercise: Codable, Hashable, Identifiable {
         - text: \(String(describing: text))
         - max: \(String(describing: max))
         """
-    }
-}
-
-class PhaseModel: Codable, Hashable {
-    var name: String
-    var week: [Week]
-
-    static func == (lhs: PhaseModel, rhs: PhaseModel) -> Bool {
-        lhs.name == rhs.name && lhs.week == rhs.week
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(week)
-    }
-}
-
-class Week: Codable, Hashable {
-    var name: String
-    var yearweek: String
-    var days: [Day]
-    var rests: [Rest]
-
-    static func == (lhs: Week, rhs: Week) -> Bool {
-        lhs.name == rhs.name && lhs.yearweek == rhs.yearweek && lhs.days == rhs.days && lhs.rests == rhs.rests
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(yearweek)
-        hasher.combine(days)
-        hasher.combine(rests)
-    }
-}
-
-class Day: Codable, Hashable {
-    var name: String
-    var exercises: [Exercise]?
-    var conditioning: [Conditioning]?
-
-    static func == (lhs: Day, rhs: Day) -> Bool {
-        lhs.name == rhs.name && lhs.exercises == rhs.exercises && lhs.conditioning == rhs.conditioning
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(exercises)
-        hasher.combine(conditioning)
     }
 }
 
@@ -161,32 +113,23 @@ class Rest: Codable, Hashable {
     }
 }
 
-class Conditioning: Codable, Hashable {
-    var name: String
-    var exercise: [ConditioningExercise]
-
-    static func == (lhs: Conditioning, rhs: Conditioning) -> Bool {
-        lhs.name == rhs.name && lhs.exercise == rhs.exercise
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(exercise)
-    }
-}
-
-class ConditioningExercise: Codable, Hashable {
-    var name: String
+@Model
+class SkippedExercises {
+    var id: UUID
+    var text: String
     var type: String
+    var name: String
     var sets: [SetElement]
+    var max: Double
+    var date: Date
 
-    static func == (lhs: ConditioningExercise, rhs: ConditioningExercise) -> Bool {
-        lhs.name == rhs.name && lhs.type == rhs.type && lhs.sets == rhs.sets
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(type)
-        hasher.combine(sets)
+    init(text: String, type: String, name: String, sets: [SetElement], max: Double, id: UUID = UUID(), date: Date) {
+        self.id = id
+        self.text = text
+        self.type = type
+        self.name = name
+        self.sets = sets
+        self.max = max
+        self.date = date
     }
 }

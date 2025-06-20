@@ -28,6 +28,7 @@ class PhaseViewModel: ObservableObject {
     @Published var completedDayAccelerationExercises: [String] = []
     @Published var selectedKPI: TrainingKPI = .init(exerciseName: "", dateRecorded: Date())
     @Published var dayCompleted: Bool = false
+    @Published var skippedExercises: [SkippedExercises] = []
 }
 
 class PhaseManager: ObservableObject {
