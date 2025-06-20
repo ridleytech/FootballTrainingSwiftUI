@@ -35,9 +35,10 @@ class ModelUtils {
                             currentPhase: inout String,
                             currentDay: inout String,
                             currentWeek: inout Int,
-                            completedDayExercises: inout [String],
-                            completedDayConditioningExercises: inout [String],
-                            completedDayAccelerationExercises: inout [String],
+                            completedDayExercises: inout [DayExercise],
+                            completedDayConditioningExercises: inout [DayExercise],
+                            completedDayAccelerationExercises: inout [DayExercise],
+                            skippedExercises: inout SkippedExercises,
                             phaseManager: PhaseManager,
                             modelContext: ModelContext,
                             dayCompleted: Bool)
@@ -94,7 +95,8 @@ class ModelUtils {
                 phaseManager.phaseRecord!.phaseWeekTotal,
                 completedDayExercises: completedDayExercises,
                 completedDayConditioningExercises: completedDayConditioningExercises,
-                completedDayAccelerationExercises: completedDayAccelerationExercises
+                completedDayAccelerationExercises: completedDayAccelerationExercises,
+                skippedExercises: skippedExercises
             )
 
 //            print("Phase: \(phaseManager.phaseRecord?.phaseName)")
@@ -131,7 +133,8 @@ class ModelUtils {
                     phaseManager.phaseRecord!.phaseWeekTotal,
                     completedDayExercises: completedDayExercises,
                     completedDayConditioningExercises: completedDayConditioningExercises,
-                    completedDayAccelerationExercises: completedDayAccelerationExercises
+                    completedDayAccelerationExercises: completedDayAccelerationExercises,
+                    skippedExercises: skippedExercises
                 )
                 modelContext.insert(newRecord)
                 print("Saved new \(currentPhase) with week \(currentWeek) and day \(currentDay) and completedDayExercises \(completedDayExercises) and completedDayConditioningExercises \(completedDayConditioningExercises) and completedDayAccelerationExercises \(completedDayAccelerationExercises)")

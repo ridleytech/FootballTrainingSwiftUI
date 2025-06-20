@@ -22,8 +22,10 @@ struct ExerciseItemView: View {
     private func shouldShowCompletionIcon() -> Bool {
         let cleanedName = exerciseListItem.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
 
-        func match(in list: [String]) -> Bool {
-            list.contains { $0.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() == cleanedName }
+        func match(in list: [DayExercise]) -> Bool {
+            list.contains { item in
+                item.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() == cleanedName
+            }
         }
 
         switch section {

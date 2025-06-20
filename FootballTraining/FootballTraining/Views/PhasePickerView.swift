@@ -34,6 +34,7 @@ struct PhasePickerView: View {
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayExercises = []
+        viewModel.skippedExercises = .init(exercises: [], date: Date())
 
         getPhaseData()
 
@@ -44,7 +45,8 @@ struct PhasePickerView: View {
             phaseWeekTotal: viewModel.weeks.count,
             completedDayExercises: viewModel.completedDayExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
-            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
+            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises,
+            skippedExercises: viewModel.skippedExercises
         )
     }
 
@@ -54,6 +56,7 @@ struct PhasePickerView: View {
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayExercises = []
+        viewModel.skippedExercises = .init(exercises: [], date: Date())
 
         phaseManager.update(
             phaseName: viewModel.currentPhase,
@@ -62,7 +65,8 @@ struct PhasePickerView: View {
             phaseWeekTotal: viewModel.weeks.count,
             completedDayExercises: viewModel.completedDayExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
-            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
+            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises,
+            skippedExercises: viewModel.skippedExercises
         )
     }
 
@@ -80,7 +84,8 @@ struct PhasePickerView: View {
             phaseWeekTotal: viewModel.weeks.count,
             completedDayExercises: viewModel.completedDayExercises,
             completedDayConditioningExercises: viewModel.completedDayConditioningExercises,
-            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises
+            completedDayAccelerationExercises: viewModel.completedDayAccelerationExercises,
+            skippedExercises: viewModel.skippedExercises
         )
     }
 

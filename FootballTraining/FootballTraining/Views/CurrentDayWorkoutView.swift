@@ -14,15 +14,12 @@ struct CurrentDayWorkoutView: View {
     @EnvironmentObject var phaseManager: PhaseManager
     @EnvironmentObject var viewModel: PhaseViewModel
 
-//    @State private var dayExerciseList: [DayExercise] = []
     @State private var weightExercises: [DayExercise] = []
     @State private var accelerationExercises: [DayExercise] = []
     @State private var conditioningExercises: [ConditioningExercise] = []
 
     @State private var selectedItems: Set<String> = []
     @State var gotData: Bool = false
-
-//    let phaseOptions = ["Postseason", "Winter", "Spring", "Summer", "Preseason", "In-Season"]
 
     func updatePhaseData(dayCompleted: Bool) {
         print("CDWV updatePhaseData")
@@ -34,7 +31,7 @@ struct CurrentDayWorkoutView: View {
             currentWeek: &viewModel.currentWeek,
             completedDayExercises: &viewModel.completedDayExercises,
             completedDayConditioningExercises: &viewModel.completedDayConditioningExercises,
-            completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises,
+            completedDayAccelerationExercises: &viewModel.completedDayAccelerationExercises, skippedExercises: &viewModel.skippedExercises,
             phaseManager: phaseManager,
             modelContext: modelContext,
             dayCompleted: dayCompleted
@@ -65,9 +62,28 @@ struct CurrentDayWorkoutView: View {
             ProgressView("Loading...")
                 .onAppear {
                     let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
-                    weightExercises = weights
-                    accelerationExercises = sprints
-                    conditioningExercises = conditioning
+
+                    let updatedWeightExercises = weights.map { exercise -> DayExercise in
+                        var modified = exercise
+                        modified.trainingType = .weight
+                        return modified
+                    }
+
+                    let updatedAccelExercises = sprints.map { exercise -> DayExercise in
+                        var modified = exercise
+                        modified.trainingType = .acceleration
+                        return modified
+                    }
+
+                    let updatedConditioningExercises = conditioning.map { exercise -> DayExercise in
+                        var modified = exercise
+                        modified.trainingType = .conditioning
+                        return modified
+                    }
+
+                    weightExercises = updatedWeightExercises
+                    accelerationExercises = updatedAccelExercises
+//                    conditioningExercises = updatedConditioningExercises
 
 //                    print("cdwv weightExercises: \(weightExercises)")
 //                    print("cdwv conditioningExercises: \(conditioningExercises)")
@@ -145,7 +161,8 @@ struct CurrentDayWorkoutView_Previews: PreviewProvider {
         let schema = Schema([
             Item.self,
             MaxIntensityRecord.self,
-            PhaseRecord.self
+            PhaseRecord.self,
+            SkippedExercises.self
         ])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
         let container = try! ModelContainer(for: schema, configurations: [configuration])

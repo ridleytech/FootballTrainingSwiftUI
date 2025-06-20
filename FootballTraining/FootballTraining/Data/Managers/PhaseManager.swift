@@ -23,12 +23,13 @@ class PhaseViewModel: ObservableObject {
     @Published var maxDataChanged: Bool = false
     @Published var selectedExerciseIndex: Int = 0
     @Published var selectedSectionIndex: Int = 0
-    @Published var completedDayExercises: [String] = []
-    @Published var completedDayConditioningExercises: [String] = []
-    @Published var completedDayAccelerationExercises: [String] = []
+
+    @Published var completedDayExercises: [DayExercise] = []
+    @Published var completedDayConditioningExercises: [DayExercise] = []
+    @Published var completedDayAccelerationExercises: [DayExercise] = []
     @Published var selectedKPI: TrainingKPI = .init(exerciseName: "", dateRecorded: Date())
     @Published var dayCompleted: Bool = false
-    @Published var skippedExercises: [SkippedExercises] = []
+    @Published var skippedExercises: SkippedExercises = .init(exercises: [], date: Date())
 }
 
 class PhaseManager: ObservableObject {
@@ -222,7 +223,8 @@ class PhaseManager: ObservableObject {
                     phaseWeekTotal: 6,
                     completedDayExercises: [],
                     completedDayConditioningExercises: [],
-                    completedDayAccelerationExercises: []
+                    completedDayAccelerationExercises: [],
+                    skippedExercises: SkippedExercises(exercises: [], date: Date())
                 )
                 modelContext.insert(new)
                 try modelContext.save()
@@ -240,9 +242,10 @@ class PhaseManager: ObservableObject {
         phaseWeek: Int,
         phaseDay: String,
         phaseWeekTotal: Int,
-        completedDayExercises: [String],
-        completedDayConditioningExercises: [String],
-        completedDayAccelerationExercises: [String]
+        completedDayExercises: [DayExercise],
+        completedDayConditioningExercises: [DayExercise],
+        completedDayAccelerationExercises: [DayExercise],
+        skippedExercises: SkippedExercises
     ) {
         guard let record = phaseRecord else { return }
 
@@ -253,6 +256,7 @@ class PhaseManager: ObservableObject {
         record.completedDayExercises = completedDayExercises
         record.completedDayConditioningExercises = completedDayConditioningExercises
         record.completedDayAccelerationExercises = completedDayAccelerationExercises
+        record.skippedExercises = skippedExercises
 
         do {
             try modelContext.save()

@@ -26,19 +26,47 @@ struct ExercisesListView: View {
     func completeWorkout() {
         print("completeWorkout")
 
-        if viewModel.completedDayExercises.count != weightExercises.count {
-            print("Not all weight exercises completed")
+        var skipped: [DayExercise] = []
+
+        // 🏋️‍♂️ Weight Exercises
+        let skippedWeights = weightExercises.filter { weightExercise in
+            !viewModel.completedDayExercises.contains { completed in
+                completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                    == weightExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            }
+        }
+        skipped.append(contentsOf: skippedWeights)
+
+        // 🏃 Acceleration Exercises
+        let skippedAcceleration = accelerationExercises.filter { accelExercise in
+            !viewModel.completedDayAccelerationExercises.contains { completed in
+                completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                    == accelExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            }
+        }
+        skipped.append(contentsOf: skippedAcceleration)
+
+        // 🧘 Conditioning Exercises
+        let skippedConditioning = conditioningExercises.filter { condExercise in
+            !viewModel.completedDayConditioningExercises.contains { completed in
+                completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                    == condExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            }
+        }
+        skipped.append(contentsOf: skippedConditioning)
+
+        // 🧾 If any skipped exercises, record them
+        if !skipped.isEmpty {
+            let skippedRecord = SkippedExercises(exercises: skipped, date: Date())
+            viewModel.skippedExercises = skippedRecord
+
+            print("Skipped exercises: \(skipped.map { $0.name })")
+
+//            return
         }
 
-        // to do. might have to change to DayExercise instead of string
-
-//        @Published var completedDayExercises: [String] = []
-//        @Published var completedDayConditioningExercises: [String] = []
-//        @Published var completedDayAccelerationExercises: [String] = []
-
-        return
-
-                viewModel.completedDayExercises = []
+        // ✅ If all exercises completed
+        viewModel.completedDayExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayAccelerationExercises = []
         viewModel.dayCompleted = true
@@ -48,17 +76,17 @@ struct ExercisesListView: View {
         print("Complete Set tappedItemIndex: \(tappedItemIndex)")
 
         if viewModel.selectedSectionIndex == 0 {
-            viewModel.completedDayAccelerationExercises.append(accelerationExercises[tappedItemIndex].name)
+            viewModel.completedDayAccelerationExercises.append(accelerationExercises[tappedItemIndex])
 
             print("ELV viewModel.completedDayAccelerationExercises: \(viewModel.completedDayAccelerationExercises)")
         }
         else if viewModel.selectedSectionIndex == 1 {
-            viewModel.completedDayConditioningExercises.append(conditioningExercises[tappedItemIndex].name)
+            viewModel.completedDayConditioningExercises.append(conditioningExercises[tappedItemIndex])
 
             print("ELV viewModel.completedDayConditioningExercises: \(viewModel.completedDayConditioningExercises)")
         }
         else if viewModel.selectedSectionIndex == 2 {
-            viewModel.completedDayExercises.append(weightExercises[tappedItemIndex].name)
+            viewModel.completedDayExercises.append(weightExercises[tappedItemIndex])
 
             print("ELV viewModel.completedDayExercises: \(viewModel.completedDayExercises)")
         }
@@ -97,6 +125,7 @@ struct ExercisesListView: View {
                     if !accelerationExercises.isEmpty {
                         Section(header: Text("Acceleration Training")) {
                             ForEach(Array(accelerationExercises.enumerated()), id: \.element.id) { index, exercise in
+
                                 ExerciseItemView(
                                     exerciseListItem: exercise,
                                     exerciseListItemIndex: index,
@@ -112,6 +141,7 @@ struct ExercisesListView: View {
                     if !conditioningExercises.isEmpty {
                         Section(header: Text("Conditioning Training")) {
                             ForEach(Array(conditioningExercises.enumerated()), id: \.element.id) { index2, exercise in
+
                                 ExerciseItemView(
                                     exerciseListItem: exercise,
                                     exerciseListItemIndex: index2,
@@ -126,6 +156,7 @@ struct ExercisesListView: View {
 
                     Section(header: Text("Weight Training")) {
                         ForEach(Array(weightExercises.enumerated()), id: \.element.id) { index3, exercise in
+
                             ExerciseItemView(
                                 exerciseListItem: exercise,
                                 exerciseListItemIndex: index3,

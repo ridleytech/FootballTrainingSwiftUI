@@ -41,11 +41,12 @@ class PhaseRecord {
     var phaseWeek: Int
     var phaseDay: String
     var phaseWeekTotal: Int
-    var completedDayExercises: [String]
-    var completedDayConditioningExercises: [String]
-    var completedDayAccelerationExercises: [String]
+    var completedDayExercises: [DayExercise]
+    var completedDayConditioningExercises: [DayExercise]
+    var completedDayAccelerationExercises: [DayExercise]
+    var skippedExercises: SkippedExercises
 
-    init(phaseName: String, phaseWeek: Int, phaseDay: String, phaseWeekTotal: Int, completedDayExercises: [String], completedDayConditioningExercises: [String], completedDayAccelerationExercises: [String]) {
+    init(phaseName: String, phaseWeek: Int, phaseDay: String, phaseWeekTotal: Int, completedDayExercises: [DayExercise], completedDayConditioningExercises: [DayExercise], completedDayAccelerationExercises: [DayExercise], skippedExercises: SkippedExercises) {
         self.phaseName = phaseName
         self.phaseWeek = phaseWeek
         self.phaseDay = phaseDay
@@ -53,6 +54,7 @@ class PhaseRecord {
         self.completedDayExercises = completedDayExercises
         self.completedDayConditioningExercises = completedDayConditioningExercises
         self.completedDayAccelerationExercises = completedDayAccelerationExercises
+        self.skippedExercises = skippedExercises
     }
 
     var description: String {
@@ -65,6 +67,7 @@ class PhaseRecord {
         - completedDayExercises: \(completedDayExercises)
         - completedDayConditioningExercises: \(completedDayConditioningExercises)
         - completedDayAccelerationExercises: \(completedDayAccelerationExercises)
+        - skippedExercises: \(skippedExercises)
         """
     }
 }

@@ -81,17 +81,17 @@ struct CurrentSetView: View {
         workoutEnded = true
 
         if viewModel.selectedSectionIndex == 0 {
-            viewModel.completedDayAccelerationExercises.append(viewModel.selectedExercise.name)
+            viewModel.completedDayAccelerationExercises.append(viewModel.selectedExercise)
 
             print("ELV viewModel.completedDayAccelerationExercises: \(viewModel.completedDayAccelerationExercises)")
 
         } else if viewModel.selectedSectionIndex == 1 {
-            viewModel.completedDayConditioningExercises.append(viewModel.selectedExercise.name)
+            viewModel.completedDayConditioningExercises.append(viewModel.selectedExercise)
 
             print("ELV viewModel.completedDayConditioningExercises: \(viewModel.completedDayConditioningExercises)")
 
         } else if viewModel.selectedSectionIndex == 2 {
-            viewModel.completedDayExercises.append(viewModel.selectedExercise.name)
+            viewModel.completedDayExercises.append(viewModel.selectedExercise)
 
             print("ELV viewModel.completedDayExercises: \(viewModel.completedDayExercises)")
         }
@@ -218,7 +218,7 @@ struct CurrentSetView: View {
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
-                    .background(currentSet == viewModel.selectedExercise.sets.count && !workoutStarted ? Color.gray : Color(hex: "7FBF30"))
+                    .background(currentSet == viewModel.selectedExercise.sets.count && !workoutStarted ? Color.gray : setStarted ? .red : Color(hex: "7FBF30"))
                     .foregroundColor(.white)
                     .cornerRadius(5)
             }

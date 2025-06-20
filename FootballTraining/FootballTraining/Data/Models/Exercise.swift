@@ -15,6 +15,7 @@ class DayExercise: Codable, Hashable, Identifiable {
     var name: String
     var sets: [SetElement]
     var max: Double
+    var trainingType: TrainingType?
 
     init(text: String, type: String, name: String, sets: [SetElement], max: Double, id: UUID = UUID()) {
         self.id = id
@@ -116,20 +117,18 @@ class Rest: Codable, Hashable {
 @Model
 class SkippedExercises {
     var id: UUID
-    var text: String
-    var type: String
-    var name: String
-    var sets: [SetElement]
-    var max: Double
+    var exercises: [DayExercise]
     var date: Date
 
-    init(text: String, type: String, name: String, sets: [SetElement], max: Double, id: UUID = UUID(), date: Date) {
+    init(exercises: [DayExercise], id: UUID = UUID(), date: Date) {
         self.id = id
-        self.text = text
-        self.type = type
-        self.name = name
-        self.sets = sets
-        self.max = max
+        self.exercises = exercises
         self.date = date
     }
+}
+
+enum TrainingType: String, Codable {
+    case acceleration
+    case conditioning
+    case weight
 }
