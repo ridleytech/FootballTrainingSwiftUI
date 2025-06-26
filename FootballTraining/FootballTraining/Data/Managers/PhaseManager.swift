@@ -29,7 +29,8 @@ class PhaseViewModel: ObservableObject {
     @Published var completedDayAccelerationExercises: [DayExercise] = []
     @Published var selectedKPI: TrainingKPI = .init(exerciseName: "", dateRecorded: Date())
     @Published var dayCompleted: Bool = false
-    @Published var skippedExercises: SkippedExercises = .init(exercises: [], date: Date())
+    @Published var skippedExercises: SkippedExercises = .init(exercises: [], date: Date(), day: "", week: 0)
+    @Published var viewingSkippedExercises: Bool = false
 }
 
 class PhaseManager: ObservableObject {
@@ -68,13 +69,6 @@ class PhaseManager: ObservableObject {
                let accData = try? Data(contentsOf: accUrl),
                let accPhase = try? JSONDecoder().decode(PhaseModel.self, from: accData)
             {
-//                let accel = PhaseManager.listExercisesForDay(
-//                    in: accPhase,
-//                    week: viewModel.currentWeek,
-//                    dayName: viewModel.currentDay,
-//                    context: modelContext
-//                )
-
                 let (accel, conditioning) = PhaseManager.listExercisesForDay2(
                     in: accPhase,
                     week: viewModel.currentWeek,
@@ -224,7 +218,7 @@ class PhaseManager: ObservableObject {
                     completedDayExercises: [],
                     completedDayConditioningExercises: [],
                     completedDayAccelerationExercises: [],
-                    skippedExercises: SkippedExercises(exercises: [], date: Date())
+                    skippedExercises: .init(exercises: [], date: Date(), day: "", week: 0)
                 )
                 modelContext.insert(new)
                 try modelContext.save()

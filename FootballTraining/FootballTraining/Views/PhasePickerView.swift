@@ -34,7 +34,7 @@ struct PhasePickerView: View {
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayExercises = []
-        viewModel.skippedExercises = .init(exercises: [], date: Date())
+        viewModel.skippedExercises = .init(exercises: [], date: Date(), day: "", week: 0)
 
         getPhaseData()
 
@@ -56,7 +56,7 @@ struct PhasePickerView: View {
         viewModel.completedDayAccelerationExercises = []
         viewModel.completedDayConditioningExercises = []
         viewModel.completedDayExercises = []
-        viewModel.skippedExercises = .init(exercises: [], date: Date())
+        viewModel.skippedExercises = .init(exercises: [], date: Date(), day: "", week: 0)
 
         phaseManager.update(
             phaseName: viewModel.currentPhase,

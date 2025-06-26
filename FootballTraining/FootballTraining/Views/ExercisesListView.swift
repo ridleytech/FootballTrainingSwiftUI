@@ -26,69 +26,112 @@ struct ExercisesListView: View {
     func completeWorkout() {
         print("completeWorkout")
 
-        var skipped: [DayExercise] = []
+        // handle updating skipped exercises
 
-        // 🏋️‍♂️ Weight Exercises
-        let skippedWeights = weightExercises.filter { weightExercise in
-            !viewModel.completedDayExercises.contains { completed in
-                completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-                    == weightExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if viewModel.viewingSkippedExercises == true {
+            viewModel.skippedExercises.exercises = []
+        }
+        else {
+            var skipped: [DayExercise] = []
+
+            // 🏋️‍♂️ Weight Exercises
+            let skippedWeights = weightExercises.filter { weightExercise in
+                !viewModel.completedDayExercises.contains { completed in
+                    completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                        == weightExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                }
             }
-        }
-        skipped.append(contentsOf: skippedWeights)
+            skipped.append(contentsOf: skippedWeights)
 
-        // 🏃 Acceleration Exercises
-        let skippedAcceleration = accelerationExercises.filter { accelExercise in
-            !viewModel.completedDayAccelerationExercises.contains { completed in
-                completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-                    == accelExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            // 🏃 Acceleration Exercises
+            let skippedAcceleration = accelerationExercises.filter { accelExercise in
+                !viewModel.completedDayAccelerationExercises.contains { completed in
+                    completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                        == accelExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                }
             }
-        }
-        skipped.append(contentsOf: skippedAcceleration)
+            skipped.append(contentsOf: skippedAcceleration)
 
-        // 🧘 Conditioning Exercises
-        let skippedConditioning = conditioningExercises.filter { condExercise in
-            !viewModel.completedDayConditioningExercises.contains { completed in
-                completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-                    == condExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            // 🧘 Conditioning Exercises
+            let skippedConditioning = conditioningExercises.filter { condExercise in
+                !viewModel.completedDayConditioningExercises.contains { completed in
+                    completed.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                        == condExercise.name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+                }
             }
+            skipped.append(contentsOf: skippedConditioning)
+
+            // 🧾 If any skipped exercises, record them
+            if !skipped.isEmpty {
+                let skippedRecord = SkippedExercises(exercises: skipped, date: Date(), day: viewModel.currentDay, week: viewModel.currentWeek)
+                viewModel.skippedExercises = skippedRecord
+
+                print("Skipped exercises: \(skipped.map { $0.name })")
+            }
+
+            // ✅ If all exercises completed
+            viewModel.completedDayExercises = []
+            viewModel.completedDayConditioningExercises = []
+            viewModel.completedDayAccelerationExercises = []
+            viewModel.dayCompleted = true
         }
-        skipped.append(contentsOf: skippedConditioning)
-
-        // 🧾 If any skipped exercises, record them
-        if !skipped.isEmpty {
-            let skippedRecord = SkippedExercises(exercises: skipped, date: Date())
-            viewModel.skippedExercises = skippedRecord
-
-            print("Skipped exercises: \(skipped.map { $0.name })")
-
-//            return
-        }
-
-        // ✅ If all exercises completed
-        viewModel.completedDayExercises = []
-        viewModel.completedDayConditioningExercises = []
-        viewModel.completedDayAccelerationExercises = []
-        viewModel.dayCompleted = true
     }
 
     func updateLastCompletedItem() {
         print("Complete Set tappedItemIndex: \(tappedItemIndex)")
 
-        if viewModel.selectedSectionIndex == 0 {
-            viewModel.completedDayAccelerationExercises.append(accelerationExercises[tappedItemIndex])
+        // handle updating skipped exercises
 
-            print("ELV viewModel.completedDayAccelerationExercises: \(viewModel.completedDayAccelerationExercises)")
+        if viewModel.viewingSkippedExercises == true {
+            if viewModel.selectedSectionIndex == 0 {
+                let findSkippedExercise = viewModel.skippedExercises.exercises.filter { exercise in
+                    exercise.id
+                        == accelerationExercises[tappedItemIndex].id
+                }
+
+                print("findSkippedExercise acc: \(findSkippedExercise)")
+            }
+            else if viewModel.selectedSectionIndex == 1 {
+                let findSkippedExercise = viewModel.skippedExercises.exercises.filter { exercise in
+                    exercise.id
+                        == conditioningExercises[tappedItemIndex].id
+                }
+
+                print("findSkippedExercise con: \(findSkippedExercise)")
+            }
+            else if viewModel.selectedSectionIndex == 2 {
+                print("weightExercises[tappedItemIndex].id: \(weightExercises[tappedItemIndex].id)")
+
+                let mappedIds = viewModel.skippedExercises.exercises.map { $0.id }
+//                print("mappedIds: \(mappedIds)")
+
+                let mappedNames = viewModel.skippedExercises.exercises.map { $0.name }
+//                print("mappedNames: \(mappedNames)")
+
+                let findSkippedExercise = viewModel.skippedExercises.exercises.filter { exercise in
+                    exercise.id
+                        == weightExercises[tappedItemIndex].id
+                }
+
+                print("findSkippedExercise weight: \(findSkippedExercise)")
+            }
         }
-        else if viewModel.selectedSectionIndex == 1 {
-            viewModel.completedDayConditioningExercises.append(conditioningExercises[tappedItemIndex])
+        else {
+            if viewModel.selectedSectionIndex == 0 {
+                viewModel.completedDayAccelerationExercises.append(accelerationExercises[tappedItemIndex])
 
-            print("ELV viewModel.completedDayConditioningExercises: \(viewModel.completedDayConditioningExercises)")
-        }
-        else if viewModel.selectedSectionIndex == 2 {
-            viewModel.completedDayExercises.append(weightExercises[tappedItemIndex])
+                print("ELV viewModel.completedDayAccelerationExercises: \(viewModel.completedDayAccelerationExercises)")
+            }
+            else if viewModel.selectedSectionIndex == 1 {
+                viewModel.completedDayConditioningExercises.append(conditioningExercises[tappedItemIndex])
 
-            print("ELV viewModel.completedDayExercises: \(viewModel.completedDayExercises)")
+                print("ELV viewModel.completedDayConditioningExercises: \(viewModel.completedDayConditioningExercises)")
+            }
+            else if viewModel.selectedSectionIndex == 2 {
+                viewModel.completedDayExercises.append(weightExercises[tappedItemIndex])
+
+                print("ELV viewModel.completedDayExercises: \(viewModel.completedDayExercises)")
+            }
         }
     }
 
@@ -97,7 +140,7 @@ struct ExercisesListView: View {
             ZStack {
                 Spacer()
 
-                Text("\(viewModel.currentDay)")
+                Text(viewModel.viewingSkippedExercises == true ? "Skipped Exercises" : "\(viewModel.currentDay)")
                     .font(.system(size: 18, weight: .bold, design: .default))
                     .foregroundColor(AppConfig.greenColor)
 
@@ -180,11 +223,7 @@ struct ExercisesListView: View {
 
             // .navigationTitle("\(currentDay) Lifts")
         }
-        .onAppear {
-//            if let exercise = conditioningExercises.first {
-//                print("conditioningExercises: \(exercise.description)")
-//            }
-        }
+        .onAppear {}
         .ignoresSafeArea(.container, edges: .bottom)
         .alert(viewModel.selectedExercise.name ?? "", isPresented: $tappedExercise) {
             Button("View Details") {

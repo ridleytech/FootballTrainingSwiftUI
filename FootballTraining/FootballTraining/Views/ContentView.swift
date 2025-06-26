@@ -189,51 +189,6 @@ struct ContentView: View {
                                 EmptyView()
                             }
                         }
-
-                    if !viewModel.skippedExercises.exercises.isEmpty {
-//                        let weightExercises: [DayExercise] = viewModel.skippedExercises.exercises.filter { $0.type == .weight }
-//
-//                        let accelerationExercises: [DayExercise] = viewModel.skippedExercises.exercises.filter { $0.type == .weight }
-//                        let conditioningExercises: [DayExercise] = viewModel.skippedExercises.exercises.filter { $0.type == .weight }
-
-//                        ExercisesListView(weightExercises: weightExercises, accelerationExercises: accelerationExercises, conditioningExercises: conditioningExercises)
-
-                        //                        .onChange(of: viewModel.dayCompleted) { newValue in
-                        //                            print("CDWV viewModel.dayCompleted changed to: \(newValue)")
-                        //
-                        //                            updatePhaseData(dayCompleted: newValue)
-                        //                        }
-                        //                        .onChange(of: viewModel.completedDayExercises) { newValue in
-                        //                            print("CDWV viewModel.completedDayExercises changed to: \(newValue)")
-                        //
-                        //                            updatePhaseData(dayCompleted: false)
-                        //                        }
-                        //                        .onChange(of: viewModel.completedDayAccelerationExercises) { newValue in
-                        //                            print("CDWV viewModel.completedDayAccelerationExercises changed to: \(newValue)")
-                        //
-                        //                            updatePhaseData(dayCompleted: false)
-                        //                        }
-                        //                        .onChange(of: viewModel.completedDayConditioningExercises) { newValue in
-                        //                            print("CDWV viewModel.completedDayConditioningExercises changed to: \(newValue)")
-                        //
-                        //                            updatePhaseData(dayCompleted: false)
-                        //                        }
-                        //                        .onChange(of: viewModel.maxDataChanged) { newValue in
-                        //
-                        //                            if viewModel.maxDataChanged {
-                        //                                print("maxDataChanged changed to: \(newValue)")
-                        //
-                        //                                let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
-                        //                                weightExercises = weights
-                        //                                accelerationExercises = sprints
-                        //                                conditioningExercises = conditioning
-                        //
-                        //                                //                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
-                        //                            }
-                        //
-                        //                            viewModel.maxDataChanged = false
-                        //                        }
-                    }
                 }
             }
             .padding([.leading, .trailing], 16)
@@ -254,6 +209,17 @@ struct ContentView: View {
                 viewModel.completedDayConditioningExercises = phaseRecord.completedDayConditioningExercises
                 viewModel.completedDayExercises = phaseRecord.completedDayExercises
                 viewModel.skippedExercises = phaseRecord.skippedExercises
+
+                if !viewModel.skippedExercises.exercises.isEmpty {
+                    let weightExercises: [DayExercise] = viewModel.skippedExercises.exercises.filter { $0.trainingType == .weight }
+
+                    let accelerationExercises: [DayExercise] = viewModel.skippedExercises.exercises.filter { $0.trainingType == .acceleration }
+                    let conditioningExercises: [DayExercise] = viewModel.skippedExercises.exercises.filter { $0.trainingType == .conditioning }
+
+                    print("skipped weightExercises: \(weightExercises.count)")
+                    print("skipped accelerationExercises: \(accelerationExercises.count)")
+                    print("skipped conditioningExercises: \(conditioningExercises.count)")
+                }
 
             } else {
 //                selectedPhase = "Postseason"

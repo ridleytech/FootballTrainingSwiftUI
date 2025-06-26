@@ -26,6 +26,7 @@ class ConditioningExercise: Codable, Hashable {
     var name: String
     var type: String
     var sets: [SetElement]
+    var trainingType: TrainingType?
 
     static func == (lhs: ConditioningExercise, rhs: ConditioningExercise) -> Bool {
         lhs.name == rhs.name && lhs.type == rhs.type && lhs.sets == rhs.sets

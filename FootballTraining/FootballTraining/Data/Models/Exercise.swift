@@ -119,10 +119,14 @@ class SkippedExercises {
     var id: UUID
     var exercises: [DayExercise]
     var date: Date
+    var day: String
+    var week: Int
 
-    init(exercises: [DayExercise], id: UUID = UUID(), date: Date) {
+    init(exercises: [DayExercise], id: UUID = UUID(), date: Date, day: String, week: Int) {
         self.id = id
         self.exercises = exercises
+        self.day = day
+        self.week = week
         self.date = date
     }
 }

@@ -45,15 +45,24 @@ struct CurrentDayWorkoutView: View {
     }
 
     func refreshDayData() {
-        let completedExerciseCount = viewModel.completedDayExercises.count + viewModel.completedDayConditioningExercises.count + viewModel.completedDayAccelerationExercises.count
+        if viewModel.viewingSkippedExercises == false {
+            let completedExerciseCount = viewModel.completedDayExercises.count + viewModel.completedDayConditioningExercises.count + viewModel.completedDayAccelerationExercises.count
 
-        if completedExerciseCount == 0 {
-            let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
-            weightExercises = weights
-            accelerationExercises = sprints
-            conditioningExercises = conditioning
+            if completedExerciseCount == 0 {
+                let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
+                weightExercises = weights
+                accelerationExercises = sprints
+                conditioningExercises = conditioning
+            }
+        }
+        else {
+            if !viewModel.skippedExercises.exercises.isEmpty {
+                print("CDWV populate skipped exercises in refreshDayData")
+                weightExercises = viewModel.skippedExercises.exercises.filter { $0.trainingType == .weight }
 
-            //                    dayExerciseList = phaseManager.getDayData(viewModel: viewModel)
+                accelerationExercises = viewModel.skippedExercises.exercises.filter { $0.trainingType == .acceleration }
+//                conditioningExercises = viewModel.skippedExercises.exercises.filter { $0.trainingType == .conditioning }
+            }
         }
     }
 
@@ -61,34 +70,48 @@ struct CurrentDayWorkoutView: View {
         if weightExercises.isEmpty && !gotData {
             ProgressView("Loading...")
                 .onAppear {
-                    let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
+                    print("CDWV load data ProgressView onAppear")
 
-                    let updatedWeightExercises = weights.map { exercise -> DayExercise in
-                        var modified = exercise
-                        modified.trainingType = .weight
-                        return modified
+                    if viewModel.viewingSkippedExercises == true {
+                        if !viewModel.skippedExercises.exercises.isEmpty {
+                            print("CDWV populate skipped exercises in ProgressView onAppear")
+                            weightExercises = viewModel.skippedExercises.exercises.filter { $0.trainingType == .weight }
+
+                            accelerationExercises = viewModel.skippedExercises.exercises.filter { $0.trainingType == .acceleration }
+                            //                conditioningExercises = viewModel.skippedExercises.exercises.filter { $0.trainingType == .conditioning }
+                        }
                     }
+                    else {
+                        let (weights, sprints, conditioning) = phaseManager.getDayData(viewModel: viewModel)
 
-                    let updatedAccelExercises = sprints.map { exercise -> DayExercise in
-                        var modified = exercise
-                        modified.trainingType = .acceleration
-                        return modified
+                        let updatedWeightExercises = weights.map { exercise -> DayExercise in
+                            var modified = exercise
+                            modified.trainingType = .weight
+                            return modified
+                        }
+
+                        let updatedAccelExercises = sprints.map { exercise -> DayExercise in
+                            var modified = exercise
+                            modified.trainingType = .acceleration
+                            return modified
+                        }
+
+                        let updatedConditioningExercises = conditioning.map { exercise -> ConditioningExercise in
+                            var modified = exercise
+                            modified.trainingType = .conditioning
+                            return modified
+                        }
+
+                        weightExercises = updatedWeightExercises
+                        accelerationExercises = updatedAccelExercises
+                        conditioningExercises = updatedConditioningExercises
+
+                        print("cdwv weightExercises: \(weightExercises.count)")
+                        print("cdwv accelerationExercises: \(accelerationExercises.count)")
+                        print("cdwv conditioningExercises: \(conditioningExercises.count)")
+
+                        gotData = true
                     }
-
-                    let updatedConditioningExercises = conditioning.map { exercise -> DayExercise in
-                        var modified = exercise
-                        modified.trainingType = .conditioning
-                        return modified
-                    }
-
-                    weightExercises = updatedWeightExercises
-                    accelerationExercises = updatedAccelExercises
-//                    conditioningExercises = updatedConditioningExercises
-
-//                    print("cdwv weightExercises: \(weightExercises)")
-//                    print("cdwv conditioningExercises: \(conditioningExercises)")
-
-                    gotData = true
                 }
         }
         else if weightExercises.isEmpty && gotData {
