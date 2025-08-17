@@ -1,0 +1,5036 @@
+{
+  "name": "Summer",
+  "week": [
+    {
+      "name": "1",
+      "yearweek": "24",
+      "days": [
+        {
+          "name": "Monday",
+          "exercises": [
+            {
+              "name": "Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Incline Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Incline Dumbell Fly",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Military Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Side Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".55",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".55",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".55",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Tricep Pushdown",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Standing Calf Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".50",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".50",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".50",
+                  "reps": "30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tuesday",
+          "exercises": [
+            {
+              "name": "High Lat Rear",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Close Low Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Shrug",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "5"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "15"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".60",
+                  "reps": "15"
+                }
+              ]
+            },
+            {
+              "name": "Upright Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Front Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "15"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "15"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".60",
+                  "reps": "15"
+                }
+              ]
+            },
+            {
+              "name": "Squat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".55",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Step-Up",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "20"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "20"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "20"
+                }
+              ]
+            },
+            {
+              "name": "1 Stiff Dead Leg",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #3",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wednesday",
+          "exercises": []
+        },
+        {
+          "name": "Thursday",
+          "exercises": [
+            {
+              "name": "Flat Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Incline Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dip",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "Max"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "Max"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "Max"
+                }
+              ]
+            },
+            {
+              "name": "2-Arm Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Side Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".55",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".55",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".55",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Alternating Dumbell Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Kickback",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Calf Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "30"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "30"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friday",
+          "exercises": [
+            {
+              "name": "Close Grip Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "High Lat Front",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Manual Rear Deltoid",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "15"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "15"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "15"
+                }
+              ]
+            },
+            {
+              "name": "Leg Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".55",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Side Lunge",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "2-Leg Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #5",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rests": [
+        {
+          "name": "Basic",
+          "time": "1:30"
+        },
+        {
+          "name": "Supporting",
+          "time": "1:00"
+        }
+      ]
+    },
+    {
+      "name": "2",
+      "yearweek": "25",
+      "days": [
+        {
+          "name": "Monday",
+          "exercises": [
+            {
+              "name": "Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Incline Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Incline Dumbell Fly",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Military Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Side Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".60",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Tricep Pushdown",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Standing Calf Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".40",
+                  "reps": "30"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".40",
+                  "reps": "30"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tuesday",
+          "exercises": [
+            {
+              "name": "High Lat Rear",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Close Low Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Shrug",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "12"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "12"
+                }
+              ]
+            },
+            {
+              "name": "Upright Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Squat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Step-Up",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "20"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "20"
+                }
+              ]
+            },
+            {
+              "name": "1 Stiff Dead Leg",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #3",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wednesday",
+          "exercises": []
+        },
+        {
+          "name": "Thursday",
+          "exercises": [
+            {
+              "name": "Flat Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Incline Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Dip",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "Max"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "Max"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "Max"
+                }
+              ]
+            },
+            {
+              "name": "2-Arm Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Alternating Dumbell Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell French Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Calf Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "30"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "30"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friday",
+          "exercises": [
+            {
+              "name": "Close Grip Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "High Lat Front",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Manual Rear Deltoid",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "15"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "15"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "15"
+                }
+              ]
+            },
+            {
+              "name": "Straight Dumbell Pullover",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "15"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "15"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "15"
+                }
+              ]
+            },
+            {
+              "name": "Leg Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Side Lunge",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "2-Leg Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #4",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rests": [
+        {
+          "name": "Basic",
+          "time": "1:30"
+        },
+        {
+          "name": "Supporting",
+          "time": "1:00"
+        }
+      ]
+    },
+    {
+      "name": "3",
+      "yearweek": "26",
+      "days": [
+        {
+          "name": "Monday",
+          "exercises": [
+            {
+              "name": "Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Close Incline Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Flat Dumbell Fly",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Alternating Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Push-Up",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "20"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "20"
+                }
+              ]
+            },
+            {
+              "name": "Tricep Pushdown",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Standing Calf Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".40",
+                  "reps": "30"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".40",
+                  "reps": "30"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tuesday",
+          "exercises": [
+            {
+              "name": "High Lat Rear",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Close Low Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Shrug",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "12"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "12"
+                }
+              ]
+            },
+            {
+              "name": "Upright Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Squat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Musketeer Lunge",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Box Squat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #3",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wednesday",
+          "exercises": []
+        },
+        {
+          "name": "Thursday",
+          "exercises": [
+            {
+              "name": "Flat Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Incline Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Dip",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "Max"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "Max"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "Max"
+                }
+              ]
+            },
+            {
+              "name": "Behind Neck Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "2-Arm Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Alternating Dumbell Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell French Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Standing Calf Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".40",
+                  "reps": "30"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".40",
+                  "reps": "30"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friday",
+          "exercises": [
+            {
+              "name": "Close Grip Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "High Lat Front",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Bent Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "12"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "12"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".60",
+                  "reps": "12"
+                }
+              ]
+            },
+            {
+              "name": "Straight Dumbell Pullover",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Leg Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Side Lunge",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "1 Stiff Dead Leg",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "12 reps 10lb Dumbell"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "12 reps 10lb Dumbell"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "12 reps 10lb Dumbell"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #5",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rests": [
+        {
+          "name": "Basic",
+          "time": "1:30"
+        },
+        {
+          "name": "Supporting",
+          "time": "1:00"
+        }
+      ]
+    },
+    {
+      "name": "4",
+      "yearweek": "27",
+      "days": [
+        {
+          "name": "Monday",
+          "exercises": [
+            {
+              "name": "Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Close Incline Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Flat Dumbell Fly",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Alternating Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Push-Up",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "20"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "20"
+                }
+              ]
+            },
+            {
+              "name": "Bar Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell French Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "BW 1-Leg Calf",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "25"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "25"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tuesday",
+          "exercises": [
+            {
+              "name": "2-Arm Dumbell Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "High Lat Rear",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "DB Stroll (70+ lb Dumbells)",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "40 yd and back"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "40 yd and back"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "40 yd and back"
+                }
+              ]
+            },
+            {
+              "name": "Squat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Musketeer Lunge",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "15"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "15"
+                }
+              ]
+            },
+            {
+              "name": "Box Squat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "12"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "12"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #3",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wednesday",
+          "exercises": []
+        },
+        {
+          "name": "Thursday",
+          "exercises": [
+            {
+              "name": "Incline Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Moon Push-Up",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Behind Neck Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Alternating Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Hammer Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "2-Arm Dumbell Tricep Extension",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Jump Rope",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "100"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "100"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friday",
+          "exercises": [
+            {
+              "name": "Close Grip Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Straight Dumbell Pullover",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Upright Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".85",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Bent Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "12"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "12"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".60",
+                  "reps": "12"
+                }
+              ]
+            },
+            {
+              "name": "Leg Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "1 Stiff Dead Leg",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "12 reps 10lb Dumbell"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "12 reps 10lb Dumbell"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "12 reps 10lb Dumbell"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #2",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rests": [
+        {
+          "name": "Basic",
+          "time": "1:30"
+        },
+        {
+          "name": "Supporting",
+          "time": "1:00"
+        }
+      ]
+    },
+    {
+      "name": "5",
+      "yearweek": "28",
+      "days": [
+        {
+          "name": "Monday",
+          "exercises": [
+            {
+              "name": "Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Incline Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Close Grip Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Push Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Side Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".60",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Hammer Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell French Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "BW 1-Leg Calf",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "25"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "25"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tuesday",
+          "exercises": [
+            {
+              "name": "2-Arm Dumbell Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "High Lat Rear",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "DB Stroll (70+ lb Dumbells)",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "40 yd and back"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "40 yd and back"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "40 yd and back"
+                }
+              ]
+            },
+            {
+              "name": "Squat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "1-Leg Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Backward Lunge",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #3",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wednesday",
+          "exercises": []
+        },
+        {
+          "name": "Thursday",
+          "exercises": [
+            {
+              "name": "Incline Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Medicine Ball Chest Pass",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Military Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Alternating Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Wrist Flex (each hand)",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "100"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "100"
+                }
+              ]
+            },
+            {
+              "name": "2-Arm Dumbell Tricep Extension",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Jump Rope",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "100"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "100"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friday",
+          "exercises": [
+            {
+              "name": "Close Grip Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "EZ Bar Pullover",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Rear Deltoid Swim",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "20"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "20"
+                }
+              ]
+            },
+            {
+              "name": "Upright Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Leg Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "1 Stiff Dead Leg",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "15 reps 10lb Dumbell"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "15 reps 10lb Dumbell"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "15 reps 10lb Dumbell"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #4",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rests": [
+        {
+          "name": "Basic",
+          "time": "1:45"
+        },
+        {
+          "name": "Supporting",
+          "time": "1:00"
+        }
+      ]
+    },
+    {
+      "name": "6",
+      "yearweek": "29",
+      "days": [
+        {
+          "name": "Monday",
+          "exercises": [
+            {
+              "name": "Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Incline Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Close Grip Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Military Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Side Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".60",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".60",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Bar Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell French Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Standing Calf Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".45",
+                  "reps": "25"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".45",
+                  "reps": "25"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tuesday",
+          "exercises": [
+            {
+              "name": "1-Arm Dumbell Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Close High Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Pull Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Side Lunge, Shoulder Fly",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Lunge, Upright Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #3",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wednesday",
+          "exercises": []
+        },
+        {
+          "name": "Thursday",
+          "exercises": [
+            {
+              "name": "Incline Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Medicine Ball Chest Pass",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Military Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Push Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Wrist Flex (each hand)",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "100"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "100"
+                }
+              ]
+            },
+            {
+              "name": "Tricep Pushdown",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Jump Rope",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "100"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "100"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friday",
+          "exercises": [
+            {
+              "name": "Close Grip Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "EZ Bar Pullover",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Rear Deltoid Swim",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "20"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "20"
+                }
+              ]
+            },
+            {
+              "name": "Hang Clean",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Leg Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "2-Leg Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Backward Lunge",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #4",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rests": [
+        {
+          "name": "Basic",
+          "time": "1:45"
+        },
+        {
+          "name": "Supporting",
+          "time": "1:00"
+        }
+      ]
+    },
+    {
+      "name": "7",
+      "yearweek": "30",
+      "days": [
+        {
+          "name": "Monday",
+          "exercises": [
+            {
+              "name": "Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Incline Dumbell Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Military Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Side Dumbell Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".65",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Bar Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell French Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".80",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Standing Calf Raise",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".45",
+                  "reps": "25"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".45",
+                  "reps": "25"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tuesday",
+          "exercises": [
+            {
+              "name": "1-Arm Dumbell Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Close High Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Snatch, Pull Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Step-Up, Shoulder Fly",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Backward Lunge, Upright Row",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #3",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wednesday",
+          "exercises": []
+        },
+        {
+          "name": "Thursday",
+          "exercises": [
+            {
+              "name": "Incline Bench Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Dip",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "Max"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "Max"
+                }
+              ]
+            },
+            {
+              "name": "Behind Neck Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Push Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Alternating Dumbell Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "6"
+                }
+              ]
+            },
+            {
+              "name": "Tricep Pushdown",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Three-Sided Square Drills",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "30 sec"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "30 sec"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "30 sec"
+                },
+                {
+                  "name": "4",
+                  "intensity": "0",
+                  "reps": "30 sec"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Friday",
+          "exercises": [
+            {
+              "name": "Close Grip Lat",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "High Lat Front",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".75",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Dumbell Dead Lift",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".75",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Hang Clean",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "8"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "8"
+                }
+              ]
+            },
+            {
+              "name": "Leg Press",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".65",
+                  "reps": "6"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "6"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".80",
+                  "reps": "4"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".85",
+                  "reps": "4"
+                }
+              ]
+            },
+            {
+              "name": "2-Leg Curl",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "2",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "3",
+                  "intensity": ".70",
+                  "reps": "10"
+                },
+                {
+                  "name": "4",
+                  "intensity": ".70",
+                  "reps": "10"
+                }
+              ]
+            },
+            {
+              "name": "Slideboard",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "30 crosses"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "30 crosses"
+                },
+                {
+                  "name": "3",
+                  "intensity": "0",
+                  "reps": "30 crosses"
+                }
+              ]
+            },
+            {
+              "name": "Cylinder Circuit #2",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            },
+            {
+              "name": "Manual Neck",
+              "type": "Basic",
+              "sets": [
+                {
+                  "name": "1",
+                  "intensity": "0",
+                  "reps": "0"
+                },
+                {
+                  "name": "2",
+                  "intensity": "0",
+                  "reps": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rests": [
+        {
+          "name": "Basic",
+          "time": "1:45"
+        },
+        {
+          "name": "Supporting",
+          "time": "1:00"
+        }
+      ]
+    }
+  ]
+}
